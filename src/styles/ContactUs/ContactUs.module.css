@@ -1,0 +1,172 @@
+.header{
+    width: 100%;
+    height: 250px;
+    background-color: rgba(248, 248, 248, 1);
+}
+.header .ContactUs{
+    text-align: center;
+    font-size: 40px;
+    color: black;
+    transform: translateY(130%);
+    font-weight: bold;
+}
+.header .fcircle,.header .scircle{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background:linear-gradient(rgba(49, 0, 64, 0.04),rgba(49, 0, 64, 0)) ;
+}
+.header .scircle{
+    transform: translate(800px,-220px);
+}
+.header .fcircle{
+    transform: translate(100px,-100px);
+}
+
+/* Main Container Styles */
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 4rem;
+}
+/* Section One Styles */
+.sectionOne {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.partOne h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.partOne p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.partTwo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.container .sectionOne .partTwo .info .logo {
+  color: rgba(158, 77, 182, 1);
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  background-color: rgba(246, 239, 248, 1);
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: rgba(145, 145, 145, 1);
+}
+
+.info p {
+  font-size: 18px;
+  color: rgba(6, 6, 6, 1);
+  font-weight: bold;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background-color: rgba(236, 236, 236, 1);
+  margin: 0.5rem 0;
+}
+
+/* Section Two Styles */
+.sectionTwo {
+  flex: 1;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.area {
+  margin-bottom: 1.5rem;
+}
+
+.area label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.area input,
+.area textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s;
+  border-radius:5px ;
+}
+
+.area input:focus,
+.area textarea:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.area textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit {
+  width: 30%;
+  padding: 1rem;
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transform: translateX(120%);
+}
+
+.submit:hover {
+  background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .sectionOne {
+    gap: 2rem;
+  }
+  
+  .partOne h1 {
+    font-size: 2rem;
+  }
+}

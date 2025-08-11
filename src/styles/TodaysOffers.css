@@ -1,0 +1,217 @@
+.todays-offers {
+  padding: 80px 150px;
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+.offers-header {
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.offers-header h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  transform: translateX(50%);
+}
+
+.offers-header .subtitle {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+  transform: translateX(20%);
+  text-align: center;
+  width: 800px;
+
+}
+
+.offers-scroller {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 1100px;
+}
+
+.offers-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 20px 0;
+  flex: 1;
+}
+
+.offers-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.offer-card {
+  background: rgba(246, 246, 246, 1);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 350px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.offer-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #9e4db6;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.car-image {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 0;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.offer-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.features-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.price-section p {
+  font-weight: bold;
+  color: #333;
+}
+
+.reserve-btn {
+  background: #9e4db6;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.reserve-btn:hover {
+  background: #7d3a98;
+}
+
+.scroll-btn {
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-btn.left {
+  left: -20px;
+  transform: translateX(-50px);
+}
+
+.scroll-btn.right {
+  right: -20px;
+  transform: translateX(40px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .todays-offers {
+    padding: 80px 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .todays-offers {
+    padding: 80px 20px;
+  }
+  
+  .offer-card {
+    min-width: 300px;
+  }
+}
+
+.cd1{
+  display: flex;
+}
+.cd1 .available{
+  transform: translate(20px,5px);
+  color:rgba(41, 157, 0, 1);
+  background-color: rgba(41, 157, 0, 0.1);
+  height: 100%;
+  width: 80px;
+  border-radius: 5px;
+}
+.cd1 .not{
+  color:white;
+  background-color: rgba(255, 0, 0, 0.7);
+  height: 100%;
+  width: 100px;
+  border-radius: 5px;
+  transform: translate(10px,5px);
+  padding-left: 3px;
+}
+.cd2{
+  display: flex;
+}
+.cd2 .mile{
+  transform: translateX(20px);
+  opacity: 0.5;
+}
+.cd2 .insur{
+  opacity: 0.5;
+}
+hr{
+  margin: 20px 0;
+  opacity: 0.5;
+}
+.todays-offers .offers-header h2{
+  text-align: center;
+  transform: translateX(50%);
+  width: 100%;
+}

@@ -1,0 +1,184 @@
+/* Login.css */
+
+/* Main Container Styles */
+.container {
+  display: flex;
+  min-height: 100vh;
+  height: 700px;
+  overflow: hidden;
+}
+
+.Fsection {
+  background:linear-gradient(rgba(49, 0, 64, 1),rgba(158, 77, 182, 1)) ;
+  width: 550px;
+}
+
+.Fsection .moby, .Fsection .car {
+  font-size: 103px;
+  color: white;
+  letter-spacing: 2px; /* Adjust to match your reference */
+  z-index: 1;
+  opacity: 3%;
+}
+.container .Fsection .moby{
+  transform: translate(50px,50px);
+}
+.container .Fsection .car{
+  transform: translate(50px,-20px);
+}
+.container .Fsection .number{
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 200px;
+  line-height: 100%;
+  color: white;
+  transform: translate(350px,-250px);
+  opacity: 3%;
+  width: 30%;
+}
+.line{
+  height: 900px;
+  width: 1px;
+  background-color: rgba(237, 237, 237, 1);
+  transform: translate(650px,-550px);
+}
+
+.Fsection img.bg {
+  position: absolute;
+  right: 650px;
+  bottom: 0; /* Adjust based on your image */
+  height: 60%;
+  width: 60%;
+  object-fit: contain;
+  transform: scaleX(-1); /* Flip horizontally */
+  opacity: 1;
+  z-index: 0;
+}
+
+.Ssection {
+  flex: 1;
+  padding: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  transform: translateY(20%);
+}
+
+/* Header Styles */
+.header {
+  margin-bottom: 2.5rem;
+}
+.header h1{
+    text-align: center;
+}
+
+/* Form Box Styles */
+.box {
+  margin-bottom: 1.5rem;
+}
+
+.inp {
+  margin-bottom: 1rem;
+}
+
+/* Input Field Styles */
+input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+
+.Continue {
+  margin-left: 40%;
+  padding: 1rem;
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.submit:hover {
+  background-color: #333;
+}
+
+p {
+  display: inline;
+  font-size: 0.9rem;
+  color: #666;
+  margin-right: 0.5rem;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .Fsection {
+    display: none;
+  }
+  
+  .Ssection {
+    padding: 2rem;
+    width: 100%;
+  }
+}
+
+
+/* interface sent email */
+
+.confirmationBox {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.confirmationText {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.confirmationSubtext {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.okButton {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  padding: 0.8rem;
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.okButton:hover {
+  background-color: rgba(128, 57, 152, 1);
+}

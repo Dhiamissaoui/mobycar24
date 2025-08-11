@@ -1,0 +1,60 @@
+.container{
+    background-color: rgba(158, 77, 182, 1);
+    padding: 50px;
+    display: flex;
+    overflow: hidden;
+}
+
+.container .main{
+    width: 700px;
+    height: 600px;
+    border-radius: 10px;
+}
+.container .part2{
+    transform: translateX(50px) translateY(10px);
+    color: white;
+    width: 500px;
+}   
+.container .part2 h1{
+    font-size: 38px;
+}
+.container .part2 p{
+    font-size: 16px;
+}
+.container .part2 .specs{
+    transform: translateY(10px);
+}
+.container .part2 .specs .cadre{
+    display: flex;
+    border: 1px solid rgba(179, 115, 197, 1);
+    padding: 20px ;
+}
+.container .part2 .specs .cadre.x{
+    border-bottom: none;
+}
+
+.container .part2 .specs .cadre .icon{
+    margin: 25px;
+    background-color: rgba(255, 255, 255, 0.16);
+    padding: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+.container .part2 .specs .cadre .desc h2{
+    font-size: 20px;
+}
+.container .part2 .specs .cadre .desc p{
+    font-size: 16px;
+}
+
+
+.bg{
+    font-size: 130px;
+    transform: rotate(-90deg) translate(630px,130px);
+    width: 200%;
+    opacity: 0.2;
+}
+.randomText{
+    color: white;
+}

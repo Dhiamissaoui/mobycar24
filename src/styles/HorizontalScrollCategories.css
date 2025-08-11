@@ -1,0 +1,172 @@
+.scroll-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  position: relative;
+  transform: translateY(80%) translateX(-10%);
+  margin-bottom: 200px;
+  height: 500px;
+  width: 900px;
+
+}
+.scroll-container .cat-list{
+  display: flex;
+  align-items: center;
+  transform: translateX(35%);
+  margin: 10px;
+}
+.scroll-container .cat-list li{
+  list-style: none;
+  font-size: 16px;
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+.scroll-container .cat-list li:hover{
+  border-bottom: 2px solid  rgba(158, 77, 182, 1);
+  transition: 0.3s ease-in-out;
+  color:rgba(158, 77, 182, 1) ;
+  font-weight: bold;
+}
+.section-title {
+  font-size: 38px;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  transform: translateX(210%);
+  width: 200px;
+}
+
+.scroll-wrapper {
+  position: relative;
+  padding: 0 40px;
+  transform: translateX(-40px);
+  width: 130%;
+}
+
+.vehicle-types {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 1rem 0;
+  width: 1050px;
+  
+}
+
+.vehicle-types::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.vehicle-card {
+  min-width: 180px;
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  width: 250px;
+  height: 250px;
+  border: 1px solid grey;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  background: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: -200px;
+}
+
+.scroll-btn:hover {
+  background: rgba(158, 77, 182, 1);
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .scroll-wrapper {
+    padding: 0 30px;
+  }
+  
+  .scroll-btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .vehicle-card {
+    min-width: 160px;
+    padding: 1.2rem;
+  }
+}
+
+.vehicle-types .vehicle-card .vehicle-icon .car{
+  z-index: 2;
+  position: relative;
+  font-size: 70px;
+  transform: translateY(30px) translateX(00px); 
+  color:rgba(158, 77, 182, 1);
+}
+
+
+.name{
+  transform: translateY(-50px);
+}
+
+.number{
+  opacity: 0.4  ;
+  transform: translateY(-50px);
+}
+
+
+.circle{
+  width: 120px;
+  height: 120px;
+  background-color:rgba(246, 239, 248, 1) ;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translateY(-80px) translateX(0);
+  margin: 0;
+}
+.vehicle-types .vehicle-card:hover{
+  background-color: rgba(158, 77, 182, 1);
+}
+.vehicle-types .vehicle-card:hover .car{
+  color: white;
+}
+.vehicle-types .vehicle-card:hover .name{
+  color: white;
+}
+.vehicle-types .vehicle-card:hover .number{
+  color: white;
+}
+.vehicle-types .vehicle-card:hover .circle{
+  background-color: rgba(246, 239, 248, 0.12);
+}
+

@@ -1,0 +1,81 @@
+.paymentContainer {
+  margin: 0 auto;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.paymentTitle {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.label {
+  display: block;
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.row .formGroup {
+  flex: 1;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.cancelButton {
+  background-color: #f5f5f5;
+  color: #333;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 48%;
+}
+
+.payButton {
+  background-color: #9E4DB6;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 48%;
+}
+
+.cancelButton:hover {
+  background-color: #e0e0e0;
+}
+
+.payButton:hover {
+  background-color: #8a3da0;
+}
