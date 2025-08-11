@@ -1,6 +1,6 @@
-import Navbar from '../components/rentCar/Nav';
-import Cars from '../components/rentCar/Cars';
-import Footer from '../components/rentCar/Footer';
+import Navbar from '../components/RentCar/Nav';
+import Cars from '../components/RentCar/Cars';
+import Footer from '../components/RentCar/Footer';
 
 
 function RentCar() {

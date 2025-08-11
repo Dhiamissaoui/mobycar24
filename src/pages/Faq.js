@@ -1,7 +1,7 @@
 
-import Nav from '../components/faqs/Navbar';
+import Nav from '../components/Faqs/Navbar';
 import Footer from '../components/Footer';
-import FaqPage from '../components/faqs/FaqPage';
+import FaqPage from '../components/Faqs/FaqPage';
 
 
 

@@ -1,6 +1,6 @@
-import Navbar from '../components/profile/Nav';
-import Footer from "../components/profile/Footer";
-import Main from '../components/profile/Main';
+import Navbar from '../components/Profile/Nav';
+import Footer from "../components/Profile/Footer";
+import Main from '../components/Profile/Main';
 
 function Profile() {
     return(
