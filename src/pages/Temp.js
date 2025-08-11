@@ -1,4 +1,4 @@
-function Logout() {
+function Temp() {
     return<div>ena logout</div>
 }
-export default Logout;
+export default Temp;
