@@ -1,4 +1,4 @@
-function logout() {
+function Logout() {
     return<div>ena logout</div>
 }
-export default logout;
+export default Logout;
