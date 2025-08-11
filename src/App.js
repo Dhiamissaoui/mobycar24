@@ -9,7 +9,7 @@ import Sign from './pages/SignIn';
 import Forget from './pages/Forget';
 import Reset from './pages/Reset';
 import Profile from './pages/Profile';
-import Logout from './pages/Logout';
+import Temp from './pages/Temp';
 
 
 import './styles/App.css'
@@ -25,7 +25,7 @@ function App() {
         <Route path='/forgot' element={<Forget />} />
         <Route path='/reset' element={<Reset />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/logout' element={<Logout />} />
+        <Route path='/logout' element={<Temp />} />
 
 
         <Route path='/contact' element={<Contact />} />
