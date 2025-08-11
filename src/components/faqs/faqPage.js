@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/Faqs/faqPage.css';
+import '../../styles/Faqs/FaqPage.css';
 
 const Faq_content = () => {
   const [activeIndex, setActiveIndex] = useState(null);

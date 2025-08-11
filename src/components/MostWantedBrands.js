@@ -1,4 +1,4 @@
-import React from 'react';
+
 import '../styles/MostWantedBrands.css';
 
 // Import your brand logos

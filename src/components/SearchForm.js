@@ -1,4 +1,4 @@
-import React from 'react';
+
 import '../styles/SearchForm.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

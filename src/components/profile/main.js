@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -17,26 +17,25 @@ import {
   faStar,
   faCalendarAlt,
   faClock
-           // For availability
 } from '@fortawesome/free-solid-svg-icons';
 
-import styles from '../../styles/profile/main.module.css';
-import messages from '../../styles/profile/messages.module.css';
-import fav from '../../styles/profile/favorities.module.css';
-import payement from '../../styles/profile/payment.module.css';
-import rides from '../../styles/profile/rides.module.css';
-import img from '../../images/profile pic.png';
+import Styles from '../../styles/profile/Main.module.css';
+import Messages from '../../styles/profile/Messages.module.css';
+import Fav from '../../styles/profile/Favorities.module.css';
+import Payement from '../../styles/profile/Payment.module.css';
+import Rides from '../../styles/profile/Rides.module.css';
+import Img from '../../images/profile pic.png';
 
 
-import porscheImage from '../../images/porsche.png';
-import cadillacImage from '../../images/car-cadillac.png' ;
-import rollsRoyceImage from '../../images/car-rolls.png';
-import lamborghiniImage from '../../images/car-lambo.png';
-import miniCooperImage from '../../images/car-mini.png';
+import PorscheImage from '../../images/porsche.png';
+import CadillacImage from '../../images/car-cadillac.png' ;
+import RollsRoyceImage from '../../images/car-rolls.png';
+import LamborghiniImage from '../../images/car-lambo.png';
+import MiniCooperImage from '../../images/car-mini.png';
 
-import profile_img from '../../images/profile pic.png';
+import ProfileImg from '../../images/profile pic.png';
 
-import audixrides from '../../images/rides_audi.png';
+import Audixrides from '../../images/rides_audi.png';
 
 function ProfilePage() {
   // --profile part -- //
@@ -92,7 +91,7 @@ function ProfilePage() {
       availability: 'Available',
       mileage: '250 Km/Day',
       price: '£72.00/Day',
-      image: porscheImage
+      image: PorscheImage
     },
     {
       car: 'Cadillac Escalade',
@@ -100,7 +99,7 @@ function ProfilePage() {
       availability: 'Available',
       mileage: '250 Km/Day',
       price: '£72.00/Day',
-      image: cadillacImage
+      image: CadillacImage
     },
     {
       car: 'Rolls Royce Dawn',
@@ -108,7 +107,7 @@ function ProfilePage() {
       availability: 'Available',
       mileage: '250 Km/Day',
       price: '£72.00/Day',
-      image: rollsRoyceImage
+      image: RollsRoyceImage
     },
     {
       car: 'Lamborghini Urus',
@@ -116,7 +115,7 @@ function ProfilePage() {
       availability: 'Available',
       mileage: '250 Km/Day',
       price: '£72.00/Day',
-      image: lamborghiniImage
+      image: LamborghiniImage
     },
     {
       car: 'Rolls Royce Cullinan',
@@ -124,7 +123,7 @@ function ProfilePage() {
       availability: 'Available',
       mileage: '250 Km/Day',
       price: '£72.00/Day',
-      image: rollsRoyceImage
+      image: RollsRoyceImage
     },
     {
       car: 'Mini Cooper',
@@ -132,7 +131,7 @@ function ProfilePage() {
       availability: 'Available',
       mileage: '250 Km/Day',
       price: '£72.00/Day',
-      image: miniCooperImage
+      image: MiniCooperImage
     }
   ];
 
@@ -140,14 +139,14 @@ function ProfilePage() {
     switch(activeTab) {
       case 'profile':
         return (
-           <div className={styles["profile-content"]}>
-            <div className={styles["profile-camera"]}>
-              <img src={img} className={styles['image']}/>
-              <FontAwesomeIcon icon={faCamera} className={styles['cam']}/>
+           <div className={Styles["profile-content"]}>
+            <div className={Styles["profile-camera"]}>
+              <img src={Img} alt='' className={Styles['image']}/>
+              <FontAwesomeIcon icon={faCamera} className={Styles['cam']}/>
               
             </div>
 
-            <div className={styles["profile-field"]}>
+            <div className={Styles["profile-field"]}>
               <h2>Full Name</h2>
               {isEditing ? (
                 <input
@@ -155,14 +154,14 @@ function ProfilePage() {
                   name="name"
                   value={profile.name}
                   onChange={handleChange}
-                  className={styles["profile-input"]}
+                  className={Styles["profile-input"]}
                 />
               ) : (
-                <p className={styles["profile-info"]}>{profile.name}</p>
+                <p className={Styles["profile-info"]}>{profile.name}</p>
               )}
             </div>
             <hr/>
-            <div className={styles["profile-field"]}>
+            <div className={Styles["profile-field"]}>
               <h2>Email Address</h2>
               {isEditing ? (
                 <input
@@ -170,14 +169,14 @@ function ProfilePage() {
                   name="email"
                   value={profile.email}
                   onChange={handleChange}
-                  className={styles["profile-input"]}
+                  className={Styles["profile-input"]}
                 />
               ) : (
-                <p className={styles["profile-info"]}>{profile.email}</p>
+                <p className={Styles["profile-info"]}>{profile.email}</p>
               )}
             </div>
             <hr/>
-            <div className={styles["profile-field"]}>
+            <div className={Styles["profile-field"]}>
               <h2>Phone Number</h2>
               {isEditing ? (
                 <input
@@ -185,23 +184,23 @@ function ProfilePage() {
                   name="phone"
                   value={profile.phone}
                   onChange={handleChange}
-                  className={styles["profile-input"]}
+                  className={Styles["profile-input"]}
                 />
               ) : (
-                <p className={styles["profile-info"]}>{profile.phone}</p>
+                <p className={Styles["profile-info"]}>{profile.phone}</p>
               )}
             </div>
             
-            <div className={styles["edit-buttons"]}>
+            <div className={Styles["edit-buttons"]}>
               <button 
-                className={styles["edit-btn"]}
+                className={Styles["edit-btn"]}
                 onClick={handleEdit}
               >
                 <FontAwesomeIcon icon={faEdit} /> 
                 {isEditing ? 'Save' : 'Edit'}
               </button>
               <button 
-                className={styles["password-btn"]}
+                className={Styles["password-btn"]}
                 onClick={handlePasswordChange}
               >
                 <FontAwesomeIcon icon={faKey} /> Change Password
@@ -209,110 +208,110 @@ function ProfilePage() {
             </div>
           </div>
         );
-      case 'rides':
+      case 'Rides':
         switch(RidesTab) {
             case 'completed':
                 return(
-                    <div className={rides.contB}>
+                    <div className={Rides.contB}>
                             <button onClick={() => {
                         setRidesTab('active');
-                        document.querySelector(`.${styles["profile-main"]}`).style.height = '1000px';
-                        document.querySelector(`.${styles["profile-container"]}`).style.height = '1200px';
-                        }} className={rides.mainTitle}>Active Rides</button>
+                        document.querySelector(`.${Styles["profile-main"]}`).style.height = '1000px';
+                        document.querySelector(`.${Styles["profile-container"]}`).style.height = '1200px';
+                        }} className={Rides.mainTitle}>Active Rides</button>
                             <button onClick={() => {
                         setRidesTab('completed');
-                        document.querySelector(`.${styles["profile-main"]}`).style.height = '300px';
-                        }} className={rides.mainTitle}>Completed Rides</button>
+                        document.querySelector(`.${Styles["profile-main"]}`).style.height = '300px';
+                        }} className={Rides.mainTitle}>Completed Rides</button>
                         </div>
                 );
-            case 'active':
+            default:
                 return(
-                    <div className={rides.rideContainer}>
-                        <div className={rides.contB}>
+                    <div className={Rides.rideContainer}>
+                        <div className={Rides.contB}>
                             <button onClick={() => {
                             setRidesTab('active');
-                            document.querySelector(`.${styles["profile-main"]}`).style.height = '1300px';}} className={rides.mainTitle}>Active Rides</button>
+                            document.querySelector(`.${Styles["profile-main"]}`).Styles.height = '1300px';}} className={Rides.mainTitle}>Active Rides</button>
                                 <button onClick={() => {
                             setRidesTab('completed');
-                            document.querySelector(`.${styles["profile-main"]}`).style.height = '600px';
-                            }} className={rides.mainTitle}>Completed Rides</button>
+                            document.querySelector(`.${Styles["profile-main"]}`).Styles.height = '600px';
+                            }} className={Rides.mainTitle}>Completed Rides</button>
                         </div>
                         
                         
-                        <div className={rides.rideAlert}>
-                            <h2 className={rides.alertTitle}>Your ride is starting soon!</h2>
-                            <p className={rides.alertText}>
+                        <div className={Rides.rideAlert}>
+                            <h2 className={Rides.alertTitle}>Your ride is starting soon!</h2>
+                            <p className={Rides.alertText}>
                             Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam. <br/>
                             Vulputate nisl vel diam eu. Risus natoque consectetur.
                             </p>
-                            <button className={rides.share}>Share</button>
+                            <button className={Rides.share}>Share</button>
                         </div>
 
-                        <div className={rides.carDetails}>
-                            <div className={rides.Fsec}>
-                                <img src={audixrides} className={rides.imgaudi} />
+                        <div className={Rides.carDetails}>
+                            <div className={Rides.Fsec}>
+                                <img src={Audixrides} alt='' className={Rides.imgaudi} />
                             </div>
-                            <div className={rides.Ssec}>
-                                <h3 className={rides.carTitle}>Rent Audi A6 (Blue), 2024</h3>
-                                <ul className={rides.carSpecs}>
-                                    <li className={rides.rate}>
-                                        <FontAwesomeIcon icon={faStar} className={rides.starIcon} />
+                            <div className={Rides.Ssec}>
+                                <h3 className={Rides.carTitle}>Rent Audi A6 (Blue), 2024</h3>
+                                <ul className={Rides.carSpecs}>
+                                    <li className={Rides.rate}>
+                                        <FontAwesomeIcon icon={faStar} className={Rides.starIcon} />
                                         <strong>4.5</strong>
                                     </li>
-                                    <li className={rides.kilo}>
-                                        <FontAwesomeIcon className={rides.icon} icon={faTachometerAlt} />
+                                    <li className={Rides.kilo}>
+                                        <FontAwesomeIcon className={Rides.icon} icon={faTachometerAlt} />
                                         250 Km/Day
                                     </li>
-                                    <li className={rides.mil}>
-                                        <FontAwesomeIcon className={rides.icon} icon={faShieldAlt} />
+                                    <li className={Rides.mil}>
+                                        <FontAwesomeIcon className={Rides.icon} icon={faShieldAlt} />
                                         Insurance Included
                                     </li>
                                 </ul>
-                                <div className={rides.carInfo}>
+                                <div className={Rides.carInfo}>
                                     <p><strong>Car number:</strong> 8022A1245</p>
                                     <p><strong>Registration Number:</strong> 12548879</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className={rides.divider}></div>
+                        <div className={Rides.divider}></div>
 
-                        <div className={rides.providerDetails}>
-                            <h3 className={rides.sectionTitle}>Service Provider Details</h3>
-                            <div className={rides.providerInfo}>
-                                  <img src={profile_img} className={rides.Pimg}/>
-                                  <div className={rides.info}>
+                        <div className={Rides.providerDetails}>
+                            <h3 className={Rides.sectionTitle}>Service Provider Details</h3>
+                            <div className={Rides.providerInfo}>
+                                  <img src={ProfileImg} alt='' className={Rides.Pimg}/>
+                                  <div className={Rides.info}>
                                     <strong>Esther Howard</strong><br/>
                                     <p>2,719 Trips | Joined Oct 2015</p><br/>
-                                    <p className={rides.responseNote}>Typically responds to a clinician</p>
+                                    <p className={Rides.responseNote}>Typically responds to a clinician</p>
                                   </div>  
                             </div>
                         </div>
 
-                        <div className={rides.divider}></div>
-                        <div className={rides.datetime_container}>
+                        <div className={Rides.divider}></div>
+                        <div className={Rides.datetime_container}>
                           {/* Pick-up Section */}
-                          <div className={rides.datetime_section}>
-                            <h3 className={rides.datetime_title}>Pick-up date & time</h3>
-                            <div className={rides.datetime_row}>
-                              <FontAwesomeIcon icon={faCalendarAlt} className={rides.datetime_icon} />
+                          <div className={Rides.datetime_section}>
+                            <h3 className={Rides.datetime_title}>Pick-up date & time</h3>
+                            <div className={Rides.datetime_row}>
+                              <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
                               <span>25 Feb 2024</span>
                             </div>
-                            <div className={rides.datetime_row}>
-                              <FontAwesomeIcon icon={faClock} className={rides.datetime_icon} />
+                            <div className={Rides.datetime_row}>
+                              <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
                               <span>12:05 Pm</span>
                             </div>
                           </div>
 
                           {/* Drop-off Section */}
-                          <div className={rides.datetime_section}>
-                            <h3 className={rides.datetime_title}>Drop-off date & time</h3>
-                            <div className={rides.datetime_row}>
-                              <FontAwesomeIcon icon={faCalendarAlt} className={rides.datetime_icon} />
+                          <div className={Rides.datetime_section}>
+                            <h3 className={Rides.datetime_title}>Drop-off date & time</h3>
+                            <div className={Rides.datetime_row}>
+                              <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
                               <span>25 Feb 2024</span>
                             </div>
-                            <div className={rides.datetime_row}>
-                              <FontAwesomeIcon icon={faClock} className={rides.datetime_icon} />
+                            <div className={Rides.datetime_row}>
+                              <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
                               <span>12:05 Pm</span>
                             </div>
                           </div>
@@ -324,111 +323,109 @@ function ProfilePage() {
                     };
       case 'favorites':
         return(
-            <div className={fav['rent-car-container']}>
-                <div className={fav['cars-grid']}>
+            <div className={Fav['rent-car-container']}>
+                <div className={Fav['cars-grid']}>
                     {car.map((car, index) => (
-                    <div key={index} className={fav['car-card']}>
-                        <div className={fav['image-card']}>
-                            <img src={car.image} alt={car.car} className={fav['img']} />
-                            <FontAwesomeIcon icon={faHeart} className={fav['heart-icon']} />
+                    <div key={index} className={Fav['car-card']}>
+                        <div className={Fav['image-card']}>
+                            <img src={car.image} alt='' className={Fav['img']} />
+                            <FontAwesomeIcon icon={faHeart} className={Fav['heart-icon']} />
                         </div>
-                        <div className={fav['car-header']}>
+                        <div className={Fav['car-header']}>
                             <h2>{car.car}</h2>
-                            <p className={fav['availability']}>
-                            <FontAwesomeIcon icon={fav} /> {car.availability}
-                        </p>
+                            <p className={Fav['availability']}>{car.availability}</p>
                         </div>
-                        <div className={fav['car-details']}>
-                            <p className={fav['insurance']}>
+                        <div className={Fav['car-details']}>
+                            <p className={Fav['insurance']}>
                             <FontAwesomeIcon icon={car.insurance} /> Insurance Included
                             </p>
-                            <p className={fav['mileage']}>
+                            <p className={Fav['mileage']}>
                             <FontAwesomeIcon icon={faTachometerAlt} /> {car.mileage}
                             </p>
                         </div>
                         <hr/>
-                        <div className={fav['price-section']}>
-                            <p className={fav['price']}>{car.price}</p>
-                            <button className={fav['reserve-button']}>Reserve</button>
+                        <div className={Fav['price-section']}>
+                            <p className={Fav['price']}>{car.price}</p>
+                            <button className={Fav['reserve-button']}>Reserve</button>
                         </div>
                     </div>
                     ))}
                 </div>
-                <div className={fav['btns']}>
-                    <div className={fav['btn-left']}><FontAwesomeIcon icon={faChevronLeft} /></div>
-                    <div className={fav['btn-p']}>1</div>
-                    <div className={fav['btn-p']}>2</div>
-                    <div className={fav['btn-p']}>...</div>
-                    <div className={fav['btn-p']}>9</div>
-                    <div className={fav['btn-p']}>10</div>
-                    <div className={fav['btn-right']}><FontAwesomeIcon icon={faChevronRight} /></div>
+                <div className={Fav['btns']}>
+                    <div className={Fav['btn-left']}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                    <div className={Fav['btn-p']}>1</div>
+                    <div className={Fav['btn-p']}>2</div>
+                    <div className={Fav['btn-p']}>...</div>
+                    <div className={Fav['btn-p']}>9</div>
+                    <div className={Fav['btn-p']}>10</div>
+                    <div className={Fav['btn-right']}><FontAwesomeIcon icon={faChevronRight} /></div>
                 </div>
     </div>
   
         );
       case 'messages':
         return (
-            <div className={messages['messages-container']}>
+            <div className={Messages['messages-container']}>
                 {/* Left sidebar - Conversation list */}
-                <div className={messages['conversation-list']}>
-                    <div className={messages['search-bar']}>
-                        <input type='text' placeholder='search here ...' className={messages['searchB']}/>
+                <div className={Messages['conversation-list']}>
+                    <div className={Messages['search-bar']}>
+                        <input type='text' placeholder='search here ...' className={Messages['searchB']}/>
                         
                     </div>
                     
                     {conversations.map((convo, index) => (
                     <div 
                         key={index} 
-                        className={`${messages['conversation-item']} ${convo.unread ? messages['unread'] : ''}`}
+                        className={`${Messages['conversation-item']} ${convo.unread ? Messages['unread'] : ''}`}
                     >
-                        <div className={messages['conversation-avatar']}></div>
-                        <div className={messages['conversation-details']}>
-                        <div className={messages['conversation-header']}>
-                            <h3 className={messages['conversation-name']}>{convo.name}</h3>
-                            <span className={messages['conversation-time']}>{convo.time}</span>
+                        <div className={Messages['conversation-avatar']}></div>
+                        <div className={Messages['conversation-details']}>
+                        <div className={Messages['conversation-header']}>
+                            <h3 className={Messages['conversation-name']}>{convo.name}</h3>
+                            <span className={Messages['conversation-time']}>{convo.time}</span>
                         </div>
-                        <p className={messages['conversation-preview']}>{convo.preview}</p>
+                        <p className={Messages['conversation-preview']}>{convo.preview}</p>
                         </div>
                     </div>
                     ))}
                 </div>
 
                 {/* Right side - Active chat */}
-                <div className={messages['active-chat']}>
+                <div className={Messages['active-chat']}>
                     {/* Chat header */}
-                    <div className={messages['chat-header']}>
-                    <div className={messages['chat-user']}>
-                        <div className={messages['chat-avatar']}></div>
+                    <div className={Messages['chat-header']}>
+                    <div className={Messages['chat-user']}>
+                        <div className={Messages['chat-avatar']}></div>
                         <div>
                         <h2>{activeChat.name}</h2>
-                        <p className={messages['user-status']}>{activeChat.status}</p>
+                        <p className={Messages['user-status']}>{activeChat.status}</p>
                         </div>
                     </div>
                     </div>
 
                     {/* Messages area */}
-                    <div className={messages['messages-area']}>
+                    <div className={Messages['messages-area']}>
                     {activeChat.messages.map((msg, index) => (
                         <div 
                         key={index} 
-                        className={`${messages['message']} ${
-                            msg.sender === 'me' ? messages['my-message'] : messages['their-message']
+                        className={`${Messages['message']} ${
+                            msg.sender === 'me' ? Messages['my-message'] : Messages['their-message']
                         }`}
                         >
-                        <div className={messages['message-content']}>
+                        <div className={Messages['message-content']}>
                             <p>{msg.content}</p>
-                            <span className={messages['message-time']}>{msg.time}</span>
+                            <span className={Messages['message-time']}>{msg.time}</span>
                         </div>
                         </div>
                     ))}
                     </div>
 
                     {/* Message input */}
-                    <div className={messages['message-input-container']}>
+                    <div className={Messages['message-input-container']}>
                     <input 
                         type="text" 
                         placeholder="Type A Message..." 
-                        className={messages['message-input']}
+                        className={Messages['message-input']}
                     />
                     </div>
                 </div>
@@ -436,48 +433,48 @@ function ProfilePage() {
         );
       case 'payments':
         return (
-             <div className={payement.paymentContainer}>
-                <h1 className={payement.paymentTitle}>Card Information</h1>
-                <div className={payement.row}>
-                    <div className={payement.formGroup}>
-                        <h2 className={payement.sectionTitle}>Card Holder Name</h2>
+             <div className={Payement.paymentContainer}>
+                <h1 className={Payement.paymentTitle}>Card Information</h1>
+                <div className={Payement.row}>
+                    <div className={Payement.formGroup}>
+                        <h2 className={Payement.sectionTitle}>Card Holder Name</h2>
                         <input 
                         type="text" 
-                        className={payement.inputField} 
+                        className={Payement.inputField} 
                         placeholder="Enter Card Holder Name"
                         />
                     </div>
-                    <div className={payement.formGroup}>
-                        <h2 className={payement.sectionTitle}>Card Number</h2>
+                    <div className={Payement.formGroup}>
+                        <h2 className={Payement.sectionTitle}>Card Number</h2>
                         <input 
                         type="text" 
-                        className={payement.inputField} 
+                        className={Payement.inputField} 
                         placeholder="Enter Card Number"
                         />
                     </div>
                 </div>
-                <div className={payement.row}>
-                    <div className={payement.formGroup}>
-                        <h2 className={payement.sectionTitle}>Expiry Date</h2>
+                <div className={Payement.row}>
+                    <div className={Payement.formGroup}>
+                        <h2 className={Payement.sectionTitle}>Expiry Date</h2>
                         <input 
                             type="text" 
-                            className={payement.inputField} 
+                            className={Payement.inputField} 
                             placeholder="00/00"
                         />
                     </div>
-                    <div className={payement.formGroup}>
-                        <h2 className={payement.sectionTitle}>CVV Number</h2>
+                    <div className={Payement.formGroup}>
+                        <h2 className={Payement.sectionTitle}>CVV Number</h2>
                         <input 
                             type="text" 
-                            className={payement.inputField} 
+                            className={Payement.inputField} 
                             placeholder="Enter CVV Number"
                         />
                     </div>
                 </div>
 
-                <div className={payement.buttonGroup}>
-                    <button  className={payement.payButton}>Pay Now</button>
-                    <button className={payement.cancelButton}>Cancel</button>
+                <div className={Payement.buttonGroup}>
+                    <button  className={Payement.payButton}>Pay Now</button>
+                    <button className={Payement.cancelButton}>Cancel</button>
                 </div>
     </div>
         );
@@ -487,84 +484,84 @@ function ProfilePage() {
   };
 
   return (
-    <div className={styles["profile-container"]}>
-      <div className={styles["profile-sidebar"]}>
-        <div className={styles["profile-header"]}>
-          <div className={styles["profile-avatar"]}></div>
+    <div className={Styles["profile-container"]}>
+      <div className={Styles["profile-sidebar"]}>
+        <div className={Styles["profile-header"]}>
+          <div className={Styles["profile-avatar"]}></div>
           <h1>Esther Howard</h1>
           <p>Joined Oct 2015</p>
         </div>
         
-        <nav className={styles["profile-nav"]}>
+        <nav className={Styles["profile-nav"]}>
           <button 
-            className={`${styles["nav-item"]} ${activeTab === 'profile' ? styles.active : ''}`}
+            className={`${Styles["nav-item"]} ${activeTab === 'profile' ? Styles.active : ''}`}
             onClick={() => {
                 setActiveTab('profile');
-                document.querySelector(`.${styles["profile-main"]}`).style.height = '650px';
+                document.querySelector(`.${Styles["profile-main"]}`).style.height = '650px';
             }}
           >
-            <FontAwesomeIcon className={styles['logo']} icon={faUser} /> <div className={styles['cate']}>My Profile</div>
+            <FontAwesomeIcon className={Styles['logo']} icon={faUser} /> <div className={Styles['cate']}>My Profile</div>
           </button>
           {/* Other nav items similarly updated */}
         </nav>
 
-        <nav className={styles["profile-nav"]}>
+        <nav className={Styles["profile-nav"]}>
           <button 
-            className={`${styles["nav-item"]} ${activeTab === 'rides' ? styles.active : ''}`}
+            className={`${Styles["nav-item"]} ${activeTab === 'Rides' ? Styles.active : ''}`}
             onClick={() => {
-                setActiveTab('rides')
-                document.querySelector(`.${styles["profile-main"]}`).style.height = '1000px';
-                document.querySelector(`.${styles["profile-container"]}`).style.height = '1200px';
+                setActiveTab('Rides')
+                document.querySelector(`.${Styles["profile-main"]}`).style.height = '1000px';
+                document.querySelector(`.${Styles["profile-container"]}`).style.height = '1200px';
             }}
           >
-            <FontAwesomeIcon className={styles['logo']}  icon={faCar} /> <div className={styles['cate']}>Rides</div>
+            <FontAwesomeIcon className={Styles['logo']}  icon={faCar} /> <div className={Styles['cate']}>Rides</div>
           </button>
           {/* Other nav items similarly updated */}
         </nav>
 
-        <nav className={styles["profile-nav"]}>
+        <nav className={Styles["profile-nav"]}>
           <button 
-            className={`${styles["nav-item"]} ${activeTab === 'favorites' ? styles.active : ''}`}
+            className={`${Styles["nav-item"]} ${activeTab === 'favorites' ? Styles.active : ''}`}
             onClick={() => {
                 setActiveTab('favorites');
-                document.querySelector(`.${styles["profile-main"]}`).style.height = '800px';
-                document.querySelector(`.${styles["profile-container"]}`).style.height = '900px';
+                document.querySelector(`.${Styles["profile-main"]}`).style.height = '800px';
+                document.querySelector(`.${Styles["profile-container"]}`).style.height = '900px';
             }}
           >
-            <FontAwesomeIcon className={styles['logo']} icon={faHeart} /> <div className={styles['cate']}>My Favorites</div>
+            <FontAwesomeIcon className={Styles['logo']} icon={faHeart} /> <div className={Styles['cate']}>My Favorites</div>
           </button>
           {/* Other nav items similarly updated */}
         </nav>
 
-        <nav className={styles["profile-nav"]}>
+        <nav className={Styles["profile-nav"]}>
           <button 
-            className={`${styles["nav-item"]} ${activeTab === 'messages' ? styles.active : ''}`}
+            className={`${Styles["nav-item"]} ${activeTab === 'messages' ? Styles.active : ''}`}
             onClick={() => {
                 setActiveTab('messages')
-                document.querySelector(`.${styles["profile-main"]}`).style.height = '650px';
-                document.querySelector(`.${styles["profile-container"]}`).style.height = '700px';
+                document.querySelector(`.${Styles["profile-main"]}`).style.height = '650px';
+                document.querySelector(`.${Styles["profile-container"]}`).style.height = '700px';
             }}
           >
-            <FontAwesomeIcon className={styles['logo']} icon={faEnvelope} /> <div className={styles['cate']}>My Messages</div>
+            <FontAwesomeIcon className={Styles['logo']} icon={faEnvelope} /> <div className={Styles['cate']}>My Messages</div>
           </button>
           {/* Other nav items similarly updated */}
         </nav>
 
-        <nav className={styles["profile-nav"]}>
+        <nav className={Styles["profile-nav"]}>
           <button 
-            className={`${styles["nav-item"]} ${activeTab === 'payments' ? styles.active : ''}`}
+            className={`${Styles["nav-item"]} ${activeTab === 'payments' ? Styles.active : ''}`}
             onClick={() => setActiveTab('payments')}
           >
-            <FontAwesomeIcon className={styles['logo']} icon={faHistory} /> <div className={styles['cate']}>Payement History</div>
+            <FontAwesomeIcon className={Styles['logo']} icon={faHistory} /> <div className={Styles['cate']}>Payement History</div>
           </button>
           {/* Other nav items similarly updated */}
         </nav>
       </div>
       
-      <div className={styles["profile-main"]}>
-        <h1 className={styles["content-title"]}>
+      <div className={Styles["profile-main"]}>
+        <h1 className={Styles["content-title"]}>
           {activeTab === 'profile' && 'My Profile'}
-          {activeTab === 'rides' && 'My Rides'}
+          {activeTab === 'Rides' && 'My Rides'}
           {activeTab === 'favorites' && 'My Favorites'}
           {activeTab === 'messages' && 'My Messages'}
           {activeTab === 'payments' && 'Payment History'}

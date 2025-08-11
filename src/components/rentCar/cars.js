@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from '../../styles/RentcarStyles/Cars.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 

@@ -1,7 +1,6 @@
-import { Route } from "react-router-dom";
 import Navbar from '../components/profile/Nav';
 import Footer from "../components/profile/Footer";
-import Main from '../components/profile/main';
+import Main from '../components/profile/Main';
 
 function Profile() {
     return(

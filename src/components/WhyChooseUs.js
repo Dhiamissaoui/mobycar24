@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faPhone, 
@@ -11,7 +10,7 @@ import '../styles/WhyChooseUs.css'
 const WhyChooseUs = () => {
   return (
     <section className="container">
-        <img src={service}  className="main"/>
+        <img src={service} alt='serv'  className="main"/>
         <div className="part2">
             <h1>Why Choose Us</h1>
             <p className="randomText">Lorem ipsum dolor sit amet consectetur. Malesuada risus vestibulum mattis sed scelerisque. Tortor in amet non lobortis.</p>

@@ -1,4 +1,4 @@
-// Inside your Categories.js
+
 import HorizontalScrollCategories from './HorizontalScrollCategories';
 
 function Categories() {

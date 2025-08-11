@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import audi from '../images/audi_car.png'
@@ -13,7 +12,7 @@ function SignIn() {
           <div className={style.car}>CAR</div>
           <div className={style.number}>24</div>
           <div className={style.line}></div>
-          <img className={style.bg} src={audi}/>
+          <img className={style.bg} alt='bg' src={audi}/>
       </div>
       <div className={style.Ssection}>
         <div className={style.header}>

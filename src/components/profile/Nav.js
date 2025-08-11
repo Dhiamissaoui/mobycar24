@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faUser,
   faSterlingSign,
   faEuroSign,
   faDollarSign,
@@ -84,7 +83,7 @@ function Navbar() {
               className={styles['profile-btn']}
               onClick={toggleProfileDropdown}
             >
-              <img src={profile_pic} className={styles.profile_pic}/>
+              <img src={profile_pic} alt='Profilepic' className={styles.profile_pic}/>
               <span>Howard</span>
               <FontAwesomeIcon icon={faChevronDown}/>
             </button>
