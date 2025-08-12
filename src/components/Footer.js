@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div className="footer-links">
           <div className="links-column">
-            <Link  to='/brand'><h3 className="x">Brand</h3></Link>
+            <Link  to='/brand'><h3>Brand</h3></Link>
             <Link  to='/rent'><h3>Rent A Car</h3></Link>
             <Link  to='/privacy-pol'><h3>Privacy Policy</h3></Link>
             <Link  to='/terms-cond'><h3>Terms & Condition</h3></Link>

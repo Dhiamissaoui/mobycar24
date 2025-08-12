@@ -54,9 +54,10 @@
   border-left: rgba(255, 255, 255, 0.5) 1px solid;
   padding-left: 50px;
 }
-.links-column h3.x{
-    border: none;
+a{
+  text-decoration: none;
 }
+
 
 
 .footer-bottom {
