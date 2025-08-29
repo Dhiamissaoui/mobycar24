@@ -21,52 +21,51 @@ function SignIn() {
         </div>
         <div className={style.boxSep}>
           <div className={style.inpF}>
-            <h3>First Name</h3>
+            <h3 className={style.lab}>First Name</h3>
             <input type='text' placeholder='Enter  First Name' />
           </div>
           <div className={style.inpS}>
-            <h3>Last Name</h3>
+            <h3 className={style.lab}>Last Name</h3>
             <input type='text' placeholder='Enter  Last Name' />
           </div>
         </div>
         <div className={style.box}>
           <div className={style.inp}>
-            <h3>Emai</h3>
+            <h3 className={style.lab}>Email</h3>
             <input type='email' placeholder='Enter  Email Addresse' />
           </div>
         </div>
         <div className={style.box}>
           <div className={style.inp}>
-            <h3>Address</h3>
+            <h3 className={style.lab}>Address</h3>
             <input type='text' placeholder='Enter  adrdess' />
           </div>
         </div>
         <div className={style.box}>
           <div className={style.inp}>
+            <h3 className={style.lab}>Driving license number</h3>
+            <input type='text' placeholder='Enter  Driving number' />
+          </div>
+        </div>
+        <div className={style.box}>
+          <div className={style.inp}>
             <div className={style.file_upload}>
-              <h3>Upload Driving License</h3>
-              <div className={style.file_upload_container}>
-                <label className={style.file_upload_label}>
-                  <div className={style.file_upload_text}>Maximum Size 5MB</div>
-                  <div className={style.file_upload_button}>Upload</div>
-                    <input 
-                      type="file" 
-                      className={style.file_upload_input} 
-                      accept="image/*,.pdf"/>
-                </label>
+              <h3 className={style.lab}>Upload Driving License</h3>
+              <div class="mb-3"> 
+                <input class="form-control" type="file" id="formFile"/>
               </div>
             </div>
           </div>
         </div>
         <div className={style.box}>
           <div className={style.inp}>
-            <h3>password</h3>
+            <h3 className={style.lab}>password</h3>
             <input type='password' placeholder='Enter Password' />
           </div>
         </div>
         <div className={style.box}>
           <div className={style.inp}>
-            <h3>Confirm password</h3>
+            <h3 className={style.lab}>Confirm password</h3>
             <input type='password' placeholder='Enter Password' />
           </div>
         </div>
@@ -77,7 +76,7 @@ function SignIn() {
         </div>
         <Link to='/login' className={style.submit} type='submit'>Sign Up</Link>
         <div className={style.check_cont}>
-          <p>Already have an account?</p><Link to='/login'>Sign In</Link>
+          <p>Already have an account?</p><Link className={style.signIn} to='/login'>Sign In</Link>
         </div>
       </div>
     </div>

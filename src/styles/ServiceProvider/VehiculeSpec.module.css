@@ -1,0 +1,204 @@
+.Cont{
+    width: 800px;
+    text-align: center;
+    transform: translate(45%);
+}
+.titleH{
+
+    color: black;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 33px;
+}
+p{
+   text-align: center;
+   width: 700px;
+}
+.steps{
+    position: relative; 
+    display: flex;
+    width: 100%;
+    margin: 5px;
+    gap: 80px;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px 0; 
+}
+.text, .textO{
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;  
+    color: rgba(145, 145, 145, 1); 
+    padding: 10px 15px; 
+    font-weight: bold;
+    background-color: rgba(158, 77, 182, 0.15);
+    border-radius: 50%;
+    box-shadow: 10px 20px  10px 3px rgba(158, 77, 182, 0.15);
+    animation: name ease-in-out infinite 2.5s;
+}
+@keyframes name
+ {
+    50%{
+        box-shadow: 5px 5px 7px rgba(158, 77, 182, 0.15);
+    }
+}
+.textO{
+    background-color: purple;
+    color: white;
+}
+.step{
+    position: relative; 
+    border-radius: 50%;
+    border: 1px dashed black;
+    padding: 10px;
+    background: white;
+}
+.rightIcon{
+    position: relative; 
+    font-size: 20px;
+    transform: translateY(1px);
+    color: rgba(158, 77, 182, 1);
+}
+.line{
+    position: absolute;
+    width: 60%;
+    height: 1px;
+    border-bottom: 1px dashed rgba(158, 77, 182, 1);
+    top: 50%;
+    left: 20%;
+    z-index: -1;
+}
+
+/*-------------------- vehicule information------------*/
+
+
+/* VehicleInfo.module.css */
+
+.vehiculeInfoCont {
+  box-shadow: 0px 39px 56.9px -26px rgba(0, 0, 0, 0.13);
+  border: 1px solid rgba(242, 242, 242, 1);
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+
+}
+
+.box {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.boxO, .boxT {
+  flex: 1;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  text-align: left !important;
+}
+.labelx{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.inp, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+.inp:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #8a2be2;
+  background-color: #fff;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+.selectCont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#dispB{
+  display:inline;
+}
+#dispX{
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+}
+#boxOne,#boxTwo{
+  width: 45%;
+  display: block;
+}
+
+#boxOne{
+  margin-right: 10px;
+}
+
+
+.selectAmount {
+  
+  color: black;
+  border: 1px solid grey;
+  padding: 12px 20px;
+  margin-left: -10px;
+  border-left: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.btn {
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  border: none;
+  padding: 12px 45%;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+
+
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #7b1fa2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+  }
+  
+  .boxO, .boxT {
+    width: 100%;
+  }
+}

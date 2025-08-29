@@ -114,4 +114,9 @@
 .currency-icon{
   transform: translate(-5px ,3px);
   font-size: 25px;
+  color: white;
+}
+
+.login{
+  color: white;
 }

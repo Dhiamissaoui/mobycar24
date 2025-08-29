@@ -21,7 +21,9 @@
   border-bottom: 1px black solid;
   color: rgba(255, 255, 255, 0.5);
 }
-
+.login{
+  color: white;
+}
 .nav-menu {
   display: flex;
   gap: 50px;
@@ -114,6 +116,7 @@
 .currency-icon{
   transform: translate(-5px ,3px);
   font-size: 25px;
+  color: white;
 }
 
 .circle{

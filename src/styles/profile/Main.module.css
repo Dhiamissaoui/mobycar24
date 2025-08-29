@@ -5,6 +5,7 @@
   background-color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 850px;
+  overflow: hidden;
 }
 
 .profile-sidebar {
@@ -32,6 +33,7 @@
   border-radius: 10px;
   box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.349);
   transform: translateY(25px);
+  overflow: hidden;
 }
 
 
@@ -228,8 +230,147 @@
     transition: 1s ease-in-out;
 }
 .hr{
-    width: 500px;
+    width: 80%;
     height: 3px;
     color: grey;
 }
 
+
+/* chnage password label*/
+.chnageMain{
+  width: 700px;
+  height: 500px;
+  transform: translate(800px,100px);
+  border: 5px solid black;
+  background-color: white;
+  margin-left: -700px;
+  color: black;
+  border-radius: 20px;
+  border: 2px solid black;
+  transition: ease-in-out 0.5s;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
+  padding: 10px;
+}
+.activeChange{
+  transform: translate(-200px,100px);
+}
+
+.chnage_Save{
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+  padding: 10px 35px;
+  transform: translate(200%,10px);
+  background-color: rgba(158, 77, 182, 1);
+  border-radius: 5px;
+  color: white;
+}
+
+.changeX{
+  transform: translate(650px,0px);
+  font-size: 30px;
+  color: rgba(158, 77, 182, 1);
+  cursor: pointer;
+}
+.change_inpCont{
+  display: flex;
+  width: 100%;
+  background-color: rgba(242, 242, 242, 1);
+}
+.change_inpCont .change_inp{
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  height: 100%;
+
+}
+.change_inpCont .chnage_eye{
+  cursor: pointer;
+  transform: translate(-10px,10px);
+}
+.MainChange{
+  display: grid;
+  gap: 20px;
+}
+.shareHeader{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+/* lougout pop-up*/
+
+
+.outCont{
+  width: 700px;
+  height: 350px;
+  transform: translate(800px,150px);
+  border: 5px solid black;
+  background-color: white;
+  margin-left: -700px;
+  color: black;
+  border-radius: 20px;
+  border: 2px solid black;
+  transition: ease-in-out 0.5s;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
+  padding: 10px;
+}
+.outActive{
+  transform: translate(-400px,150px);
+}
+
+.outIcon{
+  font-size: 60px;
+  color:rgba(158, 77, 182, 1);
+  transform: translate(300px,0px);
+  background-color: rgba(158, 77, 182, 0.09);
+  padding: 15px;
+  border-radius: 50%;
+}
+.outX{
+  transform: translate(650px,0px);
+  font-size: 30px;
+  color: rgba(158, 77, 182, 1);
+  cursor: pointer;
+}
+.outBC{
+  display: flex;
+  gap: 20px;
+  transform: translate(-45%);
+}
+.outY{
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+  padding: 10px 35px;
+  transform: translateX(130%);
+  background-color: rgba(158, 77, 182, 1);
+  border-radius: 5px;
+  color: white;
+  width: 40%;
+}
+.outN{
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+  padding: 10px 35px;
+  transform: translateX(130%);
+  background-color: white;
+  border-radius: 5px;
+  color: rgba(158, 77, 182, 1);
+  width: 40%;
+}
+.outTitle{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.outpara{
+  text-align: center;
+  color: rgba(145, 145, 145, 1);
+  scale: 1.2;
+}

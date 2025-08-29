@@ -1,6 +1,5 @@
-import  { useState } from 'react';
+import  {  useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  } from '@fortawesome/free-solid-svg-icons';
 import {
   faEdit,
   faCar,
@@ -16,7 +15,14 @@ import {
   faShieldAlt,
   faStar,
   faCalendarAlt,
-  faClock
+  faClock,
+  faCircleExclamation,
+  faLocationDot,
+  faShareNodes,
+  faCircleXmark,
+  faEye,
+  faPowerOff,
+  faEyeSlash
 } from '@fortawesome/free-solid-svg-icons';
 
 import Styles from '../../styles/profile/Main.module.css';
@@ -25,6 +31,7 @@ import Fav from '../../styles/profile/Favorities.module.css';
 import Payement from '../../styles/profile/Payment.module.css';
 import Rides from '../../styles/profile/Rides.module.css';
 import Img from '../../images/profile pic.png';
+import mapsImage from '../../images/maps.png';
 
 
 import PorscheImage from '../../images/porsche.png';
@@ -36,8 +43,10 @@ import MiniCooperImage from '../../images/car-mini.png';
 import ProfileImg from '../../images/profile pic.png';
 
 import Audixrides from '../../images/rides_audi.png';
+import { faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
-function ProfilePage() {
+function ProfilePage({ slideOut,setSlideOut }) {
   // --profile part -- //
   const [activeTab, setActiveTab] = useState('profile');
   const [RidesTab, setRidesTab] = useState('active');
@@ -47,6 +56,27 @@ function ProfilePage() {
     email: 'esther@email.com',
     phone: '+44 126 456 8595'
   });
+  const profileMainRef = useRef(null);
+  const profileContainerRef = useRef(null);
+  const [isActive, setIsActive] = useState(false);
+
+  const [isActiveCancel, setIsActiveCancel] = useState(false);
+  const [isChangedActive, setChangeActive] = useState(false);
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [password, setPassword] = useState('password');
+
+  const [isVisibleO, setIsVisibleO] = useState(false);
+  const [ setPasswordO] = useState('password');
+
+  const [isVisibleT, setIsVisibleT] = useState(false);
+  const [ setPasswordT] = useState('password');
+  
+
+
+
+  const [pickupAddress] = useState('1813 Casper Mountains, East Alycia 72127-5384');
+  const [dropoffAddress] = useState('199 Kling Coves, Morissetteside 63526-7183');
 
   const handleEdit = () => {
     setIsEditing(!isEditing);
@@ -57,11 +87,7 @@ function ProfilePage() {
     setProfile(prev => ({ ...prev, [name]: value }));
   };
 
-  const handlePasswordChange = () => {
-    // Implement password change functionality here
-    console.log("Change password clicked");
-  };
-
+ 
   // --Messages part -- //
 
   const conversations = [
@@ -135,6 +161,54 @@ function ProfilePage() {
     }
   ];
 
+  const paymentHistory = [
+    {
+      id: 1,
+      title: "Porsche Cayenne",
+      date: "15 Feb 2024 · 12:00 pm - 16 Feb 2024 · 12:00 pm",
+      user: "Sergey Ray",
+      rating: 4.9,
+      amount: 250,
+      currency: "£",
+      status: "Paid",
+      Img:PorscheImage
+    },
+    {
+      id: 2,
+      title: "BMW X5",
+      date: "5 Apr 2024 · 2:00 pm - 7 Apr 2024 · 2:00 pm",
+      user: "Jamie Lee",
+      rating: 3.80,
+      amount: 320,
+      currency: "£",
+      status: "Paid",
+      Img: RollsRoyceImage
+    },
+    {
+      id: 3,
+      title: "Audi Q7",
+      date: "20 May 2024 · 10:00 am - 22 May 2024 · 10:00 am",
+      user: "Taylor Smith",
+      rating: 4.50,
+      amount: 290,
+      currency: "£",
+      status: "Paid",
+      Img:LamborghiniImage
+    },
+    {
+      id: 4,
+      title: "Rolls Royce Cullinan",
+      date: "20 May 2024 · 10:00 am - 22 May 2024 · 10:00 am",
+      user: "Sergey Ray",
+      rating: 4.50,
+      amount: 290,
+      currency: "£",
+      status: "Paid",
+      Img:RollsRoyceImage
+    }
+  ];
+
+
   const renderContent = () => {
     switch(activeTab) {
       case 'profile':
@@ -160,7 +234,7 @@ function ProfilePage() {
                 <p className={Styles["profile-info"]}>{profile.name}</p>
               )}
             </div>
-            <hr/>
+            <hr className={Styles["hr"]}/>
             <div className={Styles["profile-field"]}>
               <h2>Email Address</h2>
               {isEditing ? (
@@ -175,7 +249,7 @@ function ProfilePage() {
                 <p className={Styles["profile-info"]}>{profile.email}</p>
               )}
             </div>
-            <hr/>
+            <hr className={Styles["hr"]}/>
             <div className={Styles["profile-field"]}>
               <h2>Phone Number</h2>
               {isEditing ? (
@@ -201,28 +275,69 @@ function ProfilePage() {
               </button>
               <button 
                 className={Styles["password-btn"]}
-                onClick={handlePasswordChange}
+                onClick={() => setChangeActive(prev => !prev)}
               >
                 <FontAwesomeIcon icon={faKey} /> Change Password
               </button>
             </div>
+
           </div>
         );
       case 'Rides':
         switch(RidesTab) {
             case 'completed':
                 return(
+                  <div className={Rides.complitedCont}>
                     <div className={Rides.contB}>
                             <button onClick={() => {
                         setRidesTab('active');
-                        document.querySelector(`.${Styles["profile-main"]}`).style.height = '1000px';
-                        document.querySelector(`.${Styles["profile-container"]}`).style.height = '1200px';
+                        profileMainRef.current.style.height = '1900px';
+                        profileContainerRef.current.style.height = '2000px';
                         }} className={Rides.mainTitle}>Active Rides</button>
                             <button onClick={() => {
                         setRidesTab('completed');
-                        document.querySelector(`.${Styles["profile-main"]}`).style.height = '300px';
+                        profileMainRef.current.style.height = '1000px';
+                        profileContainerRef.current.style.height = '1100px';
                         }} className={Rides.mainTitle}>Completed Rides</button>
+                    </div>
+                    <div className={Fav['rent-car-container']}>
+                <div className={Fav['cars-grid']}>
+                    {car.map((car, index) => (
+                    <div key={index} className={Fav['car-cardx']}>
+                        <div className={Fav['image-card']}>
+                            <img src={car.image} alt='' className={Fav['img']} />
+                            <FontAwesomeIcon icon={faHeart} className={Fav['heart-icon']} />
                         </div>
+                        <div className={Fav['car-header']}>
+                            <h2>{car.car}</h2>
+                        </div>
+                        <div className={Fav['car-details']}>
+                            <p className={Fav['insurance']}>
+                            <FontAwesomeIcon icon={car.insurance} /> Insurance Included
+                            </p>
+                            <p className={Fav['mileage']}>
+                            <FontAwesomeIcon icon={faTachometerAlt} /> {car.mileage}
+                            </p>
+                        </div>
+                      
+                        <div className={Fav['price-section']}>
+                            <p className={Fav['price']}>{car.price}</p>
+                            <button className={Fav['reserve-button']}>Reserve</button>
+                        </div>
+                    </div>
+                    ))}
+                </div>
+                <div className={Fav['btns']}>
+                    <div className={Fav['btn-left']}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                    <div className={Fav['btn-p']}>1</div>
+                    <div className={Fav['btn-p']}>2</div>
+                    <div className={Fav['btn-p']}>...</div>
+                    <div className={Fav['btn-p']}>9</div>
+                    <div className={Fav['btn-p']}>10</div>
+                    <div className={Fav['btn-right']}><FontAwesomeIcon icon={faChevronRight} /></div>
+                </div>
+    </div>
+                  </div>
                 );
             default:
                 return(
@@ -230,10 +345,12 @@ function ProfilePage() {
                         <div className={Rides.contB}>
                             <button onClick={() => {
                             setRidesTab('active');
-                            document.querySelector(`.${Styles["profile-main"]}`).Styles.height = '1300px';}} className={Rides.mainTitle}>Active Rides</button>
-                                <button onClick={() => {
+                            profileMainRef.current.style.height = '1900px';
+                            profileContainerRef.current.style.height = '2000px'}} className={Rides.mainTitle}>Active Rides</button>
+                            <button onClick={() => {
                             setRidesTab('completed');
-                            document.querySelector(`.${Styles["profile-main"]}`).Styles.height = '600px';
+                            profileMainRef.current.style.height = '1000px';
+                            profileContainerRef.current.style.height = '1100px';
                             }} className={Rides.mainTitle}>Completed Rides</button>
                         </div>
                         
@@ -244,7 +361,7 @@ function ProfilePage() {
                             Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam. <br/>
                             Vulputate nisl vel diam eu. Risus natoque consectetur.
                             </p>
-                            <button className={Rides.share}>Share</button>
+                            <button className={Rides.share} onClick={() => setIsActive(prev => !prev)}>Share</button>
                         </div>
 
                         <div className={Rides.carDetails}>
@@ -283,7 +400,7 @@ function ProfilePage() {
                                   <div className={Rides.info}>
                                     <strong>Esther Howard</strong><br/>
                                     <p>2,719 Trips | Joined Oct 2015</p><br/>
-                                    <p className={Rides.responseNote}>Typically responds to a clinician</p>
+                                    <p className={Rides.responseNote}>Typically responds in 4 min</p>
                                   </div>  
                             </div>
                         </div>
@@ -293,30 +410,98 @@ function ProfilePage() {
                           {/* Pick-up Section */}
                           <div className={Rides.datetime_section}>
                             <h3 className={Rides.datetime_title}>Pick-up date & time</h3>
-                            <div className={Rides.datetime_row}>
-                              <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
-                              <span>25 Feb 2024</span>
+                            <div className={Rides.datetime_cont}>
+                              <div className={Rides.datetime_row}>
+                                <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
+                                <span>25 Feb 2024</span>
+                              </div>
+                              <div className={`${Rides.datetime_row} ${Rides.x}`}>
+                                <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
+                                <span>12:05 Pm</span>
+                              </div>
                             </div>
-                            <div className={Rides.datetime_row}>
-                              <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
-                              <span>12:05 Pm</span>
-                            </div>
+                            
                           </div>
 
                           {/* Drop-off Section */}
                           <div className={Rides.datetime_section}>
                             <h3 className={Rides.datetime_title}>Drop-off date & time</h3>
-                            <div className={Rides.datetime_row}>
-                              <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
-                              <span>25 Feb 2024</span>
+                            <div className={Rides.datetime_cont}>
+                              <div className={Rides.datetime_row}>
+                                <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
+                                <span>25 Feb 2024</span>
+                              </div>
+                              <div className={`${Rides.datetime_row} ${Rides.x}`}>
+                                <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
+                                <span>12:05 Pm</span>
+                              </div>
                             </div>
-                            <div className={Rides.datetime_row}>
-                              <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
-                              <span>12:05 Pm</span>
-                            </div>
+                            
                           </div>
                         </div>
 
+                        <div className={Rides.divider}></div>
+                         <div className={Rides.mapContainer}>
+                            <div className={Rides.mapLeftSection}>
+                              {/* Pick-up Location */}
+                              <div className={Rides.locationSection}>
+                                <div className={Rides.locationHeader}>
+                                  <div className={Rides.locationTitle}>Pick-up location</div>
+                                  <div className={Rides.editControls}>
+                                    <button className={Rides.editButton}>
+                                      <FontAwesomeIcon icon={faEdit} className={Rides.editIcon} />
+                                      Edit
+                                    </button>
+                                    <FontAwesomeIcon icon={faCircleExclamation} className={Rides.warningIcon} />
+                                  </div>
+                                </div>
+                                <div className={Rides.addressDisplay}>
+                                  <FontAwesomeIcon icon={faLocationDot} className={Rides.locationIcon} />
+                                  <span>{pickupAddress}</span>
+                                </div>
+                              </div>
+
+                              {/* Drop-off Location */}
+                              <div className={Rides.locationSection}>
+                                <div className={Rides.locationHeader}>
+                                  <div className={Rides.locationTitle}>Drop-off location</div>
+                                  <div className={Rides.editControls}>
+                                    <button className={Rides.editButton}>
+                                      <FontAwesomeIcon icon={faEdit} className={Rides.editIcon} />
+                                      Edit
+                                    </button>
+                                    <FontAwesomeIcon icon={faCircleExclamation} className={Rides.warningIcon} />
+                                  </div>
+                                </div>
+                                <div className={Rides.addressDisplay}>
+                                  <FontAwesomeIcon icon={faLocationDot} className={Rides.locationIcon} />
+                                  <span>{dropoffAddress}</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className={Rides.mapRightSection}>
+                              <img src={mapsImage} className={Rides.mapImage} alt="Map view" />
+                            </div>
+                        </div>
+                        <div className={Rides.totalCont}>
+                          <div className={Rides.totalOne}>
+                            <div className={Rides.totalPara}>Total amount</div>
+                            <div className={Rides.totalAmount}>£161</div>
+                          </div>
+                          <button className={Rides.pay} onClick={() =>setActiveTab('confirmPay')}>Pay</button>
+                        </div>
+                        <button className={Rides.cancel} onClick={() => setIsActiveCancel(true)}>Cancel</button>
+                        <div className={Rides.reportCont}>
+                          <h1 className={Rides.reportHead}>Report</h1>
+                          <form>
+                            <label>Booking Id</label>
+                            <input placeholder='Enter booking ID' className={Rides.reportInput} type='text'/>
+                            <label>Description</label>
+                            <textarea placeholder='inputs' className={Rides.reportInput} cols={10} rows={30}></textarea>
+                            <button type='submit' className={Rides.reportSub}>Submit</button>
+                          </form>
+                        </div>
 
                   </div>
                 );
@@ -343,7 +528,7 @@ function ProfilePage() {
                             <FontAwesomeIcon icon={faTachometerAlt} /> {car.mileage}
                             </p>
                         </div>
-                        <hr/>
+                     
                         <div className={Fav['price-section']}>
                             <p className={Fav['price']}>{car.price}</p>
                             <button className={Fav['reserve-button']}>Reserve</button>
@@ -433,7 +618,35 @@ function ProfilePage() {
         );
       case 'payments':
         return (
-             <div className={Payement.paymentContainer}>
+            <div className={Payement.payments_container}>
+              {paymentHistory.map((payment) => (
+                
+                <div key={payment.id} className={Payement.payment_card}>
+                  <div className={Rides.carImg}>
+                    <img src={payment.Img} alt='' className={Payement.payement_Img} />
+                  </div>
+                  <div className={Payement.paymentSpart}>
+                    <h2 className={Payement.payment_title}>{payment.title}</h2>
+                    <p className={Payement.payment_date}>{payment.date}</p>
+                    <p className={Payement.payment_user}>
+                      <img src={ProfileImg} alt='' className={Payement.imgProfile} />
+                      <span className={Payement.user_name}>{payment.user}</span>
+                      <span className={Payement.user_rating}>★{payment.rating}</span>
+                      
+                    </p>
+                  </div>
+                  <div className={Payement.payment_footer}>
+                    <span className={Payement.payment_status}>{payment.status}</span>
+                    <span className={Payement.payment_amount}>{payment.currency} {payment.amount}</span>
+                  </div>
+                  
+                </div>
+              ))}
+            </div>
+        );
+      case 'confirmPay':
+        return (
+        <div className={Payement.paymentContainer}>
                 <h1 className={Payement.paymentTitle}>Card Information</h1>
                 <div className={Payement.row}>
                     <div className={Payement.formGroup}>
@@ -473,18 +686,19 @@ function ProfilePage() {
                 </div>
 
                 <div className={Payement.buttonGroup}>
-                    <button  className={Payement.payButton}>Pay Now</button>
+                    <button  className={Payement.payButton} onClick={() => setActiveTab('ConfirmPay')}>Pay Now</button>
                     <button className={Payement.cancelButton}>Cancel</button>
                 </div>
-    </div>
-        );
+              </div>
+        );;
+        
       default:
         return <div>Profile Content</div>;
     }
   };
 
   return (
-    <div className={Styles["profile-container"]}>
+    <div ref={profileContainerRef} className={Styles["profile-container"]}>
       <div className={Styles["profile-sidebar"]}>
         <div className={Styles["profile-header"]}>
           <div className={Styles["profile-avatar"]}></div>
@@ -507,11 +721,11 @@ function ProfilePage() {
 
         <nav className={Styles["profile-nav"]}>
           <button 
-            className={`${Styles["nav-item"]} ${activeTab === 'Rides' ? Styles.active : ''}`}
+            className={`${Styles["nav-item"]} ${activeTab === 'Rides' || activeTab === 'confirmPay'  ? Styles.active : ''}`}
             onClick={() => {
                 setActiveTab('Rides')
                 document.querySelector(`.${Styles["profile-main"]}`).style.height = '1000px';
-                document.querySelector(`.${Styles["profile-container"]}`).style.height = '1200px';
+                document.querySelector(`.${Styles["profile-container"]}`).style.height = '1100px';
             }}
           >
             <FontAwesomeIcon className={Styles['logo']}  icon={faCar} /> <div className={Styles['cate']}>Rides</div>
@@ -524,8 +738,8 @@ function ProfilePage() {
             className={`${Styles["nav-item"]} ${activeTab === 'favorites' ? Styles.active : ''}`}
             onClick={() => {
                 setActiveTab('favorites');
-                document.querySelector(`.${Styles["profile-main"]}`).style.height = '800px';
-                document.querySelector(`.${Styles["profile-container"]}`).style.height = '900px';
+                document.querySelector(`.${Styles["profile-main"]}`).style.height = '900px';
+                document.querySelector(`.${Styles["profile-container"]}`).style.height = '1000px';
             }}
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faHeart} /> <div className={Styles['cate']}>My Favorites</div>
@@ -538,8 +752,8 @@ function ProfilePage() {
             className={`${Styles["nav-item"]} ${activeTab === 'messages' ? Styles.active : ''}`}
             onClick={() => {
                 setActiveTab('messages')
-                document.querySelector(`.${Styles["profile-main"]}`).style.height = '650px';
-                document.querySelector(`.${Styles["profile-container"]}`).style.height = '700px';
+                document.querySelector(`.${Styles["profile-main"]}`).style.height = '700px';
+                document.querySelector(`.${Styles["profile-container"]}`).style.height = '800px';
             }}
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faEnvelope} /> <div className={Styles['cate']}>My Messages</div>
@@ -550,7 +764,11 @@ function ProfilePage() {
         <nav className={Styles["profile-nav"]}>
           <button 
             className={`${Styles["nav-item"]} ${activeTab === 'payments' ? Styles.active : ''}`}
-            onClick={() => setActiveTab('payments')}
+            onClick={() => {setActiveTab('payments')
+            profileContainerRef.current.style.height = '1000px'
+            profileMainRef.current.style.height = '900px'
+          }}
+            
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faHistory} /> <div className={Styles['cate']}>Payement History</div>
           </button>
@@ -558,8 +776,9 @@ function ProfilePage() {
         </nav>
       </div>
       
-      <div className={Styles["profile-main"]}>
+      <div ref={profileMainRef} className={Styles["profile-main"]}>
         <h1 className={Styles["content-title"]}>
+          {activeTab === 'ConfirmPay' && 'Payement'}
           {activeTab === 'profile' && 'My Profile'}
           {activeTab === 'Rides' && 'My Rides'}
           {activeTab === 'favorites' && 'My Favorites'}
@@ -568,7 +787,77 @@ function ProfilePage() {
         </h1>
         {renderContent()}
       </div>
+      <div className={`${Rides.ShareCont} ${isActive ? Rides.active : ""}`}>
+        <FontAwesomeIcon icon={faCircleXmark} className={Rides.shareX} onClick={() => setIsActive(false)} /> <br/>
+        <FontAwesomeIcon icon={faShareNodes} className={Rides.shareIcon}/>
+        <div className={Rides.shareHeader}>Share the trip via</div>
+        <div className={Rides.sharePara}>Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam. Vulputate nisl vel diam eu. Risus natoque.</div>
+        <div className={Rides.btnCont}>
+          <button className={Rides.btns}>
+            <FontAwesomeIcon icon={faWhatsapp} className={Rides.icon} />
+            Whatsapp
+          </button>
+          <button className={Rides.btns}>
+            <FontAwesomeIcon icon={faFacebook} className={Rides.icon} />
+            Facebook
+          </button>
+        </div>
+      </div>
+      <div className={`${Rides.CancelCont} ${isActiveCancel ? Rides.activeCancel : ""}`}>
+        <FontAwesomeIcon icon={faCircleXmark} className={Rides.shareX} onClick={() => setIsActiveCancel(false)} /> <br/>
+        <div className={Rides.shareHeader}>Are you sure want to cancel?</div>
+        <div className={Rides.cancelMain}>
+          <div className={Rides.cancelH}>Cancellation Policy</div>
+          <div className={Rides.cancelPara}>Lorem ipsum dolor sit amet consectetur. Fermentum mi sed turpis adipiscing pellentesque ut odio mauris praesent. Neque adipiscing ut at est id tortor feugiat. Non enim blandit tincidunt molestie commodo diam arcu fermentum. Eget felis urna placerat lobortis volutpat sed lorem sit. </div>
+          <div className={Rides.cancelPara}>Nullam elit amet tortor gravida odio enim. Mauris ut at mattis gravida sed neque mattis at. Dui nascetur velit non et felis. Lectus ornare mauris adipiscing et et faucibus pellentesque nulla. Id aliquam elit fermentum tincidunt risus.</div>
+          <div className={Rides.cancelP}>Let us know the reason</div>
+          <select className={Rides.select}>
+            <option selected value={'select the reaseon'}>select the reaseon</option>
+            <option value={'opt'}>opt</option>
+            <option value={'opt'}>opt</option>
+            <option value={'opt'}>opt</option>
+            <option value={'opt'}>opt</option>
+          </select><br/>
+          <button className={Rides.cancelConfirm} >Cancel</button>
+        </div>
+      </div>
+      <div className={`${Styles.chnageMain} ${isChangedActive  ? Styles.activeChange : ""}`}>
+        <FontAwesomeIcon icon={faCircleXmark} className={Styles.changeX} onClick={() => setChangeActive(false)}  /> <br/>
+        <div className={Styles.shareHeader}>Change Password</div>
+        <div className={Styles.MainChange}>
+          <label className={Styles.chnage_text}>Old Password</label>
+          <div className={Styles.change_inpCont}>
+            <input type={isVisible ? 'text' : 'password'} value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********'  className={Styles.change_inp}  />
+            <FontAwesomeIcon icon={isVisible ? faEyeSlash : faEye} onClick={() => setIsVisible(prev => !prev)} className={Styles.chnage_eye}/>
+          </div>
+          <label className={Styles.chnage_text}>New Password</label>
+          <div className={Styles.change_inpCont}>
+            <input type={isVisibleO ? 'text' : 'password'} value={password} onChange={(e) => setPasswordO(e.target.value)} placeholder='*********'  className={Styles.change_inp}  />
+            <FontAwesomeIcon icon={isVisibleO ? faEyeSlash : faEye} onClick={() => setIsVisibleO(prev => !prev)} className={Styles.chnage_eye}/>
+          </div>
+          <label className={Styles.chnage_text}>Confirm Password</label>
+          <div className={Styles.change_inpCont}>
+            <input type={isVisibleT ? 'text' : 'password'} value={password} onChange={(e) => setPasswordT(e.target.value)} placeholder='*********'  className={Styles.change_inp}  />
+            <FontAwesomeIcon icon={isVisibleT ? faEyeSlash : faEye} onClick={() => setIsVisibleT(prev => !prev)} className={Styles.chnage_eye}/>
+          </div>
+        </div>
+        <button className={Styles.chnage_Save} >Save</button>
+      </div>
+
+      <div className={`${Styles.outCont} ${slideOut ? Styles.outActive : ""}`}>
+        <FontAwesomeIcon icon={faCircleXmark} className={Styles.outX} onClick={() => setSlideOut(false)} /> <br/>
+        <FontAwesomeIcon icon={faPowerOff} className={Styles.outIcon}/>
+        <div className={Styles.outTitle}>Are You Sure Want to Logout? </div>
+        <div className={Styles.outpara}>Lorem ipsum dolor sit amet, consectetur adipiscing elit sagittis. </div>
+        <div className={Styles.outBC}>
+          <Link to={'/login'} className={Styles.outY} >Yes</Link>
+          <button onClick={() => setSlideOut(false)} className={Styles.outN} >Cancel</button>
+        </div>
+        
+      
+      </div>
     </div>
+    
   );
 }
 

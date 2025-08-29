@@ -99,7 +99,7 @@ function Login() {
         
         <div className={style.check_cont}>
           <p>Don't have an account?</p>
-          <Link to="/SignIn">Sign Up</Link>
+          <Link className={style.signIn} to="/SignIn">Sign Up</Link>
         </div>
       </div>
     </div>

@@ -197,8 +197,7 @@
 .datetime_container {
   display: flex;
   gap: 20px;
-  font-family: 'Arial', sans-serif;
-  max-width: 500px;
+  width: 100%;
   margin: 20px;
   padding: 20px;
   background-color: white;
@@ -207,10 +206,16 @@
 }
 
 .datetime_section {
-  display: flex;
+  display: inline-block;
   margin-bottom: 20px;
+  width: 100%;
 }
-
+.datetime_cont{
+  background-color: rgba(242, 242, 242, 1);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
 .datetime_section:last-child {
   margin-bottom: 0;
 }
@@ -223,16 +228,343 @@
 }
 
 .datetime_row {
-  display: flex;
+  display: inline;
   align-items: center;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 18px;
   color: #555;
+  
+}
+span{
+  color: rgba(177, 177, 177, 1);
+}
+.x{
+  border-left: rgba(226, 226, 226, 1) 2px solid; 
+  margin-left: 20px;
+  padding-left: 20px;
+
 }
 
 .datetime_icon {
   margin-right: 10px;
   color: #666;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+/* Main Container */
+.mapContainer {
+  display: flex;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  height: 300px;
+}
+
+/* Left Section (Location Info) */
+.mapLeftSection {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+}
+
+/* Location Section Styling */
+.locationSection {
+  margin-bottom: 24px;
+  border: 1px solid rgba(242, 242, 242, 1);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.locationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.locationTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.editControls {
+  display: flex;
+  align-items: center;
+  transform: translateX(-150px);
+  gap: 12px;
+}
+
+.editButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: #9E4DB6;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.editButton:hover {
+  background-color: #f5f5f5;
+}
+
+.editIcon {
+  font-size: 14px;
+}
+
+.warningIcon {
+  color: #ff9800;
+  font-size: 16px;
+}
+
+.addressDisplay {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.locationIcon {
+  color: #9E4DB6;
+  margin-top: 2px;
+  font-size: 16px;
+}
+
+/* Right Section (Map) */
+.mapRightSection {
+  flex: 1;
+  min-height: 200px;
+  border-left: 1px solid #e0e0e0;
+}
+
+.mapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.locationSection:last-child{
+  margin-top: 50px;
+}
+
+
+.totalCont{
+  display: flex;
+  width: 100%;
+  background-color: rgba(246, 246, 246, 1);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 30px;
+}
+.totalPara{
+  font-size: 24px;
+  color: rgba(145, 145, 145, 1);
+  
+}
+.totalOne{
+  display: flex;
+  width: 300px;
+  transform: translateY(10px);
+  gap: 10px;
+}
+.totalAmount{
+  color: rgba(49, 0, 64, 1);
+  font-size: 20px;
+  width: auto;
+  transform: translate(5px,2px);
+}
+.pay{
+  transform: translateX(430px);
+  color: white;
+  background-color: rgba(158, 77, 182, 1);
+  font-size: 20px;
+  padding: 15px 40px; 
+  border-radius: 10px;
+}
+.cancel{
+  width: 100%;
+
+  font-size: 30px;
+  color: white;
+  background-color: rgba(158, 77, 182, 1);
+  margin-top: 10px;
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+
+
+
+/* report */
+
+.reportCont{
+  border: 1px solid rgba(242, 242, 242, 1);
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.reportInput{
+  width: 100%;
+  background-color: rgba(242, 242, 242, 1);
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  margin: 10px 0; 
+}
+label{
+  font-weight: bold;
+}
+.reportSub{
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  font: bold;
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+
+
+
+/*Share pop-up test*/
+
+.ShareCont{
+  width: 600px;
+  height: 400px;
+  color: black;
+  border-radius: 20px;
+  border: 2px solid black;
+  transform: translate(600px,200px);
+  margin-left: -600px;
+  transition: ease-in-out 0.5s;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
+}
+
+.active{
+  transform: translate(-400px,200px);
+}
+
+.shareX{
+  transform: translate(563px,8px);
+  font-size: 30px;
+  color: rgba(158, 77, 182, 1);
+  cursor: pointer;
+}
+.shareIcon{
+  font-size: 60px;
+  color:rgba(158, 77, 182, 1);
+  transform: translate(270px,0px);
+  background-color: rgba(158, 77, 182, 0.09);
+  padding: 15px;
+  border-radius: 50%;
+}
+.shareHeader{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+.sharePara{
+  text-align: center;
+  font-size: 20px;
+  color: rgba(145, 145, 145, 1);
+}
+
+.btnCont{
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.btns{
+  width: 45%;
+  font-size: 25px;
+  padding: 10px;
+  background-color: transparent;
+  color: rgba(158, 77, 182, 1);
+  border: 1px solid rgba(158, 77, 182, 1);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.icon{
+  margin-right: 10px;
+}
+
+
+/* cancel pop-up*/
+
+.CancelCont{
+  width: 600px;
+  height: 550px;
+  color: black;
+  border-radius: 20px;
+  border: 2px solid black;
+  transform: translate(600px,1000px);
+  margin-left: -600px;
+  transition: ease-in-out 0.5s;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
+}
+.activeCancel{
+  transform: translate(-400px,1000px);
+}
+.cancelH{
+  color: rgba(6, 6, 6, 1);
+  font-size: 20px;
+}
+.cancelMain{
+  margin: 20px;
+  width: 94%;
+
+}
+.cancelH{
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.cancelPara{
+  margin-bottom: 30px;
+  color: rgba(145, 145, 145, 1);
+}
+.cancelP{
+  font-weight: 500;
+  font-size: 20px;
+}
+.cancelConfirm{
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+  padding: 10px 35px;
+  transform: translateX(130%);
+  background-color: rgba(158, 77, 182, 1);
+  border-radius: 5px;
+  color: white;
+}
+.select{
+  width: 100%;
+  font-size: 30px;
+  background-color: rgba(242, 242, 242, 1);
+  color: rgba(177, 177, 177, 1);
+  padding: 10px;
+  margin-top: 10px;
 }

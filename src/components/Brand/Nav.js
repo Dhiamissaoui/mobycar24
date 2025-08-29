@@ -33,7 +33,7 @@ function Navbar() {
         <Link  to='/' className={styles['navbar-logo']}>MOBY<span>CAR24</span></Link>
         
         <div className={styles['nav-menu']}>
-          <Link to='' className={styles['nav-link']}>Become A Service Provider</Link>
+          <Link to='/service' className={styles['nav-link']}>Become A Service Provider</Link>
           <Link to='/brand' className={styles['nav-link']}>Brand<div className={styles['circle']}/></Link>
           <Link to='/rent' className={styles['nav-link']}>Rent A Car</Link>
           
@@ -67,7 +67,7 @@ function Navbar() {
           
           <Link to='/login' className={styles['nav-login']}>
             <FontAwesomeIcon icon={faUser} className={styles['user-icon']} />
-            <span>Login</span>
+            <span className={styles['login']}>Login</span>
           </Link>
         </div>
       </div>

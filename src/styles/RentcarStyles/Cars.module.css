@@ -1,8 +1,10 @@
 .rent-car-container {
+  display: flex;
   max-width: 1300px;
   margin: 0 auto;
   padding: 2rem;
   font-family: 'Arial', sans-serif;
+  overflow: hidden
 }
 
 .page-title {
@@ -197,6 +199,7 @@
     padding: 15px;
     border-radius: 5px;
     transform: translateX(70px);
+    cursor: pointer;
 }
 .btns{
   display: flex;
@@ -228,4 +231,139 @@ h2{
   font-size: 20px;
   width: 380px;
   margin-right: 5px;
+}
+
+
+.rent-car-F{
+  width: 100%;
+}
+
+/*Filter pop-up*/
+.filter-btn-cont{
+  padding: 20px;
+  margin-left: -600px;
+  width: 600px;
+  height: 800px;
+  transform: translate(800px);
+  background-color: white;
+  border-radius: 20px;
+  border: 5px solid black;
+  transition: ease-in-out 0.5s;
+}
+
+.filter-btn-cont.remove {
+  transform: translateX(-300px);
+}
+.filter-close{
+  transform: translate(530px,-10px);
+  font-size: 30px;
+  color: rgba(158, 77, 182, 1);
+  cursor: pointer;
+}
+.filter-title{
+  font-weight: bold;
+  font-size: 25px;
+}
+.filter-icon{
+  margin-right: 10px;
+}
+.filter-main{
+  display: grid;
+}
+.filter-name{
+  color: rgba(57, 57, 57, 1);
+  font-size: 25px;
+}
+.filter-cat,.filter-Btype{
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-box{
+  border-radius: 10px;
+  background-color: rgba(19, 88, 107, 0.05);
+  font-size: 20px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+.filter-box:nth-child(1){
+  border-radius: 10px;
+  background-color:rgba(158, 77, 182, 1);
+  font-size: 20px;
+   padding: 0 20px;
+  cursor: pointer;
+  color: white;
+}
+.filter-box:nth-child(1).active{
+  background-color: rgba(19, 88, 107, 0.05) ;
+  color: black;
+}
+.active{
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+}
+
+/* checkbox*/
+
+/* Container */
+.filter-Rtype {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+  margin:20px 0;
+}
+.rental-option {
+  display: flex;
+  align-items: center;
+}
+.checked{
+  color: purple;
+}
+.hidden-checkbox{
+  width: 20px;
+}
+
+
+/*  select car */
+
+
+.filter-brandCont{
+  width: 100%;
+}
+
+.allB{
+  width: 50%;
+  font-size: 25px;
+  margin: 20px 0;
+  background-color: rgba(242, 242, 242, 1);
+  border: none;
+  border-radius: 20px;
+  padding: 5px;
+  text-align: center;
+}
+
+.filter-btnC{
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+.filter-aplly{
+  width: 70%;
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.filter-clear{
+  width: 30%;
+  background-color: white;
+  color: rgba(158, 77, 182, 1);
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 15px;
 }

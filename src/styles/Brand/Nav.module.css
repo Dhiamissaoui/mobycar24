@@ -114,6 +114,7 @@
 .currency-icon{
   transform: translate(-5px ,3px);
   font-size: 25px;
+  color: white;
 }
 
 .circle{
@@ -122,4 +123,8 @@
   width: 5px;
   height: 5px;
   border-radius:50% ;
+}
+
+.login{
+  color: white;
 }

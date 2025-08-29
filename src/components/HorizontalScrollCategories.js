@@ -10,7 +10,7 @@ import {
   faCarRear,
   faTruckPickup
 } from '@fortawesome/free-solid-svg-icons';
-import '../styles/HorizontalScrollCategories.css';
+import Styles from '../styles/HorizontalScrollCategories.module.css';
 
 function HorizontalScrollCategories() {
   const scrollRef = useRef(null);
@@ -37,62 +37,63 @@ function HorizontalScrollCategories() {
   };
 
   return (
-    <div className="scroll-container">
-      <h1 className="section-title">Categories</h1>
-       <ul className='cat-list'>
-        <li 
-          className={activeTab === 'Popular' ? 'active' : ''}
-          onClick={() => setActiveTab('Popular')}
-        >
-          Popular
-        </li>
-        <li 
-          className={activeTab === 'Body Type' ? 'active' : ''}
-          onClick={() => setActiveTab('Body Type')}
-        >
-          Body Type
-        </li>
-        <li 
-          className={activeTab === 'Rent Type' ? 'active' : ''}
-          onClick={() => setActiveTab('Rent Type')}
-        >
-          Rent Type
-        </li>
-      </ul>
-      <div className="scroll-wrapper">
-        <button 
-          className="scroll-btn left" 
-          onClick={() => scroll('left')}
-          aria-label="Scroll left"
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
-        
-          <div className="vehicle-types" ref={scrollRef}>
-          {vehicleTypes.map((type, index) => (
-            <div key={index}
-            className='vehicle-card'>
-              <div className="vehicle-icon">
-                <FontAwesomeIcon icon={type.icon} className='car' size="2x" />
-              </div>
-              <div className='circle'/>
-              <div className='cd'>
-                <h3 className='name' size='18px'>{type.name}</h3>
-                <div className='number'>{type.num}vehicle</div>
-              </div>
+    <div className={Styles.scrollContainer}>
+  <div className={Styles.sectionTitle}>Categories</div>
+  
+    <ul className={Styles.catList}>
+      <li 
+        className={activeTab === 'Popular' ? Styles.active : ''} 
+        onClick={() => setActiveTab('Popular')}
+      >
+        Popular
+      </li>
+      <li 
+        className={activeTab === 'Body Type' ? Styles.active : ''} 
+        onClick={() => setActiveTab('Body Type')}
+      >
+        Body Type
+      </li>
+      <li 
+        className={activeTab === 'Rent Type' ? Styles.active : ''} 
+        onClick={() => setActiveTab('Rent Type')}
+      >
+        Rent Type
+      </li>
+    </ul>
+
+    <div className={Styles.scrollWrapper}>
+      <button 
+        className={`${Styles.scrollBtn} ${Styles.left}`} 
+        onClick={() => scroll('left')}
+        aria-label="Scroll left"
+      >
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </button>
+
+      <div className={Styles.vehicleTypes} ref={scrollRef}>
+        {vehicleTypes.map((type, index) => (
+          <div key={index} className={Styles.vehicleCard}>
+            <div className={Styles.vehicleIcon}>
+              <FontAwesomeIcon icon={type.icon} className={Styles.car} size="2x" />
             </div>
-          ))}
+            <div className={Styles.circle} />
+            <div className={Styles.cd}>
+              <h3 className={Styles.name}>{type.name}</h3>
+              <div className={Styles.number}>{type.num} vehicle</div>
+            </div>
         </div>
-        
-        <button 
-          className="scroll-btn right" 
-          onClick={() => scroll('right')}
-          aria-label="Scroll right"
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
-      </div>
+      ))}
     </div>
+
+    <button 
+      className={`${Styles.scrollBtn} ${Styles.right}`} 
+      onClick={() => scroll('right')}
+      aria-label="Scroll right"
+    >
+      <FontAwesomeIcon icon={faChevronRight} />
+    </button>
+  </div>
+</div>
   );
 }
 

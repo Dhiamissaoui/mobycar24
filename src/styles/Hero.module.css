@@ -8,16 +8,17 @@
   width: 100%;
   transform: translateY(100%);
 
+
 }
 
-.hero-content {
+.hero_content {
   transform: translateY(00px);
   max-width: 800px;
   padding: 0 20px;
   z-index: 2;
 }
 
-.hero h1 {
+.head {
   margin-bottom: -10px;
   width: 150%;
   transform: translate(-20%,-20%);
@@ -30,7 +31,7 @@
   text-transform: uppercase;
 }
 
-.hero p {
+.para {
   font-size: 1.2rem;
   line-height: 1.6;
   font-family: Roboto;

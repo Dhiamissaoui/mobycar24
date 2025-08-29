@@ -4,7 +4,7 @@
 .container {
   display: flex;
   min-height: 100vh;
-  height: 1000px;
+  height: 1050px;
 }
 
 .Fsection {
@@ -99,11 +99,13 @@
   width:45% ;
 }
 
-.inp h3 {
+
+.lab {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 0.5rem;
+
   color: #333;
+  margin-top: 10px;
 }
 
 /* Input Field Styles */
@@ -262,4 +264,9 @@ p {
 /* Hide the default file input */
 .file_upload_input {
   display: none;
+}
+.signIn{
+  font-weight: bold;
+  color: rgba(158, 77, 182, 1);
+  text-decoration:none;
 }

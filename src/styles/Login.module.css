@@ -192,3 +192,9 @@ p {
 .error{
     color: red;
 }
+
+.signIn{
+  text-decoration: none;
+  font-weight:bold ;
+  color: rgba(158, 77, 182, 1);
+}

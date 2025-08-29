@@ -1,0 +1,197 @@
+.Cont{
+    width: 800px;
+    text-align: center;
+    transform: translate(45%);
+}
+.titleH{
+
+    color: black;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 33px;
+}
+.title{
+    font-size: 40px;
+    margin: 30px 0;
+}
+p{
+   text-align: center;
+   width: 700px;
+}
+.steps{
+    position: relative; 
+    display: flex;
+    width: 100%;
+    margin: 5px;
+    gap: 80px;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px 0; 
+}
+ .textO{
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;  
+    padding: 10px 15px; 
+    font-weight: bold;
+    border-radius: 50%;
+    box-shadow: 10px 20px  10px 3px rgba(158, 77, 182, 0.15);
+    animation: name ease-in-out infinite 2.5s;
+    background-color: purple;
+    color: white;
+}
+@keyframes name
+ {
+    50%{
+        box-shadow: 5px 5px 7px rgba(158, 77, 182, 0.15);
+    }
+}
+
+.step{
+    position: relative; 
+    border-radius: 50%;
+    border: 1px dashed black;
+    padding: 10px;
+    background: white;
+}
+.rightIcon{
+    position: relative; 
+    font-size: 20px;
+    transform: translateY(1px);
+    color: rgba(158, 77, 182, 1);
+}
+.line{
+    position: absolute;
+    width: 60%;
+    height: 1px;
+    border-bottom: 1px dashed rgba(158, 77, 182, 1);
+    top: 50%;
+    left: 20%;
+    z-index: -1;
+}
+
+/* vehicule cont*/
+ 
+.vehiculeInfoCont {
+  box-shadow: 0px 39px 56.9px -26px rgba(0, 0, 0, 0.13);
+  border: 1px solid rgba(242, 242, 242, 1);
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  height: 520px;
+  margin-bottom: 50px;
+}
+
+.box {
+  display: flex;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.boxO, .boxT {
+  flex: 1;
+}
+
+.btn {
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  border: none;
+  padding: 12px 45%;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #7b1fa2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+  }
+  
+  .boxO, .boxT {
+    width: 100%;
+  }
+}
+
+
+
+
+
+/* file upload*/
+
+
+.file_upload {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  height: 60px;
+}
+
+.file_upload h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.file_upload_container {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.file_upload_container:hover {
+  border-color: #aaa;
+  background-color: #f5f5f5;
+}
+
+.file_upload_label {
+  display: block;
+  cursor: pointer;
+  height: 10px;
+}
+
+.file_upload_text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 1rem;
+  transform: translate(-150px,-30%);
+}
+
+.file_upload_button {
+  background-color: #222;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100px;
+  transform: translate(600%,-150%);
+  background-color: rgba(87, 87, 87, 1);
+}
+
+.file_upload_button:hover {
+  background-color: rgba(158, 77, 182, 1);
+}
+
+/* Hide the default file input */
+.file_upload_input {
+  display: none;
+}
+
+

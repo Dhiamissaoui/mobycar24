@@ -64,224 +64,224 @@ function RentCar() {
         </div>
       </div>
       
-      <div className="brands-grid">
+      <div className={styles["brands-grid"]}>
         {/* First Row */}
-        <div className="brand-card">
-          <img src={audiLogo} alt="Audi" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={audiLogo} alt="Audi" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Audi</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={bmwLogo} alt="BMW" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={bmwLogo} alt="BMW" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>BMW</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={ferariLogo} alt="Ferrari" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={ferariLogo} alt="Ferrari" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Ferrari</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
         {/* Second Row */}
-        <div className="brand-card">
-          <img src={lamborghiniLogo} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={lamborghiniLogo} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Lamborghini</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={mercedesLogo} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={mercedesLogo} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Mercedes</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={rangeRoverLogo} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={rangeRoverLogo} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Range Rover</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
         {/* third Row */}
-        <div className="brand-card">
-          <img src={aston} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={aston} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Aston Martin</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={bently} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={bently} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>bently</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={alpha} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={alpha} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Alpha Romeo</h3>
             <p>Starting From £570</p>
           </div>
         </div>
         {/* forth Row */}
-        <div className="brand-card">
-          <img src={cadillac} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={cadillac} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>cadillac</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={chev} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={chev} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>chevrolet</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={dodge} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={dodge} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>Dodge</h3>
             <p>Starting From £570</p>
           </div>
         </div>
         {/* fifth Row */}
-        <div className="brand-card">
-          <img src={fiat} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={fiat} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>fiat</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={ford} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={ford} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>ford</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={gmc} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={gmc} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>GMC</h3>
             <p>Starting From £570</p>
           </div>
         </div>
         {/* six Row */}
-        <div className="brand-card">
-          <img src={honda} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={honda} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>honda</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={hyundai} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={hyundai} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>hyundai</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={infiniti} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={infiniti} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>infiniti</h3>
             <p>Starting From £570</p>
           </div>
         </div>
       
       {/* seven Row */}
-        <div className="brand-card">
-          <img src={jac} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={jac} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>jac</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={jaguar} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={jaguar} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>jaguar</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={jeep} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={jeep} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>jeep</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
         {/* eight Row */}
-        <div className="brand-card">
-          <img src={kia} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={kia} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>kia</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={lexus} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={lexus} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>lexus</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={lincoln} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={lincoln} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>lincoln</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
         {/* nine Row */}
-        <div className="brand-card">
-          <img src={mazerati} alt="Lamborghini" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={mazerati} alt="Lamborghini" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>mazerati</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={mazda} alt="Mercedes" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={mazda} alt="Mercedes" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>mazda</h3>
             <p>Starting From £570</p>
           </div>
         </div>
 
-        <div className="brand-card">
-          <img src={mclaren} alt="Range Rover" className="brand-logo" />
-          <div className="brand-info">
+        <div className={styles["brands-card"]}>
+          <img src={mclaren} alt="Range Rover" className={styles["brand-logo"]} />
+          <div className={styles["brand-info"]}>
             <h3>mclaren</h3>
             <p>Starting From £570</p>
           </div>

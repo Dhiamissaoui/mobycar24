@@ -1,0 +1,193 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  height: 700px;
+  overflow: hidden;
+}
+
+.Fsection {
+  background:linear-gradient(rgba(49, 0, 64, 1),rgba(158, 77, 182, 1)) ;
+  width: 550px;
+}
+
+.Fsection .moby, .Fsection .car {
+  font-size: 103px;
+  color: white;
+  letter-spacing: 2px; /* Adjust to match your reference */
+  z-index: 1;
+  opacity: 3%;
+}
+.container .Fsection .moby{
+  transform: translate(50px,50px);
+}
+.container .Fsection .car{
+  transform: translate(50px,-20px);
+}
+.container .Fsection .number{
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 200px;
+  line-height: 100%;
+  color: white;
+  transform: translate(350px,-250px);
+  opacity: 3%;
+  width: 30%;
+}
+.line{
+  height: 900px;
+  width: 1px;
+  background-color: rgba(237, 237, 237, 1);
+  transform: translate(650px,-550px);
+}
+
+.Fsection img.bg {
+  position: absolute;
+  right: 650px;
+  bottom: 0; /* Adjust based on your image */
+  height: 60%;
+  width: 60%;
+  object-fit: contain;
+  transform: scaleX(1.1); /* Flip horizontally */
+  opacity: 1;
+  z-index: 0;
+}
+
+.Ssection {
+  flex: 1;
+  padding: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  transform: translateY(10%);
+}
+
+
+/*------------------second Part---------------*/
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.header h1 {
+  font-size: 33px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #222;
+  text-align: center
+}
+
+.header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Form Box Styles */
+.box {
+  margin-bottom: 1.5rem;
+}
+
+.inp {
+  margin-bottom: 1rem;
+}
+
+.inp h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Input Field Styles */
+input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+/* File Input Styles */
+input[type="file"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+}
+
+/* Checkbox Styles */
+.check {
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: #333; /* Modern browsers */
+}
+
+.inp label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Submit Button Styles */
+.submit {
+  margin-left: 40%;
+  padding: 1rem;
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.forget{
+  margin-left: 220px;
+  color: rgba(158, 77, 182, 1);
+  text-decoration: none;
+}
+
+.check_cont{
+  transform: translate(30%);
+  margin-top: 20px;
+}
+
+.submit:hover {
+  background-color: #333;
+}
+
+p {
+  display: inline;
+  font-size: 0.9rem;
+  color: #666;
+  margin-right: 0.5rem;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .Fsection {
+    display: none;
+  }
+  
+  .Ssection {
+    padding: 2rem;
+    width: 100%;
+  }
+}
+
+.error{
+    color: red;
+}

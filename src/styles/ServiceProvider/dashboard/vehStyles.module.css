@@ -1,0 +1,226 @@
+.carCont{
+    width: 1190px;
+    height: auto;
+    margin: 20px;
+    background-color: rgba(253, 248, 255, 1);
+    padding: 20px;
+}
+.carbtn{
+    color: white;
+    padding: 5px 20px;
+    font-size: 15px;
+    background-color: rgba(158, 77, 182, 1);
+    border-radius: 10px;
+}
+.carMainCont{
+    background-color: white;
+    padding: 20px;
+}
+.carHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rent-car-container {
+
+  font-family: 'Arial', sans-serif;
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 1rem;
+  
+}
+.title{
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+}
+.hrOne{
+    width: 80%;
+    color: black;
+    opacity: 1;
+}
+.car-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(246, 246, 246, 1);
+  width: 100%;
+  height: 320px;
+  padding: 15px;
+  
+}
+.car-cardx{
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  height: 330px;
+  padding: 15px;
+}
+.heart-icon{
+  display: block;
+
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-card {
+  width: 100%;
+  height: 110px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.heart-icon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #9E4DB6;
+  cursor: pointer;
+  display: block;
+}
+
+.car-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.carName{
+    font-size: 15px;
+    font-weight: bold;
+}
+.car-header h2 {
+  font-size: 17px;
+  color: #222;
+}
+
+.availability {
+  color: rgba(41, 157, 0, 1);
+  background-color: rgba(41, 157, 0, 0.1);
+  border-radius: 20px;
+  font-size: 12px;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.car-details {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.insurance, .mileage {
+  color: rgba(148, 148, 148, 1);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.car-details
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: 10px;
+  transform: translateY(-20px);
+}
+
+.price-section{
+    display: flex;
+    justify-content: space-between;
+}
+.day{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reserve-button {
+  
+  padding: 8px 15px;
+  background-color: rgba(158, 77, 182, 1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.reserve-button:hover {
+  background-color: rgba(158, 77, 182, 0.8);
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 5px;
+  transform: none;
+}
+
+.btn-p, .btn-right, .btn-left {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.btn-p:hover, .btn-right:hover, .btn-left:hover {
+  color: #9E4DB6;
+  border-color: #9E4DB6;
+}
+
+hr {
+  width: 100%;
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
