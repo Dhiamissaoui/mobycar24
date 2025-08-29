@@ -54,7 +54,8 @@ function RentCar() {
     );
   };
 
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedOptions] = useState([]);
+  //removed the setselectionoption for run build
 
 
 
