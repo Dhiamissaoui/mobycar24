@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX, faCheck, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faX,  faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import audi from '../images/audi_car.png'
 import styles from '../styles/Forget.module.css';

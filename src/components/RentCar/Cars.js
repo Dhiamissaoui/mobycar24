@@ -12,8 +12,7 @@ import {
   faChevronLeft,
   faCircleXmark,         // For availability
   faTrash,
-  faSliders,
-  faCheck
+  faSliders
 } from '@fortawesome/free-solid-svg-icons';
 
 // Import images
@@ -25,7 +24,7 @@ import miniCooperImage from '../../images/car-mini.png';
 import rangeRover from '../../images/car-range.png';
 import nissan from '../../images/car-nissan.png';
 import spyder from '../../images/car-spyder.png';
-import { useRef, useState } from 'react';
+import {  useState } from 'react';
 
 function RentCar() {
 
@@ -57,14 +56,7 @@ function RentCar() {
 
   const [selectedOptions, setSelectedOptions] = useState([]);
 
-  //Toggle checkbox fucntion
-  const toggleOption = (option) => {
-    setSelectedOptions(prev => 
-      prev.includes(option)
-        ? prev.filter(item => item !== option)
-        : [...prev, option]
-    );
-  };
+
 
 
   const cars = [
