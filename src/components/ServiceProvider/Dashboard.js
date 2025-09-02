@@ -29,7 +29,6 @@ import {
   faSmile,
   faPaperPlane,
   faLink,
-  faMailBulk,
   faEnvelope,
   faEdit,
   faCheck,
@@ -1305,7 +1304,7 @@ function Payservice() {
                 <button className={ProfileStyles.shareButton}>Share Link</button>
               </div>
             </div >
-            
+
           </div>
         );
 
