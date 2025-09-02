@@ -5,15 +5,17 @@
   align-items: center;
   z-index: 1;
   background-color: rgba(49, 0, 64, 1);
-} 
+}
+
 .navbar-logo {
   font-family: 'Montserrat';
   font-size: 24px;
   font-weight: bold;
   color: white;
-  border-bottom:2px solid black ;
+  border-bottom: 2px solid black;
 }
-.navbar-logo span{
+
+.navbar-logo span {
   font-style: normal;
   font-weight: 700;
   font-size: 23px;
@@ -42,7 +44,7 @@
   position: absolute;
   background: white;
   min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   z-index: 1;
   display: none;
 }
@@ -61,12 +63,12 @@
   border-radius: 4px;
   margin-right: 10px;
   border: none;
-  background-color:transparent;
+  background-color: transparent;
   color: white;
   font-size: 15px;
 }
 
-.language-currency select option{
+.language-currency select option {
   background-color: black;
   font-size: 15px;
 }
@@ -78,23 +80,25 @@
   border-radius: 4px;
   text-decoration: none;
 }
-.nav-login .user-icon{
+
+.nav-login .user-icon {
   margin-right: 10px;
 }
 
-.navbar-container{
+.navbar-container {
   display: flex;
   gap: 300px;
 }
 
-.language-selector,.currency-icon{
+.language-selector,
+.currency-icon {
   display: flex;
   padding: 2px;
   justify-content: center;
   align-items: center;
 }
 
-.language-currency{
+.language-currency {
   display: flex;
   border: none;
   border-radius: 10px;
@@ -102,29 +106,35 @@
   background-color: rgba(255, 255, 255, 0.11);
 }
 
-.flag-icon{
+.flag-icon {
   margin: 5px;
   width: 30px;
   height: 30px;
 }
-.currency-selector{
+
+.currency-selector {
   display: flex;
   margin: 5px;
 }
-.currency-icon{
-  transform: translate(-5px ,3px);
+
+.currency-icon {
+  transform: translate(-5px, 3px);
   font-size: 25px;
   color: white;
 }
 
-.circle{
+.circle {
   background-color: white;
-  transform: translate(20px,5px);
+  transform: translate(20px, 5px);
   width: 5px;
   height: 5px;
-  border-radius:50% ;
+  border-radius: 50%;
 }
 
-.login{
+.login {
   color: white;
+}
+
+.link_footer {
+  text-decoration: none;
 }

@@ -1,0 +1,244 @@
+.tabContent {
+    width: 1250px;
+    padding: 20px;
+    background-color: rgba(253, 248, 255, 1);
+    border-radius: 10px;
+}
+
+/* Messages Container */
+.messages-container {
+    display: flex;
+    height: calc(100vh - 150px);
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Conversation List */
+.conversation-list {
+    width: 350px;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.section-title {
+    color: #310040;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-bar {
+    display: flex;
+    margin: 10px;
+    height: 40px;
+    background-color: transparent;
+
+}
+
+.search-bar .searchB {
+    width: 300px;
+    height: 40px;
+    z-index: 1;
+    transform: translateX(-10px);
+    color: black;
+}
+
+.search-bar .searchI {
+    transform: translate(-250px, 8px);
+    font-size: 25px;
+    z-index: 2;
+}
+
+.conversation-item {
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+}
+
+.conversation-item.unread {
+    background-color: rgba(158, 77, 182, 1);
+}
+
+.conversation-item.unread .conversation-name,
+.conversation-item.unread .conversation-time,
+.conversation-item.unread .conversation-preview {
+    color: white;
+}
+
+.conversation-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: url('../../../images/profile\ pic.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+}
+
+.conversation-details {
+    flex: 1;
+}
+
+.conversation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.conversation-name {
+    font-size: 16px;
+    color: #310040;
+    margin: 0;
+}
+
+.conversation-time {
+    font-size: 12px;
+    color: rgba(186, 139, 200, 1);
+}
+
+.conversation-preview {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Active Chat */
+.active-chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+
+}
+
+.chat-user {
+    display: flex;
+    align-items: center;
+}
+
+.chat-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: url('../../../images/profile\ pic.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+}
+
+.user-status {
+    color: #4CAF50;
+    font-size: 14px;
+    margin: 0;
+}
+
+.messages-area {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.message {
+    max-width: 70%;
+    margin-bottom: 15px;
+}
+
+.my-message {
+    margin-left: auto;
+}
+
+.their-message {
+    margin-right: auto;
+}
+
+.message-content {
+    padding: 12px 16px;
+    border-radius: 18px;
+    position: relative;
+}
+
+.my-message .message-content {
+    background-color: white;
+    color: black;
+    border-top-right-radius: 0;
+    border: 1px solid black;
+}
+
+.their-message .message-content {
+    background-color: rgba(246, 238, 248, 1);
+    color: black;
+    border-top-left-radius: 0;
+}
+
+.message-time {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.my-message .message-time {
+    color: black;
+}
+
+.their-message .message-time {
+    color: #888;
+}
+
+.message-input-container {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+
+
+}
+
+.message-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.message-input:focus {
+    border-color: #9e4db6;
+
+}
+
+.iconCont {
+    display: flex;
+    transform: translateY(-40px) translateX(670px);
+    gap: 20px;
+    color: rgba(0, 0, 0, 0.368);
+    font-size: 20px;
+    width: 150px;
+
+}
+
+.iconmessage {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 50%;
+    color: rgba(158, 77, 182, 1);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.iconmessage:hover {
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+}

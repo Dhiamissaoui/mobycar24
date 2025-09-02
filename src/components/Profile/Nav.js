@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
+import {
   faSterlingSign,
   faEuroSign,
   faDollarSign,
@@ -18,9 +18,9 @@ function Navbar({ onLogoutClick }) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
 
-const toggleNotifications = () => {
-  setShowNotifications(prev => !prev);
-};
+  const toggleNotifications = () => {
+    setShowNotifications(prev => !prev);
+  };
 
   // Get the correct flag component based on selected language
   const FlagIcon = {
@@ -43,17 +43,17 @@ const toggleNotifications = () => {
     <nav className={styles.navbar}>
       <div className={styles['navbar-container']}>
         <Link to='/' className={styles['navbar-logo']}>MOBY<span>CAR24</span></Link>
-        
+
         <div className={styles['nav-menu']}>
           <Link to='/service' className={styles['nav-link']}>Become A Service Provider</Link>
           <Link to='/brand' className={styles['nav-link']}>Brand</Link>
           <Link to='/rent' className={styles['nav-link']}>Rent A Car</Link>
-          
+
           <div className={styles['language-currency']}>
             <div className={styles['language-selector']}>
               <FlagIcon className={styles['flag-icon']} />
-              <select 
-                value={language} 
+              <select
+                value={language}
                 onChange={(e) => setLanguage(e.target.value)}
                 className={styles['language-dropdown']}
               >
@@ -65,8 +65,8 @@ const toggleNotifications = () => {
 
             <div className={styles['currency-selector']}>
               <FontAwesomeIcon icon={CurrencyIcon} className={styles['currency-icon']} />
-              <select 
-                value={currency} 
+              <select
+                value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
                 className={styles['currency-dropdown']}
               >
@@ -84,83 +84,83 @@ const toggleNotifications = () => {
           */}
 
           {/* Notification Dropdown */}
-<div className={styles['notification-container']}>
-  <button 
-    className={styles['notification-btn']}
-    onClick={toggleNotifications}
-  >
-    <FontAwesomeIcon icon={faBell} />
-  </button>
+          <div className={styles['notification-container']}>
+            <button
+              className={styles['notification-btn']}
+              onClick={toggleNotifications}
+            >
+              <FontAwesomeIcon icon={faBell} />
+            </button>
 
-  {showNotifications && (
-    <div className={styles['notification-content']}>
-      <div className={styles['notification-head']}>
-        <h3 className={styles['notification-heading']}>Notifications</h3>
-      </div>
-      
-      <div className={styles['notification-group']}>
-        <h4 className={styles['notification-subhead']}>Today</h4>
-        {[1, 6, 10, 59].map((minutes, index) => (
-          <div key={index} className={styles['notification-message']}>
-            <div className={styles['notification-main']}>
-              <img src={profile_pic} className={styles['notification-photo']} alt=''/>
-            </div>
-            <div className={styles['notfication-mainS']}>
-              <strong className={styles['notfication-name']}>Charlie Peter</strong> lorem ipsum dolor sit amet.<br/>
-              <p className={styles['notification-detail']}>
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
-            </div>
-            
-            <div className={styles['notification-stamp']}>
-                {minutes} {minutes === 1 ? 'min' : 'mins'} ago
-            </div>
-            
-          </div>
-        ))}
-      </div>
-      
-      <div className={styles['notification-group']}>
-        <h4 className={styles['notification-subhead']}>Yesterday</h4>
-        {[1, 1].map((days, index) => (
+            {showNotifications && (
+              <div className={styles['notification-content']}>
+                <div className={styles['notification-head']}>
+                  <h3 className={styles['notification-heading']}>Notifications</h3>
+                </div>
+
+                <div className={styles['notification-group']}>
+                  <h4 className={styles['notification-subhead']}>Today</h4>
+                  {[1, 6, 10, 59].map((minutes, index) => (
                     <div key={index} className={styles['notification-message']}>
-            <div className={styles['notification-main']}>
-              <img src={profile_pic} className={styles['notification-photo']} alt=''/>
-            </div>
-            <div className={styles['notfication-mainS']}>
-              <strong className={styles['notfication-name']}>Charlie Peter</strong> lorem ipsum dolor sit amet.<br/>
-              <p className={styles['notification-detail']}>
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
-            </div>
-            
-            <div className={styles['notification-stamp']}>
-              {days} day{days > 1 ? 's' : ''}  
-            </div>
-            
+                      <div className={styles['notification-main']}>
+                        <img src={profile_pic} className={styles['notification-photo']} alt='' />
+                      </div>
+                      <div className={styles['notfication-mainS']}>
+                        <strong className={styles['notfication-name']}>Charlie Peter</strong> lorem ipsum dolor sit amet.<br />
+                        <p className={styles['notification-detail']}>
+                          Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                      </div>
+
+                      <div className={styles['notification-stamp']}>
+                        {minutes} {minutes === 1 ? 'min' : 'mins'} ago
+                      </div>
+
+                    </div>
+                  ))}
+                </div>
+
+                <div className={styles['notification-group']}>
+                  <h4 className={styles['notification-subhead']}>Yesterday</h4>
+                  {[1, 1].map((days, index) => (
+                    <div key={index} className={styles['notification-message']}>
+                      <div className={styles['notification-main']}>
+                        <img src={profile_pic} className={styles['notification-photo']} alt='' />
+                      </div>
+                      <div className={styles['notfication-mainS']}>
+                        <strong className={styles['notfication-name']}>Charlie Peter</strong> lorem ipsum dolor sit amet.<br />
+                        <p className={styles['notification-detail']}>
+                          Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                      </div>
+
+                      <div className={styles['notification-stamp']}>
+                        {days} day{days > 1 ? 's' : ''}
+                      </div>
+
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+            )}
           </div>
-        ))}
-      </div>
-    
-    </div>
-  )}
-</div>
 
 
-        
-          
+
+
 
           {/* Profile Dropdown */}
           <div className={styles['profile-dropdown']}>
-            <button 
+            <button
               className={styles['profile-btn']}
               onClick={toggleProfileDropdown}
             >
-              <img src={profile_pic} alt='Profilepic' className={styles.profile_pic}/>
+              <img src={profile_pic} alt='Profilepic' className={styles.profile_pic} />
               <span>Howard</span>
-              <FontAwesomeIcon icon={faChevronDown}/>
+              <FontAwesomeIcon icon={faChevronDown} />
             </button>
-            
+
             {showProfileDropdown && (
               <div className={styles['dropdown-content']}>
                 <Link to="/profile">My Profile</Link>

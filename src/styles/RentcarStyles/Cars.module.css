@@ -39,10 +39,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   background-color: white;
 }
-.car-card:hover .image-card{
+
+.car-card:hover .image-card {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
-.car-card:hover .heart-icon{
+
+.car-card:hover .heart-icon {
   display: block;
 }
 
@@ -94,7 +96,8 @@
   gap: 0.5rem;
   transform: translateX(30px);
 }
-.availability{
+
+.availability {
   color: rgba(41, 157, 0, 1);
   background-color: rgba(41, 157, 0, 0.1);
   border-radius: 20px;
@@ -133,34 +136,37 @@
 .reserve-button:hover {
   background-color: rgba(158, 77, 182, 0.5);
 }
-.image-card{
-    width: 380px;
-    height: 230px;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 15px;
-    background-color: white;
-    transform: translateX(5px);
+
+.image-card {
+  width: 380px;
+  height: 230px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+  background-color: white;
+  transform: translateX(5px);
 }
-.img{
-    width: 100%;
-    height: 100%;
+
+.img {
+  width: 100%;
+  height: 100%;
 }
-.heart-icon{
-    transform: translate(350px,-225px);
-    display: none;
-    transition: ease-in-out 0.5s;
+
+.heart-icon {
+  transform: translate(350px, -225px);
+  display: none;
+  transition: ease-in-out 0.5s;
 }
-.upper-right{
-    display: flex;
-    width: 700px;
-    height: 50px;
-    transform: translate(250px);
-    padding: 5px;
-    background-color: rgba(246, 246, 246, 1);
-    border-radius:5px;
+
+.upper-right {
+  display: flex;
+  height: 50px;
+  transform: translate(250px);
+  padding: 5px;
+  border-radius: 5px;
 }
-.search-bar{
+
+.search-bar {
   display: flex;
   border: 1px solid black;
   border-radius: 15px;
@@ -169,45 +175,52 @@
   transform: translateX(50px);
   height: 50px;
 }
-.inp{
+
+.inp {
   background-color: transparent;
   border: none;
   width: 351px;
   font-size: 14px;
 }
 
-.search-icon{
-    transform: translateY(50%);
+.search-icon {
+  transform: translateY(50%);
 }
-.search-btn{
-    text-align: center;
-    width: 130px;
-    height: 50px;
-    color: white;
-    background-color: rgba(158, 77, 182, 1);
-    padding: 15pxpx;
-    font-size: 15px;
-    border-radius: 15px;
-    border: none;
-    transform: translateX(60px);
+
+.search-btn {
+  text-align: center;
+  width: 130px;
+  height: 50px;
+  color: white;
+  background-color: rgba(158, 77, 182, 1);
+  padding: 15pxpx;
+  font-size: 15px;
+  border-radius: 15px;
+  border: none;
+  transform: translateX(60px);
 }
-.filter{
-    background-color: rgba(158, 77, 182, 0.22);
-    color: rgba(158, 77, 182, 1);
-    width: 25px;
-    height: 25px;
-    padding: 15px;
-    border-radius: 5px;
-    transform: translateX(70px);
-    cursor: pointer;
+
+.filter {
+  background-color: rgba(158, 77, 182, 0.22);
+  color: rgba(158, 77, 182, 1);
+  width: 25px;
+  height: 25px;
+  padding: 15px;
+  border-radius: 5px;
+  transform: translateX(70px);
+  cursor: pointer;
 }
-.btns{
+
+.btns {
   display: flex;
   padding: 5px;
-  transform: translate(140%,20px);
+  transform: translate(140%, 20px);
   width: 300px;
 }
-.btn-p,.btn-right,.btn-left{
+
+.btn-p,
+.btn-right,
+.btn-left {
   cursor: pointer;
   border: 1px solid black;
   color: black;
@@ -219,27 +232,30 @@
   margin: 5px;
   transition: 0.3s ease-in-out;
 }
-.btn-p:hover{
+
+.btn-p:hover {
   color: #9E4DB6;
   border: 1px solid #9E4DB6;
 }
-hr{
+
+hr {
   width: 80%;
   transform: translate(10%);
 }
-h2{
+
+h2 {
   font-size: 20px;
   width: 380px;
   margin-right: 5px;
 }
 
 
-.rent-car-F{
+.rent-car-F {
   width: 100%;
 }
 
 /*Filter pop-up*/
-.filter-btn-cont{
+.filter-btn-cont {
   padding: 20px;
   margin-left: -600px;
   width: 600px;
@@ -254,53 +270,64 @@ h2{
 .filter-btn-cont.remove {
   transform: translateX(-300px);
 }
-.filter-close{
-  transform: translate(530px,-10px);
+
+.filter-close {
+  transform: translate(530px, -10px);
   font-size: 30px;
   color: rgba(158, 77, 182, 1);
   cursor: pointer;
 }
-.filter-title{
+
+.filter-title {
   font-weight: bold;
   font-size: 25px;
 }
-.filter-icon{
+
+.filter-icon {
   margin-right: 10px;
 }
-.filter-main{
+
+.filter-main {
   display: grid;
 }
-.filter-name{
+
+.filter-name {
   color: rgba(57, 57, 57, 1);
   font-size: 25px;
 }
-.filter-cat,.filter-Btype{
+
+.filter-cat,
+.filter-Btype {
   margin: 20px 0;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-.filter-box{
+
+.filter-box {
   border-radius: 10px;
   background-color: rgba(19, 88, 107, 0.05);
   font-size: 20px;
   padding: 0 20px;
   cursor: pointer;
 }
-.filter-box:nth-child(1){
+
+.filter-box:nth-child(1) {
   border-radius: 10px;
-  background-color:rgba(158, 77, 182, 1);
+  background-color: rgba(158, 77, 182, 1);
   font-size: 20px;
-   padding: 0 20px;
+  padding: 0 20px;
   cursor: pointer;
   color: white;
 }
-.filter-box:nth-child(1).active{
-  background-color: rgba(19, 88, 107, 0.05) ;
+
+.filter-box:nth-child(1).active {
+  background-color: rgba(19, 88, 107, 0.05);
   color: black;
 }
-.active{
+
+.active {
   background-color: rgba(158, 77, 182, 1);
   color: white;
 }
@@ -313,16 +340,19 @@ h2{
   flex-direction: row;
   gap: 12px;
   font-family: Arial, sans-serif;
-  margin:20px 0;
+  margin: 20px 0;
 }
+
 .rental-option {
   display: flex;
   align-items: center;
 }
-.checked{
+
+.checked {
   color: purple;
 }
-.hidden-checkbox{
+
+.hidden-checkbox {
   width: 20px;
 }
 
@@ -330,11 +360,11 @@ h2{
 /*  select car */
 
 
-.filter-brandCont{
+.filter-brandCont {
   width: 100%;
 }
 
-.allB{
+.allB {
   width: 50%;
   font-size: 25px;
   margin: 20px 0;
@@ -345,13 +375,14 @@ h2{
   text-align: center;
 }
 
-.filter-btnC{
+.filter-btnC {
   display: flex;
   gap: 20px;
   width: 100%;
   margin-top: 10px;
 }
-.filter-aplly{
+
+.filter-aplly {
   width: 70%;
   background-color: rgba(158, 77, 182, 1);
   color: white;
@@ -359,7 +390,8 @@ h2{
   padding: 10px;
   border-radius: 15px;
 }
-.filter-clear{
+
+.filter-clear {
   width: 30%;
   background-color: white;
   color: rgba(158, 77, 182, 1);

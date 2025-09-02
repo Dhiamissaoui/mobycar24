@@ -5,8 +5,8 @@ import audi from '../../images/LandCruiser.png';
 import style from '../../styles/ServiceProvider/LoginS.module.css';
 
 function LoginS() {
-    return(
-        <div className={style.container}>
+  return (
+    <div className={style.container}>
       <div className={style.Fsection}>
         <div className={style.moby}>MOBY</div>
         <div className={style.car}>CAR</div>
@@ -21,8 +21,8 @@ function LoginS() {
             <p>Please fill in this form to login your account.</p>
           </center>
         </div>
-      
-        
+
+
         <form>
           <div className={style.box}>
             <div className={style.inp}>
@@ -41,7 +41,7 @@ function LoginS() {
                 placeholder="Enter Password"
               />
             </div>
-            
+
           </div>
           <div className={style.box}>
             <div className={style.inp}>
@@ -52,18 +52,18 @@ function LoginS() {
               </Link>
             </div>
           </div>
-          
+
           <Link type="submit" to='/boarding' className={style.submit}>
             Login
           </Link>
         </form>
-        
+
         <div className={style.check_cont}>
           <p>Don't have an account?</p>
-          <Link to="/SignIn">Sign Up</Link>
+          <Link className='link_footer' style={{ color: 'rgba(158, 77, 182, 1)', fontWeight: 'bold' }} to="/SignIn">Sign Up</Link>
         </div>
       </div>
     </div>
-    );
+  );
 };
 export default LoginS;

@@ -16,12 +16,12 @@ const Footer = () => {
 
         <div className="footer-links">
           <div className="links-column">
-            <Link  to='/brand'><h3>Brand</h3></Link>
-            <Link  to='/rent'><h3>Rent A Car</h3></Link>
-            <Link  to='/privacy-pol'><h3>Privacy Policy</h3></Link>
-            <Link  to='/terms-cond'><h3>Terms & Condition</h3></Link>
-            <Link  to='/faq'><h3>FAQs</h3></Link>
-            <Link  to='/contact'><h3>Contact Us</h3></Link>
+            <Link className="link_footer" to='/brand'><h3>Brand</h3></Link>
+            <Link className="link_footer" to='/rent'><h3>Rent A Car</h3></Link>
+            <Link className="link_footer" to='/privacy-pol'><h3>Privacy Policy</h3></Link>
+            <Link className="link_footer" to='/terms-cond'><h3>Terms & Condition</h3></Link>
+            <Link className="link_footer" to='/faq'><h3>FAQs</h3></Link>
+            <Link className="link_footer" to='/contact'><h3>Contact Us</h3></Link>
           </div>
         </div>
 
