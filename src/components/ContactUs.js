@@ -1,43 +1,47 @@
-
 import back from '../images/bg ecobost.png';
-import '../styles/ContactUs.css';
+import styles from '../styles/ContactUs.module.css';
 
 const ContactUs = () => {
   return (
-    <div className="contact-wrapper">
-      <img src={back} className="background-img" alt="background" />
-      <section className="cont">
-        <div className="head">
-          <h1>Contact us</h1>
+    <div className={styles['contact-wrapper']}>
+      <div className={styles['backgroundTextCont']}>
+        <div className={styles['backgroundText']}>get in</div>
+        <div className={styles['backgroundText']}>touch</div>
+      </div>
+      <img src={back} className={styles['background-img']} alt="background" />
+      <section className={styles['cont']}>
+        <div className={styles['head']}>
+          <h1 className='mb-0 fw-bold'>Contact us</h1>
           <p>Lorem ipsum dolor sit amet consectetur. Adipiscing morbi tellus arcu sed morbi. Nibh amet dignissim.</p>
         </div>
-        
-        <div className="form-grid">
-          <div className="form-group">
-            <h3>First Name</h3>
-            <input type="text" placeholder="Enter First Name" />
-            <div className="form-subgroup">
-              <h3>Booking ID</h3>
-              <input type="text" placeholder="Enter Booking ID" />
+
+        <div className={styles['form-grid']}>
+          <div className={styles['form-group']}>
+            <div className={styles['text']}>First Name</div>
+            <input type="text" className={styles['backcolor']} placeholder="Enter First Name" />
+            <div className={styles['form-subgroup']}>
+              <div className={styles['text']}>Booking ID</div>
+              <input type="text" className={styles['backcolor']} placeholder="Enter Booking ID" />
             </div>
           </div>
-          
-          <div className="form-group">
-            <h3>Last Name</h3>
-            <input type="text" placeholder="Enter Last Name" />
-            <div className="form-subgroup">
-              <h3>Email Address</h3>
-              <input type="email" placeholder="Enter Email Address" />
+
+          <div className={styles['form-group']}>
+            <div className={styles['text']}>Last Name</div>
+            <input type="text" className={styles['backcolor']} placeholder="Enter Last Name" />
+            <div className={styles['form-subgroup']}>
+              <div className={styles['text']}>Email Address</div>
+              <input type="email" className={styles['backcolor']} placeholder="Enter Email Address" />
             </div>
           </div>
-          
-          <div className="form-group full-width">
-            <h3>Description</h3>
-            <textarea placeholder="Enter Booking ID"></textarea>
+
+          <div className={styles['form-group'] + ' ' + styles['full-width']}>
+            <div className={styles['text']}>Description</div>
+            <textarea className={styles['txtArea']} placeholder="Enter Booking ID"></textarea>
           </div>
         </div>
-        <button className="submit-btn">Submit</button>
+        <button className={styles['submit-btn']}>Submit</button>
       </section>
+
     </div>
   );
 };

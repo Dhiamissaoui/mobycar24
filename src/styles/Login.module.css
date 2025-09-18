@@ -1,56 +1,82 @@
-/* Login.css */
-
-/* Main Container Styles */
 .container {
   display: flex;
   min-height: 100vh;
-  height: 700px;
   overflow: hidden;
 }
 
 .Fsection {
-  background:linear-gradient(rgba(49, 0, 64, 1),rgba(158, 77, 182, 1)) ;
-  width: 550px;
+  background: linear-gradient(rgba(49, 0, 64, 1), rgba(158, 77, 182, 1));
+  width: 40%;
 }
 
-.Fsection .moby, .Fsection .car {
+.placeholder::placeholder {
+  color: #B1B1B1;
+
+}
+
+.Fsection .moby,
+.Fsection .car {
   font-size: 103px;
   color: white;
-  letter-spacing: 2px; /* Adjust to match your reference */
+  letter-spacing: 2px;
   z-index: 1;
   opacity: 3%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
-.container .Fsection .moby{
-  transform: translate(50px,50px);
+
+.labelInp {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  font-size: 14px;
+  color: #575757;
 }
-.container .Fsection .car{
-  transform: translate(50px,-20px);
+
+.container .Fsection .moby {
+  transform: translate(10%, 50%);
 }
-.container .Fsection .number{
-  font-family: Montserrat;
-  font-weight: 800;
-  font-size: 200px;
-  line-height: 100%;
-  color: white;
-  transform: translate(350px,-250px);
-  opacity: 3%;
-  width: 30%;
+
+.container .Fsection .car {
+  transform: translate(10%, 0%);
 }
-.line{
-  height: 900px;
+
+
+.number {
+  position: absolute;
+  left: 17%;
+  top: 9%;
+  transform: scale(1.1);
+
+}
+
+.testFont {
+  font-size: 180px;
+  font-weight: bold;
+}
+
+.line {
+  position: relative;
+  height: 100%;
   width: 1px;
   background-color: rgba(237, 237, 237, 1);
-  transform: translate(650px,-550px);
+  left: 115%;
+  top: -50%;
 }
 
 .Fsection img.bg {
   position: absolute;
-  right: 650px;
-  bottom: 0; /* Adjust based on your image */
-  height: 60%;
-  width: 60%;
+  bottom: 0;
+  left: 0;
+  /* Adjust based on your image */
+
+  width: 50%;
   object-fit: contain;
-  transform: scaleX(-1); /* Flip horizontally */
+  transform: scaleX(-1);
+  /* Flip horizontally */
   opacity: 1;
   z-index: 0;
 }
@@ -61,9 +87,12 @@
   max-width: 600px;
   margin: 0 auto;
   transform: translateY(10%);
+  max-height: 100vh;
 }
 
-/* Header Styles */
+
+/*------------------second Part---------------*/
+
 .header {
   margin-bottom: 2.5rem;
 }
@@ -90,12 +119,6 @@
   margin-bottom: 1rem;
 }
 
-.inp h3 {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
 
 /* Input Field Styles */
 input {
@@ -127,7 +150,8 @@ input[type="file"] {
   margin-right: 0.5rem;
   width: 1rem;
   height: 1rem;
-  accent-color: #333; /* Modern browsers */
+  accent-color: #333;
+  /* Modern browsers */
 }
 
 .inp label {
@@ -150,13 +174,13 @@ input[type="file"] {
   text-decoration: none;
 }
 
-.forget{
-  margin-left: 220px;
+.forget {
   color: rgba(158, 77, 182, 1);
   text-decoration: none;
+
 }
 
-.check_cont{
+.check_cont {
   transform: translate(30%);
   margin-top: 20px;
 }
@@ -178,23 +202,33 @@ p {
   .container {
     flex-direction: column;
   }
-  
+
   .Fsection {
     display: none;
   }
-  
+
   .Ssection {
     padding: 2rem;
     width: 100%;
   }
 }
 
-.error{
-    color: red;
+.error {
+  color: red;
 }
 
-.signIn{
-  text-decoration: none;
-  font-weight:bold ;
-  color: rgba(158, 77, 182, 1);
+
+/*eye toggle design password*/
+
+.passEye {
+  position: relative;
+}
+
+.iconEye {
+  display: flex;
+  justify-self: flex-end;
+  align-self: center;
+  transform: translate(-50%, -200%);
+  cursor: pointer;
+  color: #B1B1B1;
 }

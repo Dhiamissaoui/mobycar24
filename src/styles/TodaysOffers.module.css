@@ -1,29 +1,41 @@
 .todays-offers {
-  padding: 80px 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #f8f8f8;
-  position: relative;
-
+  text-align: center;
+  width: 100%;
+  height: 800px;
+  margin-top: -100px;
 }
 
 .offers-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-bottom: 40px;
-  max-width: 600px;
+  width: 100%;
 }
 
 .title {
   font-size: 2.5rem;
   color: #333;
   margin-bottom: 15px;
-  transform: translateX(50%);
+  text-align: center;
+  width: 100%;
 }
 
 .subtitle {
   color: #666;
   font-size: 16px;
   line-height: 1.6;
-  transform: translateX(20%);
   text-align: center;
-  width: 800px;
+  max-width: 800px;
+  /* Use max-width instead */
+  width: 100%;
+  /* Make it responsive */
 
 }
 
@@ -31,7 +43,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 1100px;
+  width: 70%;
 }
 
 .offers-container {
@@ -39,22 +51,25 @@
   gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
   padding: 20px 0;
   flex: 1;
 }
 
 .offers-container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+  /* Chrome/Safari */
 }
 
 .offer-card {
   background: rgba(246, 246, 246, 1);
   border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  max-width: 400px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
   flex-shrink: 0;
   transition: transform 0.3s ease;
   position: relative;
@@ -65,24 +80,44 @@
 }
 
 .offer-badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
+  position: relative;
+  top: 40px;
+  left: 0px;
   background: #9e4db6;
   color: white;
   padding: 5px 10px;
-  border-radius: 4px;
   font-weight: bold;
+  text-align: left;
   font-size: 14px;
+  width: 85px;
+  height: 30px;
+  z-index: 1;
+  overflow: hidden;
+  margin-top: -20px;
+}
+
+.offer-badge::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  z-index: 222;
+  top: 0;
+  right: -22px;
+  background-color: white;
+  transform: rotate(-45deg);
+
 }
 
 .car-image {
   width: 100%;
-  height: 150px;
+  height: 180px;
+  padding-top: 20px;
   object-fit: contain;
-  margin: 0 0;
   background-color: white;
   border-radius: 15px;
+  border: 1px solid rgba(242, 242, 242, 1)
 }
 
 .hh3 {
@@ -90,7 +125,7 @@
   margin-top: 10px;
   margin-left: 5px;
   text-align: center;
-  
+
 }
 
 .price-section {
@@ -126,7 +161,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 1;
   display: flex;
@@ -149,55 +184,82 @@
 
 
 
-.cd1{
+.cd1 {
   display: flex;
 }
-.available{
-  transform: translate(20px,5px);
-  color:rgba(41, 157, 0, 1);
+
+.available {
+  transform: translate(20px, 5px);
+  color: rgba(41, 157, 0, 1);
   background-color: rgba(41, 157, 0, 0.1);
   height: 100%;
   width: auto;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 10px;
   padding: 5px;
+  align-self: center;
+  font-size: 12px;
+  transition: 0.3s ease-in-out;
 }
-.not{
-  display: flex;
-  color:white;
-  font-size: 15px;
-  background-color: rgba(255, 0, 0, 0.7);
-  height: 100%;
-  width: auto;
-  border-radius: 5px;
-  transform: translate(10px,5px);
-  padding:5px
-}
-.cd2{
-  display: flex;
 
+.not {
+  display: flex;
+  align-self: center;
+  color: red;
+  font-size: 12px;
+  background-color: rgba(255, 0, 0, 0.3);
+  height: 100%;
+  border-radius: 5px;
+  transform: translate(10px, 5px);
+  padding: 5px;
+  gap: 5px;
 }
-.mile{
+
+.cd2 {
+  display: flex;
+  justify-content: flex;
+  gap: 25px;
+  font-size: 14px;
+  color: rgba(148, 148, 148, 1);
+}
+
+.mile {
   transform: translateX(-20%);
   opacity: 0.5;
 }
-.insur{
+
+.insur {
   opacity: 0.5;
-  
+
 }
-hr{
+
+hr {
   margin: 20px 0;
   opacity: 0.5;
 }
-.title{
-  text-align: center;
-  transform: translateX(50%);
-  width: 100%;
-}
-.line{
+
+
+.line {
   width: 100%;
   height: 1px;
   background-color: black;
   margin: 15px 0;
   opacity: 0.1;
+}
+
+.heart {
+  color: rgba(158, 77, 182, 1);
+  font-size: 20px;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  display: none;
+}
+
+.offer-card:hover .heart {
+  display: block;
+}
+
+.offer-card:hover {
+  background-color: white;
 }

@@ -1,0 +1,97 @@
+.cont {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+    height: auto;
+
+}
+
+.leftSide {
+    position: relative;
+    width: 50%;
+}
+
+.rightSide {
+    width: 30%;
+    height: auto;
+}
+
+.carCont {
+    width: 215px;
+    height: 176px;
+    border-radius: 5px;
+}
+
+.rightdet {
+    display: flex;
+    align-items: center;
+    background-color: #F6EEF8;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 20px;
+    color: #9E4DB6;
+    gap: 2px;
+}
+
+.rightdetStar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 200, 0, 0.200);
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 20px;
+    color: rgba(255, 200, 0, 1);
+    gap: 2px;
+}
+
+.para {
+    color: #919191;
+}
+
+.contGrid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.spec {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: #B5B5B5;
+}
+
+.value {
+    color: black;
+}
+
+.profile {
+    width: 80px;
+    border-radius: 50%;
+}
+
+.SaveBtn {
+    position: relative;
+    background-color: #9E4DB6;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px 0;
+    height: 50px;
+    align-items: center;
+}

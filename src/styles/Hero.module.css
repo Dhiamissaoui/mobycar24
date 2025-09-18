@@ -1,8 +1,9 @@
 .hero {
-  font-family: Montserrat Black ;
+  font-family: Montserrat Black;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   color: white;
   text-align: center;
   width: 100%;
@@ -12,7 +13,10 @@
 }
 
 .hero_content {
-  transform: translateY(00px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   max-width: 800px;
   padding: 0 20px;
   z-index: 2;
@@ -20,8 +24,7 @@
 
 .head {
   margin-bottom: -10px;
-  width: 150%;
-  transform: translate(-20%,-20%);
+  width: 150%;    
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 72px;
@@ -33,8 +36,7 @@
 
 .para {
   font-size: 1.2rem;
-  line-height: 1.6;
-  font-family: Roboto;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -45,9 +47,11 @@
 
 .watermark {
   position: absolute;
-  font-size: 200px; /* Responsive size */
+  font-size: 200px;
+  /* Responsive size */
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.04); /* 0.5 opacity equivalent */
+  color: rgba(255, 255, 255, 0.04);
+  /* 0.5 opacity equivalent */
   z-index: 0;
   white-space: nowrap;
   pointer-events: none;

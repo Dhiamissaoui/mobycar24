@@ -6,54 +6,67 @@
 
 .Fsection {
   background: linear-gradient(rgba(49, 0, 64, 1), rgba(158, 77, 182, 1));
-  width: 550px;
+  width: 40%;
+  max-height: 200vh;
 }
 
 .Fsection .moby,
 .Fsection .car {
-  font-size: 103px;
+  font-size: 120px;
   color: white;
   letter-spacing: 2px;
-  /* Adjust to match your reference */
   z-index: 1;
   opacity: 3%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
-.SignUpCont .Fsection .moby {
-  transform: translate(50px, 50px);
+.moby {
+  transform: translate(10%, 30%);
 }
 
-.SignUpCont .Fsection .car {
-  transform: translate(50px, -20px);
+.car {
+  transform: translate(10%, -20%);
 }
 
-.SignUpCont .Fsection .number {
-  font-family: Montserrat;
+.number {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 200px;
+  font-size: 350px;
   line-height: 100%;
   color: white;
-  transform: translate(350px, -250px);
+  position: absolute;
+  left: 18%;
+  top: 0%;
+
   opacity: 3%;
   width: 30%;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px;
+  font-weight: bold;
 }
 
 .line {
-  height: 900px;
+  position: relative;
+  height: 90%;
   width: 1px;
   background-color: rgba(237, 237, 237, 1);
-  transform: translate(650px, -520px);
+  left: 115%;
+  top: -50%;
 }
+
+
 
 .Fsection img.bg {
   position: absolute;
-  right: 650px;
-  bottom: -200px;
+  bottom: -40%;
+  left: 0;
   /* Adjust based on your image */
-  height: 60%;
-  width: 60%;
+  width: 50%;
+
   object-fit: contain;
-  scale: 1.1;
+  transform: scale(1.1);
+  /* Flip horizontally */
   opacity: 1;
   z-index: 0;
 }
@@ -89,6 +102,26 @@
 /* Form Box Styles */
 .boxSep {
   display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #575757;
+}
+
+.font {
+  font-family: "Montserrat", sans-serif;
+  line-height: 45px;
+  font-size: 33px;
+}
+
+.inpF {
+  width: 50%;
+}
+
+.inpS {
+  width: 50%;
 }
 
 .box {
@@ -97,16 +130,16 @@
 
 .inp {
   margin-bottom: 1rem;
+
 }
 
-.inpS {
-  transform: translateX(20%);
-  width: 45%;
+/*testing checkbox desgin alinginement*/
+#test {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.inpF {
-  width: 45%;
-}
 
 .inp h3 {
   font-size: 14px;
@@ -116,30 +149,25 @@
 }
 
 /* Input Field Styles */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.Ssection input[type="text"],
+.Ssection input[type="email"],
+.Ssection input[type="password"] {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 4px;
   font-size: 0.9rem;
   transition: border-color 0.3s;
   color: rgba(177, 177, 177, 1);
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  outline: none;
-  border-color: #666;
-}
+
 
 /* File Input Styles */
-input[type="file"] {
+.Ssection input[type="file"] {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 1px dashed #ddd;
+
   border-radius: 4px;
   font-size: 0.9rem;
   background-color: #fafafa;
@@ -147,15 +175,12 @@ input[type="file"] {
 
 /* Checkbox Styles */
 .check {
-  margin-right: 0.5rem;
+
   width: 1rem;
   height: 1rem;
-  color: black;
 }
 
-.terms {
-  color: rgba(177, 177, 177, 1);
-}
+
 
 .inp label {
   font-size: 0.9rem;
@@ -164,11 +189,12 @@ input[type="file"] {
 
 /* Submit Button Styles */
 .submit {
+  font-family: 'Montserrat', sans-serif;
   margin-left: 40%;
-  padding: 1rem;
+  padding: 10px 50px;
   background-color: rgba(158, 77, 182, 1);
   color: white;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 500;
@@ -183,7 +209,9 @@ input[type="file"] {
 }
 
 .submit:hover {
-  background-color: #333;
+  background-color: white;
+  color: rgba(158, 77, 182, 1);
+  border-color: rgba(158, 77, 182, 1);
 }
 
 /* Sign In Link Styles */
@@ -219,6 +247,7 @@ p {
 .file_upload {
   width: 100%;
   margin-bottom: 1.5rem;
+
 }
 
 .file_upload h3 {
@@ -230,48 +259,68 @@ p {
 }
 
 .file_upload_container {
-  border: 2px solid #ddd;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 25px;
   text-align: center;
-  background-color: #fafafa;
+  background-color: #F2F2F2;
   transition: all 0.3s ease;
 }
 
-.file_upload_container:hover {
-  border-color: #aaa;
-  background-color: #f5f5f5;
-}
 
 .file_upload_label {
   display: block;
   cursor: pointer;
-  height: 10px;
+  height: 0px;
 }
+
+/*place holder color */
+
+.placeholderColor::placeholder {
+  color: #B1B1B1;
+}
+
+
+
+.passEye {
+  position: relative;
+}
+
+.iconEye {
+  display: flex;
+  justify-self: flex-end;
+  align-self: center;
+  transform: translate(-50%, -200%);
+  cursor: pointer;
+  color: #B1B1B1;
+}
+
 
 .file_upload_text {
   font-size: 14px;
-  color: #666;
+  color: #B1B1B1;
   margin-bottom: 1rem;
-  transform: translate(-150px, -30%);
+  transform: translate(-38%, -40%);
 }
 
 .file_upload_button {
-  background-color: #222;
+  background-color: #9E4DB6 !important;
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
   font-size: 0.9rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.3s;
   width: 100px;
-  transform: translate(350%, -150%);
+  transform: translate(370%, -145%);
   background-color: rgba(87, 87, 87, 1);
+  border: 1px solid transparent;
 }
 
 .file_upload_button:hover {
-  background-color: rgba(158, 77, 182, 1);
+  color: rgba(158, 77, 182, 1);
+  background-color: white !important;
+  border: 1px solid #9E4DB6;
 }
 
 /* Hide the default file input */
@@ -281,19 +330,18 @@ p {
 
 
 
-
 /*---------------- verification pop-up --------------*/
 
 .outCont {
+
+  top: 0;
   width: 700px;
   height: 350px;
   transform: translate(800px, 700px);
-  border: 5px solid black;
   background-color: white;
   margin-left: -700px;
   color: black;
   border-radius: 20px;
-  border: 2px solid black;
   transition: ease-in-out 0.5s;
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
@@ -306,13 +354,35 @@ p {
 }
 
 .outIcon {
-  font-size: 60px;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  height: 100px;
+  width: 100px;
   color: rgba(158, 77, 182, 1);
-  transform: translate(300px, 0px);
-  background-color: rgba(158, 77, 182, 0.09);
-  padding: 15px;
+  background-color: rgba(158, 77, 182, 0.2);
+  padding: 25px;
+  left: 45%;
   border-radius: 50%;
 }
+
+.outIcon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  /* bigger circle */
+  height: 120px;
+  background-color: rgba(158, 77, 182, 0.09);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+
 
 .outX {
   transform: translate(650px, 0px);
@@ -328,13 +398,14 @@ p {
 }
 
 .outY {
-  display: inline-block;
-  font-size: 20px;
-  padding: 10px 100px;
+  display: flex;
+  justify-self: center;
+  margin-top: 20px;
+  font-size: 15px;
+  padding: 10px 80px;
   background-color: rgba(158, 77, 182, 1);
   border-radius: 5px;
   color: white;
-  transform: translate(220px, 20px);
   text-decoration: none;
   transition: 0.3s ease-in-out;
   font-weight: bold;
@@ -349,16 +420,20 @@ p {
 }
 
 .outTitle {
-  text-align: center;
-  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
   font-weight: bold;
+  font-style: normal;
+  font-variation-settings: 2px;
+  text-align: center;
+  font-size: 24px;
   margin-top: 20px;
 }
 
 .outpara {
   text-align: center;
   color: rgba(145, 145, 145, 1);
-  scale: 1.2;
+  font-size: 16px;
 }
 
 
@@ -366,4 +441,5 @@ p {
   font-weight: bold;
   color: rgba(158, 77, 182, 1);
   text-decoration: none;
+
 }

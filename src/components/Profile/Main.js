@@ -1,4 +1,4 @@
-import  {  useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEdit,
@@ -35,7 +35,7 @@ import mapsImage from '../../images/maps.png';
 
 
 import PorscheImage from '../../images/porsche.png';
-import CadillacImage from '../../images/car-cadillac.png' ;
+import CadillacImage from '../../images/car-cadillac.png';
 import RollsRoyceImage from '../../images/car-rolls.png';
 import LamborghiniImage from '../../images/car-lambo.png';
 import MiniCooperImage from '../../images/car-mini.png';
@@ -46,7 +46,7 @@ import Audixrides from '../../images/rides_audi.png';
 import { faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
-function ProfilePage({ slideOut,setSlideOut }) {
+function ProfilePage({ slideOut, setSlideOut }) {
   // --profile part -- //
   const [activeTab, setActiveTab] = useState('profile');
   const [RidesTab, setRidesTab] = useState('active');
@@ -67,11 +67,11 @@ function ProfilePage({ slideOut,setSlideOut }) {
   const [password, setPassword] = useState('password');
 
   const [isVisibleO, setIsVisibleO] = useState(false);
-  const [ setPasswordO] = useState('password');
+  const [setPasswordO] = useState('password');
 
   const [isVisibleT, setIsVisibleT] = useState(false);
-  const [ setPasswordT] = useState('password');
-  
+  const [setPasswordT] = useState('password');
+
 
 
 
@@ -87,7 +87,7 @@ function ProfilePage({ slideOut,setSlideOut }) {
     setProfile(prev => ({ ...prev, [name]: value }));
   };
 
- 
+
   // --Messages part -- //
 
   const conversations = [
@@ -171,7 +171,7 @@ function ProfilePage({ slideOut,setSlideOut }) {
       amount: 250,
       currency: "£",
       status: "Paid",
-      Img:PorscheImage
+      Img: PorscheImage
     },
     {
       id: 2,
@@ -193,7 +193,7 @@ function ProfilePage({ slideOut,setSlideOut }) {
       amount: 290,
       currency: "£",
       status: "Paid",
-      Img:LamborghiniImage
+      Img: LamborghiniImage
     },
     {
       id: 4,
@@ -204,20 +204,20 @@ function ProfilePage({ slideOut,setSlideOut }) {
       amount: 290,
       currency: "£",
       status: "Paid",
-      Img:RollsRoyceImage
+      Img: RollsRoyceImage
     }
   ];
 
 
   const renderContent = () => {
-    switch(activeTab) {
+    switch (activeTab) {
       case 'profile':
         return (
-           <div className={Styles["profile-content"]}>
+          <div className={Styles["profile-content"]}>
             <div className={Styles["profile-camera"]}>
-              <img src={Img} alt='' className={Styles['image']}/>
-              <FontAwesomeIcon icon={faCamera} className={Styles['cam']}/>
-              
+              <img src={Img} alt='' className={Styles['image']} />
+              <FontAwesomeIcon icon={faCamera} className={Styles['cam']} />
+
             </div>
 
             <div className={Styles["profile-field"]}>
@@ -234,7 +234,7 @@ function ProfilePage({ slideOut,setSlideOut }) {
                 <p className={Styles["profile-info"]}>{profile.name}</p>
               )}
             </div>
-            <hr className={Styles["hr"]}/>
+            <hr className={Styles["hr"]} />
             <div className={Styles["profile-field"]}>
               <h2>Email Address</h2>
               {isEditing ? (
@@ -249,7 +249,7 @@ function ProfilePage({ slideOut,setSlideOut }) {
                 <p className={Styles["profile-info"]}>{profile.email}</p>
               )}
             </div>
-            <hr className={Styles["hr"]}/>
+            <hr className={Styles["hr"]} />
             <div className={Styles["profile-field"]}>
               <h2>Phone Number</h2>
               {isEditing ? (
@@ -264,16 +264,16 @@ function ProfilePage({ slideOut,setSlideOut }) {
                 <p className={Styles["profile-info"]}>{profile.phone}</p>
               )}
             </div>
-            
+
             <div className={Styles["edit-buttons"]}>
-              <button 
+              <button
                 className={Styles["edit-btn"]}
                 onClick={handleEdit}
               >
-                <FontAwesomeIcon icon={faEdit} /> 
+                <FontAwesomeIcon icon={faEdit} />
                 {isEditing ? 'Save' : 'Edit'}
               </button>
-              <button 
+              <button
                 className={Styles["password-btn"]}
                 onClick={() => setChangeActive(prev => !prev)}
               >
@@ -284,50 +284,50 @@ function ProfilePage({ slideOut,setSlideOut }) {
           </div>
         );
       case 'Rides':
-        switch(RidesTab) {
-            case 'completed':
-                return(
-                  <div className={Rides.complitedCont}>
-                    <div className={Rides.contB}>
-                            <button onClick={() => {
-                        setRidesTab('active');
-                        profileMainRef.current.style.height = '1900px';
-                        profileContainerRef.current.style.height = '2000px';
-                        }} className={Rides.mainTitle}>Active Rides</button>
-                            <button onClick={() => {
-                        setRidesTab('completed');
-                        profileMainRef.current.style.height = '1000px';
-                        profileContainerRef.current.style.height = '1100px';
-                        }} className={Rides.mainTitle}>Completed Rides</button>
-                    </div>
-                    <div className={Fav['rent-car-container']}>
-                <div className={Fav['cars-grid']}>
+        switch (RidesTab) {
+          case 'completed':
+            return (
+              <div className={Rides.complitedCont}>
+                <div className={Rides.contB}>
+                  <button onClick={() => {
+                    setRidesTab('active');
+                    profileMainRef.current.style.height = '1900px';
+                    profileContainerRef.current.style.height = '2000px';
+                  }} className={Rides.mainTitle}>Active Rides</button>
+                  <button onClick={() => {
+                    setRidesTab('completed');
+                    profileMainRef.current.style.height = '1000px';
+                    profileContainerRef.current.style.height = '1100px';
+                  }} className={Rides.mainTitle}>Completed Rides</button>
+                </div>
+                <div className={Fav['rent-car-container']}>
+                  <div className={Fav['cars-grid']}>
                     {car.map((car, index) => (
-                    <div key={index} className={Fav['car-cardx']}>
+                      <div key={index} className={Fav['car-cardx']}>
                         <div className={Fav['image-card']}>
-                            <img src={car.image} alt='' className={Fav['img']} />
-                            <FontAwesomeIcon icon={faHeart} className={Fav['heart-icon']} />
+                          <img src={car.image} alt='' className={Fav['img']} />
+                          <FontAwesomeIcon icon={faHeart} className={Fav['heart-icon']} />
                         </div>
                         <div className={Fav['car-header']}>
-                            <h2>{car.car}</h2>
+                          <h2>{car.car}</h2>
                         </div>
                         <div className={Fav['car-details']}>
-                            <p className={Fav['insurance']}>
+                          <p className={Fav['insurance']}>
                             <FontAwesomeIcon icon={car.insurance} /> Insurance Included
-                            </p>
-                            <p className={Fav['mileage']}>
+                          </p>
+                          <p className={Fav['mileage']}>
                             <FontAwesomeIcon icon={faTachometerAlt} /> {car.mileage}
-                            </p>
+                          </p>
                         </div>
-                      
+
                         <div className={Fav['price-section']}>
-                            <p className={Fav['price']}>{car.price}</p>
-                            <button className={Fav['reserve-button']}>Reserve</button>
+                          <p className={Fav['price']}>{car.price}</p>
+                          <button className={Fav['reserve-button']}>Reserve</button>
                         </div>
-                    </div>
+                      </div>
                     ))}
-                </div>
-                <div className={Fav['btns']}>
+                  </div>
+                  <div className={Fav['btns']}>
                     <div className={Fav['btn-left']}><FontAwesomeIcon icon={faChevronLeft} /></div>
                     <div className={Fav['btn-p']}>1</div>
                     <div className={Fav['btn-p']}>2</div>
@@ -335,363 +335,363 @@ function ProfilePage({ slideOut,setSlideOut }) {
                     <div className={Fav['btn-p']}>9</div>
                     <div className={Fav['btn-p']}>10</div>
                     <div className={Fav['btn-right']}><FontAwesomeIcon icon={faChevronRight} /></div>
+                  </div>
                 </div>
-    </div>
+              </div>
+            );
+          default:
+            return (
+              <div className={Rides.rideContainer}>
+                <div className={Rides.contB}>
+                  <button onClick={() => {
+                    setRidesTab('active');
+                    profileMainRef.current.style.height = '1900px';
+                    profileContainerRef.current.style.height = '2000px'
+                  }} className={Rides.mainTitle}>Active Rides</button>
+                  <button onClick={() => {
+                    setRidesTab('completed');
+                    profileMainRef.current.style.height = '1000px';
+                    profileContainerRef.current.style.height = '1100px';
+                  }} className={Rides.mainTitle}>Completed Rides</button>
+                </div>
+
+
+                <div className={Rides.rideAlert}>
+                  <h2 className={Rides.alertTitle}>Your ride is starting soon!</h2>
+                  <p className={Rides.alertText}>
+                    Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam. <br />
+                    Vulputate nisl vel diam eu. Risus natoque consectetur.
+                  </p>
+                  <button className={Rides.share} onClick={() => setIsActive(prev => !prev)}>Share</button>
+                </div>
+
+                <div className={Rides.carDetails}>
+                  <div className={Rides.Fsec}>
+                    <img src={Audixrides} alt='' className={Rides.imgaudi} />
                   </div>
-                );
-            default:
-                return(
-                    <div className={Rides.rideContainer}>
-                        <div className={Rides.contB}>
-                            <button onClick={() => {
-                            setRidesTab('active');
-                            profileMainRef.current.style.height = '1900px';
-                            profileContainerRef.current.style.height = '2000px'}} className={Rides.mainTitle}>Active Rides</button>
-                            <button onClick={() => {
-                            setRidesTab('completed');
-                            profileMainRef.current.style.height = '1000px';
-                            profileContainerRef.current.style.height = '1100px';
-                            }} className={Rides.mainTitle}>Completed Rides</button>
-                        </div>
-                        
-                        
-                        <div className={Rides.rideAlert}>
-                            <h2 className={Rides.alertTitle}>Your ride is starting soon!</h2>
-                            <p className={Rides.alertText}>
-                            Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam. <br/>
-                            Vulputate nisl vel diam eu. Risus natoque consectetur.
-                            </p>
-                            <button className={Rides.share} onClick={() => setIsActive(prev => !prev)}>Share</button>
-                        </div>
+                  <div className={Rides.Ssec}>
+                    <h3 className={Rides.carTitle}>Rent Audi A6 (Blue), 2024</h3>
+                    <ul className={Rides.carSpecs}>
+                      <li className={Rides.rate}>
+                        <FontAwesomeIcon icon={faStar} className={Rides.starIcon} />
+                        <strong>4.5</strong>
+                      </li>
+                      <li className={Rides.kilo}>
+                        <FontAwesomeIcon className={Rides.icon} icon={faTachometerAlt} />
+                        250 Km/Day
+                      </li>
+                      <li className={Rides.mil}>
+                        <FontAwesomeIcon className={Rides.icon} icon={faShieldAlt} />
+                        Insurance Included
+                      </li>
+                    </ul>
+                    <div className={Rides.carInfo}>
+                      <p><strong>Car number:</strong> 8022A1245</p>
+                      <p><strong>Registration Number:</strong> 12548879</p>
+                    </div>
+                  </div>
+                </div>
 
-                        <div className={Rides.carDetails}>
-                            <div className={Rides.Fsec}>
-                                <img src={Audixrides} alt='' className={Rides.imgaudi} />
-                            </div>
-                            <div className={Rides.Ssec}>
-                                <h3 className={Rides.carTitle}>Rent Audi A6 (Blue), 2024</h3>
-                                <ul className={Rides.carSpecs}>
-                                    <li className={Rides.rate}>
-                                        <FontAwesomeIcon icon={faStar} className={Rides.starIcon} />
-                                        <strong>4.5</strong>
-                                    </li>
-                                    <li className={Rides.kilo}>
-                                        <FontAwesomeIcon className={Rides.icon} icon={faTachometerAlt} />
-                                        250 Km/Day
-                                    </li>
-                                    <li className={Rides.mil}>
-                                        <FontAwesomeIcon className={Rides.icon} icon={faShieldAlt} />
-                                        Insurance Included
-                                    </li>
-                                </ul>
-                                <div className={Rides.carInfo}>
-                                    <p><strong>Car number:</strong> 8022A1245</p>
-                                    <p><strong>Registration Number:</strong> 12548879</p>
-                                </div>
-                            </div>
-                        </div>
+                <div className={Rides.divider}></div>
 
-                        <div className={Rides.divider}></div>
+                <div className={Rides.providerDetails}>
+                  <h3 className={Rides.sectionTitle}>Service Provider Details</h3>
+                  <div className={Rides.providerInfo}>
+                    <img src={ProfileImg} alt='' className={Rides.Pimg} />
+                    <div className={Rides.info}>
+                      <strong>Esther Howard</strong><br />
+                      <p>2,719 Trips | Joined Oct 2015</p><br />
+                      <p className={Rides.responseNote}>Typically responds in 4 min</p>
+                    </div>
+                  </div>
+                </div>
 
-                        <div className={Rides.providerDetails}>
-                            <h3 className={Rides.sectionTitle}>Service Provider Details</h3>
-                            <div className={Rides.providerInfo}>
-                                  <img src={ProfileImg} alt='' className={Rides.Pimg}/>
-                                  <div className={Rides.info}>
-                                    <strong>Esther Howard</strong><br/>
-                                    <p>2,719 Trips | Joined Oct 2015</p><br/>
-                                    <p className={Rides.responseNote}>Typically responds in 4 min</p>
-                                  </div>  
-                            </div>
-                        </div>
-
-                        <div className={Rides.divider}></div>
-                        <div className={Rides.datetime_container}>
-                          {/* Pick-up Section */}
-                          <div className={Rides.datetime_section}>
-                            <h3 className={Rides.datetime_title}>Pick-up date & time</h3>
-                            <div className={Rides.datetime_cont}>
-                              <div className={Rides.datetime_row}>
-                                <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
-                                <span>25 Feb 2024</span>
-                              </div>
-                              <div className={`${Rides.datetime_row} ${Rides.x}`}>
-                                <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
-                                <span>12:05 Pm</span>
-                              </div>
-                            </div>
-                            
-                          </div>
-
-                          {/* Drop-off Section */}
-                          <div className={Rides.datetime_section}>
-                            <h3 className={Rides.datetime_title}>Drop-off date & time</h3>
-                            <div className={Rides.datetime_cont}>
-                              <div className={Rides.datetime_row}>
-                                <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
-                                <span>25 Feb 2024</span>
-                              </div>
-                              <div className={`${Rides.datetime_row} ${Rides.x}`}>
-                                <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
-                                <span>12:05 Pm</span>
-                              </div>
-                            </div>
-                            
-                          </div>
-                        </div>
-
-                        <div className={Rides.divider}></div>
-                         <div className={Rides.mapContainer}>
-                            <div className={Rides.mapLeftSection}>
-                              {/* Pick-up Location */}
-                              <div className={Rides.locationSection}>
-                                <div className={Rides.locationHeader}>
-                                  <div className={Rides.locationTitle}>Pick-up location</div>
-                                  <div className={Rides.editControls}>
-                                    <button className={Rides.editButton}>
-                                      <FontAwesomeIcon icon={faEdit} className={Rides.editIcon} />
-                                      Edit
-                                    </button>
-                                    <FontAwesomeIcon icon={faCircleExclamation} className={Rides.warningIcon} />
-                                  </div>
-                                </div>
-                                <div className={Rides.addressDisplay}>
-                                  <FontAwesomeIcon icon={faLocationDot} className={Rides.locationIcon} />
-                                  <span>{pickupAddress}</span>
-                                </div>
-                              </div>
-
-                              {/* Drop-off Location */}
-                              <div className={Rides.locationSection}>
-                                <div className={Rides.locationHeader}>
-                                  <div className={Rides.locationTitle}>Drop-off location</div>
-                                  <div className={Rides.editControls}>
-                                    <button className={Rides.editButton}>
-                                      <FontAwesomeIcon icon={faEdit} className={Rides.editIcon} />
-                                      Edit
-                                    </button>
-                                    <FontAwesomeIcon icon={faCircleExclamation} className={Rides.warningIcon} />
-                                  </div>
-                                </div>
-                                <div className={Rides.addressDisplay}>
-                                  <FontAwesomeIcon icon={faLocationDot} className={Rides.locationIcon} />
-                                  <span>{dropoffAddress}</span>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className={Rides.mapRightSection}>
-                              <img src={mapsImage} className={Rides.mapImage} alt="Map view" />
-                            </div>
-                        </div>
-                        <div className={Rides.totalCont}>
-                          <div className={Rides.totalOne}>
-                            <div className={Rides.totalPara}>Total amount</div>
-                            <div className={Rides.totalAmount}>£161</div>
-                          </div>
-                          <button className={Rides.pay} onClick={() =>setActiveTab('confirmPay')}>Pay</button>
-                        </div>
-                        <button className={Rides.cancel} onClick={() => setIsActiveCancel(true)}>Cancel</button>
-                        <div className={Rides.reportCont}>
-                          <h1 className={Rides.reportHead}>Report</h1>
-                          <form>
-                            <label>Booking Id</label>
-                            <input placeholder='Enter booking ID' className={Rides.reportInput} type='text'/>
-                            <label>Description</label>
-                            <textarea placeholder='inputs' className={Rides.reportInput} cols={10} rows={30}></textarea>
-                            <button type='submit' className={Rides.reportSub}>Submit</button>
-                          </form>
-                        </div>
+                <div className={Rides.divider}></div>
+                <div className={Rides.datetime_container}>
+                  {/* Pick-up Section */}
+                  <div className={Rides.datetime_section}>
+                    <h3 className={Rides.datetime_title}>Pick-up date & time</h3>
+                    <div className={Rides.datetime_cont}>
+                      <div className={Rides.datetime_row}>
+                        <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
+                        <span>25 Feb 2024</span>
+                      </div>
+                      <div className={`${Rides.datetime_row} ${Rides.x}`}>
+                        <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
+                        <span>12:05 Pm</span>
+                      </div>
+                    </div>
 
                   </div>
-                );
-                    };
+
+                  {/* Drop-off Section */}
+                  <div className={Rides.datetime_section}>
+                    <h3 className={Rides.datetime_title}>Drop-off date & time</h3>
+                    <div className={Rides.datetime_cont}>
+                      <div className={Rides.datetime_row}>
+                        <FontAwesomeIcon icon={faCalendarAlt} className={Rides.datetime_icon} />
+                        <span>25 Feb 2024</span>
+                      </div>
+                      <div className={`${Rides.datetime_row} ${Rides.x}`}>
+                        <FontAwesomeIcon icon={faClock} className={Rides.datetime_icon} />
+                        <span>12:05 Pm</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className={Rides.divider}></div>
+                <div className={Rides.mapContainer}>
+                  <div className={Rides.mapLeftSection}>
+                    {/* Pick-up Location */}
+                    <div className={Rides.locationSection}>
+                      <div className={Rides.locationHeader}>
+                        <div className={Rides.locationTitle}>Pick-up location</div>
+                        <div className={Rides.editControls}>
+                          <button className={Rides.editButton}>
+                            <FontAwesomeIcon icon={faEdit} className={Rides.editIcon} />
+                            Edit
+                          </button>
+                          <FontAwesomeIcon icon={faCircleExclamation} className={Rides.warningIcon} />
+                        </div>
+                      </div>
+                      <div className={Rides.addressDisplay}>
+                        <FontAwesomeIcon icon={faLocationDot} className={Rides.locationIcon} />
+                        <span>{pickupAddress}</span>
+                      </div>
+                    </div>
+
+                    {/* Drop-off Location */}
+                    <div className={Rides.locationSection}>
+                      <div className={Rides.locationHeader}>
+                        <div className={Rides.locationTitle}>Drop-off location</div>
+                        <div className={Rides.editControls}>
+                          <button className={Rides.editButton}>
+                            <FontAwesomeIcon icon={faEdit} className={Rides.editIcon} />
+                            Edit
+                          </button>
+                          <FontAwesomeIcon icon={faCircleExclamation} className={Rides.warningIcon} />
+                        </div>
+                      </div>
+                      <div className={Rides.addressDisplay}>
+                        <FontAwesomeIcon icon={faLocationDot} className={Rides.locationIcon} />
+                        <span>{dropoffAddress}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={Rides.mapRightSection}>
+                    <img src={mapsImage} className={Rides.mapImage} alt="Map view" />
+                  </div>
+                </div>
+                <div className={Rides.totalCont}>
+                  <div className={Rides.totalOne}>
+                    <div className={Rides.totalPara}>Total amount</div>
+                    <div className={Rides.totalAmount}>£161</div>
+                  </div>
+                  <button className={Rides.pay} onClick={() => setActiveTab('confirmPay')}>Pay</button>
+                </div>
+                <button className={Rides.cancel} onClick={() => setIsActiveCancel(true)}>Cancel</button>
+                <div className={Rides.reportCont}>
+                  <h1 className={Rides.reportHead}>Report</h1>
+                  <form>
+                    <label>Booking Id</label>
+                    <input placeholder='Enter booking ID' className={Rides.reportInput} type='text' />
+                    <label>Description</label>
+                    <textarea placeholder='inputs' className={Rides.reportInput} cols={10} rows={30}></textarea>
+                    <button type='submit' className={Rides.reportSub}>Submit</button>
+                  </form>
+                </div>
+
+              </div>
+            );
+        };
       case 'favorites':
-        return(
-            <div className={Fav['rent-car-container']}>
-                <div className={Fav['cars-grid']}>
-                    {car.map((car, index) => (
-                    <div key={index} className={Fav['car-card']}>
-                        <div className={Fav['image-card']}>
-                            <img src={car.image} alt='' className={Fav['img']} />
-                            <FontAwesomeIcon icon={faHeart} className={Fav['heart-icon']} />
-                        </div>
-                        <div className={Fav['car-header']}>
-                            <h2>{car.car}</h2>
-                            <p className={Fav['availability']}>{car.availability}</p>
-                        </div>
-                        <div className={Fav['car-details']}>
-                            <p className={Fav['insurance']}>
-                            <FontAwesomeIcon icon={car.insurance} /> Insurance Included
-                            </p>
-                            <p className={Fav['mileage']}>
-                            <FontAwesomeIcon icon={faTachometerAlt} /> {car.mileage}
-                            </p>
-                        </div>
-                     
-                        <div className={Fav['price-section']}>
-                            <p className={Fav['price']}>{car.price}</p>
-                            <button className={Fav['reserve-button']}>Reserve</button>
-                        </div>
-                    </div>
-                    ))}
-                </div>
-                <div className={Fav['btns']}>
-                    <div className={Fav['btn-left']}><FontAwesomeIcon icon={faChevronLeft} /></div>
-                    <div className={Fav['btn-p']}>1</div>
-                    <div className={Fav['btn-p']}>2</div>
-                    <div className={Fav['btn-p']}>...</div>
-                    <div className={Fav['btn-p']}>9</div>
-                    <div className={Fav['btn-p']}>10</div>
-                    <div className={Fav['btn-right']}><FontAwesomeIcon icon={faChevronRight} /></div>
-                </div>
-    </div>
-  
-        );
-      case 'messages':
         return (
-            <div className={Messages['messages-container']}>
-                {/* Left sidebar - Conversation list */}
-                <div className={Messages['conversation-list']}>
-                    <div className={Messages['search-bar']}>
-                        <input type='text' placeholder='search here ...' className={Messages['searchB']}/>
-                        
-                    </div>
-                    
-                    {conversations.map((convo, index) => (
-                    <div 
-                        key={index} 
-                        className={`${Messages['conversation-item']} ${convo.unread ? Messages['unread'] : ''}`}
-                    >
-                        <div className={Messages['conversation-avatar']}></div>
-                        <div className={Messages['conversation-details']}>
-                        <div className={Messages['conversation-header']}>
-                            <h3 className={Messages['conversation-name']}>{convo.name}</h3>
-                            <span className={Messages['conversation-time']}>{convo.time}</span>
-                        </div>
-                        <p className={Messages['conversation-preview']}>{convo.preview}</p>
-                        </div>
-                    </div>
-                    ))}
-                </div>
-
-                {/* Right side - Active chat */}
-                <div className={Messages['active-chat']}>
-                    {/* Chat header */}
-                    <div className={Messages['chat-header']}>
-                    <div className={Messages['chat-user']}>
-                        <div className={Messages['chat-avatar']}></div>
-                        <div>
-                        <h2>{activeChat.name}</h2>
-                        <p className={Messages['user-status']}>{activeChat.status}</p>
-                        </div>
-                    </div>
-                    </div>
-
-                    {/* Messages area */}
-                    <div className={Messages['messages-area']}>
-                    {activeChat.messages.map((msg, index) => (
-                        <div 
-                        key={index} 
-                        className={`${Messages['message']} ${
-                            msg.sender === 'me' ? Messages['my-message'] : Messages['their-message']
-                        }`}
-                        >
-                        <div className={Messages['message-content']}>
-                            <p>{msg.content}</p>
-                            <span className={Messages['message-time']}>{msg.time}</span>
-                        </div>
-                        </div>
-                    ))}
-                    </div>
-
-                    {/* Message input */}
-                    <div className={Messages['message-input-container']}>
-                    <input 
-                        type="text" 
-                        placeholder="Type A Message..." 
-                        className={Messages['message-input']}
-                    />
-                    </div>
-                </div>
-            </div>
-        );
-      case 'payments':
-        return (
-            <div className={Payement.payments_container}>
-              {paymentHistory.map((payment) => (
-                
-                <div key={payment.id} className={Payement.payment_card}>
-                  <div className={Rides.carImg}>
-                    <img src={payment.Img} alt='' className={Payement.payement_Img} />
+          <div className={Fav['rent-car-container']}>
+            <div className={Fav['cars-grid']}>
+              {car.map((car, index) => (
+                <div key={index} className={Fav['car-card']}>
+                  <div className={Fav['image-card']}>
+                    <img src={car.image} alt='' className={Fav['img']} />
+                    <FontAwesomeIcon icon={faHeart} className={Fav['heart-icon']} />
                   </div>
-                  <div className={Payement.paymentSpart}>
-                    <h2 className={Payement.payment_title}>{payment.title}</h2>
-                    <p className={Payement.payment_date}>{payment.date}</p>
-                    <p className={Payement.payment_user}>
-                      <img src={ProfileImg} alt='' className={Payement.imgProfile} />
-                      <span className={Payement.user_name}>{payment.user}</span>
-                      <span className={Payement.user_rating}>★{payment.rating}</span>
-                      
+                  <div className={Fav['car-header']}>
+                    <h2>{car.car}</h2>
+                    <p className={Fav['availability']}>{car.availability}</p>
+                  </div>
+                  <div className={Fav['car-details']}>
+                    <p className={Fav['insurance']}>
+                      <FontAwesomeIcon icon={car.insurance} /> Insurance Included
+                    </p>
+                    <p className={Fav['mileage']}>
+                      <FontAwesomeIcon icon={faTachometerAlt} /> {car.mileage}
                     </p>
                   </div>
-                  <div className={Payement.payment_footer}>
-                    <span className={Payement.payment_status}>{payment.status}</span>
-                    <span className={Payement.payment_amount}>{payment.currency} {payment.amount}</span>
+
+                  <div className={Fav['price-section']}>
+                    <p className={Fav['price']}>{car.price}</p>
+                    <button className={Fav['reserve-button']}>Reserve</button>
                   </div>
-                  
                 </div>
               ))}
             </div>
+            <div className={Fav['btns']}>
+              <div className={Fav['btn-left']}><FontAwesomeIcon icon={faChevronLeft} /></div>
+              <div className={Fav['btn-p']}>1</div>
+              <div className={Fav['btn-p']}>2</div>
+              <div className={Fav['btn-p']}>...</div>
+              <div className={Fav['btn-p']}>9</div>
+              <div className={Fav['btn-p']}>10</div>
+              <div className={Fav['btn-right']}><FontAwesomeIcon icon={faChevronRight} /></div>
+            </div>
+          </div>
+
+        );
+      case 'messages':
+        return (
+          <div className={Messages['messages-container']}>
+            {/* Left sidebar - Conversation list */}
+            <div className={Messages['conversation-list']}>
+              <div className={Messages['search-bar']}>
+                <input type='text' placeholder='search here ...' className={Messages['searchB']} />
+
+              </div>
+
+              {conversations.map((convo, index) => (
+                <div
+                  key={index}
+                  className={`${Messages['conversation-item']} ${convo.unread ? Messages['unread'] : ''}`}
+                >
+                  <div className={Messages['conversation-avatar']}></div>
+                  <div className={Messages['conversation-details']}>
+                    <div className={Messages['conversation-header']}>
+                      <h3 className={Messages['conversation-name']}>{convo.name}</h3>
+                      <span className={Messages['conversation-time']}>{convo.time}</span>
+                    </div>
+                    <p className={Messages['conversation-preview']}>{convo.preview}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Right side - Active chat */}
+            <div className={Messages['active-chat']}>
+              {/* Chat header */}
+              <div className={Messages['chat-header']}>
+                <div className={Messages['chat-user']}>
+                  <div className={Messages['chat-avatar']}></div>
+                  <div>
+                    <h2>{activeChat.name}</h2>
+                    <p className={Messages['user-status']}>{activeChat.status}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Messages area */}
+              <div className={Messages['messages-area']}>
+                {activeChat.messages.map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`${Messages['message']} ${msg.sender === 'me' ? Messages['my-message'] : Messages['their-message']
+                      }`}
+                  >
+                    <div className={Messages['message-content']}>
+                      <p>{msg.content}</p>
+                      <span className={Messages['message-time']}>{msg.time}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Message input */}
+              <div className={Messages['message-input-container']}>
+                <input
+                  type="text"
+                  placeholder="Type A Message..."
+                  className={Messages['message-input']}
+                />
+              </div>
+            </div>
+          </div>
+        );
+      case 'payments':
+        return (
+          <div className={Payement.payments_container}>
+            {paymentHistory.map((payment) => (
+
+              <div key={payment.id} className={Payement.payment_card}>
+                <div className={Rides.carImg}>
+                  <img src={payment.Img} alt='' className={Payement.payement_Img} />
+                </div>
+                <div className={Payement.paymentSpart}>
+                  <h2 className={Payement.payment_title}>{payment.title}</h2>
+                  <p className={Payement.payment_date}>{payment.date}</p>
+                  <p className={Payement.payment_user}>
+                    <img src={ProfileImg} alt='' className={Payement.imgProfile} />
+                    <span className={Payement.user_name}>{payment.user}</span>
+                    <span className={Payement.user_rating}>★{payment.rating}</span>
+
+                  </p>
+                </div>
+                <div className={Payement.payment_footer}>
+                  <span className={Payement.payment_status}>{payment.status}</span>
+                  <span className={Payement.payment_amount}>{payment.currency} {payment.amount}</span>
+                </div>
+
+              </div>
+            ))}
+          </div>
         );
       case 'confirmPay':
         return (
-        <div className={Payement.paymentContainer}>
-                <h1 className={Payement.paymentTitle}>Card Information</h1>
-                <div className={Payement.row}>
-                    <div className={Payement.formGroup}>
-                        <h2 className={Payement.sectionTitle}>Card Holder Name</h2>
-                        <input 
-                        type="text" 
-                        className={Payement.inputField} 
-                        placeholder="Enter Card Holder Name"
-                        />
-                    </div>
-                    <div className={Payement.formGroup}>
-                        <h2 className={Payement.sectionTitle}>Card Number</h2>
-                        <input 
-                        type="text" 
-                        className={Payement.inputField} 
-                        placeholder="Enter Card Number"
-                        />
-                    </div>
-                </div>
-                <div className={Payement.row}>
-                    <div className={Payement.formGroup}>
-                        <h2 className={Payement.sectionTitle}>Expiry Date</h2>
-                        <input 
-                            type="text" 
-                            className={Payement.inputField} 
-                            placeholder="00/00"
-                        />
-                    </div>
-                    <div className={Payement.formGroup}>
-                        <h2 className={Payement.sectionTitle}>CVV Number</h2>
-                        <input 
-                            type="text" 
-                            className={Payement.inputField} 
-                            placeholder="Enter CVV Number"
-                        />
-                    </div>
-                </div>
-
-                <div className={Payement.buttonGroup}>
-                    <button  className={Payement.payButton} onClick={() => setActiveTab('ConfirmPay')}>Pay Now</button>
-                    <button className={Payement.cancelButton}>Cancel</button>
-                </div>
+          <div className={Payement.paymentContainer}>
+            <h1 className={Payement.paymentTitle}>Card Information</h1>
+            <div className={Payement.row}>
+              <div className={Payement.formGroup}>
+                <h2 className={Payement.sectionTitle}>Card Holder Name</h2>
+                <input
+                  type="text"
+                  className={Payement.inputField}
+                  placeholder="Enter Card Holder Name"
+                />
               </div>
+              <div className={Payement.formGroup}>
+                <h2 className={Payement.sectionTitle}>Card Number</h2>
+                <input
+                  type="text"
+                  className={Payement.inputField}
+                  placeholder="Enter Card Number"
+                />
+              </div>
+            </div>
+            <div className={Payement.row}>
+              <div className={Payement.formGroup}>
+                <h2 className={Payement.sectionTitle}>Expiry Date</h2>
+                <input
+                  type="text"
+                  className={Payement.inputField}
+                  placeholder="00/00"
+                />
+              </div>
+              <div className={Payement.formGroup}>
+                <h2 className={Payement.sectionTitle}>CVV Number</h2>
+                <input
+                  type="text"
+                  className={Payement.inputField}
+                  placeholder="Enter CVV Number"
+                />
+              </div>
+            </div>
+
+            <div className={Payement.buttonGroup}>
+              <button className={Payement.payButton} onClick={() => setActiveTab('ConfirmPay')}>Pay Now</button>
+              <button className={Payement.cancelButton}>Cancel</button>
+            </div>
+          </div>
         );;
-        
+
       default:
         return <div>Profile Content</div>;
     }
@@ -705,13 +705,13 @@ function ProfilePage({ slideOut,setSlideOut }) {
           <h1>Esther Howard</h1>
           <p>Joined Oct 2015</p>
         </div>
-        
+
         <nav className={Styles["profile-nav"]}>
-          <button 
+          <button
             className={`${Styles["nav-item"]} ${activeTab === 'profile' ? Styles.active : ''}`}
             onClick={() => {
-                setActiveTab('profile');
-                document.querySelector(`.${Styles["profile-main"]}`).style.height = '650px';
+              setActiveTab('profile');
+              document.querySelector(`.${Styles["profile-main"]}`).style.height = '650px';
             }}
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faUser} /> <div className={Styles['cate']}>My Profile</div>
@@ -720,26 +720,26 @@ function ProfilePage({ slideOut,setSlideOut }) {
         </nav>
 
         <nav className={Styles["profile-nav"]}>
-          <button 
-            className={`${Styles["nav-item"]} ${activeTab === 'Rides' || activeTab === 'confirmPay'  ? Styles.active : ''}`}
+          <button
+            className={`${Styles["nav-item"]} ${activeTab === 'Rides' || activeTab === 'confirmPay' ? Styles.active : ''}`}
             onClick={() => {
-                setActiveTab('Rides')
-                document.querySelector(`.${Styles["profile-main"]}`).style.height = '1000px';
-                document.querySelector(`.${Styles["profile-container"]}`).style.height = '1100px';
+              setActiveTab('Rides')
+              document.querySelector(`.${Styles["profile-main"]}`).style.height = 'auto';
+              document.querySelector(`.${Styles["profile-container"]}`).style.height = 'auto';
             }}
           >
-            <FontAwesomeIcon className={Styles['logo']}  icon={faCar} /> <div className={Styles['cate']}>Rides</div>
+            <FontAwesomeIcon className={Styles['logo']} icon={faCar} /> <div className={Styles['cate']}>Rides</div>
           </button>
           {/* Other nav items similarly updated */}
         </nav>
 
         <nav className={Styles["profile-nav"]}>
-          <button 
+          <button
             className={`${Styles["nav-item"]} ${activeTab === 'favorites' ? Styles.active : ''}`}
             onClick={() => {
-                setActiveTab('favorites');
-                document.querySelector(`.${Styles["profile-main"]}`).style.height = '900px';
-                document.querySelector(`.${Styles["profile-container"]}`).style.height = '1000px';
+              setActiveTab('favorites');
+              document.querySelector(`.${Styles["profile-main"]}`).style.height = '900px';
+              document.querySelector(`.${Styles["profile-container"]}`).style.height = '1000px';
             }}
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faHeart} /> <div className={Styles['cate']}>My Favorites</div>
@@ -748,12 +748,12 @@ function ProfilePage({ slideOut,setSlideOut }) {
         </nav>
 
         <nav className={Styles["profile-nav"]}>
-          <button 
+          <button
             className={`${Styles["nav-item"]} ${activeTab === 'messages' ? Styles.active : ''}`}
             onClick={() => {
-                setActiveTab('messages')
-                document.querySelector(`.${Styles["profile-main"]}`).style.height = '700px';
-                document.querySelector(`.${Styles["profile-container"]}`).style.height = '800px';
+              setActiveTab('messages')
+              document.querySelector(`.${Styles["profile-main"]}`).style.height = '700px';
+              document.querySelector(`.${Styles["profile-container"]}`).style.height = '800px';
             }}
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faEnvelope} /> <div className={Styles['cate']}>My Messages</div>
@@ -762,20 +762,21 @@ function ProfilePage({ slideOut,setSlideOut }) {
         </nav>
 
         <nav className={Styles["profile-nav"]}>
-          <button 
+          <button
             className={`${Styles["nav-item"]} ${activeTab === 'payments' ? Styles.active : ''}`}
-            onClick={() => {setActiveTab('payments')
-            profileContainerRef.current.style.height = '1000px'
-            profileMainRef.current.style.height = '900px'
-          }}
-            
+            onClick={() => {
+              setActiveTab('payments')
+              profileContainerRef.current.style.height = '1000px'
+              profileMainRef.current.style.height = '900px'
+            }}
+
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faHistory} /> <div className={Styles['cate']}>Payement History</div>
           </button>
           {/* Other nav items similarly updated */}
         </nav>
       </div>
-      
+
       <div ref={profileMainRef} className={Styles["profile-main"]}>
         <h1 className={Styles["content-title"]}>
           {activeTab === 'ConfirmPay' && 'Payement'}
@@ -788,8 +789,8 @@ function ProfilePage({ slideOut,setSlideOut }) {
         {renderContent()}
       </div>
       <div className={`${Rides.ShareCont} ${isActive ? Rides.active : ""}`}>
-        <FontAwesomeIcon icon={faCircleXmark} className={Rides.shareX} onClick={() => setIsActive(false)} /> <br/>
-        <FontAwesomeIcon icon={faShareNodes} className={Rides.shareIcon}/>
+        <FontAwesomeIcon icon={faCircleXmark} className={Rides.shareX} onClick={() => setIsActive(false)} /> <br />
+        <FontAwesomeIcon icon={faShareNodes} className={Rides.shareIcon} />
         <div className={Rides.shareHeader}>Share the trip via</div>
         <div className={Rides.sharePara}>Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam. Vulputate nisl vel diam eu. Risus natoque.</div>
         <div className={Rides.btnCont}>
@@ -804,7 +805,7 @@ function ProfilePage({ slideOut,setSlideOut }) {
         </div>
       </div>
       <div className={`${Rides.CancelCont} ${isActiveCancel ? Rides.activeCancel : ""}`}>
-        <FontAwesomeIcon icon={faCircleXmark} className={Rides.shareX} onClick={() => setIsActiveCancel(false)} /> <br/>
+        <FontAwesomeIcon icon={faCircleXmark} className={Rides.shareX} onClick={() => setIsActiveCancel(false)} /> <br />
         <div className={Rides.shareHeader}>Are you sure want to cancel?</div>
         <div className={Rides.cancelMain}>
           <div className={Rides.cancelH}>Cancellation Policy</div>
@@ -817,47 +818,47 @@ function ProfilePage({ slideOut,setSlideOut }) {
             <option value={'opt'}>opt</option>
             <option value={'opt'}>opt</option>
             <option value={'opt'}>opt</option>
-          </select><br/>
+          </select><br />
           <button className={Rides.cancelConfirm} >Cancel</button>
         </div>
       </div>
-      <div className={`${Styles.chnageMain} ${isChangedActive  ? Styles.activeChange : ""}`}>
-        <FontAwesomeIcon icon={faCircleXmark} className={Styles.changeX} onClick={() => setChangeActive(false)}  /> <br/>
+      <div className={`${Styles.chnageMain} ${isChangedActive ? Styles.activeChange : ""}`}>
+        <FontAwesomeIcon icon={faCircleXmark} className={Styles.changeX} onClick={() => setChangeActive(false)} /> <br />
         <div className={Styles.shareHeader}>Change Password</div>
         <div className={Styles.MainChange}>
           <label className={Styles.chnage_text}>Old Password</label>
           <div className={Styles.change_inpCont}>
-            <input type={isVisible ? 'text' : 'password'} value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********'  className={Styles.change_inp}  />
-            <FontAwesomeIcon icon={isVisible ? faEyeSlash : faEye} onClick={() => setIsVisible(prev => !prev)} className={Styles.chnage_eye}/>
+            <input type={isVisible ? 'text' : 'password'} value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********' className={Styles.change_inp} />
+            <FontAwesomeIcon icon={isVisible ? faEyeSlash : faEye} onClick={() => setIsVisible(prev => !prev)} className={Styles.chnage_eye} />
           </div>
           <label className={Styles.chnage_text}>New Password</label>
           <div className={Styles.change_inpCont}>
-            <input type={isVisibleO ? 'text' : 'password'} value={password} onChange={(e) => setPasswordO(e.target.value)} placeholder='*********'  className={Styles.change_inp}  />
-            <FontAwesomeIcon icon={isVisibleO ? faEyeSlash : faEye} onClick={() => setIsVisibleO(prev => !prev)} className={Styles.chnage_eye}/>
+            <input type={isVisibleO ? 'text' : 'password'} value={password} onChange={(e) => setPasswordO(e.target.value)} placeholder='*********' className={Styles.change_inp} />
+            <FontAwesomeIcon icon={isVisibleO ? faEyeSlash : faEye} onClick={() => setIsVisibleO(prev => !prev)} className={Styles.chnage_eye} />
           </div>
           <label className={Styles.chnage_text}>Confirm Password</label>
           <div className={Styles.change_inpCont}>
-            <input type={isVisibleT ? 'text' : 'password'} value={password} onChange={(e) => setPasswordT(e.target.value)} placeholder='*********'  className={Styles.change_inp}  />
-            <FontAwesomeIcon icon={isVisibleT ? faEyeSlash : faEye} onClick={() => setIsVisibleT(prev => !prev)} className={Styles.chnage_eye}/>
+            <input type={isVisibleT ? 'text' : 'password'} value={password} onChange={(e) => setPasswordT(e.target.value)} placeholder='*********' className={Styles.change_inp} />
+            <FontAwesomeIcon icon={isVisibleT ? faEyeSlash : faEye} onClick={() => setIsVisibleT(prev => !prev)} className={Styles.chnage_eye} />
           </div>
         </div>
         <button className={Styles.chnage_Save} >Save</button>
       </div>
 
       <div className={`${Styles.outCont} ${slideOut ? Styles.outActive : ""}`}>
-        <FontAwesomeIcon icon={faCircleXmark} className={Styles.outX} onClick={() => setSlideOut(false)} /> <br/>
-        <FontAwesomeIcon icon={faPowerOff} className={Styles.outIcon}/>
+        <FontAwesomeIcon icon={faCircleXmark} className={Styles.outX} onClick={() => setSlideOut(false)} /> <br />
+        <FontAwesomeIcon icon={faPowerOff} className={Styles.outIcon} />
         <div className={Styles.outTitle}>Are You Sure Want to Logout? </div>
         <div className={Styles.outpara}>Lorem ipsum dolor sit amet, consectetur adipiscing elit sagittis. </div>
         <div className={Styles.outBC}>
           <Link to={'/login'} className={Styles.outY} >Yes</Link>
           <button onClick={() => setSlideOut(false)} className={Styles.outN} >Cancel</button>
         </div>
-        
-      
+
+
       </div>
     </div>
-    
+
   );
 }
 
