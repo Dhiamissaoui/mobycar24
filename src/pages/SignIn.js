@@ -103,7 +103,7 @@ function SignIn() {
         <div className={style.box}>
           <div className={style.inp} id={style.test}>
             <input className="form-check-input mt-0" type="checkbox" style={{ transform: 'scale(0.8)', cursor: 'pointer', display: 'flex', alignSelf: 'center' }} value="" id="flexCheckDefault" />
-            <div style={{ color: 'rgba(177, 177, 177, 1)' }}>Accept terms & conditions and privacy policy of Mobycar24</div>
+            <div style={{ color: 'rgba(177, 177, 177, 1)', fontSize: '14px' }}>Accept terms & conditions and privacy policy of Mobycar24</div>
           </div>
         </div>
         <Link to='/login' className={style.submit} type='submit'>Sign Up</Link>

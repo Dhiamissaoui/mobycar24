@@ -242,7 +242,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  margin: 50px 0;
 
 }
 
@@ -264,9 +264,25 @@
   align-items: center;
 }
 
+.btn-left:hover .colorL {
+  color: white;
+}
+
+.btn-left:hover {
+  background-color: black;
+}
+
+.btn-right:hover .colorR {
+  color: white;
+}
+
+.btn-right:hover {
+  background-color: black;
+}
+
 .btn-p:hover {
-  color: #9E4DB6;
-  border: 1px solid #9E4DB6;
+  color: white;
+  background-color: black;
 }
 
 hr {
@@ -284,13 +300,20 @@ hr {
 .filter-btn-cont {
   padding: 20px;
   margin-left: -600px;
-  width: 600px;
+  width: 570px;
   height: 800px;
   transform: translate(800px);
   background-color: white;
   border-radius: 20px;
-  border: 5px solid black;
   transition: ease-in-out 0.5s;
+  z-index: 1000;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .filter-btn-cont.remove {
@@ -298,19 +321,23 @@ hr {
 }
 
 .filter-close {
-  transform: translate(530px, -10px);
-  font-size: 30px;
+  display: flex;
+  justify-self: flex-end;
+  font-size: 22px;
   color: rgba(158, 77, 182, 1);
   cursor: pointer;
 }
 
 .filter-title {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
+  transform: translateY(-40%);
 }
 
 .filter-icon {
   margin-right: 10px;
+  width: 20px;
+
 }
 
 .filter-main {
@@ -319,7 +346,7 @@ hr {
 
 .filter-name {
   color: rgba(57, 57, 57, 1);
-  font-size: 25px;
+  font-size: 14px;
 }
 
 .filter-cat,
@@ -334,16 +361,16 @@ hr {
 .filter-box {
   border-radius: 10px;
   background-color: rgba(19, 88, 107, 0.05);
-  font-size: 20px;
-  padding: 0 20px;
+  font-size: 13px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
 .filter-box:nth-child(1) {
   border-radius: 10px;
   background-color: rgba(158, 77, 182, 1);
-  font-size: 20px;
-  padding: 0 20px;
+  font-size: 13px;
+  padding: 10 20px;
   cursor: pointer;
   color: white;
 }
@@ -372,6 +399,7 @@ hr {
 .rental-option {
   display: flex;
   align-items: center;
+  font-size: 13px;
 }
 
 .checked {
@@ -379,7 +407,37 @@ hr {
 }
 
 .hidden-checkbox {
-  width: 20px;
+  all: unset;
+  width: 14px;
+  height: 14px;
+  border: 2px solid purple;
+  /* Purple border */
+  border-radius: 4px;
+  /* Optional: rounded corners */
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  /* White background by default */
+  transition: all 0.2s ease-in-out;
+}
+
+.hidden-checkbox:checked {
+  background-color: white;
+  /* Fill background */
+  border-color: purple;
+  /* Keep purple border */
+}
+
+.hidden-checkbox:checked::after {
+  content: "✓";
+  color: purple;
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
@@ -403,8 +461,11 @@ hr {
 
 .filter-btnC {
   display: flex;
-  gap: 20px;
-  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  gap: 10px;
+  width: 90%;
   margin-top: 10px;
 }
 
@@ -412,16 +473,57 @@ hr {
   width: 70%;
   background-color: rgba(158, 77, 182, 1);
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
+  height: 48px;
+  border: none;
 }
 
 .filter-clear {
+  display: flex;
   width: 30%;
   background-color: white;
-  color: rgba(158, 77, 182, 1);
-  font-size: 20px;
+  color: #9E4DB6;
+  font-size: 15px;
   padding: 10px;
   border-radius: 15px;
+  border: 1px solid #9E4DB6;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/*testttt*/
+
+
+/* Dark background overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* semi-transparent black */
+  z-index: 999;
+  /* Make sure it's above the page but below filter */
+}
+
+/* Raise filter container above overlay */
+
+
+
+
+
+.s1-icon {
+  position: absolute;
+  top: 30%;
+  margin-left: 10px;
+  color: #818181;
+  width: 20px;
+}
+
+#radiuse5dem {
+  border-radius: 5px;
 }

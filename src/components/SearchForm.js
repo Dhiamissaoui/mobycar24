@@ -6,11 +6,13 @@ import {
   faMagnifyingGlass,
   faLocationDot,
   faClock,
-  faCar
+  faCar,
+  faCarAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '../styles/SearchForm.module.css';
 
+import carIconHomePage from '../images/car_icon_homePage.png'
 
 function SearchForm() {
   return (
@@ -20,11 +22,10 @@ function SearchForm() {
         <div className={styles['search-group']}>
 
           <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["s1-icon"]} />
-          <input type='text' className={styles['inpLoc']} placeholder='Enter location' />
+          <input type='text' className={`${styles['inpLoc']} ${styles['font']}`} placeholder='Enter location' />
 
         </div>
-
-        <div className={styles['search-group']}>
+        {/*<div className={styles['search-group']}>
 
           <FontAwesomeIcon icon={faLocationDot} className={styles["s1-icon"]} />
           <select>
@@ -34,33 +35,76 @@ function SearchForm() {
             <option>Sfax</option>
           </select>
 
+        </div>*/}
+
+        <div className={`dropdown show ${styles.inpCont} `}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles["s1-icon"]}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+          </svg>
+          <button
+            style={{ backgroundColor: 'white', color: 'black', height: '50px' }}
+            className="btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle "
+            type="button"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <div className={styles.font} style={{ color: '#818181', paddingLeft: '20px ' }}>Location</div>
+          </button>
+
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><button className="dropdown-item" >Ariana</button></li>
+            <li><button className="dropdown-item" >Kasserine</button></li>
+            <li><button className="dropdown-item" >Sousse</button></li>
+          </ul>
         </div>
 
-        <div className={styles['search-group']}>
+        <div className={`dropdown show ${styles.inpCont} `}>
+          <FontAwesomeIcon icon={faCarAlt} className={styles['s1-icon']} />
+          <button
+            style={{ backgroundColor: 'white', color: 'black', height: '50px' }}
+            className="btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle "
+            type="button"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <div className={styles.font} style={{ color: '#818181', paddingLeft: '20px', fontSize: '14px' }}>Car type</div>
+          </button>
 
-          <FontAwesomeIcon icon={faCar} className={styles["s1-icon"]} />
-          <select>
-            <option>Select car type</option>
-            <option>SUV</option>
-            <option>Sedan</option>
-            <option>Sports</option>
-          </select>
-
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><button className="dropdown-item" >sedan</button></li>
+            <li><button className="dropdown-item" >cross</button></li>
+            <li><button className="dropdown-item" >4x4</button></li>
+          </ul>
         </div>
 
+        <div className={`dropdown show ${styles.inpCont} `}>
 
-        <div className={styles['search-group']}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles["s1-icon"]}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
 
-          <FontAwesomeIcon icon={faClock} className={styles["s1-icon"]} />
-          <select>
-            <option>1 hour</option>
-            <option>2 hours</option>
-            <option>4 hours</option>
-          </select>
+          <button
+            style={{ backgroundColor: 'white', color: 'black', height: '50px' }}
+            className="btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle "
+            type="button"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <div className={styles.font} style={{ color: '#818181', paddingLeft: '20px ' }}>Hourly</div>
+          </button>
 
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><button className="dropdown-item" >1 Hour</button></li>
+            <li><button className="dropdown-item" >3+ Hours</button></li>
+            <li><button className="dropdown-item" >24+ Hours </button></li>
+          </ul>
         </div>
 
-        <button type='submit' className={styles['search-button']}>Search</button>
+        <button type='submit' className={`${styles['search-button']} ${styles['font']}`}>Search</button>
       </form>
     </div>
   );

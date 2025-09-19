@@ -2,8 +2,8 @@
   background: rgba(255, 255, 255, 0.23);
   padding: 2rem;
   margin: -5rem auto 3rem;
-  max-width: 1000px;
-  border-radius: 8px;
+  max-width: 1065px;
+  border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 10;
@@ -18,51 +18,62 @@
 }
 
 .search-group {
+  position: relative;
   display: flex;
   flex-direction: row;
-  width: 170px;
+  width: auto;
   background: white;
-  border: 2px solid black;
-  border-radius: 10px;
-
-}
-
-.search-group:nth-child(1) {
-  display: flex;
-  flex-direction: row;
-  width: 400px;
-  background: white;
-  border: 2px solid black;
-  border-radius: 10px;
-
-}
-
-.s1-icon {
-  color: rgba(129, 129, 129, 1);
-  transform: translate(10px, 13px);
-  transform: translate(50%, 100%);
+  border-radius: 5px;
+  background-color: white;
+  width: 340px;
 }
 
 
 
-.search-group input,
-.search-group select {
-  padding: 0.8rem;
-  border-radius: 4px;
-  background: transparent;
-  width: 100%;
-  border: none;
+
+.inpLoc {
+  margin-left: 20px;
+  background-color: transparent;
+}
+
+.inpLoc::placeholder {
+  color: #C7C7C7;
+
 }
 
 
 .search-button {
   background: transparent;
   color: white;
-  border: 2px solid white;
+  border: 1px solid white;
   padding: 15px 40px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 15px;
-  font-weight: bold;
   height: fit-content;
+}
+
+/*input container scroll dropdown*/
+
+.inpCont {
+  position: relative;
+  width: 18%;
+  width: 150px;
+}
+
+.font {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.s1-icon {
+  position: absolute;
+  top: 30%;
+  margin-left: 10px;
+  color: #818181;
+  width: 20px;
 }

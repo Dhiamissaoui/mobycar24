@@ -279,46 +279,6 @@ function CarDet() {
                     <div className={style.bookCont}>
                         <div className=' fw-bold'>Choose a rental date</div>
                         <div className={style.cardetDiv}></div>
-                        {/* <div className='d-flex gap-3'>
-                            <div className=' w-50'>
-                                <div>Pickup date</div>
-                                <div className={style.ddd}>
-                                    <select className={style.testxx}>
-                                        <option selected>25 Feb 2024</option>
-                                        <option >25 Feb 2024</option>
-                                        <option >25 Feb 2024</option>
-                                        <option >25 Feb 2024</option>
-                                    </select>
-                                    <FontAwesomeIcon icon={faCaretDown} className={style.iconthird} />
-                                </div>
-
-                            </div><div className=' w-50'>
-                                <div>Pickup date</div>
-                                <div className={style.ddd}>
-                                    <select className={style.testxx}>
-                                        <option selected>25 Feb 2024</option>
-                                        <option >25 Feb 2024</option>
-                                        <option >25 Feb 2024</option>
-                                        <option >25 Feb 2024</option>
-                                    </select>
-                                    <FontAwesomeIcon icon={faCaretDown} className={style.iconthird} />
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className=' position-relative w-100'>
-                            <div>Pickup date</div>
-                            <div className={style.ddd}>
-                                <select id={style.orth} className={style.testxx}  >
-                                    <option selected>25 Feb 2024</option>
-                                    <option >25 Feb 2024</option>
-                                    <option >25 Feb 2024</option>
-                                    <option >25 Feb 2024</option>
-                                </select>
-                                <FontAwesomeIcon icon={faCaretDown} className={style.iconthird} />
-                            </div>
-
-                        </div> */}
                         <div className='d-flex gap-5'>
                             <div className="dropdown show">
                                 <button

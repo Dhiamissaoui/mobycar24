@@ -47,11 +47,11 @@ function Navbar() {
 
           {/* Language & Currency Dropdowns */}
           <div
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.11)' }}
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.11)', height: '42px', width: '206px' }}
             className="d-flex align-items-center text-white p-2 rounded-3"
           >
             {/* Language Dropdown */}
-            <div className="dropdown me-3 border-end pe-3">
+            <div className=" d-flex align-self-center dropdown me-3 pe-3" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)' }}>
               <button
                 className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
                 type="button"
@@ -93,9 +93,8 @@ function Navbar() {
                 </li>
               </ul>
             </div>
-
             {/* Currency Dropdown */}
-            <div className="dropdown">
+            <div className="dropdown d-flex align-self-center">
               <button
                 className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
                 type="button"
@@ -135,7 +134,7 @@ function Navbar() {
           </Link>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
 

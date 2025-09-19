@@ -272,11 +272,12 @@ p {
   font-size: 14px;
   color: #B1B1B1;
   margin-bottom: 1rem;
-  transform: translate(-38%, -40%);
+  display: flex;
+  transform: translate(-2%, -40%);
 }
 
 .file_upload_button {
-  background-color: #9E4DB6 !important;
+  background-color: #575757 !important;
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;

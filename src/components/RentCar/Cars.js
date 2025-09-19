@@ -186,15 +186,16 @@ function RentCar() {
           ))}
         </div>
         <div className={styles['btns']}>
-          <div className={styles['btn-left']}><FontAwesomeIcon icon={faChevronLeft} /></div>
+          <div className={styles['btn-left']}><FontAwesomeIcon icon={faChevronLeft} className={styles.colorL} /></div>
           <div className={styles['btn-p']}>1</div>
           <div className={styles['btn-p']}>2</div>
           <div className={styles['btn-p']}>...</div>
           <div className={styles['btn-p']}>9</div>
           <div className={styles['btn-p']}>10</div>
-          <div className={styles['btn-right']}><FontAwesomeIcon icon={faChevronRight} /></div>
+          <div className={styles['btn-right']}><FontAwesomeIcon icon={faChevronRight} className={styles.colorR} /></div>
         </div>
       </div>
+      {removeFilter && <div className={styles.overlay} onClick={() => setremoveFilter(false)}></div>}
       <div className={`${styles['filter-btn-cont']} ${removeFilter ? styles['remove'] : ''}`}>
         <FontAwesomeIcon icon={faCircleXmark} onClick={() => setremoveFilter(!removeFilter)} className={styles['filter-close']} /> <br />
         <div className={styles['filter-title']}><FontAwesomeIcon icon={faSliders} className={styles['filter-icon']} />Filter</div>
@@ -249,42 +250,56 @@ function RentCar() {
             <input type='checkbox'
               className={styles['hidden-checkbox']} /><label className={styles['rental-option']}>Weekly Rent</label>
           </div>
-          <div className={styles['filter-name']}>Select Brand and model</div>
-          <div className={styles['filter-brandCont']}>
-            <select
-              className={styles['allB']}
-              onChange={(e) => setSelectedBrand(e.target.value)}
-              value={selectedBrand}
-            >
-              <option value="range rover">Range Rover</option>
-              <option value="porsche">Porsche</option>
-              <option value="BMW">BMW</option>
-            </select>
+          <div style={{ marginBottom: '20px' }} className={styles['filter-name']}>Select Brand and model</div>
+          <div style={{ backgroundColor: '#F2F2F2' }} className='d-flex w-100' id={styles.radiuse5dem}>
+            <div className={`dropdown show ${styles.inpCont} w-50`}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles["s1-icon"]}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+              <button
+                style={{ backgroundColor: '#F2F2F2', color: 'black', height: '50px' }}
+                className={`btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle ${styles.borderRad} `}
+                type="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div className={styles.font} style={{ color: '#818181', paddingLeft: '20px ' }}>All Brand</div>
+              </button>
 
-            {selectedBrand === 'range rover' && (
-              <select className={styles['allB']}>
-                <option value="sport">Sport</option>
-                <option value="evoque">Evoque</option>
-                <option value="velar">Velar</option>
-              </select>
-            )}
+              <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><button className="dropdown-item" >bmw</button></li>
+                <li><button className="dropdown-item" >peugot</button></li>
+                <li><button className="dropdown-item" >volkswagen</button></li>
+              </ul>
+            </div>
+            <div className={`dropdown show ${styles.inpCont} w-50 `}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={styles["s1-icon"]}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+              <button
+                style={{ backgroundColor: '#F2F2F2', color: 'black', height: '50px' }}
+                className="btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle "
+                type="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div className={styles.font} style={{ color: '#B1B1B1', paddingLeft: '20px ' }}>Model</div>
+              </button>
 
-            {selectedBrand === 'porsche' && (
-              <select className={styles['allB']}>
-                <option value="cayenne">Cayenne</option>
-                <option value="panamera">Panamera</option>
-                <option value="carrera">Carrera</option>
-              </select>
-            )}
-
-            {selectedBrand === 'BMW' && (
-              <select className={styles['allB']}>
-                <option value="series1">Series 1</option>
-                <option value="x5">X5</option>
-                <option value="series3">Series 3</option>
-              </select>
-            )}
+              <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><button className="dropdown-item" >Model 1</button></li>
+                <li><button className="dropdown-item" >Model 2</button></li>
+                <li><button className="dropdown-item" >Model 3</button></li>
+              </ul>
+            </div>
           </div>
+
+
+
           <div className={styles['filter-btnC']}>
             <button className={styles['filter-aplly']}>Apply Filter</button>
             <button className={styles['filter-clear']}><FontAwesomeIcon icon={faTrash} />Clear All</button>
