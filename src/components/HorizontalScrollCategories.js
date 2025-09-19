@@ -13,10 +13,7 @@ import { ReactComponent as Suv } from '../images/categories/suv.svg';
 import { ReactComponent as Conv } from '../images/categories/conv.svg';
 import { ReactComponent as Hatchback } from '../images/categories/hatchback.svg';
 import { ReactComponent as Sedan } from '../images/categories/sedan.svg';
-import { ReactComponent as Van } from '../images/categories/van.svg';
-import { ReactComponent as Compact } from '../images/categories/compact.svg';
-import { ReactComponent as Coup } from '../images/categories/coup.svg';
-import { ReactComponent as Pickup } from '../images/categories/pcikup.svg';
+
 
 
 

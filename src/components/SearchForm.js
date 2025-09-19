@@ -4,15 +4,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMagnifyingGlass,
-  faLocationDot,
-  faClock,
-  faCar,
   faCarAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '../styles/SearchForm.module.css';
-
-import carIconHomePage from '../images/car_icon_homePage.png'
 
 function SearchForm() {
   return (

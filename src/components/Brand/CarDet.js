@@ -35,7 +35,8 @@ function CarDet() {
     const toggleAccordion = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
-    const [language, setLanguage] = useState('EN');
+    const [language] = useState('EN');
+
     const FlagIcon = {
         EN: GB,
         FR: FR,

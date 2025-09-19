@@ -29,7 +29,6 @@ import { useState } from 'react';
 function RentCar() {
 
   const [removeFilter, setremoveFilter] = useState(false)
-  const [selectedBrand, setSelectedBrand] = useState('range rover');
 
   const [activeFilters, setActiveFilters] = useState([]);
 
