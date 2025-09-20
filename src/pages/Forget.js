@@ -1,20 +1,17 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 import audi from '../images/audi_car.png'
 import Img24 from '../images/24 image logo .png'
 import styles from '../styles/Forget.module.css';
-import imgMail from '../images/mailIcon.png';
-import { EnvelopeIcon } from '@heroicons/react/24/outline'
 
 
 
 
 function Forget() {
   const [emailSent, setEmailSent] = useState(false);
-  const [removeFilter, setremoveFilter] = useState(false)
 
   return (
     <div className={styles.container}>
