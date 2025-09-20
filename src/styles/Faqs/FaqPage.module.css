@@ -1,0 +1,135 @@
+.faqs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles for FAQ page */
+.header {
+  width: 100%;
+  height: 244px;
+  background-color: rgba(248, 248, 248, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.ContactUs {
+  text-align: center;
+  font-size: 40px;
+  color: black;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  z-index: 2;
+}
+
+.fcircle,
+.scircle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: linear-gradient(rgba(49, 0, 64, 0.04), rgba(49, 0, 64, 0));
+  position: absolute;
+  z-index: 1;
+}
+
+.scircle {
+  left: 12%;
+  top: -22%;
+}
+
+.fcircle {
+  top: 15%;
+  left: 55%;
+}
+
+.SecondC {
+  width: 176px;
+  height: 176px;
+  background: linear-gradient(rgba(49, 0, 64, 0.04), rgba(49, 0, 64, 0));
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  transform: translate(400%, 50px);
+}
+
+/* FAQ Item Styles */
+.faqItem {
+  padding: 0 15px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px #00000014;
+  background: #fff;
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+
+.faqQuestionTitle {
+  font-size: 18px;
+  line-height: 28px;
+  color: #333;
+  margin: 0;
+  flex: 1;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.faqIcon {
+  color: #9E4DB6;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
+
+.faqQuestion:hover .faqQuestionTitle {
+  color: #9E4DB6;
+}
+
+
+.faqAnswer {
+  animation: fadeIn 0.3s ease;
+}
+
+.faqAnswerText {
+
+  color: #919191;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  font-size: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

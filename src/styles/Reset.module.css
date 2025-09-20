@@ -3,57 +3,82 @@
 /* Main Container Styles */
 .container {
   display: flex;
-  min-height: 100vh;
-  height: 700px;
+  height: 100vh;
   overflow: hidden;
 }
 
 .Fsection {
-  background:linear-gradient(rgba(49, 0, 64, 1),rgba(158, 77, 182, 1)) ;
-  width: 550px;
+  background: linear-gradient(rgba(49, 0, 64, 1), rgba(158, 77, 182, 1));
+  width: 40%;
+  height: 100vh;
 }
 
-.Fsection .moby, .Fsection .car {
+.Fsection .moby,
+.Fsection .car {
   font-size: 103px;
   color: white;
-  letter-spacing: 2px; /* Adjust to match your reference */
+  letter-spacing: 2px;
   z-index: 1;
   opacity: 3%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
-.container .Fsection .moby{
-  transform: translate(50px,50px);
+
+.container .Fsection .moby {
+  transform: translate(10%, 50%);
 }
-.container .Fsection .car{
-  transform: translate(50px,-20px);
+
+.container .Fsection .car {
+  transform: translate(10%, 0%);
 }
-.container .Fsection .number{
-  font-family: Montserrat;
-  font-weight: 800;
-  font-size: 200px;
-  line-height: 100%;
-  color: white;
-  transform: translate(350px,-250px);
-  opacity: 3%;
-  width: 30%;
+
+.number {
+  position: absolute;
+  left: 17%;
+  top: 9%;
+  transform: scale(1.1);
 }
-.line{
-  height: 900px;
+
+.line {
+  position: relative;
+  height: 80%;
   width: 1px;
   background-color: rgba(237, 237, 237, 1);
-  transform: translate(650px,-550px);
+  left: 110%;
+  top: -50%;
 }
 
 .Fsection img.bg {
   position: absolute;
-  right: 650px;
-  bottom: 0; /* Adjust based on your image */
-  height: 60%;
-  width: 60%;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  /* Adjust based on your image */
+  width: 50%;
   object-fit: contain;
-  transform: scaleX(-1); /* Flip horizontally */
+  transform: scale(-1, 1);
+  /* Flip horizontally */
   opacity: 1;
   z-index: 0;
 }
+
+
+.titleH {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 33px;
+  display: flex;
+  justify-self: center;
+}
+
+.descP {
+  color: #919191;
+  font-size: 16px;
+}
+
+
 
 .Ssection {
   flex: 1;
@@ -68,17 +93,13 @@
   margin-bottom: 2.5rem;
 }
 
-.header h1 {
-  font-size: 33px;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #222;
-  text-align: center
-}
 
-.header p {
-  font-size: 1rem;
-  color: #666;
+
+.labelPass {
+  color: #575757;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 /* Form Box Styles */
@@ -114,17 +135,26 @@ input:focus {
 
 /* Submit Button Styles */
 .submit {
-  margin-left: 40%;
-  padding: 1rem;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  padding: 0.75rem 3rem;
   background-color: rgba(158, 77, 182, 1);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 1rem;
-  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s;
   text-decoration: none;
+
+
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+
 }
 
 .submit:hover {
@@ -144,14 +174,36 @@ p {
   .container {
     flex-direction: column;
   }
-  
+
   .Fsection {
     display: none;
   }
-  
+
   .Ssection {
     padding: 2rem;
     width: 100%;
   }
 }
 
+
+
+
+
+/*eye*/
+
+.placeholder::placeholder {
+  color: #B1B1B1;
+}
+
+.passEye {
+  position: relative;
+}
+
+.iconEye {
+  display: flex;
+  justify-self: flex-end;
+  align-self: center;
+  transform: translate(-50%, -200%);
+  cursor: pointer;
+  color: #B1B1B1;
+}

@@ -1,7 +1,7 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/Faqs/FaqPage.css';
+import styles from '../../styles/Faqs/FaqPage.module.css';
 
 const Faq_content = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -38,31 +38,38 @@ const Faq_content = () => {
   ];
 
   return (
-    <div className="faqs-container">
-      <h1>FREQUENTLY ASKED QUESTIONS</h1>
-      <div className='FirstC'></div>
-      <div className='SecondC'></div>
-      {faqData.map((faq, index) => (
-        <div key={index} className="faq-item">
-          <div 
-            className="faq-question" 
-            onClick={() => toggleFAQ(index)}
-          >
-            <h2>{faq.question}</h2>
-            <FontAwesomeIcon 
-              icon={activeIndex === index ? faMinus : faPlus} 
-              className="faq-icon"
-            />
-          </div>
-          
-          {activeIndex === index && (
-            <div className="faq-answer">
-                <p>{faq.answer}</p>
+    <>
+      <div className={styles.header}>
+        <div className={styles.ContactUs}>Frequently Asked Questions</div>
+        <div className={styles.fcircle}></div>
+        <div className={styles.scircle}></div>
+      </div>
+      <div className={styles["faqs-container"]}>
+
+        {/* FAQ List Section */}
+        <div style={{ marginTop: "2rem" }}>
+          {faqData.map((faq, index) => (
+            <div key={index} className={styles.faqItem}>
+              <div
+                className={styles.faqQuestion}
+                onClick={() => toggleFAQ(index)}
+              >
+                <h2 className={styles.faqQuestionTitle}>{faq.question}</h2>
+                <FontAwesomeIcon
+                  icon={activeIndex === index ? faMinus : faPlus}
+                  className={styles.faqIcon}
+                />
+              </div>
+              {activeIndex === index && (
+                <div className={styles.faqAnswer}>
+                  <p className={styles.faqAnswerText}>{faq.answer}</p>
+                </div>
+              )}
             </div>
-          )}
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 };
 

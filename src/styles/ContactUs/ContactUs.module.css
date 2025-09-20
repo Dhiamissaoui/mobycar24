@@ -1,15 +1,28 @@
 .header {
   width: 100%;
-  height: 0px;
+  height: 244px;
   background-color: rgba(248, 248, 248, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 
 .header .ContactUs {
   text-align: center;
   font-size: 40px;
   color: black;
-  transform: translateY(130%);
+
+  position: relative;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   font-weight: bold;
+  font-style: normal;
+  z-index: 2;
+
 }
 
 .header .fcircle,
@@ -18,21 +31,26 @@
   height: 170px;
   border-radius: 50%;
   background: linear-gradient(rgba(49, 0, 64, 0.04), rgba(49, 0, 64, 0));
+  position: absolute;
+  z-index: 1;
 }
 
 .header .scircle {
-  transform: translate(800px, -220px);
+  left: 12%;
+  top: -22%;
 }
 
+
 .header .fcircle {
-  transform: translate(100px, -100px);
+  top: 15%;
+  left: 55%;
 }
 
 /* Main Container Styles */
 .container {
   display: flex;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 2rem;
   gap: 4rem;
 }
@@ -42,21 +60,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
+  margin: 75px 0;
 }
 
-.partOne h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #222;
-}
 
-.partOne p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-}
 
 .partTwo {
   display: flex;
@@ -67,36 +75,47 @@
 .info {
   display: flex;
   gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #ECECEC;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .container .sectionOne .partTwo .info .logo {
   color: rgba(158, 77, 182, 1);
-  font-size: 1.2rem;
+  width: 70px;
   margin-top: 0.3rem;
   background-color: rgba(246, 239, 248, 1);
   border-radius: 50%;
   padding: 20px;
 }
 
-.info h3 {
-  font-size: 1rem;
+.logoNormal {
+  color: rgba(158, 77, 182, 1);
+  font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Make the FontAwesome icon even smaller for better match */
+  margin-top: 0.3rem;
+  background-color: rgba(246, 239, 248, 1);
+  border-radius: 50%;
+  padding: 25px;
+}
+
+
+
+.paraTitle {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: rgba(145, 145, 145, 1);
-}
-
-.info p {
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  color: #060606;
   font-size: 18px;
-  color: rgba(6, 6, 6, 1);
-  font-weight: bold;
-}
-
-hr {
-  border: none;
-  height: 3px;
-  background-color: rgba(236, 236, 236, 1);
-  margin: 0.5rem 0;
 }
 
 /* Section Two Styles */
@@ -104,38 +123,21 @@ hr {
   flex: 1;
   background-color: #fff;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #F2F2F2;
+  height: 670px;
+  width: 580px;
 }
 
 .area {
   margin-bottom: 1.5rem;
 }
 
-.area label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
 
-.area input,
-.area textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  transition: border-color 0.3s;
-  border-radius: 5px;
-}
 
-.area input:focus,
-.area textarea:focus {
-  outline: none;
-  border-color: #666;
-}
+
+
 
 .area textarea {
   min-height: 120px;
@@ -172,7 +174,83 @@ hr {
     gap: 2rem;
   }
 
-  .partOne h1 {
-    font-size: 2rem;
-  }
+
+}
+
+
+/*new changes*/
+
+.fontM {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 38px;
+}
+
+.fontR {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  color: #919191;
+  font-size: 16px;
+}
+
+.labForm {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+  color: #575757;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.test {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+  font-size: 18px;
+  color: #060606;
+}
+
+.inpForm::placeholder,
+.textForm::placeholder {
+  color: #B1B1B1;
+  background-color: #F2F2F2;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.textForm {
+  width: 100%;
+  height: 100px;
+  border: none;
+  background-color: #F2F2F2;
+  resize: vertical;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.textForm:focus {
+  outline: none;
+}
+
+.inpForm {
+  border: none;
 }

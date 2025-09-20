@@ -49,16 +49,7 @@
 
 }
 
-.nav-link:nth-child(2)::before {
-  position: absolute;
-  content: '';
-  width: 5px;
-  height: 5px;
-  background-color: white;
-  border-radius: 50%;
-  bottom: -15px;
-  right: 50%;
-}
+
 
 .dropdown {
   position: relative;
