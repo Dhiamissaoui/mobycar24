@@ -62,6 +62,7 @@ function CarDet() {
     ];
 
 
+    const [removeFilter, setremoveFilter] = useState(false)
 
     return (
         <>

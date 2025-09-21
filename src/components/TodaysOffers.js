@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Styles from '../styles/TodaysOffers.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 
