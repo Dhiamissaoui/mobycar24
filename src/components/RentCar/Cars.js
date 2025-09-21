@@ -3,7 +3,6 @@ import styles from '../../styles/RentcarStyles/Cars.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faShieldAlt,       // For insurance
-  faTachometerAlt,   // For mileage
   faCalendar,
   faSearch,
   faChevronRight,

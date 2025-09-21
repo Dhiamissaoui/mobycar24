@@ -6,7 +6,6 @@ import {
   faEnvelope,
   faHeart,
   faHistory,
-  faKey,
   faUser,
   faCamera,       // For insurance
   faTachometerAlt,   // For mileage
@@ -80,9 +79,6 @@ function ProfilePage({ slideOut, setSlideOut }) {
   const [pickupAddress] = useState('1813 Casper Mountains, East Alycia 72127-5384');
   const [dropoffAddress] = useState('199 Kling Coves, Morissetteside 63526-7183');
 
-  const handleEdit = () => {
-    setIsEditing(!isEditing);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
