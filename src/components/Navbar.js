@@ -48,12 +48,13 @@ function Navbar() {
           {/* Language & Currency Dropdowns */}
           <div
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.11)', height: '42px', width: '206px' }}
-            className="d-flex align-items-center text-white p-2 rounded-3"
+            className="d-flex align-items-center  justify-content-center text-white p-2 rounded-3"
           >
             {/* Language Dropdown */}
-            <div className=" d-flex align-self-center dropdown me-3 pe-3" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)' }}>
+            <div className=" d-flex align-self-center  dropdown " >
               <button
-                className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
+                className={`btn btn-sm fw-medium dropdown-toggle d-flex align-items-center text-white bg-transparent border-0 ${styles['custom-dropdown']}`}
+
                 type="button"
                 id="languageDropdown"
                 data-bs-toggle="dropdown"
@@ -70,7 +71,7 @@ function Navbar() {
                 >
                   <FlagIcon style={{ width: '100%', height: '100%' }} />
                 </div>
-                {language}
+                <div>{language}</div>
               </button>
               <ul
                 className="dropdown-menu dropdown-menu-dark"
@@ -93,17 +94,19 @@ function Navbar() {
                 </li>
               </ul>
             </div>
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', height: '100%', width: '1px', margin: '0 5px' }}></div>
             {/* Currency Dropdown */}
             <div className="dropdown d-flex align-self-center">
               <button
-                className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
+                className={`btn btn-sm dropdown-toggle  fw-medium d-flex align-items-center text-white bg-transparent border-0 ${styles['custom-dropdown']}`}
                 type="button"
                 id="currencyDropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+              // keep button font size default
               >
                 <FontAwesomeIcon icon={CurrencyIcon} className="me-2" />
-                {currency}
+                <div>{currency}</div>
               </button>
               <ul
                 className="dropdown-menu dropdown-menu-dark"

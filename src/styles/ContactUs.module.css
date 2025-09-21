@@ -143,17 +143,19 @@ input {
 }
 
 .text {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-style: Medium;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
   font-size: 14px;
-  line-height: 100%;
 }
 
 .txtArea {
   resize: none;
   height: 130px;
-  color: rgba(177, 177, 177, 1);
+  color: black;
   background-color: #F2F2F2;
   border: none;
   border-radius: 5px;
@@ -161,9 +163,20 @@ input {
 
 }
 
+.txtArea::placeholder {
+  color: #B1B1B1;
+}
+
+.txtArea:focus {
+  outline: none;
+}
 
 
 .backcolor {
   background-color: rgba(242, 242, 242, 1);
   border: none !important;
+}
+
+.backcolor::placeholder {
+  color: #B1B1B1;
 }

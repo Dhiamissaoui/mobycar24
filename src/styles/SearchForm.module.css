@@ -77,3 +77,13 @@
   color: #818181;
   width: 20px;
 }
+
+
+.custom-dropdown::after {
+  font-size: 20px !important;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  border-radius: 50px;
+}

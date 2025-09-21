@@ -25,9 +25,9 @@ function HorizontalScrollCategories() {
 
   const vehicleTypes = [
     { name: 'Sports Car', icon: SportsCar, num: 26 },
-    { name: 'Luxury', icon: Luxury, num: 26 },
-    { name: 'SUV', icon: Suv, num: 26 },
-    { name: 'Convertible', icon: Conv, num: 26 },
+    { name: 'Luxury Car', icon: Luxury, num: 129 },
+    { name: 'SUV', icon: Suv, num: 125 },
+    { name: 'Convertible', icon: Conv, num: 132 },
     { name: 'Hatchbacks', icon: Hatchback, num: 26 },
     { name: 'Sedan', icon: Sedan, num: 26 }
   ];
@@ -75,7 +75,7 @@ function HorizontalScrollCategories() {
           onClick={() => scroll('left')}
           aria-label="Scroll left"
         >
-          <FontAwesomeIcon icon={faChevronLeft} />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
         </button>
 
         <div className={Styles.vehicleTypes} ref={scrollRef}>
@@ -88,8 +88,10 @@ function HorizontalScrollCategories() {
                 </div>
                 <div className={Styles.circle} />
                 <div className={Styles.cd}>
-                  <h3 className={Styles.name}>{type.name}</h3>
+                  <div className={Styles.name}>{type.name}</div>
                   <div className={Styles.number}>{type.num} vehicle</div>
+
+
                 </div>
               </div>
             );
@@ -101,7 +103,7 @@ function HorizontalScrollCategories() {
           onClick={() => scroll('right')}
           aria-label="Scroll right"
         >
-          <FontAwesomeIcon icon={faChevronRight} />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
         </button>
       </div>
     </div >

@@ -51,6 +51,7 @@
 .car-header {
   display: flex;
   justify-content: space-between;
+  max-width: 1110px;
 }
 
 .car-headerx {
@@ -66,7 +67,8 @@
   color: rgba(148, 148, 148, 1);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 5px;
+  font-size: 12px;
 }
 
 .car-image-container {
@@ -91,8 +93,9 @@
   color: rgba(148, 148, 148, 1);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 5px;
   transform: translateX(30px);
+  font-size: 12px;
 }
 
 .availability {

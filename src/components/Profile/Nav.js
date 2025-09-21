@@ -42,41 +42,103 @@ function Navbar({ onLogoutClick }) {
   return (
     <nav className={styles.navbar}>
       <div className={styles['navbar-container']}>
-        <Link to='/' className={styles['navbar-logo']}>MOBY<span>CAR24</span></Link>
+        <Link to="/" className={styles['navbar-logo']}>
+          MOBY<span className={styles['sp']}>CAR24</span>
+        </Link>
 
         <div className={styles['nav-menu']}>
-          <Link to='/service' className={styles['nav-link']}>Become A Service Provider</Link>
-          <Link to='/brand' className={styles['nav-link']}>Brand</Link>
-          <Link to='/rent' className={styles['nav-link']}>Rent A Car</Link>
-
-          <div className={styles['language-currency']}>
-            <div className={styles['language-selector']}>
-              <FlagIcon className={styles['flag-icon']} />
-              <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-                className={styles['language-dropdown']}
-              >
-                <option value='EN'>EN</option>
-                <option value='FR'>FR</option>
-                <option value='DE'>DE</option>
-              </select>
-            </div>
-
-            <div className={styles['currency-selector']}>
-              <FontAwesomeIcon icon={CurrencyIcon} className={styles['currency-icon']} />
-              <select
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
-                className={styles['currency-dropdown']}
-              >
-                <option value="GBP">GBP</option>
-                <option value="EUR">EUR</option>
-                <option value="USD">USD</option>
-              </select>
-            </div>
+          <div className='d-flex  gap-5'>
+            <Link to='/service' className={styles['nav-link']}>Become A Service Provider</Link>
+            <Link to='/brand' className={styles['nav-link']}>Brand</Link>
+            <Link to='/rent' className={styles['nav-link']}>Rent A Car</Link>
           </div>
 
+
+
+
+          {/* Language & Currency Dropdowns */}
+          <div
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.11)', height: '50px' }}
+            className="d-flex align-items-center text-white p-2 rounded-3"
+          >
+            {/* Language Dropdown */}
+            <div className="dropdown me-3 border-end pe-3">
+              <button
+                className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
+                type="button"
+                id="languageDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    marginRight: '8px'
+                  }}
+                >
+                  <FlagIcon style={{ width: '100%', height: '100%' }} />
+                </div>
+                {language}
+              </button>
+              <ul
+                className="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="languageDropdown"
+              >
+                <li>
+                  <button className="dropdown-item" onClick={() => setLanguage('EN')}>
+                    <GB style={{ width: '20px', height: '20px', marginRight: '8px' }} /> EN
+                  </button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={() => setLanguage('FR')}>
+                    <FR style={{ width: '20px', height: '20px', marginRight: '8px' }} /> FR
+                  </button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={() => setLanguage('DE')}>
+                    <DE style={{ width: '20px', height: '20px', marginRight: '8px' }} /> DE
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Currency Dropdown */}
+            <div className="dropdown">
+              <button
+                className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
+                type="button"
+                id="currencyDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <FontAwesomeIcon icon={CurrencyIcon} className="me-2" />
+                {currency}
+              </button>
+              <ul
+                className="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="currencyDropdown"
+              >
+                <li>
+                  <button className="dropdown-item" onClick={() => setCurrency('GBP')}>
+                    <FontAwesomeIcon icon={faSterlingSign} className="me-2" /> GBP
+                  </button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={() => setCurrency('EUR')}>
+                    <FontAwesomeIcon icon={faEuroSign} className="me-2" /> EUR
+                  </button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={() => setCurrency('USD')}>
+                    <FontAwesomeIcon icon={faDollarSign} className="me-2" /> USD
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
           {/* Notification Button 
           <button onClick={toggleNotifications} className={styles['notification-btn']}>
             <FontAwesomeIcon icon={faBell} />

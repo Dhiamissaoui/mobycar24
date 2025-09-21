@@ -13,15 +13,15 @@ import '../styles/Home.css';
 function Home() {
   return (
     <div className="home-container">
-      <Navbar/>
+      <Navbar />
       <Hero />
       <SearchForm />
       <Categories />
-      <MostWantedBrands/>
-      <TodaysOffers/>
-      <WhyChooseUs/>
-      <ContactUs/>
-      <Footer/>
+      <MostWantedBrands />
+      <TodaysOffers />
+      <WhyChooseUs />
+      <ContactUs />
+      <Footer />
     </div>
   );
 }

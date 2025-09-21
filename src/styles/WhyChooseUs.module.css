@@ -33,7 +33,10 @@
 }
 
 .part2 {
-  transform: translateX(50px) translateY(10px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateX(50px);
   color: white;
   width: 500px;
   position: relative;

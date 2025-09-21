@@ -61,6 +61,9 @@ function CarDet() {
         }
     ];
 
+
+    const [removeFilter, setremoveFilter] = useState(false)
+
     return (
         <>
             <div className={style.cont}>
@@ -81,31 +84,27 @@ function CarDet() {
                             </thead>
                             <tbody>
                                 <tr>
-
-                                    <td>1 day</td>
-                                    <td>£ 153</td>
-
-                                </tr>
-                                <tr>
-
-                                    <td>2 day</td>
-                                    <td>£ 153</td>
-
-                                </tr>
-                                <tr>
-                                    <td>3-6 day</td>
+                                    <td style={{ color: '#919191' }}>1 day</td>
                                     <td>£ 153</td>
                                 </tr>
                                 <tr>
-                                    <td>7-29 day</td>
+                                    <td style={{ color: '#919191' }}>2 day</td>
                                     <td>£ 153</td>
                                 </tr>
                                 <tr>
-                                    <td>30+ day</td>
+                                    <td style={{ color: '#919191' }}>3-6 day</td>
+                                    <td>£ 153</td>
+                                </tr>
+                                <tr>
+                                    <td style={{ color: '#919191' }}>7-29 day</td>
+                                    <td>£ 153</td>
+                                </tr>
+                                <tr>
+                                    <td style={{ color: '#919191' }}>30+ day</td>
                                     <td>£ 153</td>
                                 </tr>
                                 <tr style={{ borderBottomColor: 'transparent' }}>
-                                    <td>VAT Tax</td>
+                                    <td style={{ color: '#919191' }}>VAT Tax</td>
                                     <td>+5%</td>
                                 </tr>
                             </tbody>
@@ -168,7 +167,7 @@ function CarDet() {
                             <span className={style.value}>Sedan</span>
                         </div>
                     </div>
-                    <div className={style.descTitle}>reviews</div>
+                    <div className={style.descTitle}>Reviews</div>
                     <div className={style.revCont}><FontAwesomeIcon style={{ transform: 'scale(0.8)' }} icon={faStar} />4.5 ( 54 Reviews) </div>
                     <div className={style.reviewGrid}>
                         <div className={style.boxReview}>
@@ -201,11 +200,11 @@ function CarDet() {
                         <div className='d-flex w-100 gap-4 mt-4'>
                             <div className='w-50'>
                                 <div className={style.textRepo}>full name</div>
-                                <input type='text' className='bg-grey mt-2' placeholder='enter first Name' />
+                                <input type='text' className={`bg-grey mt-2} ${style.placeholder}`} placeholder='enter first Name' />
                             </div>
                             <div className='w-50'>
                                 <div className={style.textRepo}>Booking ID</div>
-                                <input type='text' className='bg-grey mt-2' placeholder='enter Booking ID' />
+                                <input type='text' className={`bg-grey mt-2} ${style.placeholder}`} placeholder='enter Booking ID' />
                             </div>
                         </div>
                         <div className='w-100 mt-4'>
@@ -466,6 +465,7 @@ function CarDet() {
                     </div>
                     <button onClick={() => setThanksCont(true)} style={{ backgroundColor: '#9E4DB6', color: 'white', width: '100%', textAlign: 'center', borderColor: 'transparent', borderRadius: '10px', padding: '10px 0', margin: '15px 0' }}>Reserve</button>
                 </div>
+                {(contactActive || ThanksCont) && <div className={style.overlay} onClick={() => setremoveFilter(false)}></div>}
                 {contactActive &&
                     <div className={style.contactPopUp}>
                         <FontAwesomeIcon icon={faX} onClick={() => setcontactActive(false)} className={style.fax} />

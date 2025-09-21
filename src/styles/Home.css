@@ -1,15 +1,20 @@
 .home-container {
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
-    ,url('../images/img1.png') center/cover no-repeat;
-  min-height: 100vh;
-  position: relative;
-  height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/img1.png') center/cover no-repeat;
+    min-height: 100vh;
+    position: relative;
+    height: 500px;
 }
 
 /* Make sure content is above background */
 .navbar,
 .hero-section,
-.search-form {
-  position: relative;
-  z-index: 2;
+.search-form,
+.categories,
+.most-wanted-brands,
+.todays-offers,
+.why-choose-us,
+.contact-us,
+.footer {
+    position: relative;
+    z-index: 1;
 }

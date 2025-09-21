@@ -15,27 +15,37 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
 .title {
-  font-size: 2.5rem;
-  color: #333;
+  font-size: 38px;
+  color: #0B0B0B;
   margin-bottom: 15px;
   text-align: center;
   width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 45.5px;
 }
 
 .subtitle {
-  color: #666;
+  color: #919191;
   font-size: 16px;
   line-height: 1.6;
   text-align: center;
   max-width: 800px;
   /* Use max-width instead */
-  width: 100%;
-  /* Make it responsive */
+  width: 50%;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 
 }
 
@@ -65,11 +75,11 @@
 }
 
 .offer-card {
-  background: rgba(246, 246, 246, 1);
+  background: rgb(242, 242, 242);
   border-radius: 12px;
   padding: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
+  width: 330px;
+  height: 330px;
   flex-shrink: 0;
   transition: transform 0.3s ease;
   position: relative;
@@ -83,7 +93,7 @@
   position: relative;
   top: 40px;
   left: 0px;
-  background: #9e4db6;
+  background: #611A83;
   color: white;
   padding: 5px 10px;
   font-weight: bold;
@@ -112,7 +122,7 @@
 
 .car-image {
   width: 100%;
-  height: 180px;
+  height: 50%;
   padding-top: 20px;
   object-fit: contain;
   background-color: white;
@@ -121,11 +131,16 @@
 }
 
 .hh3 {
-  font-size: 1.2rem;
+  font-size: 20px;
   margin-top: 10px;
   margin-left: 5px;
   text-align: center;
-
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .price-section {
@@ -137,7 +152,7 @@
 .price {
   font-weight: bold;
   color: #333;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .reserve-btn {
@@ -145,10 +160,11 @@
   color: white;
   border: none;
   padding: 8px 20px;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 5px;
+  font-weight: 500;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-size: 15px;
 }
 
 .reserve-btn:hover {
@@ -156,21 +172,23 @@
 }
 
 .scroll_btn {
-  background: white;
+  background: transparent;
   border: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #D9D9D9;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+
 }
+
+
 
 .left {
   left: -20px;
@@ -186,20 +204,22 @@
 
 .cd1 {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
 .available {
-  transform: translate(20px, 5px);
   color: rgba(41, 157, 0, 1);
   background-color: rgba(41, 157, 0, 0.1);
-  height: 100%;
-  width: auto;
-  border-radius: 5px;
-  font-size: 10px;
-  padding: 5px;
-  align-self: center;
+  border-radius: 20px;
   font-size: 12px;
-  transition: 0.3s ease-in-out;
+  padding: 3px 7px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .not {
@@ -218,19 +238,21 @@
 .cd2 {
   display: flex;
   justify-content: flex;
-  gap: 25px;
+  gap: 15px;
+  padding-right: 20px;
   font-size: 14px;
   color: rgba(148, 148, 148, 1);
 }
 
 .mile {
-  transform: translateX(-20%);
-  opacity: 0.5;
+
+  display: flex;
+  gap: 5px;
 }
 
 .insur {
-  opacity: 0.5;
-
+  display: flex;
+  gap: 5px;
 }
 
 hr {

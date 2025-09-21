@@ -39,7 +39,7 @@ function SearchForm() {
           </svg>
           <button
             style={{ backgroundColor: 'white', color: 'black', height: '50px' }}
-            className="btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle "
+            className={`btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle ${styles['custom-dropdown']} `}
             type="button"
             id="dropdownMenuLink"
             data-bs-toggle="dropdown"
@@ -59,7 +59,7 @@ function SearchForm() {
           <FontAwesomeIcon icon={faCarAlt} className={styles['s1-icon']} />
           <button
             style={{ backgroundColor: 'white', color: 'black', height: '50px' }}
-            className="btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle "
+            className={`btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle  ${styles['custom-dropdown']} `}
             type="button"
             id="dropdownMenuLink"
             data-bs-toggle="dropdown"
@@ -83,7 +83,7 @@ function SearchForm() {
 
           <button
             style={{ backgroundColor: 'white', color: 'black', height: '50px' }}
-            className="btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle "
+            className={`btn w-100 d-flex align-items-center justify-content-between  dropdown-toggle ${styles['custom-dropdown']}  `}
             type="button"
             id="dropdownMenuLink"
             data-bs-toggle="dropdown"

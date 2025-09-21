@@ -36,7 +36,7 @@
 
 .nav-menu {
   display: flex;
-  gap: 50px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -50,9 +50,9 @@
   font-variation-settings:
     "wdth" 100;
   font-size: 15px;
-
 }
 
+/*colorxx rgba(255, 255, 255, 0.2)*/
 .dropdown {
   position: relative;
 }
@@ -157,19 +157,7 @@
   color: white;
 }
 
-.language-dropdown option,
-.currency-dropdown option {
-  background-color: rgba(40, 40, 40, 0.95);
-  color: white;
-  font-size: 14px;
-  padding: 8px 12px;
-  border: none;
-}
 
-.language-dropdown option:hover,
-.currency-dropdown option:hover {
-  background-color: rgba(60, 60, 60, 0.95);
-}
 
 .nav-login {
   background: rgba(158, 77, 182, 1);
@@ -177,19 +165,24 @@
   padding: 10px 25px;
   border-radius: 4px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 
 .login {
   color: white;
+  font-weight: 500;
 }
 
 .nav-login .user-icon {
-  margin-right: 10px;
+  width: 10px;
+  height: 12px;
 }
 
 .navbar-container {
   display: flex;
-  gap: 300px;
+  gap: 250px;
 }
 
 /* Remove any default styling that browsers might apply */
@@ -204,4 +197,14 @@
 .currency-dropdown::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* Custom dropdown styles - only affects buttons with this class */
+.custom-dropdown::after {
+  font-size: 20px !important;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  border-radius: 10px;
 }

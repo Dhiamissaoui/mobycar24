@@ -48,6 +48,8 @@ import { Link } from 'react-router-dom';
 
 function ProfilePage({ slideOut, setSlideOut }) {
   // --profile part -- //
+
+  const [removeFilter, setremoveFilter] = useState(false)
   const [activeTab, setActiveTab] = useState('profile');
   const [RidesTab, setRidesTab] = useState('active');
   const [isEditing, setIsEditing] = useState(false);
@@ -231,10 +233,16 @@ function ProfilePage({ slideOut, setSlideOut }) {
                   className={Styles["profile-input"]}
                 />
               ) : (
-                <p className={Styles["profile-info"]}>{profile.name}</p>
+                <div className={Styles["profile-info"]}>{profile.name}</div>
               )}
+              <div className='d-flex gap-1' style={{ cursor: 'pointer', padding: '0 10px', width: '70px', position: 'absolute', right: '50px', borderRadius: '40px', backgroundColor: 'rgba(158, 77, 182, 0.1)', color: '#9E4DB6' }}>
+                <svg style={{ width: '20px' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                </svg>
+                <div>edit</div>
+              </div>
             </div>
-            <hr className={Styles["hr"]} />
+
             <div className={Styles["profile-field"]}>
               <h2>Email Address</h2>
               {isEditing ? (
@@ -246,10 +254,16 @@ function ProfilePage({ slideOut, setSlideOut }) {
                   className={Styles["profile-input"]}
                 />
               ) : (
-                <p className={Styles["profile-info"]}>{profile.email}</p>
+                <div className={Styles["profile-info"]}>{profile.email}</div>
               )}
+              <div className='d-flex gap-1' style={{ cursor: 'pointer', padding: '0 10px', width: '70px', position: 'absolute', right: '50px', borderRadius: '40px', backgroundColor: 'rgba(158, 77, 182, 0.1)', color: '#9E4DB6' }}>
+                <svg style={{ width: '20px' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                </svg>
+                <div>edit</div>
+              </div>
+
             </div>
-            <hr className={Styles["hr"]} />
             <div className={Styles["profile-field"]}>
               <h2>Phone Number</h2>
               {isEditing ? (
@@ -261,27 +275,26 @@ function ProfilePage({ slideOut, setSlideOut }) {
                   className={Styles["profile-input"]}
                 />
               ) : (
-                <p className={Styles["profile-info"]}>{profile.phone}</p>
+                <div className={Styles["profile-info"]}>{profile.phone}</div>
               )}
+              <div className='d-flex gap-1' style={{ cursor: 'pointer', padding: '0 10px', width: '70px', position: 'absolute', right: '50px', borderRadius: '40px', backgroundColor: 'rgba(158, 77, 182, 0.1)', color: '#9E4DB6' }}>
+                <svg style={{ width: '20px' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                </svg>
+                <div>edit</div>
+              </div>
             </div>
 
             <div className={Styles["edit-buttons"]}>
               <button
-                className={Styles["edit-btn"]}
-                onClick={handleEdit}
-              >
-                <FontAwesomeIcon icon={faEdit} />
-                {isEditing ? 'Save' : 'Edit'}
-              </button>
-              <button
                 className={Styles["password-btn"]}
                 onClick={() => setChangeActive(prev => !prev)}
               >
-                <FontAwesomeIcon icon={faKey} /> Change Password
+                Change Password
               </button>
             </div>
 
-          </div>
+          </div >
         );
       case 'Rides':
         switch (RidesTab) {
@@ -711,7 +724,7 @@ function ProfilePage({ slideOut, setSlideOut }) {
             className={`${Styles["nav-item"]} ${activeTab === 'profile' ? Styles.active : ''}`}
             onClick={() => {
               setActiveTab('profile');
-              document.querySelector(`.${Styles["profile-main"]}`).style.height = '650px';
+              document.querySelector(`.${Styles["profile-main"]}`).style.height = '850px';
             }}
           >
             <FontAwesomeIcon className={Styles['logo']} icon={faUser} /> <div className={Styles['cate']}>My Profile</div>
@@ -780,7 +793,7 @@ function ProfilePage({ slideOut, setSlideOut }) {
       <div ref={profileMainRef} className={Styles["profile-main"]}>
         <h1 className={Styles["content-title"]}>
           {activeTab === 'ConfirmPay' && 'Payement'}
-          {activeTab === 'profile' && 'My Profile'}
+          {activeTab === 'profile' && 'Profile'}
           {activeTab === 'Rides' && 'My Rides'}
           {activeTab === 'favorites' && 'My Favorites'}
           {activeTab === 'messages' && 'My Messages'}
@@ -822,6 +835,7 @@ function ProfilePage({ slideOut, setSlideOut }) {
           <button className={Rides.cancelConfirm} >Cancel</button>
         </div>
       </div>
+      {isChangedActive && <div className={Styles.overlay} onClick={() => setremoveFilter(!removeFilter)}></div>}
       <div className={`${Styles.chnageMain} ${isChangedActive ? Styles.activeChange : ""}`}>
         <FontAwesomeIcon icon={faCircleXmark} className={Styles.changeX} onClick={() => setChangeActive(false)} /> <br />
         <div className={Styles.shareHeader}>Change Password</div>

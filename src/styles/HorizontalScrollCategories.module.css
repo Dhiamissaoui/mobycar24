@@ -1,5 +1,4 @@
 .scrollContainer {
-
   margin: 2rem auto;
   padding: 0 1rem;
   display: flex;
@@ -14,21 +13,30 @@
 .catList {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 10px;
-  padding-left: none !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
   background-color: rgba(146, 146, 146, 0.04);
+  width: 700px;
 }
 
 .catList li {
-  list-style: none;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
   font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  list-style: none;
   font-size: 16px;
   border-bottom: 2px solid rgba(158, 77, 182, 0.41);
   text-align: center;
   padding: 20px 40px;
+  width: 100%;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+
 }
 
 
@@ -73,13 +81,12 @@
   background: white;
   border-radius: 8px;
   padding-top: 50px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   flex-shrink: 0;
   transition: transform 0.2s ease;
   width: 250px;
   height: 250px;
-  border: 1px solid grey;
+  border: 1px solid #F2F2F2;
   transition: 0.3s ease-in-out;
   cursor: pointer;
   overflow: hidden;
@@ -90,21 +97,57 @@
   background-color: rgba(158, 77, 182, 1);
   border-radius: 8px;
   padding-top: 50px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   flex-shrink: 0;
   transition: transform 0.2s ease;
   width: 250px;
   height: 250px;
-  border: 1px solid grey;
+  border: 1px solid #9E4DB6;
   transition: 0.3s ease-in-out;
   cursor: pointer;
   overflow: hidden;
 }
 
+.name {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  font-size: 18px;
+  color: black;
+}
+
+.number {
+  color: #B5B5B5;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
 .vehicleCard:nth-child(2) .name,
 .vehicleCard:nth-child(2) .number {
   color: white;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  font-size: 18px;
+}
+
+.vehicleCard:nth-child(2) .number {
+  font-size: 14px;
+
+
 }
 
 .vehicleCard:nth-child(2) .circle {
@@ -171,14 +214,7 @@
   color: rgba(158, 77, 182, 1);
 }
 
-.name {
-  transform: translateY(-50px);
-}
 
-.number {
-  opacity: 0.4;
-  transform: translateY(-50px);
-}
 
 .circle {
   width: 80px;
