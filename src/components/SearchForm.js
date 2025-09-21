@@ -17,7 +17,7 @@ function SearchForm() {
         <div className={styles['search-group']}>
 
           <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["s1-icon"]} />
-          <input type='text' className={`${styles['inpLoc']} ${styles['font']}`} placeholder='Enter location' />
+          <input type='text' className={`${styles['inpLoc']} ${styles['font']}`} placeholder='Search by vehicle model/brand name...' />
 
         </div>
         {/*<div className={styles['search-group']}>

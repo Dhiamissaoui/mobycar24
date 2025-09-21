@@ -6,7 +6,6 @@ import {
   faEnvelope,
   faHeart,
   faHistory,
-  faKey,
   faUser,
   faCamera,       // For insurance
   faTachometerAlt,   // For mileage
@@ -52,7 +51,7 @@ function ProfilePage({ slideOut, setSlideOut }) {
   const [removeFilter, setremoveFilter] = useState(false)
   const [activeTab, setActiveTab] = useState('profile');
   const [RidesTab, setRidesTab] = useState('active');
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing] = useState(false);
   const [profile, setProfile] = useState({
     name: 'Esther Howard',
     email: 'esther@email.com',
@@ -80,9 +79,6 @@ function ProfilePage({ slideOut, setSlideOut }) {
   const [pickupAddress] = useState('1813 Casper Mountains, East Alycia 72127-5384');
   const [dropoffAddress] = useState('199 Kling Coves, Morissetteside 63526-7183');
 
-  const handleEdit = () => {
-    setIsEditing(!isEditing);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;

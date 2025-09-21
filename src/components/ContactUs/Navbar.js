@@ -8,7 +8,7 @@ import {
   faDollarSign
 } from '@fortawesome/free-solid-svg-icons';
 import { GB, FR, DE } from 'country-flag-icons/react/3x2';
-import styles from '../../styles/Brand/Nav.module.css';
+import styles from '../../styles/ContactUs/Nav.module.css'
 
 function Navbar() {
   const [language, setLanguage] = useState('EN');
@@ -35,25 +35,26 @@ function Navbar() {
         </Link>
 
         <div className={styles['nav-menu']}>
-          <Link to="/service" className={styles['nav-link']}>
+          <Link to="/service" className={styles['nav-linkx']}>
             Become A Service Provider
           </Link>
-          <Link to="/brand" className={styles['nav-link']}>
+          <Link to="/brand" className={styles['nav-linkx']}>
             Brand
           </Link>
-          <Link to="/rent" className={styles['nav-link']}>
+          <Link to="/rent" className={styles['nav-linkx']}>
             Rent A Car
           </Link>
 
           {/* Language & Currency Dropdowns */}
           <div
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.11)', height: '50px' }}
-            className="d-flex align-items-center text-white p-2 rounded-3"
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.11)', height: '42px', width: '206px', marginRight: '-40px' }}
+            className="d-flex align-items-center  justify-content-center text-white p-2 rounded-3"
           >
             {/* Language Dropdown */}
-            <div className="dropdown me-3 border-end pe-3">
+            <div className=" d-flex align-self-center dropdown " >
               <button
-                className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
+                className={`btn btn-sm fw-medium dropdown-toggle d-flex align-items-center text-white bg-transparent border-0 ${styles['custom-dropdown']}`}
+
                 type="button"
                 id="languageDropdown"
                 data-bs-toggle="dropdown"
@@ -70,7 +71,7 @@ function Navbar() {
                 >
                   <FlagIcon style={{ width: '100%', height: '100%' }} />
                 </div>
-                {language}
+                <div>{language}</div>
               </button>
               <ul
                 className="dropdown-menu dropdown-menu-dark"
@@ -93,18 +94,19 @@ function Navbar() {
                 </li>
               </ul>
             </div>
-
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', height: '100%', width: '1px', margin: '0 5px' }}></div>
             {/* Currency Dropdown */}
-            <div className="dropdown">
+            <div className="dropdown d-flex align-self-center">
               <button
-                className="btn btn-sm dropdown-toggle d-flex align-items-center text-white bg-transparent border-0"
+                className={`btn btn-sm dropdown-toggle  fw-medium d-flex align-items-center text-white bg-transparent border-0 ${styles['custom-dropdown']}`}
                 type="button"
                 id="currencyDropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+              // keep button font size default
               >
                 <FontAwesomeIcon icon={CurrencyIcon} className="me-2" />
-                {currency}
+                <div>{currency}</div>
               </button>
               <ul
                 className="dropdown-menu dropdown-menu-dark"

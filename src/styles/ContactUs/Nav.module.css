@@ -3,25 +3,17 @@
 }
 
 .home-nav {
-
   display: flex;
   justify-content: center;
   padding: 20px 50px;
   align-items: center;
-
-  background: rgba(49, 0, 64, 1);
-
-  /*changes*/
-  position: relative;
-  /* required for z-index to work */
-  z-index: 9999;
-
+  z-index: 1;
+  background-color: rgba(49, 0, 64, 1);
 }
 
 .navbar-container.purple-bg {
   background-color: purple;
   transition: background-color 0.3s ease;
-
 }
 
 .navbar-logo {
@@ -49,14 +41,13 @@
   align-items: center;
 }
 
-.nav-link {
+.nav-linkx {
   text-decoration: none;
   color: white;
   font-weight: 500;
   position: relative;
 
 }
-
 
 
 .dropdown {
@@ -183,11 +174,9 @@
   padding: 10px 25px;
   border-radius: 4px;
   text-decoration: none;
-  margin-left: -40px;
-  height: 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 3px;
 }
 
 .login {
@@ -195,7 +184,8 @@
 }
 
 .nav-login .user-icon {
-  margin-right: 10px;
+  width: 10px;
+  height: 12px;
 }
 
 .navbar-container {
@@ -216,4 +206,15 @@
 .currency-dropdown::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+
+/* Custom dropdown styles - only affects buttons with this class */
+.custom-dropdown::after {
+  font-size: 20px !important;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  border-radius: 10px;
 }
