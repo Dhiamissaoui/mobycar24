@@ -6,12 +6,19 @@ import { useState } from 'react';
 function Profile() {
 
     const [slideOut, setSlideOut] = useState(false);
+    const [removeFilter, setremoveFilter] = useState(false);
 
-    return(
+    return (
         <>
-            <Navbar onLogoutClick={() => setSlideOut(!slideOut)} />
-            <Main slideOut={slideOut} setSlideOut={setSlideOut} />
-            <Footer/>
+            <Navbar onLogoutClick={() => setSlideOut(!slideOut)}
+                setremoveFilter={setremoveFilter} />
+            <Main
+                slideOut={slideOut}
+                setSlideOut={setSlideOut}
+                removeFilter={removeFilter}
+                setremoveFilter={setremoveFilter}
+            />
+            <Footer />
         </>
     );
 }

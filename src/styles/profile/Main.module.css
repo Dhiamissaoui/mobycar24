@@ -20,7 +20,7 @@
   flex-direction: column;
   margin: 50px;
   border-radius: 10px;
-  height: 550px;
+  height: 800px;
   transform: translateY(-25px);
 }
 
@@ -61,7 +61,7 @@
   font-size: 40px;
   overflow: hidden;
   /* Ensures the image stays within circular bounds */
-  border: 2px solid #9e4db6;
+
   /* Optional: adds a colored border */
 }
 
@@ -213,14 +213,26 @@
   opacity: 0.9;
 }
 
-.profile-camera {
-  border: 2px solid black;
+/* .profile-camera {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   display: flex;
   justify-items: center;
   margin: 20px auto;
+} */
+
+
+
+.profile-camera {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-items: center;
+  margin: 20px auto;
+  position: relative;
+
 }
 
 .image {
@@ -228,20 +240,35 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  opacity: 0.7;
+  filter: brightness(0.5);
 
 }
 
-.cam {
-  transform: translate(70px, -130px);
+/* .cam {
+  position: relative;
+  top: 0;
+  left: 0;
   color: white;
-  font-size: 50px;
+  width: 1000px;
+  z-index: 999;
+} */
 
-
+.cam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 48px;
+  /* Adjust size as needed */
+  height: 48px;
+  z-index: 2;
+  pointer-events: none;
+  /* Optional: lets clicks pass through */
 }
 
 .profile-camera:hover .image {
-  opacity: 1;
+  filter: brightness(1);
   transition: 1s ease-in-out;
 }
 
@@ -371,17 +398,32 @@
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
   padding: 10px;
+  z-index: 1000;
 }
 
 .outActive {
-  transform: translate(-400px, 150px);
+  position: fixed;
+  top: 10%;
+  left: 20%;
+}
+
+.outIconCont {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(158, 77, 182, 0.09);
+  position: relative;
+  left: 45%;
 }
 
 .outIcon {
-  font-size: 60px;
+  position: relative;
+  font-size: 40px;
   color: rgba(158, 77, 182, 1);
-  transform: translate(300px, 0px);
-  background-color: rgba(158, 77, 182, 0.09);
+  background-color: rgba(158, 77, 182, 0.2);
   padding: 15px;
   border-radius: 50%;
 }
@@ -393,18 +435,32 @@
   cursor: pointer;
 }
 
+.revX {
+  font-size: 25px;
+  position: absolute;
+  right: 1.5%;
+  top: 3%;
+  color: rgba(158, 77, 182, 1);
+  cursor: pointer;
+}
+
+
 .outBC {
   display: flex;
+  flex-direction: row;
   gap: 20px;
-  transform: translate(-45%);
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .outY {
-  text-align: center;
   margin: 10px;
-  font-size: 25px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 35px;
-  transform: translateX(130%);
+  text-decoration: none;
   background-color: rgba(158, 77, 182, 1);
   border-radius: 5px;
   color: white;
@@ -412,20 +468,23 @@
 }
 
 .outN {
-  text-align: center;
+
   margin: 10px;
-  font-size: 25px;
+  font-size: 15px;
   padding: 10px 35px;
-  transform: translateX(130%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-radius: 5px;
   color: rgba(158, 77, 182, 1);
   width: 40%;
+  border: 1px solid rgba(158, 77, 182, 1);
 }
 
 .outTitle {
   text-align: center;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   margin-top: 20px;
 }
@@ -433,7 +492,7 @@
 .outpara {
   text-align: center;
   color: rgba(145, 145, 145, 1);
-  scale: 1.2;
+  font-size: #919191;
 }
 
 
@@ -451,4 +510,15 @@
   /* semi-transparent black */
   z-index: 999;
   /* Make sure it's above the page but below filter */
+}
+
+
+
+.custom_dropdown::after {
+  font-size: 40px !important;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  border-radius: 10px;
 }

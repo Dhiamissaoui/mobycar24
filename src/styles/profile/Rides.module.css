@@ -1,7 +1,5 @@
 .rideContainer {
-
   margin: 0 auto;
-  padding: 20px;
   font-family: Arial, sans-serif;
   color: #333;
 }
@@ -9,45 +7,106 @@
 .contB {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .mainTitle {
-  font-size: 20px;
-  padding-bottom: 20px;
+  font-size: 15px;
   margin-bottom: 20px;
   color: black;
-  background-color: transparent;
+  background-color: rgba(146, 146, 146, 0.04);
   border: none;
-  border-bottom: black 2px solid;
+  border-bottom: #9E4DB6 1px solid;
   width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
 
+
+/* .mainTitle:first-child {
+
+  color: #9E4DB6;
+  border: none;
+  border-bottom: #9E4DB6 3px solid;
+  width: 100%;
+  height: auto;
+} */
+
+.activeTab {
+  color: #9E4DB6 !important;
+  border-bottom: 3px solid #9E4DB6 !important;
+  background-color: rgba(146, 146, 146, 0.04);
+  /* optional, for visual feedback */
 }
 
 .mainTitle:hover {
   color: rgba(158, 77, 182, 1);
   border-bottom-color: rgba(158, 77, 182, 1);
-  background-color: rgba(146, 146, 146, 0.04);
 }
 
 .rideAlert {
   background-color: rgba(49, 0, 64, 1);
-  padding: 15px;
+  padding: 30px;
   border-radius: 8px;
   margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .alertTitle {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 10px;
   color: white;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.complitedRideCarCont {
+  height: 1200px;
 }
 
 .rideContainer .rideAlert .alertText {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.74);
+
+  width: 90%;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
+
+.paraRideComp {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.74);
+
+  width: 90%;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+
+
+
 
 .imgaudi {
   width: 250px;
@@ -59,11 +118,12 @@
 .share {
   color: white;
   background-color: rgba(158, 77, 182, 1);
-  font-size: 25px;
+  font-size: 15px;
   border: none;
-  padding: 10px 30px;
-  border-radius: 10px;
-  transform: translate(230px, -70%);
+  padding: 10px 40px;
+  border-radius: 5px;
+  display: flex;
+  align-self: center;
 }
 
 .divider {
@@ -72,8 +132,14 @@
   margin: 20px 0;
 }
 
+.iconx {
+  color: rgba(158, 77, 182, 1);
+
+}
+
 .icon {
   color: rgba(158, 77, 182, 1);
+  width: 15px;
 }
 
 .kilo,
@@ -81,7 +147,7 @@
   color: rgba(158, 77, 182, 1);
   background-color: rgba(246, 238, 248, 1);
   border-radius: 20px;
-  padding: 5px 15px;
+  padding: 5px 10px;
 }
 
 .rate {
@@ -105,21 +171,28 @@
   font-size: 16px;
   margin-bottom: 15px;
   color: #333;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .carSpecs {
-  list-style: none;
   padding: 0;
   margin: 0 0 15px 0;
   display: flex;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
-.carSpecs li {
+.rate,
+.kilo,
+.mil {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 5px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .starIcon {
@@ -130,12 +203,10 @@
   font-size: 14px;
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 
-.carInfo p {
-  margin: 5px 0;
-}
 
 .providerDetails {
   margin-bottom: 20px;
@@ -144,7 +215,14 @@
 .sectionTitle {
   font-size: 16px;
   margin-bottom: 15px;
-  color: #333;
+  color: #060606;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .providerInfo {
@@ -160,8 +238,13 @@
 
 .responseNote {
   color: rgba(111, 182, 77, 1);
-  font-style: italic;
-  margin-top: 5px;
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .timeDetails {
@@ -191,8 +274,8 @@
 }
 
 .Pimg {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
 
 }
@@ -209,11 +292,8 @@
   display: flex;
   gap: 20px;
   width: 100%;
-  margin: 20px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+
 }
 
 .datetime_section {
@@ -227,6 +307,10 @@
   padding: 20px;
   border-radius: 5px;
   text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 }
 
 .datetime_section:last-child {
@@ -234,38 +318,44 @@
 }
 
 .datetime_title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  color: #333;
+  color: #575757;
   margin-bottom: 12px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
 }
 
 .datetime_row {
-  display: inline;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 8px;
-  font-size: 18px;
-  color: #555;
-
-}
-
-span {
   color: rgba(177, 177, 177, 1);
+  font-size: 14px;
+  width: 50%;
+  gap: 5px;
 }
+
+/* span {
+  color: rgba(177, 177, 177, 1);
+  font-size: 14px;
+} */
 
 .x {
   border-left: rgba(226, 226, 226, 1) 2px solid;
   margin-left: 20px;
   padding-left: 20px;
-
 }
 
 .datetime_icon {
-  margin-right: 10px;
   color: #666;
-  width: 20px;
-  height: 20px;
-  padding-right: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 
@@ -280,7 +370,6 @@ span {
 .mapContainer {
   display: flex;
   width: 100%;
-  border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
   font-family: 'Arial', sans-serif;
@@ -290,27 +379,32 @@ span {
 /* Left Section (Location Info) */
 .mapLeftSection {
   flex: 1;
-  padding: 20px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Location Section Styling */
 .locationSection {
-  margin-bottom: 24px;
+  width: 95%;
   border: 1px solid rgba(242, 242, 242, 1);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .locationHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 8px;
+  gap: 5px;
+
 }
 
 .locationTitle {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
   color: #333;
 }
@@ -318,7 +412,7 @@ span {
 .editControls {
   display: flex;
   align-items: center;
-  transform: translateX(-150px);
+
   gap: 12px;
 }
 
@@ -329,10 +423,12 @@ span {
   background: none;
   border: none;
   color: #9E4DB6;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
+  background-color: rgba(158, 77, 182, 0.1);
+  border-radius: 40px;
 }
 
 .editButton:hover {
@@ -344,8 +440,8 @@ span {
 }
 
 .warningIcon {
-  color: #ff9800;
-  font-size: 16px;
+  color: #9E4DB6;
+  width: 16px;
 }
 
 .addressDisplay {
@@ -359,9 +455,9 @@ span {
 }
 
 .locationIcon {
-  color: #9E4DB6;
-  margin-top: 2px;
-  font-size: 16px;
+  color: black;
+
+  width: 16px;
 }
 
 /* Right Section (Map) */
@@ -384,6 +480,7 @@ span {
 
 .totalCont {
   display: flex;
+  justify-content: space-between;
   width: 100%;
   background-color: rgba(246, 246, 246, 1);
   border-radius: 15px;
@@ -392,7 +489,7 @@ span {
 }
 
 .totalPara {
-  font-size: 24px;
+  font-size: 20px;
   color: rgba(145, 145, 145, 1);
 
 }
@@ -400,7 +497,7 @@ span {
 .totalOne {
   display: flex;
   width: 300px;
-  transform: translateY(10px);
+  align-items: center;
   gap: 10px;
 }
 
@@ -408,27 +505,32 @@ span {
   color: rgba(49, 0, 64, 1);
   font-size: 20px;
   width: auto;
-  transform: translate(5px, 2px);
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .pay {
-  transform: translateX(430px);
   color: white;
   background-color: rgba(158, 77, 182, 1);
-  font-size: 20px;
-  padding: 15px 40px;
-  border-radius: 10px;
+  font-size: 15px;
+  padding: 15px 45px;
+  border-radius: 5px;
+  border: none;
 }
 
 .cancel {
   width: 100%;
-
-  font-size: 30px;
+  font-size: 18px;
   color: white;
   background-color: rgba(158, 77, 182, 1);
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 10px 0;
-  border-radius: 15px;
+  border-radius: 5px;
+  border: none;
 }
 
 
@@ -444,6 +546,13 @@ span {
   margin-top: 20px;
 }
 
+.reportHead {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: black;
+}
+
 .reportInput {
   width: 100%;
   background-color: rgba(242, 242, 242, 1);
@@ -451,20 +560,44 @@ span {
   border-radius: 10px;
   font-size: 15px;
   margin: 10px 0;
+  color: black;
+  padding: 10px;
 }
 
-label {
-  font-weight: bold;
+
+.reviewInput {
+  width: 100%;
+  background-color: rgba(242, 242, 242, 1);
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  margin: 10px 0;
+  color: black;
+  padding: 20px;
 }
+
+.reviewInput:focus {
+  outline: none;
+}
+
+
+
+
+.reviewInput::placeholder,
+.reportInput::placeholder {
+  color: #B1B1B1;
+}
+
 
 .reportSub {
   background-color: rgba(158, 77, 182, 1);
   color: white;
   font: bold;
-  font-size: 20px;
+  font-size: 15px;
   width: 150px;
   height: 50px;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: none;
 }
 
 
@@ -474,15 +607,16 @@ label {
 
 .ShareCont {
   width: 600px;
-  height: 400px;
+  height: 330px;
   color: black;
   border-radius: 20px;
-  border: 2px solid black;
+
   transform: translate(800px, 200px);
   margin-left: -600px;
   transition: ease-in-out 0.5s;
   background-color: rgba(255, 255, 255, 1);
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
+
+  z-index: 1000;
 }
 
 .active {
@@ -490,36 +624,65 @@ label {
 }
 
 .shareX {
-  transform: translate(563px, 8px);
-  font-size: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 25px;
   color: rgba(158, 77, 182, 1);
   cursor: pointer;
 }
 
 .shareIcon {
-  font-size: 60px;
-  color: rgba(158, 77, 182, 1);
-  transform: translate(270px, 0px);
-  background-color: rgba(158, 77, 182, 0.09);
+  width: 70px;
   padding: 15px;
+  color: rgba(158, 77, 182, 1);
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  background-color: rgba(158, 77, 182, 0.2);
   border-radius: 50%;
 }
 
 .shareHeader {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .sharePara {
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   color: rgba(145, 145, 145, 1);
+  width: 80%;
+  display: flex;
+  justify-self: center;
+
 }
 
-.btnCont {
-  width: 100%;
+
+.shareParax {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(145, 145, 145, 1);
+
   display: flex;
+  justify-self: center;
+
+}
+
+
+.btnCont {
+  width: 80%;
+  display: flex;
+  justify-self: center;
+
   gap: 20px;
   margin-left: 20px;
   margin-top: 20px;
@@ -527,18 +690,19 @@ label {
 
 .btns {
   width: 45%;
-  font-size: 25px;
+  font-size: 15px;
   padding: 10px;
   background-color: transparent;
   color: rgba(158, 77, 182, 1);
   border: 1px solid rgba(158, 77, 182, 1);
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
-.icon {
-  margin-right: 10px;
-}
 
 
 /* cancel pop-up*/
@@ -548,12 +712,11 @@ label {
   height: 550px;
   color: black;
   border-radius: 20px;
-  border: 2px solid black;
   transform: translate(800px, 1000px);
   margin-left: -600px;
   transition: ease-in-out 0.5s;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
+  background-color: white;
+  z-index: 1000;
 }
 
 .activeCancel {
@@ -562,7 +725,7 @@ label {
 
 .cancelH {
   color: rgba(6, 6, 6, 1);
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .cancelMain {
@@ -583,18 +746,27 @@ label {
 
 .cancelP {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 14px;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .cancelConfirm {
   text-align: center;
-  margin: 10px;
-  font-size: 25px;
-  padding: 10px 35px;
-  transform: translateX(130%);
+  margin: 20px 0;
+  font-size: 15px;
+  padding: 10px 50px;
+  display: flex;
+  justify-self: center;
   background-color: rgba(158, 77, 182, 1);
   border-radius: 5px;
   color: white;
+  border: none;
 }
 
 .select {
@@ -604,4 +776,69 @@ label {
   color: rgba(177, 177, 177, 1);
   padding: 10px;
   margin-top: 10px;
+}
+
+
+
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* semi-transparent black */
+  z-index: 999;
+  pointer-events: auto;
+  /* Make sure it's above the page but below filter */
+}
+
+.cancelHeader {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.custom-dropdown::after {
+  font-size: 20px !important;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  border-radius: 50px;
+}
+
+
+
+
+.reviewCont {
+  position: fixed;
+  top: 20%;
+  left: 75%;
+  width: 700px;
+  height: 450px;
+
+  background-color: white;
+  margin-left: -700px;
+  color: black;
+  border-radius: 20px;
+
+  transition: ease-in-out 0.5s;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 30px;
+  z-index: 1000;
+}
+
+.reviewTitle {
+  font-size: 20px;
 }

@@ -1,7 +1,5 @@
 .rent-car-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem;
+  width: 100%;
   font-family: 'Arial', sans-serif;
 }
 
@@ -22,10 +20,14 @@
   flex-direction: column;
   background-color: white;
   width: 100%;
-  height: 320px;
+  background-color: #F6F6F6;
+  height: 310px;
   padding: 15px;
+  transition: 0.3s ease-in-out;
 }
-.car-cardx{
+
+
+.car-cardx {
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
@@ -33,21 +35,28 @@
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #F6F6F6;
   width: 100%;
-  height: 330px;
+  min-height: 310px;
   padding: 15px;
+  gap: 10px;
+  transition: 0.3s ease-in-out;
 }
 
 
+.car-cardx:hover,
 .car-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: transparent;
+}
+
+.car-cardx:hover .image-card,
+.car-card:hover .image-card {
+  border: 1px solid #F2F2F2;
 }
 
 .image-card {
   width: 100%;
-  height: 110px;
+  height: 150px;
   padding: 5px;
   margin-bottom: 10px;
   border-radius: 8px;
@@ -55,6 +64,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .img {
@@ -64,9 +74,9 @@
 }
 
 .heart-icon {
-  position: absolute;
-  top: 25px;
-  right: 25px;
+  position: relative;
+  top: -42%;
+  right: 3%;
   color: #9E4DB6;
   cursor: pointer;
   display: block;
@@ -75,7 +85,13 @@
 .car-header {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  align-content: center;
+}
+
+.car-headerx {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .car-header h2 {
@@ -87,47 +103,65 @@
   color: rgba(41, 157, 0, 1);
   background-color: rgba(41, 157, 0, 0.1);
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 10px;
+  padding: 0 5px;
+  font-weight: bold;
   width: fit-content;
-  margin-bottom: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
 .car-details {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
 }
 
-.insurance, .mileage {
+.car-detailsx {
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+
+}
+
+.insurance,
+.mileage {
   color: rgba(148, 148, 148, 1);
-  font-size: 14px;
+  font-size: 11px;
   display: flex;
   align-items: center;
   gap: 5px;
+  margin: 0;
+
+
 }
 
 .price-section {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
-  margin-top: 10px;
-  transform: translateY(-20px);
-}
-
-.price {
   font-size: 16px;
   font-weight: bold;
   color: #333;
 }
+
+.price-sectionFav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+
 
 .reserve-button {
   padding: 8px 15px;
   background-color: rgba(158, 77, 182, 1);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s;
@@ -145,7 +179,9 @@
   transform: none;
 }
 
-.btn-p, .btn-right, .btn-left {
+.btn-p,
+.btn-right,
+.btn-left {
   cursor: pointer;
   border: 1px solid #ddd;
   color: #333;
@@ -159,7 +195,9 @@
   transition: all 0.3s;
 }
 
-.btn-p:hover, .btn-right:hover, .btn-left:hover {
+.btn-p:hover,
+.btn-right:hover,
+.btn-left:hover {
   color: #9E4DB6;
   border-color: #9E4DB6;
 }
