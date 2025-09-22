@@ -18,3 +18,12 @@
     position: relative;
     z-index: 1;
 }
+
+@media (max-width: 900px) {
+    .home-container {
+        background: none;
+        height: auto;
+        position: absolute;
+        width: auto;
+    }
+}

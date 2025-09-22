@@ -5,7 +5,8 @@ import {
   faUser,
   faSterlingSign,
   faEuroSign,
-  faDollarSign
+  faDollarSign,
+  faBars
 } from '@fortawesome/free-solid-svg-icons';
 import { GB, FR, DE } from 'country-flag-icons/react/3x2';
 import styles from '../styles/Navbar.module.css';
@@ -13,6 +14,8 @@ import styles from '../styles/Navbar.module.css';
 function Navbar() {
   const [language, setLanguage] = useState('EN');
   const [currency, setCurrency] = useState('GBP');
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Correct flag component based on selected language
   const FlagIcon = {
@@ -33,8 +36,14 @@ function Navbar() {
         <Link to="/" className={styles['navbar-logo']}>
           MOBY<span className={styles['sp']}>CAR24</span>
         </Link>
-
-        <div className={styles['nav-menu']}>
+        <button
+          className={styles['menu-toggle']}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+        <div className={`${styles['nav-menu']} ${menuOpen ? styles['open'] : ''}`}>
           <Link to="/service" className={styles['nav-link']}>
             Become A Service Provider
           </Link>
