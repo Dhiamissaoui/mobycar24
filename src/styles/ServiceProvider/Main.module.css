@@ -333,24 +333,30 @@ p {
 /*---------------- verification pop-up --------------*/
 
 .outCont {
-
-  top: 0;
   width: 700px;
   height: 350px;
-  transform: translate(800px, 700px);
+  position: fixed;
+  /* ✅ Use fixed instead of transform for positioning */
+  right: -700px;
+  /* ✅ Start off-screen to the right */
+  top: 50%;
+  /* ✅ Center vertically */
+  transform: translateY(-50%);
+  /* ✅ Only Y transform is OK */
   background-color: white;
-  margin-left: -700px;
   color: black;
   border-radius: 20px;
-  transition: ease-in-out 0.5s;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.477);
+  transition: right 0.5s ease-in-out;
+  /* ✅ Animate the right property */
   padding: 10px;
   overflow-x: hidden;
+  z-index: 1000;
 }
 
 .outActive {
-  transform: translate(-400px, 700px);
+  right: 25%;
+  /* ✅ Slide in from the right */
+  /* Remove position: sticky - not needed */
 }
 
 .outIcon {
@@ -442,4 +448,18 @@ p {
   color: rgba(158, 77, 182, 1);
   text-decoration: none;
 
+}
+
+
+/*overlay custom background  blur*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* semi-transparent black */
+  z-index: 999;
+  /* Make sure it's above the page but below filter */
 }

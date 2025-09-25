@@ -60,7 +60,7 @@ function LoginS() {
             <div className={style.inp}>
               <div className='d-flex align-items-center justify-content-between'>
                 <div className="form-check d-flex align-items-center  gap-2 w-50">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" style={{ transform: 'scale(0.8)', cursor: 'pointer', display: 'flex', alignSelf: 'center' }} value="" id="flexCheckDefault" />
                   <label className="form-check-label" for="flexCheckDefault" style={{ color: '#A6A6A6', fontSize: '14px', fontWeight: '100' }}>
                     Remember Me
                   </label>
@@ -79,7 +79,7 @@ function LoginS() {
 
         <div className={style.check_cont}>
           <p>Don't have an account?</p>
-          <Link style={{ color: 'rgba(158, 77, 182, 1)', fontWeight: 'bold', textDecoration: 'none' }} to="/SignIn">Sign Up</Link>
+          <Link style={{ color: 'rgba(158, 77, 182, 1)', fontWeight: 'bold', textDecoration: 'none' }} to="/service">Sign Up</Link>
         </div>
       </div >
     </div >

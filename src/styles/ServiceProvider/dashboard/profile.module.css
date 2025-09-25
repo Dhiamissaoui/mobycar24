@@ -3,8 +3,17 @@
     border-radius: 20px;
     background-color: rgba(253, 248, 255, 1);
     width: 1230px;
+    height: 100%;
 }
 
+.email {
+    color: '#919191';
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+}
 
 
 .profileHeader {
@@ -33,7 +42,7 @@
 }
 
 .userName {
-    font-size: 1.5rem;
+    font-size: 25px;
     font-weight: 600;
     color: #333;
     margin: 0;
@@ -80,30 +89,35 @@
 
 
 .section {
-    margin: 15px;
-
-    padding: 10px;
+    margin-bottom: 15px;
+    padding: 20px;
     background-color: white;
     border-radius: 20px;
+
 }
 
 .sectionTitle {
     font-size: 20px;
     font-weight: 600;
     color: black;
-    margin-bottom: 1rem;
 }
 
 /*new changes*/
 .girdCont {
+    border-top: 1px solid #e5e5e5;
     display: flex;
     justify-content: space-between;
     text-align: left;
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 .grey {
-    color: rgba(145, 145, 145, 1);
+    color: rgba(145, sectionTitle145, 145, 1);
+    font-size: 14px;
+}
+
+.black {
+    font-size: 14px;
 }
 
 .grey,
@@ -123,13 +137,6 @@
     cursor: pointer;
 }
 
-.btnEdit:hover {
-    background-color: rgba(158, 77, 182, 1);
-    box-shadow: 0 4px 12px rgba(158, 77, 182, 1);
-    color: white;
-    transition: 0.3s ease-in-out;
-}
-
 
 .hr {
     width: 80%;
@@ -138,9 +145,13 @@
 /*current membership*/
 .membershipCard {
     background-color: white;
-    margin: 15px;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 10px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-content: center;
+
 }
 
 .titDiamond {
@@ -151,6 +162,7 @@
     text-align: center;
     font-weight: bold;
     width: 100px;
+    font-weight: bold;
 
 }
 
@@ -160,11 +172,13 @@
     font-weight: 400;
     font-size: 40px;
     align-items: flex-end;
+    font-weight: bold;
 }
 
 .month {
     font-size: 15px;
     transform: translateY(-10px);
+
 }
 
 .greyx {
@@ -181,6 +195,11 @@
     flex-direction: column;
     gap: 10px;
     justify-content: center;
+
+}
+
+.contX:last-child {
+    margin-top: 20px;
 }
 
 .icondes {
@@ -192,8 +211,9 @@
 
 .featuresCont {
     display: flex;
+
     gap: 10px;
-    align-items: center;
+    align-content: center;
 }
 
 /**/
@@ -205,10 +225,11 @@
     background-color: rgba(49, 0, 64, 1);
     border-radius: 20px;
     padding: 20px;
-    margin: 10px;
+    margin: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .inviteTit {
@@ -343,23 +364,36 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background: #f8fafc;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
+    background: white;
+
+    border-bottom: 1px solid #ECECEC;
 }
+
+.historyItem:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: white;
+
+    border-top: 1px solid #ECECEC;
+
+}
+
 
 .historyLeft {
     display: flex;
     align-items: center;
     gap: 1rem;
+
 }
 
 .carImage {
-    width: 100px;
-    height: 80px;
+    width: 15%;
+
     object-fit: cover;
     border-radius: 0.375rem;
-    border: 1px solid black;
+    border: 1px solid #F2F2F2;
     padding: 5px;
 }
 
@@ -371,8 +405,14 @@
 
 .carName {
     font-weight: 600;
-    color: #333;
+    color: black;
     font-size: 1rem;
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+
 }
 
 .carDetails {
@@ -395,6 +435,8 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 0.25rem;
+
+    width: 100px;
 }
 
 .amount {
@@ -609,6 +651,577 @@
     .shareButton {
         padding: 0.75rem 1.5rem;
         font-size: 0.875rem;
+    }
+}
+
+/* Edit Profile Popup Styles */
+.editProfileOverlay {
+    position: fixed;
+    top: 0;
+
+    transform: translate(0%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.editProfileOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensure the popup is properly centered and doesn't get cut off */
+@media (max-height: 600px) {
+    .editProfileModal {
+        max-height: 80vh;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .editProfileModal {
+        width: 95vw;
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+.editProfileModal {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+
+    width: 40vw;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    height: 95vh;
+    overflow-y: auto;
+    margin: 20px;
+}
+
+.editProfileTitle {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.editProfileClose {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.editProfileClose:hover {
+    background-color: rgba(158, 77, 182, 0.8);
+}
+
+.editProfileImageContainer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+    position: relative;
+}
+
+.editProfileImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: brightness(0.5);
+    transition: filter 0.3s ease-in-out;
+}
+
+.editProfileCamera {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    pointer-events: none;
+    transition: display 0.3s ease-in-out;
+}
+
+.editProfileImageContainer:hover .editProfileImage {
+    filter: brightness(1);
+    transition: filter 0.3s ease-in-out;
+}
+
+.editProfileImageContainer:hover .editProfileCamera {
+    display: none;
+    transition: display 0.3s ease-in-out;
+}
+
+.editProfileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.editProfileRow {
+    display: flex;
+    gap: 10px;
+}
+
+.editProfileField {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.editProfileLabel {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.editProfileInput {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #F2F2F2;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.editProfileInput:focus {
+    border-color: rgba(158, 77, 182, 1);
+    background-color: white;
+}
+
+.editProfileInput::placeholder {
+    color: #B1B1B1;
+}
+
+.editProfileSaveBtn {
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.editProfileSaveBtn:hover {
+    background-color: rgba(158, 77, 182, 0.8);
+}
+
+/* Change Password Popup Styles */
+.changePasswordOverlay {
+    position: fixed;
+    top: 0;
+    transform: translate(0, 0);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.changePasswordOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.changePasswordModal {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 40vw;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 20px;
+}
+
+.changePasswordTitle {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.changePasswordClose {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.changePasswordClose:hover {
+    background-color: rgba(158, 77, 182, 0.8);
+}
+
+.changePasswordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.changePasswordField {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.changePasswordLabel {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.passwordInputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.changePasswordInput {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #F2F2F2;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+    padding-right: 40px;
+}
+
+.changePasswordInput:focus {
+    border-color: rgba(158, 77, 182, 1);
+    background-color: white;
+}
+
+.changePasswordInput::placeholder {
+    color: #B1B1B1;
+}
+
+.passwordToggle {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.passwordToggle:hover {
+    color: rgba(158, 77, 182, 1);
+}
+
+.changePasswordSaveBtn {
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.changePasswordSaveBtn:hover {
+    background-color: rgba(158, 77, 182, 0.8);
+}
+
+/* Responsive design for change password popup */
+@media (max-height: 600px) {
+    .changePasswordModal {
+        max-height: 80vh;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .changePasswordModal {
+        width: 95vw;
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+/* Logout Confirmation Popup Styles */
+.logoutConfirmationOverlay {
+    position: fixed;
+    top: 0;
+    transform: translate(0, 0);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.logoutConfirmationOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.logoutConfirmationModal {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 600px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 1px solid rgba(158, 77, 182, 0.2);
+}
+
+.logoutConfirmationClose {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.logoutConfirmationClose:hover {
+    background-color: rgba(158, 77, 182, 0.8);
+}
+
+.logoutConfirmationIcon {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(158, 77, 182, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: rgba(158, 77, 182, 1);
+    font-size: 40px;
+    position: relative;
+}
+
+.logoutIconSvg {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(158, 77, 182, 0.3);
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.logoutConfirmationTitle {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.logoutConfirmationText {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.logoutConfirmationButtons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.logoutConfirmationYes {
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+    border: none;
+    padding: 0px 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 40%;
+    height: 40px;
+
+}
+
+.logoutConfirmationYes:hover {
+    background-color: rgba(158, 77, 182, 0.8);
+}
+
+.logoutConfirmationCancel {
+    background-color: white;
+    color: rgba(158, 77, 182, 1);
+    border: 1px solid rgba(158, 77, 182, 1);
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 40%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutConfirmationCancel:hover {
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+}
+
+/* Responsive design for logout confirmation popup */
+@media (max-width: 768px) {
+    .logoutConfirmationModal {
+        width: 90vw;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .logoutConfirmationButtons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logoutConfirmationYes,
+    .logoutConfirmationCancel {
+        width: 100%;
+    }
+}
+
+/* Invite Popup Overlay Styles */
+.inviteOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.inviteOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.inviteModal {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 20px;
+}
+
+.inviteClose {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(158, 77, 182, 1);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.inviteClose:hover {
+    background-color: rgba(158, 77, 182, 0.8);
+}
+
+/* Responsive design for invite popup */
+@media (max-width: 768px) {
+    .inviteModal {
+        width: 95vw;
+        padding: 20px;
+        margin: 10px;
     }
 }
 

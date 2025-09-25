@@ -1,153 +1,241 @@
-.Cont{
-    width: 800px;
+.Cont {
+    width: 100%;
     text-align: center;
-    transform: translate(45%);
- 
+
+
 }
-.titleH{
+
+.titleH {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
     color: black;
     text-align: center;
     margin-top: 40px;
-    font-weight: 800;
     font-size: 33px;
 }
 
-.SwitchCont{
+.subtitle {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    text-align: center;
+    width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #919191;
+}
+
+.SwitchCont {
     display: flex;
     justify-content: center;
-    transform: translateY(40px);
+    margin: 40px 0;
+
 }
-.S1,.S2{
+
+.S1,
+.S2 {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 600;
-    border-bottom: 1px solid black;
-    font-size: 20px;
-    padding: 0 40px;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 16px;
+    padding: 20px 40px;
     text-align: center;
     cursor: pointer;
     transition: ease-in-out 0.1s;
+    border-bottom: 2px solid;
 }
-.S1:hover,.S2:hover{
-    border-bottom: 2px solid rgba(158, 77, 182, 1);
-    color: rgba(158, 77, 182, 1);
+
+.S1.active {
+    color: #9E4DB6;
+    border-bottom-color: #9E4DB6;
 }
-.SubCont{
-    transform: translate(-200px,100px);
+
+.S2 {
+    color: #333;
+    border-bottom-color: rgba(158, 77, 182, 0.3);
+}
+
+.S1:hover,
+.S2:hover {
+    color: #9E4DB6;
+    border-bottom-color: #9E4DB6;
+}
+
+.SubCont {
     display: flex;
-    gap: 20px;
-    width: 150%;
-    height: 540px;
-    
+    gap: 50px;
+    justify-content: center;
+    margin: 60px auto;
+
 }
-.subBox{
+
+.subBox {
     text-align: left;
-    width: 100%;
-    height: 100%;
+    width: 360px;
+    height: 600px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 15px;
+    border: 1px solid #f9f9f9;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-/* box design */
-
-.subBox{
-    border: 1px solid rgba(242, 242, 242, 1);
-    box-shadow: 0px 21px 28px -6px rgba(0, 0, 0, 0.08);
-    padding: 20px;
-
-}
-hr{
+hr {
     width: 80%;
 }
-.SubIcon{
+
+.SubIcon {
     transform: rotate(90deg);
     padding: 10px;
-    width: 25px; 
+    width: 25px;
     height: 25px;
-    background-color: rgba(158, 77, 182, 1);
+    background-color: #9E4DB6;
     color: white;
     border-radius: 50%;
+    margin-bottom: 20px;
 }
-.SubType{
-    color: black;
-    background-color:rgba(158, 77, 182, 0.2);
-    border-radius: 20px;
-    padding: 0 20px;
-    width: 100px;
-    margin:3px 0;
-    text-align: center;
+
+.SubType {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
     font-weight: bold;
-}
-.SubNum{
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 20px;
-    color: rgba(158, 77, 182, 1);
-}
-.SubPrice{
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color:  rgba(158, 77, 182, 1);
-    margin: 40px 0  ;
-}
-.head{
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 100%;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
     color: black;
+    background-color: rgba(158, 77, 182, 0.2);
+    border-radius: 20px;
+    padding: 8px 20px;
+    width: fit-content;
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-size: 16px;
 }
-.SubIconT{
+
+.SubNum {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 40px;
+    line-height: 1;
+    color: #9E4DB6;
+}
+
+.SubPrice {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 14px;
+    line-height: 1;
+    color: #9E4DB6;
+    margin: 20px 0 30px 0;
+}
+
+.head {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 16px;
+    line-height: 1;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.SubIconT {
     color: white;
-    background-color: rgba(158, 77, 182, 1);
+    background-color: #9E4DB6;
     font-size: 12px;
     padding: 5px;
     border-radius: 50%;
     margin-right: 10px;
     margin-top: 5px;
 }
-.para,.parax{
-    margin-top: 5px;
-    color: rgba(145, 145, 145, 1);
+
+.para,
+.parax {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    margin-top: 8px;
+    color: #919191;
     font-size: 14px;
-    line-height: 100%;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
 }
-.parax{
-    margin-bottom: 40px;
+
+.parax {
+    margin-bottom: 10px;
 }
-.startBtn{
+
+.startBtn {
     width: 100%;
-    background-color: rgba(158, 77, 182, 1);
+    background-color: #9E4DB6;
     color: white;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 500;
-    font-style: Medium;
-    font-size: 20px;
-    width: 100%;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 16px;
     text-decoration: none;
-    padding: 3% 35%;
+    padding: 12px 20px;
     border-radius: 5px;
+    text-align: center;
+    display: block;
+    transition: background-color 0.3s;
+    margin-top: auto;
 }
-#purpleC{
-    background-color:rgba(158, 77, 182, 1);
+
+.startBtn:hover {
+    background-color: #7b1fa2;
 }
-#purpleI{
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(182, 124, 200, 1)
+
+#purpleC {
+    background-color: #9E4DB6;
 }
-#purpleIC{
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(182, 124, 200, 1);
+
+#purpleI {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#purpleIC {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
 }
-#color{
+
+#color {
     color: white;
 }
-#startColor{
-    color: rgba(158, 77, 182, 1);
+
+#startColor {
+    color: #9E4DB6;
     background-color: white;
 }
 
+#startColor:hover {
+    background-color: #f8f9fa;
+}
 
-#colorxbg{
+#colorxbg {
     color: white;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
 }

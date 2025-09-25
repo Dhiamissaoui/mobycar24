@@ -11,6 +11,7 @@ import Img24 from '../../images/24 image logo .png'
 import { Link } from 'react-router-dom';
 function ForgetService() {
     const [slideOut, setSlideOut] = useState(false);
+    const [removeFilter, setremoveFilter] = useState(false)
     return (
         <div className={Styles.container}>
             <div className={Styles.Fsection}>
@@ -22,8 +23,8 @@ function ForgetService() {
             </div>
             <div className={Styles.Ssection}>
                 <div className={Styles.header}>
-                    <center><h1>Forgot Password</h1></center>
-                    <center><p>Please enter your email to reset your password.</p></center>
+                    <div className={Styles.headerTitle}>Forgot Password</div>
+                    <div className={Styles.headerSubtitle}>Please enter your email to reset your password.</div>
                 </div>
                 <div>
                     <div className={Styles.box}>
@@ -32,12 +33,16 @@ function ForgetService() {
                             <input type='email' placeholder='Enter Email Addresse' />
                         </div>
                     </div>
-                    <button className={Styles.Continue} onClick={() => setSlideOut(true)} >Continue</button>  {/* Fixed button */}
+                    <button className={Styles.Continue} onClick={() => { setSlideOut(true); setremoveFilter(true) }} >Continue</button>  {/* Fixed button */}
                 </div>
             </div>
+            {removeFilter && <div className={Styles.overlay} />}
             <div className={`${Styles.outCont} ${slideOut ? Styles.outActive : ""}`}>
-                <FontAwesomeIcon icon={faCircleXmark} className={Styles.outX} onClick={() => setSlideOut(false)} /> <br />
-                <FontAwesomeIcon icon={faEnvelope} className={Styles.outIcon} />
+                <FontAwesomeIcon icon={faCircleXmark} className={Styles.outX} onClick={() => { setSlideOut(false); setremoveFilter(false) }} /> <br />
+                <div className={Styles.outIcon}>
+                    <FontAwesomeIcon icon={faEnvelope} />
+                </div>
+
                 <div className={Styles.outTitle}>We have sent a link to your email  </div>
                 <div className={Styles.outpara}>Lorem ipsum dolor sit amet consectetur. Congue sed sed eget id blandit pretium penatibus quam.</div>
                 <Link to='/resetS' className={Styles.outY}>OK</Link>

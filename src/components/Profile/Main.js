@@ -207,6 +207,7 @@ function ProfilePage({ slideOut, setSlideOut, removeFilter, setremoveFilter }) {
   ];
 
 
+
   const renderContent = () => {
     switch (activeTab) {
       case 'profile':

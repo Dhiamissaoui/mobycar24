@@ -11,7 +11,7 @@ function VehiculeSpec() {
         <div className={Styles.Cont}>
             <div className={Styles.header}>
                 <div className={Styles.titleH}>John Doe, List your vehicle</div>
-                <p>Lorem ipsum dolor sit amet consectetur. Sapien aliquet sollicitudin luctus viverra dui. Hendrerit congue magna eget adipiscing orci elit etiam consectetur natoque.</p>
+                <div className={Styles.subtitle}>Lorem ipsum dolor sit amet consectetur. Sapien aliquet sollicitudin luctus viverra dui. Hendrerit congue magna eget adipiscing orci elit etiam consectetur natoque.</div>
             </div>
             <div className={Styles.steps}>
                 <div className={Styles.line}></div>
@@ -21,12 +21,45 @@ function VehiculeSpec() {
                 <FontAwesomeIcon icon={faChevronRight} className={Styles.rightIcon} />
                 <div className={Styles.step}><div className={Styles.text}>03</div></div>
             </div>
-            <h1>Vehicle Specification</h1>
+            <div className={Styles.sectionTitle}>Vehicle Specification</div>
             <div className={Styles.vehiculeInfoCont}>
                 <div className={Styles.box}>
                     <div className={Styles.boxO}>
-                        <label for="exampleColorInput" className={Styles.labelx} class="form-label">Color</label>
-                        <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color" />
+                        <div className={Styles.label}>Color</div>
+                        <div className="dropdown">
+                            <button className={`btn btn-outline-secondary dropdown-toggle ${Styles.dropdownBtn}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div className={Styles.colorOption}>
+                                    <div className={Styles.colorBox} style={{ backgroundColor: '#563d7c' }}></div>
+                                    <span>Blue</span>
+                                </div>
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li><button className="dropdown-item" type="button">
+                                    <div className={Styles.colorOption}>
+                                        <div className={Styles.colorBox} style={{ backgroundColor: '#563d7c' }}></div>
+                                        <span>Blue</span>
+                                    </div>
+                                </button></li>
+                                <li><button className="dropdown-item" type="button">
+                                    <div className={Styles.colorOption}>
+                                        <div className={Styles.colorBox} style={{ backgroundColor: '#ff0000' }}></div>
+                                        <span>Red</span>
+                                    </div>
+                                </button></li>
+                                <li><button className="dropdown-item" type="button">
+                                    <div className={Styles.colorOption}>
+                                        <div className={Styles.colorBox} style={{ backgroundColor: '#00ff00' }}></div>
+                                        <span>Green</span>
+                                    </div>
+                                </button></li>
+                                <li><button className="dropdown-item" type="button">
+                                    <div className={Styles.colorOption}>
+                                        <div className={Styles.colorBox} style={{ backgroundColor: '#000000' }}></div>
+                                        <span>Black</span>
+                                    </div>
+                                </button></li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div className={Styles.boxT}>
@@ -37,12 +70,17 @@ function VehiculeSpec() {
                 <div className={Styles.box}>
                     <div className={Styles.boxO}>
                         <div className={Styles.label}>Transmission</div>
-                        <select class={`form-select ${Styles.selectV}`} aria-label="Default select example">
-                            <option selected>Automatic</option>
-                            <option value="1">Manuel</option>
-                            <option value="2">Mecatronic</option>
-                            <option value="3">elecrtric</option>
-                        </select>
+                        <div className="dropdown">
+                            <button className={`btn btn-outline-secondary dropdown-toggle ${Styles.dropdownBtn}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Automatic
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li><button className="dropdown-item" type="button">Automatic</button></li>
+                                <li><button className="dropdown-item" type="button">Manual</button></li>
+                                <li><button className="dropdown-item" type="button">Mecatronic</button></li>
+                                <li><button className="dropdown-item" type="button">Electric</button></li>
+                            </ul>
+                        </div>
                     </div>
                     <div className={Styles.boxT}>
                         <div className={Styles.label}>Horse Power</div>
@@ -52,21 +90,31 @@ function VehiculeSpec() {
                 <div className={Styles.box}>
                     <div className={Styles.boxO}>
                         <div className={Styles.label}>Fuel Type</div>
-                        <select select class={`form-select ${Styles.selectV}`} aria-label="Default select example">
-                            <option selected>Petrol</option>
-                            <option value="1">Gas</option>
-                            <option value="2">Diesel</option>
-                            <option value="3">elecrtric</option>
-                        </select>
+                        <div className="dropdown">
+                            <button className={`btn btn-outline-secondary dropdown-toggle ${Styles.dropdownBtn}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Petrol
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li><button className="dropdown-item" type="button">Petrol</button></li>
+                                <li><button className="dropdown-item" type="button">Gas</button></li>
+                                <li><button className="dropdown-item" type="button">Diesel</button></li>
+                                <li><button className="dropdown-item" type="button">Electric</button></li>
+                            </ul>
+                        </div>
                     </div>
                     <div className={Styles.boxT}>
                         <div className={Styles.label}>Body Type</div>
-                        <select class={`form-select ${Styles.selectV}`} aria-label="Default select example">
-                            <option selected>Sedan</option>
-                            <option value="1">Convertible</option>
-                            <option value="2">Coupe</option>
-                            <option value="3">Van</option>
-                        </select>
+                        <div className="dropdown">
+                            <button className={`btn btn-outline-secondary dropdown-toggle ${Styles.dropdownBtn}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sedan
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li><button className="dropdown-item" type="button">Sedan</button></li>
+                                <li><button className="dropdown-item" type="button">Convertible</button></li>
+                                <li><button className="dropdown-item" type="button">Coupe</button></li>
+                                <li><button className="dropdown-item" type="button">Van</button></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div className={Styles.box}>

@@ -1,25 +1,23 @@
-.tabContent {
-    width: 1250px;
-    padding: 20px;
-    background-color: rgba(253, 248, 255, 1);
-    border-radius: 10px;
-}
-
 /* Messages Container */
 .messages-container {
     display: flex;
-    height: calc(100vh - 150px);
+    height: 100%;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    gap: 10px;
+    padding: 10px;
+    width: 1220px;
 }
 
 /* Conversation List */
 .conversation-list {
-    width: 350px;
-    border-right: 1px solid #eee;
-    overflow-y: auto;
-    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    overflow-x: hidden;
+    padding-left: 20px;
+    background-color: #F6F6F6;
+
 }
 
 .section-title {
@@ -32,9 +30,21 @@
 
 .search-bar {
     display: flex;
-    margin: 10px;
+    margin: 20px auto;
     height: 40px;
     background-color: transparent;
+    width: 95%;
+}
+
+
+.search-icon {
+    position: relative;
+    top: 11px;
+    left: 15px;
+    margin-left: -20px;
+    z-index: 12;
+    color: #7B7B7B;
+    width: 15px;
 
 }
 
@@ -43,7 +53,13 @@
     height: 40px;
     z-index: 1;
     transform: translateX(-10px);
+    padding-left: 30px;
     color: black;
+    background-color: white;
+}
+
+.searchB::placeholder {
+    color: #7B7B7B;
 }
 
 .search-bar .searchI {
@@ -54,9 +70,11 @@
 
 .conversation-item {
     display: flex;
-    padding: 12px 0;
-    border-bottom: 1px solid #f5f5f5;
     cursor: pointer;
+    height: 75px;
+    padding: 10px;
+    width: 100%;
+
 }
 
 .conversation-item.unread {
@@ -69,11 +87,14 @@
     color: white;
 }
 
+
+
 .conversation-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: url('../../../images/profile\ pic.png');
+    background-color: #f0f0f0;
+    background-image: url('../../../images//profile\ pic.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -103,7 +124,7 @@
 }
 
 .conversation-preview {
-    font-size: 14px;
+    font-size: 12px;
     color: #666;
     margin: 0;
     white-space: nowrap;
@@ -116,24 +137,32 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #D4D4D4;
+    border-radius: 10px;
 }
 
 .chat-header {
     padding: 20px;
-    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 
 }
 
 .chat-user {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .chat-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: url('../../../images/profile\ pic.png');
+    background-color: #f0f0f0;
+    background-image: url('../../../images//profile\ pic.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -148,14 +177,13 @@
 
 .messages-area {
     flex: 1;
-    padding: 40px;
+    padding: 10px;
     overflow-y: auto;
-    background-color: #f9f9f9;
 }
 
 .message {
     max-width: 70%;
-    margin-bottom: 15px;
+
 }
 
 .my-message {
@@ -170,75 +198,137 @@
     padding: 12px 16px;
     border-radius: 18px;
     position: relative;
+    color: #5F5F5F;
 }
 
 .my-message .message-content {
-    background-color: white;
-    color: black;
-    border-top-right-radius: 0;
-    border: 1px solid black;
-}
+    background-color: transparent;
+    border: 1px solid #F6EEF8;
 
-.their-message .message-content {
-    background-color: rgba(246, 238, 248, 1);
-    color: black;
-    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .message-time {
-    display: block;
-    font-size: 11px;
-    margin-top: 5px;
-    text-align: right;
+    font-size: 10px;
+    display: flex;
+    justify-self: flex-end;
+    transform: translateY(-20px);
+    color: #B2B2B2;
 }
 
-.my-message .message-time {
-    color: black;
+.right {
+    display: flex;
+    justify-self: flex-start;
 }
 
-.their-message .message-time {
-    color: #888;
+.their-message .message-content {
+    background-color: #F6EEF8;
+    font-size: 15px;
+    border-top-left-radius: 0;
 }
+
+
+
+
+
+
 
 .message-input-container {
+    position: relative;
     padding: 15px 20px;
     border-top: 1px solid #eee;
-
-
+    display: block;
+    width: 96%;
+    /* Not flex! */
 }
+
+/* .message-input {
+    width: 100%;
+  
+    border-radius: 25px;
+    font-size: 14px;
+    outline: none;
+    flex: 1;
+  } */
 
 .message-input {
     width: 100%;
-    padding: 12px 20px;
-    border: 1px solid #ddd;
+    border-radius: 25px;
     font-size: 14px;
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-100%);
+    height: 48px;
+    /* or your preferred height */
+    padding-right: 110px;
+    /* enough for the icons */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background: #F7F7F7;
+    z-index: 1;
+    margin: 0 10px;
 }
+
 
 .message-input:focus {
     border-color: #9e4db6;
-
 }
 
-.iconCont {
-    display: flex;
-    transform: translateY(-40px) translateX(670px);
-    gap: 20px;
-    color: rgba(0, 0, 0, 0.368);
-    font-size: 20px;
-    width: 150px;
-
-}
-
-.iconmessage {
-    border: 1px solid black;
-    padding: 5px;
+.iconDots {
+    color: #BEBEBE;
+    background-color: #F7F7F7;
+    padding: 10px;
     border-radius: 50%;
-    color: rgba(158, 77, 182, 1);
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
 }
 
-.iconmessage:hover {
-    background-color: rgba(158, 77, 182, 1);
-    color: white;
+/* .iconInput {
+    width: 30px;
+    background-color: white;
+    color: #9E4DB6;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    gap: 20px;
+  } */
+
+.iconInput {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    color: #9E4DB6;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* .contIconInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    top: -50%;
+    right: 0;
+    border: 1px solid black;
+    width: 100px;
+  
+  } */
+
+.contIconInput {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translate(20%, -130%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+    background: transparent;
 }

@@ -25,6 +25,8 @@ function Main() {
         setActiveEye2(prev => !prev);
     };
 
+    const [removeFilter, setremoveFilter] = useState(false)
+
 
     return (
         <div className={Styles.SignUpCont}>
@@ -132,13 +134,14 @@ function Main() {
                         <div style={{ color: 'rgba(177, 177, 177, 1)' }}>Accept terms & conditions and privacy policy of Mobycar24</div>
                     </div>
                 </div>
-                <button to='/service' className={Styles.submit} onClick={() => setSlideOut(true)} type='submit'>Sign Up</button>
+                <button to='/service' className={Styles.submit} onClick={() => { setSlideOut(true); setremoveFilter(true) }} type='submit'>Sign Up</button>
                 <div className={Styles.check_cont}>
-                    <p style={{ color: '#919191', fontSize: '15px' }}>Already have an account?</p><Link className={Styles.signIn} to='/login'>Sign In</Link>
+                    <p style={{ color: '#919191', fontSize: '15px' }}>Already have an account?</p><Link className={Styles.signIn} to='/loginS'>Sign In</Link>
                 </div>
             </div>
+            {removeFilter && <div className={Styles.overlay} />}
             <div className={`${Styles.outCont} ${slideOut ? Styles.outActive : ""}`}>
-                <FontAwesomeIcon icon={faCircleXmark} className={Styles.outX} onClick={() => setSlideOut(false)} /> <br />
+                <FontAwesomeIcon icon={faCircleXmark} className={Styles.outX} onClick={() => { setSlideOut(false); setremoveFilter(false) }} /> <br />
                 <div className={Styles.outIcon}>
                     <FontAwesomeIcon icon={faHourglassHalf} />
                 </div>
@@ -147,7 +150,7 @@ function Main() {
                 <div className={Styles.outpara}>Once it is approved, you will received a login to your registered email ID</div>
                 <Link to='/loginS' className={Styles.outY}>OK</Link>
             </div>
-        </div>
+        </div >
     )
 }
 export default Main;
