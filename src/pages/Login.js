@@ -13,11 +13,6 @@ import {
 
 
 // Mock user data - in a real app, this would come from a backend
-const mockUsers = [
-  { email: 'user1@example.com', password: 'password123' },
-  { email: 'user2@example.com', password: 'password456' },
-  { email: 'x@x.x', password: 'x' }
-];
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -25,28 +20,7 @@ function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    // Basic validation
-    if (!email || !password) {
-      setError('Please fill in all fields');
-      return;
-    }
-
-    // Check if user exists
-    const user = mockUsers.find(
-      (user) => user.email === email && user.password === password
-    );
-
-    if (user) {
-      // Successful login - navigate to profile
-      navigate('/profile');
-      // In a real app, you might want to store auth state here
-    } else {
-      setError('Invalid email or password');
-    }
-  };
 
 
   const [activeEye1, setActiveEye1] = useState(true);
@@ -74,7 +48,7 @@ function Login() {
         </div>
 
 
-        <form onSubmit={handleSubmit}>
+        <form >
           <div className={style.box}>
             <div className={style.inp}>
               <h3 className={style.labelInp}>Email Address</h3>
@@ -119,7 +93,7 @@ function Login() {
             </div>
           </div>
 
-          <button type="submit" className={style.submit}>
+          <button type="button" className={style.submit} onClick={() => navigate('/profile')}>
             Login
           </button>
         </form>
