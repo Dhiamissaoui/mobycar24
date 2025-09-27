@@ -46,7 +46,7 @@ const SplashScreen = () => {
             <div className={styles['navbar-logo']}>
                 MOBY<span className={styles['sp']}>CAR24</span>
             </div>
-            <Link to='/OnBoarding' style={{ position: 'absolute', width: '100%', height: '100%', backgroundColor: 'transparent', zIndex: '11111', top: '0', left: '0' }}></Link>
+            <Link to='/onboarding' style={{ position: 'absolute', width: '100%', height: '100%', backgroundColor: 'transparent', zIndex: '11111', top: '0', left: '0' }}></Link>
         </div >
     );
 };

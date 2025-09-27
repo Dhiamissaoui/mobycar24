@@ -1,14 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styles from '../../styles/responsiveStyle/onBoarding.module.css';
+import { Link } from 'react-router-dom';
+import styles from '../../styles/responsiveStyle/Onboarding.module.css';
 import home2Image from '../../images/resposiveImgs/home_2.png';
 
 function OnBoarding() {
-    const navigate = useNavigate();
 
-    const handleGetStarted = () => {
-        navigate('/HomePageResponsive');
-    };
 
     return (
         <div className={styles.splashScreen}>
@@ -32,14 +28,14 @@ function OnBoarding() {
                         Placerat quis eget nunc malesuada netus elit etiam dolor. Congue id sagittis facilisis
                         faucibus ullamcorper.
                     </p>
-                    <button className={styles.getStartedBtn} onClick={handleGetStarted}>
+                    <Link to='/HomePageResponsive' className={styles.getStartedBtn}>
                         <span>Get Started</span>
                         <div className={styles.arrowIcons}>
                             <span style={{ scale: '0.8', color: 'rgba(255, 255, 255, 0.17)' }}>▶</span>
                             <span style={{ scale: '0.9', color: 'rgba(255, 255, 255, 0.38)' }}>▶</span>
                             <span >▶</span>
                         </div>
-                    </button>
+                    </Link>
                 </div>
             </div >
         </div >
