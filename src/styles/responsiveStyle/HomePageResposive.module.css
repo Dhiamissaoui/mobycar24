@@ -1,0 +1,588 @@
+/* Mobile Responsive Styles for HomePageResponsive */
+
+.appContainer {
+    min-height: 100vh;
+    background-color: white;
+    padding-bottom: 80px;
+    /* Space for fixed bottom nav */
+}
+
+/* Only apply mobile styles on mobile screens */
+@media (max-width: 768px) {
+    .appContainer {
+        min-height: 100vh;
+        background-color: white;
+        padding-bottom: 80px;
+        overflow-y: auto;
+        /* Ensure scrolling works on mobile */
+    }
+}
+
+/* Hide mobile styles on desktop */
+@media (min-width: 769px) {
+    .appContainer {
+        display: none;
+        /* Hide mobile version on desktop */
+    }
+}
+
+.mobileContainer {
+    padding: 0 10px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Mobile Header */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.logoMoby {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+.logoCar {
+    font-size: 18px;
+    font-weight: 700;
+    color: #9E4DB6;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #9E4DB6;
+    padding-bottom: 2px;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Search Section */
+.searchSection {
+    padding: 15px 10px;
+    background: white;
+}
+
+.searchRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.searchBar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 12px 16px;
+    border: 1px solid #e9ecef;
+}
+
+.searchIcon {
+    color: #9E4DB6;
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+.searchInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.searchInput::placeholder {
+    color: #999;
+}
+
+.filterButton {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filterButton:hover {
+    background: #f8f9fa;
+}
+
+.filterButton svg {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Promotional Banner */
+.promoBanner {
+    display: flex;
+    align-items: center;
+    background: #F1F1F1;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    color: black;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.promoContent {
+    flex: 1;
+    z-index: 2;
+    width: 100%;
+
+}
+
+.promoTitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: black;
+}
+
+.promoSubtitle {
+    font-size: 12px;
+    color: #949494;
+    margin: 0;
+}
+
+.promoImage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    z-index: 1;
+}
+
+.carImage {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    opacity: 0.8;
+    object-fit: contain;
+}
+
+/* Section Headers */
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.sectionTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.viewAll {
+    color: #9E4DB6;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Categories Section */
+.categoriesSection {
+    margin: 30px 0;
+}
+
+.categoriesGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: start;
+}
+
+.categoryCard {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95px;
+    width: 22.5%;
+    flex-shrink: 0;
+}
+
+.categoryIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.categorySvg {
+    width: 20px;
+    height: 20px;
+    stroke: #9E4DB6;
+    fill: none;
+    flex-shrink: 0;
+}
+
+.categoryInfo {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.categoryName {
+    font-size: 10px;
+    font-weight: 600;
+    color: black;
+}
+
+.categoryCount {
+    font-size: 10px;
+    color: #B5B5B5;
+}
+
+/* Brands Section */
+.brandsSection {
+    margin: 30px 0;
+}
+
+.brandsGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.brandCard {
+    background: white;
+    border: 1px solid #F2F2F2;
+    border-radius: 12px;
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 22.5%;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.brandLogo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brandName {
+    font-size: 11px;
+    font-weight: 600;
+    color: black;
+}
+
+/* Offers Section */
+.offersSection {
+    margin: 30px 0;
+}
+
+.offersGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.offerCard {
+    background: rgb(242, 242, 242);
+    border-radius: 12px;
+    padding: 8px;
+    height: 220px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.offerCard:hover {
+    transform: translateY(-5px);
+    background-color: white;
+}
+
+.offerBadge {
+    position: relative;
+    top: 30px;
+    left: 0px;
+    background: #9E4DB6;
+    color: white;
+    padding: 3px 6px;
+
+
+    font-size: 8px;
+    width: 50px;
+    height: 20px;
+    z-index: 1;
+
+    margin-top: -10px;
+    border: none;
+
+}
+
+.offerBadge::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+
+    z-index: 155;
+    top: 0;
+    right: -15px;
+    transform: rotate(-45deg);
+
+}
+
+.availability {
+    position: absolute;
+    top: 20px;
+    right: 8px;
+    color: rgba(41, 157, 0, 1);
+    background-color: rgba(41, 157, 0, 0.1);
+    border-radius: 12px;
+    font-size: 8px;
+    padding: 2px 5px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    z-index: 2;
+}
+
+.offerImage {
+    width: 100%;
+    height: 50%;
+
+    padding-top: 20px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid rgba(242, 242, 242, 1);
+}
+
+.offerDetails {
+    padding: 8px;
+}
+
+.carModel {
+    font-size: 10px;
+    margin-top: 5px;
+    margin-left: 2px;
+
+    font-weight: bold;
+    color: #333;
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding-right: 10px;
+    font-size: 8px;
+    color: rgba(148, 148, 148, 1);
+    margin: 5px 0;
+}
+
+.feature {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.priceSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.price {
+    font-weight: bold;
+    color: #333;
+    font-size: 11px;
+}
+
+.reserveBtn {
+    background: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 9px;
+}
+
+.reserveBtn:hover {
+    background: #7d3a98;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 8px 0;
+    opacity: 0.1;
+}
+
+/* Fixed Bottom Navigation */
+.bottomNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 8px;
+    min-width: 60px;
+}
+
+.navItem.active {
+    color: #9E4DB6;
+}
+
+.navItem.active .navIcon {
+    color: #9E4DB6;
+}
+
+.navIcon {
+    font-size: 18px;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.navLabel {
+    font-size: 10px;
+    font-weight: 500;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.navItem.active .navLabel {
+    color: #9E4DB6;
+}
+
+/* Tab Content */
+.tabContent {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 768px) {
+    .mobileContainer {
+        display: none;
+        /* Hide mobile version on desktop */
+    }
+
+    .appContainer {
+        display: none;
+        /* Hide mobile version on desktop */
+        padding-bottom: 0;
+    }
+
+    .bottomNav {
+        display: none;
+        /* Hide bottom nav on desktop */
+    }
+
+    /* Ensure desktop scrolling works normally */
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 480px) {
+    .mobileContainer {
+        padding: 0 10px;
+    }
+
+
+    .sectionTitle {
+        font-size: 18px;
+    }
+}

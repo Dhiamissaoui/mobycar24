@@ -9,6 +9,7 @@
   width: 100%;
   transform: translateY(80%);
 
+
 }
 
 .hero_content {
@@ -59,10 +60,4 @@
   top: 50%;
   left: 50%;
 
-}
-
-@media (max-width: 900px) {
-  .hero {
-    display: none;
-  }
 }

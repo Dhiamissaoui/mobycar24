@@ -87,9 +87,3 @@
   border-left: 0.3em solid transparent;
   border-radius: 50px;
 }
-
-@media (max-width: 900px) {
-  .search-container {
-    display: none;
-  }
-}

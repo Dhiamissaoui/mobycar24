@@ -7,5 +7,40 @@
 
 html {
   scroll-behavior: smooth;
+  /* Removed overflow-x: hidden to allow proper scrolling */
+  overflow-y: auto;
+  /* Allow vertical scrolling on desktop */
+  height: auto;
+  /* Allow html to expand with content */
+}
+
+body {
   overflow-x: hidden;
+  /* Only hide horizontal overflow, allow vertical scrolling */
+  overflow-y: auto;
+  /* Allow vertical scrolling on desktop */
+  position: static;
+  /* Ensure body is not fixed */
+  height: auto;
+  /* Allow body to expand with content */
+}
+
+/* Disable scrolling only on mobile/responsive screens */
+@media (max-width: 768px) {
+  html {
+    overflow-y: hidden !important;
+    /* Disable scrolling on mobile */
+    height: 100vh !important;
+    /* Fixed height on mobile */
+  }
+
+  body {
+    overflow-y: hidden !important;
+    /* Disable scrolling on mobile */
+    position: fixed !important;
+    /* Fixed position on mobile */
+    height: 100vh !important;
+    /* Fixed height on mobile */
+    width: 100% !important;
+  }
 }

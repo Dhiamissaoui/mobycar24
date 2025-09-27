@@ -3,27 +3,12 @@
     min-height: 100vh;
     position: relative;
     height: 500px;
+    width: 100%;
 }
 
-/* Make sure content is above background */
-.navbar,
-.hero-section,
-.search-form,
-.categories,
-.most-wanted-brands,
-.todays-offers,
-.why-choose-us,
-.contact-us,
-.footer {
-    position: relative;
-    z-index: 1;
-}
-
-@media (max-width: 900px) {
+/* Hide all components on mobile - only show splash screen */
+@media (max-width: 768px) {
     .home-container {
-        background: none;
-        height: auto;
-        position: absolute;
-        width: auto;
+        display: none;
     }
 }
