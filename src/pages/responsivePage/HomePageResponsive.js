@@ -2,12 +2,11 @@ import React, { useState, memo, useMemo, useCallback, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faMagnifyingGlass,
+    faSearch,
     faHome,
     faCar,
     faComment,
     faCarSide,
-    faStar,
-    faGlobe,
     faCoins,
     faUser,
     faHeart,
@@ -26,8 +25,10 @@ import {
     faDollarSign,
     faMedal,
     faLanguage,
-    faSignLanguage,
-    faPersonWalkingLuggage
+    faPaperclip,
+    faSmile,
+    faPaperPlane,
+    faEllipsisVertical
 } from '@fortawesome/free-solid-svg-icons';
 import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { GB, FR, DE } from 'country-flag-icons/react/3x2';
@@ -62,8 +63,7 @@ import lamborghiniLogo from '../../images/lambo logo.png';
 import porscheImage from '../../images/porsche.png';
 import cadillacImage from '../../images/car-cadillac.png';
 import profilePicResposive from '../../images/resposiveImgs/profile_pic.png';
-
-import testbrandsIcon from '../../images/resposiveImgs/testBrandsIcon.png';
+import profileChatPic from '../../images/resposiveImgs/profile_chat_img.png';
 
 
 import styles from '../../styles/responsiveStyle/HomePageResposive.module.css';
@@ -80,6 +80,92 @@ const HomePageResponsive = memo(() => {
     const [searchQuery, setSearchQuery] = useState('');
     const [pickupDate, setPickupDate] = useState('15 Feb 2024');
     const [dropoffDate, setDropoffDate] = useState('16 Feb 2024');
+    const [activeChat, setActiveChat] = useState(null);
+
+    // Chat data
+    const chatData = useMemo(() => ({
+        1: {
+            name: "John Rosensky",
+            status: "Online",
+            avatar: profileChatPic,
+            messages: [
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur. Mi rhoncus cursus sit tincidunt.' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur.' },
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet con' },
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet us' }
+            ]
+        },
+        2: {
+            name: "Jane Cooper",
+            status: "Online",
+            avatar: profileChatPic,
+            messages: [
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur. Mi rhoncus cursus sit tincidunt.' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur.' }
+            ]
+        },
+        3: {
+            name: "Craig Saris",
+            status: "Online",
+            avatar: profileChatPic,
+            messages: [
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur. Mi rhoncus cursus sit tincidunt.' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur.' },
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet con' },
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet us' }
+            ]
+        },
+        4: {
+            name: "Cameron Williamson",
+            status: "Online",
+            avatar: profileChatPic,
+            messages: [
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur. Mi rhoncus cursus sit tincidunt.' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur.' }
+            ]
+        },
+        5: {
+            name: "Brooklyn Simmons",
+            status: "Online",
+            avatar: profileChatPic,
+            messages: [
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur. Mi rhoncus cursus sit tincidunt.' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur.' }
+            ]
+        },
+        6: {
+            name: "Leslie Alexander",
+            status: "Online",
+            avatar: "/api/placeholder/50/50",
+            messages: [
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur. Mi rhoncus cursus sit tincidunt.' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur.' }
+            ]
+        },
+        7: {
+            name: "Jenny Wilson",
+            status: "Online",
+            avatar: profileChatPic,
+            messages: [
+                { sender: 'them', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur. Mi rhoncus cursus sit tincidunt.' },
+                { sender: 'me', time: '09:20pm', content: 'Lorem ipsum dolor sit amet consectetur.' }
+            ]
+        }
+    }), []);
+
+    const handleMessageClick = useCallback((conversationId) => {
+        console.log('Clicked conversation:', conversationId);
+        console.log('Chat data:', chatData[conversationId]);
+        setActiveChat(chatData[conversationId]);
+        setActiveTab('chat');
+    }, [chatData]);
+
+    const handleBackToMessages = () => {
+        setActiveChat(null);
+        setActiveTab('message');
+    };
 
     useEffect(() => {
         // Set body overflow to visible when component mounts
@@ -173,7 +259,7 @@ const HomePageResponsive = memo(() => {
                         <div className={styles.categoriesSection}>
                             <div className={styles.sectionHeader}>
                                 <h2 className={styles.sectionTitle}>Categories</h2>
-                                <span className={styles.viewAll}>View All</span>
+                                <span className={styles.viewAll} onClick={() => setActiveTab('categories')}>View All</span>
                             </div>
                             <div className={styles.categoriesGrid}>
                                 <div className={styles.categoryCard}>
@@ -248,126 +334,380 @@ const HomePageResponsive = memo(() => {
                         <div className={styles.offersSection}>
                             <h2 className={styles.sectionTitle}>Offers</h2>
                             <div className={styles.offersGrid}>
-                                <div className={styles.offerCard}>
-                                    <div className={styles.offerBadge}>25% Off</div>
-                                    <div className={styles.availability}>Available</div>
-                                    <img src={porscheImage} alt="Porsche Cayenne" className={styles.offerImage} />
-                                    <div className={styles.offerDetails}>
-                                        <h3 className={styles.carModel}>Lexus NX - 300</h3>
-                                        <div className={styles.features}>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-                                                    <path d="m9 12 2 2 4-4" />
-                                                </svg>
-                                                Insurance Included
+                                {[
+                                    {
+                                        id: 1,
+                                        name: "Lexus NX - 300",
+                                        image: porscheImage,
+                                        price: "£72.00/Day",
+                                        features: ["Insurance Included", "250 Km/Day"]
+                                    },
+                                    {
+                                        id: 2,
+                                        name: "Lexus NX - 300",
+                                        image: cadillacImage,
+                                        price: "£72.00/Day",
+                                        features: ["Insurance Included", "250 Km/Day"]
+                                    },
+                                    {
+                                        id: 3,
+                                        name: "Lexus NX - 300",
+                                        image: cadillacImage,
+                                        price: "£72.00/Day",
+                                        features: ["Insurance Included", "250 Km/Day"]
+                                    },
+                                    {
+                                        id: 4,
+                                        name: "Lexus NX - 300",
+                                        image: cadillacImage,
+                                        price: "£72.00/Day",
+                                        features: ["Insurance Included", "250 Km/Day"]
+                                    }
+                                ].map(offer => (
+                                    <div key={offer.id} className={styles.offerCard}>
+                                        <div className={styles.offerBadge}>25% Off</div>
+                                        <div className={styles.availability}>Available</div>
+                                        <img src={offer.image} alt={offer.name} className={styles.offerImage} />
+                                        <div className={styles.offerDetails}>
+                                            <h3 className={styles.carModel}>{offer.name}</h3>
+                                            <div className={styles.features}>
+                                                {offer.features.map((feature, index) => (
+                                                    <div key={index} className={styles.feature}>
+                                                        {index === 0 ? (
+                                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                                                                <path d="m9 12 2 2 4-4" />
+                                                            </svg>
+                                                        ) : (
+                                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                                <path d="m12 14 4-4" />
+                                                                <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+                                                            </svg>
+                                                        )}
+                                                        {feature}
+                                                    </div>
+                                                ))}
                                             </div>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="m12 14 4-4" />
-                                                    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                                                </svg>
-                                                250 Km/Day
+                                            <div className={styles.priceSection}>
+                                                <span className={styles.price}>{offer.price}</span>
+                                                <button className={styles.reserveBtn}>Reserve</button>
                                             </div>
-                                        </div>
-                                        <div className={styles.priceSection}>
-                                            <span className={styles.price}>£72.00/Day</span>
-                                            <button className={styles.reserveBtn}>Reserve</button>
                                         </div>
                                     </div>
-                                </div>
-                                <div className={styles.offerCard}>
-                                    <div className={styles.offerBadge}>25% Off</div>
-                                    <div className={styles.availability}>Available</div>
-                                    <img src={cadillacImage} alt="Cadillac Escalade" className={styles.offerImage} />
-                                    <div className={styles.offerDetails}>
-                                        <h3 className={styles.carModel}>Lexus NX - 300</h3>
-                                        <div className={styles.features}>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-                                                    <path d="m9 12 2 2 4-4" />
-                                                </svg>
-                                                Insurance Included
-                                            </div>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="m12 14 4-4" />
-                                                    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                                                </svg>
-                                                250 Km/Day
-                                            </div>
-                                        </div>
-                                        <div className={styles.priceSection}>
-                                            <span className={styles.price}>£72.00/Day</span>
-                                            <button className={styles.reserveBtn}>Reserve</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.offerCard}>
-                                    <div className={styles.offerBadge}>25% Off</div>
-                                    <div className={styles.availability}>Available</div>
-                                    <img src={cadillacImage} alt="Cadillac Escalade" className={styles.offerImage} />
-                                    <div className={styles.offerDetails}>
-                                        <h3 className={styles.carModel}>Lexus NX - 300</h3>
-                                        <div className={styles.features}>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-                                                    <path d="m9 12 2 2 4-4" />
-                                                </svg>
-                                                Insurance Included
-                                            </div>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="m12 14 4-4" />
-                                                    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                                                </svg>
-                                                250 Km/Day
-                                            </div>
-                                        </div>
-                                        <div className={styles.priceSection}>
-                                            <span className={styles.price}>£72.00/Day</span>
-                                            <button className={styles.reserveBtn}>Reserve</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.offerCard}>
-                                    <div className={styles.offerBadge}>25% Off</div>
-                                    <div className={styles.availability}>Available</div>
-                                    <img src={cadillacImage} alt="Cadillac Escalade" className={styles.offerImage} />
-                                    <div className={styles.offerDetails}>
-                                        <h3 className={styles.carModel}>Lexus NX - 300</h3>
-                                        <div className={styles.features}>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-                                                    <path d="m9 12 2 2 4-4" />
-                                                </svg>
-                                                Insurance Included
-                                            </div>
-                                            <div className={styles.feature}>
-                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="m12 14 4-4" />
-                                                    <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-                                                </svg>
-                                                250 Km/Day
-                                            </div>
-                                        </div>
-                                        <div className={styles.priceSection}>
-                                            <span className={styles.price}>£72.00/Day</span>
-                                            <button className={styles.reserveBtn}>Reserve</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 );
             case 'rent':
-                return <div className={styles.tabContent}>Rent a Car Content</div>;
+                return (
+                    <div className={styles.rentCarContainer}>
+                        {/* Mobile Header - Same as Home */}
+                        <div className={styles.mobileHeader}>
+                            <div className={styles.logoContainer}>
+                                <span className={styles.logoMoby}>MOBY</span>
+                                <span className={styles.logoCar}>CAR24</span>
+                            </div>
+                            <div className={styles.headerIcons}>
+                                <button className={styles.iconButton}>
+                                    <BellIcon className={styles.headerIcon} />
+                                </button>
+                                <button className={styles.iconButton} onClick={toggleSideMenu}>
+                                    <Bars3Icon className={styles.headerIcon} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Search Bar */}
+                        <div className={styles.searchSectionRent}>
+                            <div className={styles.searchRow}>
+                                <div className={styles.searchBar}>
+                                    <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.searchIcon} />
+                                    <input
+                                        type="text"
+                                        placeholder="Search by vehicle model/brand"
+                                        className={styles.searchInput}
+                                    />
+                                </div>
+                                <button className={styles.filterButton}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Car Cards Grid */}
+                        <div className={styles.offersGrid}>
+                            {[
+                                {
+                                    id: 1,
+                                    name: "Lexus NX - 300",
+                                    image: cadillacImage,
+                                    price: "£72.00/Day",
+                                    features: ["Insurance Included", "250 Km/Day"]
+                                },
+                                {
+                                    id: 2,
+                                    name: "BMW X5",
+                                    image: porscheImage,
+                                    price: "£85.00/Day",
+                                    features: ["Insurance Included", "300 Km/Day"]
+                                },
+                                {
+                                    id: 3,
+                                    name: "BMW X5",
+                                    image: porscheImage,
+                                    price: "£85.00/Day",
+                                    features: ["Insurance Included", "300 Km/Day"]
+                                },
+                                {
+                                    id: 4,
+                                    name: "BMW X5",
+                                    image: porscheImage,
+                                    price: "£85.00/Day",
+                                    features: ["Insurance Included", "300 Km/Day"]
+                                },
+                                {
+                                    id: 5,
+                                    name: "BMW X5",
+                                    image: porscheImage,
+                                    price: "£85.00/Day",
+                                    features: ["Insurance Included", "300 Km/Day"]
+                                },
+                                {
+                                    id: 6,
+                                    name: "BMW X5",
+                                    image: porscheImage,
+                                    price: "£85.00/Day",
+                                    features: ["Insurance Included", "300 Km/Day"]
+                                },
+                                {
+                                    id: 7,
+                                    name: "Audi A4",
+                                    image: cadillacImage,
+                                    price: "£65.00/Day",
+                                    features: ["Insurance Included", "200 Km/Day"]
+                                },
+                                {
+                                    id: 8,
+                                    name: "Mercedes C-Class",
+                                    image: porscheImage,
+                                    price: "£78.00/Day",
+                                    features: ["Insurance Included", "250 Km/Day"]
+                                }
+                            ].map(car => (
+                                <div key={car.id} className={styles.offerCard}>
+                                    <div className={styles.availabilityRent}>Available</div>
+                                    <img src={car.image} alt={car.name} className={styles.offerImage} />
+                                    <div className={styles.offerDetails}>
+                                        <h3 className={styles.carModel}>{car.name}</h3>
+                                        <div className={styles.features}>
+                                            {car.features.map((feature, index) => (
+                                                <div key={index} className={styles.feature}>
+                                                    {index === 0 ? (
+                                                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                                                            <path d="m9 12 2 2 4-4" />
+                                                        </svg>
+                                                    ) : (
+                                                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                            <path d="m12 14 4-4" />
+                                                            <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+                                                        </svg>
+                                                    )}
+                                                    {feature}
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className={styles.priceSection}>
+                                            <span className={styles.price}>{car.price}</span>
+                                            <button className={styles.reserveBtn}>Reserve</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
             case 'message':
-                return <div className={styles.tabContent}>Message Content</div>;
+                return (
+                    <div className={styles.messageContainer}>
+                        {/* Mobile Header */}
+                        <div className={styles.mobileHeader}>
+                            <div className={styles.logoContainer}>
+                                <span className={styles.logoMoby}>MOBY</span>
+                                <span className={styles.logoCar}>CAR24</span>
+                            </div>
+                            <div className={styles.headerIcons}>
+                                <button className={styles.iconButton}>
+                                    <BellIcon className={styles.headerIcon} />
+                                </button>
+                                <button className={styles.iconButton}>
+                                    <Bars3Icon className={styles.headerIcon} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Message Title */}
+                        <div className={styles.messageTitle}>
+                            <h2>Message</h2>
+                        </div>
+
+                        {/* Search Bar */}
+                        <div className={styles.messageSearchContainer}>
+                            <div className={styles.messageSearchBar}>
+                                <FontAwesomeIcon icon={faSearch} className={styles.messageSearchIcon} />
+                                <input
+                                    type="text"
+                                    placeholder="Search"
+                                    className={styles.messageSearchInput}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Messages List */}
+                        <div className={styles.messagesList}>
+                            {[
+                                {
+                                    id: 1,
+                                    name: "John Rosensky",
+                                    avatar: profileChatPic,
+                                    lastMessage: "Lorem Ipsum is simply dummy...",
+                                    time: "20 Jan, 2024",
+                                    unread: 3
+                                },
+                                {
+                                    id: 2,
+                                    name: "Jane Cooper",
+                                    avatar: profileChatPic,
+                                    lastMessage: "Lorem Ipsum is simply dummy...",
+                                    time: "20 Jan, 2024",
+                                    unread: 3
+                                },
+                                {
+                                    id: 3,
+                                    name: "Craig Saris",
+                                    avatar: profileChatPic,
+                                    lastMessage: "Lorem Ipsum is simply dummy...",
+                                    time: "20 Jan, 2024",
+                                    unread: 0
+                                },
+                                {
+                                    id: 4,
+                                    name: "Cameron Williamson",
+                                    avatar: profileChatPic,
+                                    lastMessage: "Lorem Ipsum is simply dummy...",
+                                    time: "20 Jan, 2024",
+                                    unread: 0
+                                },
+                                {
+                                    id: 5,
+                                    name: "Brooklyn Simmons",
+                                    avatar: profileChatPic,
+                                    lastMessage: "Lorem Ipsum is simply dummy...",
+                                    time: "20 Jan, 2024",
+                                    unread: 0
+                                },
+                                {
+                                    id: 6,
+                                    name: "Leslie Alexander",
+                                    avatar: profileChatPic,
+                                    lastMessage: "Lorem Ipsum is simply dummy...",
+                                    time: "20 Jan, 2024",
+                                    unread: 0
+                                },
+                                {
+                                    id: 7,
+                                    name: "Jenny Wilson",
+                                    avatar: profileChatPic,
+                                    lastMessage: "Lorem Ipsum is simply dummy...",
+                                    time: "20 Jan, 2024",
+                                    unread: 0
+                                }
+                            ].map(conversation => (
+                                <div key={conversation.id} className={styles.messageItem} onClick={() => handleMessageClick(conversation.id)}>
+                                    <div className={styles.messageAvatar}>
+                                        <img src={conversation.avatar} alt={conversation.name} />
+                                    </div>
+                                    <div className={styles.messageContent}>
+                                        <div className={styles.messageHeader}>
+                                            <h3 className={styles.messageName}>{conversation.name}</h3>
+                                            <span className={styles.messageTime}>{conversation.time}</span>
+                                        </div>
+                                        <p className={styles.messagePreview}>{conversation.lastMessage}</p>
+                                    </div>
+                                    {conversation.unread > 0 && (
+                                        <div className={styles.unreadBadge}>
+                                            <span>{conversation.unread}</span>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
+            case 'chat':
+                return (
+                    <div className={styles.chatContainer}>
+                        {/* Chat Header */}
+                        <div className={styles.chatHeader}>
+                            <button className={styles.backButton} onClick={handleBackToMessages}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <div className={styles.chatUserInfo}>
+                                <div className={styles.chatAvatar}>
+                                    <img src={activeChat?.avatar} alt={activeChat?.name} />
+                                </div>
+                                <div className={styles.chatUserDetails}>
+                                    <h3 className={styles.chatUserName}>{activeChat?.name}</h3>
+                                    <span className={styles.chatUserStatus}>{activeChat?.status}</span>
+                                </div>
+                            </div>
+                            <button className={styles.menuButton}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        </div>
+
+                        {/* Messages Area */}
+                        <div className={styles.chatMessagesArea}>
+                            {activeChat?.messages?.map((message, index) => (
+                                <div key={index} className={styles.messageWrapper}>
+                                    <div className={`${styles.chatMessage} ${message.sender === 'me' ? styles.myMessage : styles.theirMessage}`}>
+                                        <div className={styles.messageBubble}>
+                                            {message.content}
+                                        </div>
+                                    </div>
+                                    <div className={`${styles.messageTimestamp} ${message.sender === 'me' ? styles.timestampLeft : styles.timestampRight}`}>
+                                        {message.time}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Message Input */}
+                        <div className={styles.chatInputContainer}>
+                            <div className={styles.chatInputWrapper}>
+                                <input
+                                    type="text"
+                                    placeholder="Type A Message...."
+                                    className={styles.chatInput}
+                                />
+                                <div className={styles.chatInputIcons}>
+                                    <button className={styles.chatIconButton}>
+                                        <FontAwesomeIcon icon={faPaperclip} />
+                                    </button>
+                                    <button className={styles.chatIconButton}>
+                                        <FontAwesomeIcon icon={faSmile} />
+                                    </button>
+                                    <button className={styles.chatIconButton}>
+                                        <FontAwesomeIcon icon={faPaperPlane} />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div >
+                );
             case 'rides':
                 return <div className={styles.tabContent}>My Rides Content</div>;
             case 'search':
@@ -428,7 +768,7 @@ const HomePageResponsive = memo(() => {
                         </div>
 
                         {/* Search By Date */}
-                        <div className={styles.searchSection}>
+                        <div className={styles.searchSectionclick}>
                             <h3 className={styles.sectionTitle}>Search By Date</h3>
 
                             {/* Date Fields Side by Side */}
@@ -553,10 +893,144 @@ const HomePageResponsive = memo(() => {
                         </div>
                     </div>
                 );
+            case 'categories':
+                return (
+                    <div className={styles.categoriesPageContainer}>
+                        {/* Categories Header */}
+                        <div className={styles.categoriesHeader}>
+                            <button className={styles.backButton} onClick={() => setActiveTab('home')}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <h1 className={styles.categoriesTitle}>Categories</h1>
+                            <div className={styles.categoriesHeaderIcons}>
+                                <button className={styles.headerIconButton}>
+                                    <BellIcon className={styles.headerIcon} />
+                                </button>
+                                <button className={styles.headerIconButton}>
+                                    <Bars3Icon className={styles.headerIcon} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Filter Tabs */}
+                        <div className={styles.filterTabsContainer}>
+                            <div className={styles.filterTab} data-active="true">
+                                <span className={styles.filterTabText}>Popular</span>
+                            </div>
+                            <div className={styles.filterTab}>
+                                <span className={styles.filterTabText}>Body Type</span>
+                            </div>
+                            <div className={styles.filterTab}>
+                                <span className={styles.filterTabText}>Rent Type</span>
+                            </div>
+                        </div>
+
+                        {/* Categories Grid */}
+                        <div className={styles.categoriesPageGrid}>
+                            {/* Luxury Car */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>Luxury Car</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+
+                            {/* Sports Car */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>Sports Car</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+
+                            {/* SUVs */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>SUVs</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+
+                            {/* Convertible */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>Convertible</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+
+                            {/* Electric Cars */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M12 3L13 7L12 11L11 7L12 3Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>Electric Cars</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+
+                            {/* Cheap Cars */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>Cheap Cars</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+
+                            {/* Pickup Van */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>Pickup Van</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+
+                            {/* Electric Cars (Duplicate) */}
+                            <div className={styles.categoryPageCard}>
+                                <div className={styles.categoryPageIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M12 3L13 7L12 11L11 7L12 3Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                                <h3 className={styles.categoryPageName}>Electric Cars</h3>
+                                <span className={styles.categoryPageCount}>26 Car</span>
+                            </div>
+                        </div>
+                    </div>
+                );
             default:
                 return null;
         }
-    }, [activeTab, toggleSideMenu]);
+    }, [activeTab, toggleSideMenu, activeChat, dropoffDate, pickupDate, searchQuery, handleMessageClick]);
 
     return (
         <div className={styles.appContainer}>
@@ -748,37 +1222,39 @@ const HomePageResponsive = memo(() => {
                 </div>
             </div>
 
-            {/* Fixed Bottom Navigation */}
-            <div className={styles.bottomNav}>
-                <button
-                    className={`${styles.navItem} ${activeTab === 'home' ? styles.active : ''}`}
-                    onClick={() => handleTabChange('home')}
-                >
-                    <FontAwesomeIcon icon={faHome} className={styles.navIcon} />
-                    <span className={styles.navLabel}>Home</span>
-                </button>
-                <button
-                    className={`${styles.navItem} ${activeTab === 'rent' ? styles.active : ''}`}
-                    onClick={() => handleTabChange('rent')}
-                >
-                    <FontAwesomeIcon icon={faCar} className={styles.navIcon} />
-                    <span className={styles.navLabel}>Rent a car</span>
-                </button>
-                <button
-                    className={`${styles.navItem} ${activeTab === 'message' ? styles.active : ''}`}
-                    onClick={() => handleTabChange('message')}
-                >
-                    <FontAwesomeIcon icon={faComment} className={styles.navIcon} />
-                    <span className={styles.navLabel}>Message</span>
-                </button>
-                <button
-                    className={`${styles.navItem} ${activeTab === 'rides' ? styles.active : ''}`}
-                    onClick={() => handleTabChange('rides')}
-                >
-                    <FontAwesomeIcon icon={faCarSide} className={styles.navIcon} />
-                    <span className={styles.navLabel}>My rides</span>
-                </button>
-            </div>
+            {/* Fixed Bottom Navigation - Hidden in Chat */}
+            {activeTab !== 'chat' && (
+                <div className={styles.bottomNav}>
+                    <button
+                        className={`${styles.navItem} ${activeTab === 'home' ? styles.active : ''}`}
+                        onClick={() => handleTabChange('home')}
+                    >
+                        <FontAwesomeIcon icon={faHome} className={styles.navIcon} />
+                        <span className={styles.navLabel}>Home</span>
+                    </button>
+                    <button
+                        className={`${styles.navItem} ${activeTab === 'rent' ? styles.active : ''}`}
+                        onClick={() => handleTabChange('rent')}
+                    >
+                        <FontAwesomeIcon icon={faCar} className={styles.navIcon} />
+                        <span className={styles.navLabel}>Rent a car</span>
+                    </button>
+                    <button
+                        className={`${styles.navItem} ${activeTab === 'message' ? styles.active : ''}`}
+                        onClick={() => handleTabChange('message')}
+                    >
+                        <FontAwesomeIcon icon={faComment} className={styles.navIcon} />
+                        <span className={styles.navLabel}>Message</span>
+                    </button>
+                    <button
+                        className={`${styles.navItem} ${activeTab === 'rides' ? styles.active : ''}`}
+                        onClick={() => handleTabChange('rides')}
+                    >
+                        <FontAwesomeIcon icon={faCarSide} className={styles.navIcon} />
+                        <span className={styles.navLabel}>My rides</span>
+                    </button>
+                </div>
+            )}
         </div>
     );
 });
