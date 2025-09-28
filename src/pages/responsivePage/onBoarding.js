@@ -31,9 +31,9 @@ function OnBoarding() {
                     <Link to='/HomePageResponsive' className={styles.getStartedBtn}>
                         <span>Get Started</span>
                         <div className={styles.arrowIcons}>
-                            <span style={{ scale: '0.8', color: 'rgba(255, 255, 255, 0.17)' }}>▶</span>
-                            <span style={{ scale: '0.9', color: 'rgba(255, 255, 255, 0.38)' }}>▶</span>
-                            <span >▶</span>
+                            <div className={styles.playbtnone}></div>
+                            <div className={styles.playbtntwo}></div>
+                            <div className={styles.playbtnthree}></div>
                         </div>
                     </Link>
                 </div>

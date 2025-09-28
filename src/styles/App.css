@@ -1,46 +1,111 @@
-* {
+/* Fix width of all containers to prevent horizontal scroll */
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  /* Removed overflow-x: hidden to allow proper scrolling */
+  overflow-x: hidden;
   overflow-y: auto;
-  /* Allow vertical scrolling on desktop */
-  height: auto;
-  /* Allow html to expand with content */
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Customize webkit scrollbars with black background */
+html::-webkit-scrollbar {
+  width: 12px;
+  background-color: black;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 6px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+html {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: #333 black;
+  /* Firefox */
 }
 
 body {
   overflow-x: hidden;
-  /* Only hide horizontal overflow, allow vertical scrolling */
   overflow-y: auto;
-  /* Allow vertical scrolling on desktop */
   position: static;
-  /* Ensure body is not fixed */
-  height: auto;
-  /* Allow body to expand with content */
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Disable scrolling only on mobile/responsive screens */
+/* Fix width of all common container elements */
+
+
+
+/* Specific fixes for React components */
+
+/* Customize webkit scrollbars on body with black background */
+body::-webkit-scrollbar {
+  width: 12px;
+  background-color: black;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: #333 black;
+  /* Firefox */
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
   html {
-    overflow-y: hidden !important;
-    /* Disable scrolling on mobile */
-    height: 100vh !important;
-    /* Fixed height on mobile */
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+    width: 100vw;
   }
 
   body {
-    overflow-y: hidden !important;
-    /* Disable scrolling on mobile */
-    position: fixed !important;
-    /* Fixed position on mobile */
-    height: 100vh !important;
-    /* Fixed height on mobile */
-    width: 100% !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: static;
+    min-height: 100vh;
+    width: 100vw;
   }
 }

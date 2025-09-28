@@ -34,7 +34,7 @@ const CarDetails = lazy(() => import('./pages/carDetails'));
 function App() {
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/rent' element={<RentCar />} />

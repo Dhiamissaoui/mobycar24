@@ -1,19 +1,46 @@
-import React, { useState, memo, useMemo, useCallback } from 'react';
+import React, { useState, memo, useMemo, useCallback, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faMagnifyingGlass,
     faHome,
     faCar,
     faComment,
-    faCarSide
+    faCarSide,
+    faStar,
+    faGlobe,
+    faCoins,
+    faUser,
+    faHeart,
+    faWallet,
+    faCog,
+    faUserPlus,
+    faHeadset,
+    faFileText,
+    faXmark,
+    faChevronDown,
+    faChevronUp,
+    faChevronLeft,
+    faChevronRight,
+    faSterlingSign,
+    faEuroSign,
+    faDollarSign,
+    faMedal,
+    faLanguage,
+    faSignLanguage,
+    faPersonWalkingLuggage
 } from '@fortawesome/free-solid-svg-icons';
 import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
+import { GB, FR, DE } from 'country-flag-icons/react/3x2';
 
 // Import existing components
 
 // Import images
 
-
+//search location icons
+import searchLoc1 from '../../images/resposiveImgs/searchLoc1.png';
+import searchLoc2 from '../../images/resposiveImgs/searchLoc2.png';
+import searchLoc3 from '../../images/resposiveImgs/searchLoc3.png';
+import searchLoc4 from '../../images/resposiveImgs/searchLoc4.png';
 
 // Import category icons
 import { ReactComponent as SportsCar } from '../../images/categories/sports_car.svg';
@@ -34,15 +61,61 @@ import lamborghiniLogo from '../../images/lambo logo.png';
 // Import car images for offers
 import porscheImage from '../../images/porsche.png';
 import cadillacImage from '../../images/car-cadillac.png';
+import profilePicResposive from '../../images/resposiveImgs/profile_pic.png';
+
+import testbrandsIcon from '../../images/resposiveImgs/testBrandsIcon.png';
+
 
 import styles from '../../styles/responsiveStyle/HomePageResposive.module.css';
 
 const HomePageResponsive = memo(() => {
     const [activeTab, setActiveTab] = useState('home');
+    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+    const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
+    const [showHelpSection, setShowHelpSection] = useState(false);
+    const [showLegalSection, setShowLegalSection] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState('EN');
+    const [selectedCurrency, setSelectedCurrency] = useState('GBP');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [pickupDate, setPickupDate] = useState('15 Feb 2024');
+    const [dropoffDate, setDropoffDate] = useState('16 Feb 2024');
+
+    useEffect(() => {
+        // Set body overflow to visible when component mounts
+        document.body.style.overflowY = 'visible';
+
+        // Cleanup: restore overflow hidden when component unmounts
+        return () => {
+            document.body.style.overflow = 'hidden';
+        };
+    }, []);
 
     const handleTabChange = useCallback((tab) => {
         setActiveTab(tab);
     }, []);
+
+    const toggleSideMenu = useCallback(() => {
+        setIsSideMenuOpen(!isSideMenuOpen);
+    }, [isSideMenuOpen]);
+
+    const closeSideMenu = useCallback(() => {
+        setIsSideMenuOpen(false);
+    }, []);
+
+    // Flag component based on selected language
+    const FlagIcon = {
+        EN: GB,
+        FR: FR,
+        DE: DE
+    }[selectedLanguage] || GB; // Fallback to GB if component is undefined
+
+    // Currency icon based on selected currency
+    const CurrencyIcon = {
+        GBP: faSterlingSign,
+        EUR: faEuroSign,
+        USD: faDollarSign
+    }[selectedCurrency] || faSterlingSign; // Fallback to GBP if icon is undefined
 
     const renderContent = useMemo(() => {
         switch (activeTab) {
@@ -59,7 +132,7 @@ const HomePageResponsive = memo(() => {
                                 <button className={styles.iconButton}>
                                     <BellIcon className={styles.headerIcon} />
                                 </button>
-                                <button className={styles.iconButton}>
+                                <button className={styles.iconButton} onClick={toggleSideMenu}>
                                     <Bars3Icon className={styles.headerIcon} />
                                 </button>
                             </div>
@@ -68,12 +141,13 @@ const HomePageResponsive = memo(() => {
                         {/* Search Bar */}
                         <div className={styles.searchSection}>
                             <div className={styles.searchRow}>
-                                <div className={styles.searchBar}>
+                                <div className={styles.searchBar} onClick={() => setActiveTab('search')}>
                                     <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.searchIcon} />
                                     <input
                                         type="text"
                                         placeholder="Search by vehicle model/brand"
                                         className={styles.searchInput}
+                                        readOnly
                                     />
                                 </div>
                                 <button className={styles.filterButton}>
@@ -296,14 +370,383 @@ const HomePageResponsive = memo(() => {
                 return <div className={styles.tabContent}>Message Content</div>;
             case 'rides':
                 return <div className={styles.tabContent}>My Rides Content</div>;
+            case 'search':
+                return (
+                    <div className={styles.searchContainer}>
+                        {/* Search Header */}
+                        <div className={styles.searchHeader}>
+                            <button className={styles.backButton} onClick={() => setActiveTab('home')}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+
+                        </div>
+
+                        {/* Search Input */}
+                        <div className={styles.searchInputSection}>
+                            <div className={styles.searchTitle}>Search</div>
+                            <div className={styles.searchBar}>
+                                <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.searchIcon} />
+                                <input
+                                    type="text"
+                                    placeholder="Search by vehicle model/brand"
+                                    className={styles.searchInput}
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Search By Location */}
+                        <div className={styles.searchSectionclick}>
+                            <div className={styles.sectionTitle}>Search By Location</div>
+                            <div className={styles.locationGrid}>
+                                <div className={styles.locationCard}>
+                                    <div className={styles.locationImage}>
+                                        <img src={searchLoc1} alt="Location 1" />
+                                    </div>
+                                    <span className={styles.locationName}>Location 1</span>
+                                </div>
+                                <div className={styles.locationCard}>
+                                    <div className={styles.locationImage}>
+                                        <img src={searchLoc2} alt="Location 2" />
+                                    </div>
+                                    <span className={styles.locationName}>Location 2</span>
+                                </div>
+                                <div className={styles.locationCard}>
+                                    <div className={styles.locationImage}>
+                                        <img src={searchLoc3} alt="Location 3" />
+                                    </div>
+                                    <span className={styles.locationName}>Location 3</span>
+                                </div>
+                                <div className={styles.locationCard}>
+                                    <div className={styles.locationImage}>
+                                        <img src={searchLoc4} alt="Location 4" />
+                                    </div>
+                                    <span className={styles.locationName}>Location 4</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Search By Date */}
+                        <div className={styles.searchSection}>
+                            <h3 className={styles.sectionTitle}>Search By Date</h3>
+
+                            {/* Date Fields Side by Side */}
+                            <div className={styles.dateFieldsContainer}>
+                                <div className={styles.dateInputGroup}>
+                                    <label className={styles.dateLabel}>Pick-up date</label>
+                                    <div className="dropdown show">
+                                        <button
+                                            className="btn d-flex align-items-center justify-content-between dropdown-toggle bg-white w-100"
+                                            type="button"
+                                            id="pickupDropdown"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            style={{ borderRadius: '8px' }}
+                                        >
+                                            <div style={{ color: '#B1B1B1' }}>{pickupDate}</div>
+                                        </button>
+                                        <ul className="dropdown-menu" aria-labelledby="pickupDropdown">
+                                            <li><button className="dropdown-item" onClick={() => setPickupDate('15 Feb 2024')}>15 Feb 2024</button></li>
+                                            <li><button className="dropdown-item" onClick={() => setPickupDate('16 Feb 2024')}>16 Feb 2024</button></li>
+                                            <li><button className="dropdown-item" onClick={() => setPickupDate('17 Feb 2024')}>17 Feb 2024</button></li>
+                                            <li><button className="dropdown-item" onClick={() => setPickupDate('18 Feb 2024')}>18 Feb 2024</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className={styles.dateInputGroup}>
+                                    <label className={styles.dateLabel}>Drop-off date</label>
+                                    <div className="dropdown show">
+                                        <button
+                                            className="btn d-flex align-items-center justify-content-between dropdown-toggle bg-white w-100"
+                                            type="button"
+                                            id="dropoffDropdown"
+                                            data-bs-toggle="dropdown"
+                                            style={{ borderRadius: '8px' }}
+                                            aria-expanded="false"
+                                        >
+                                            <div style={{ color: '#B1B1B1' }}>{dropoffDate}</div>
+                                        </button>
+                                        <ul className="dropdown-menu" aria-labelledby="dropoffDropdown">
+                                            <li><button className="dropdown-item" onClick={() => setDropoffDate('16 Feb 2024')}>16 Feb 2024</button></li>
+                                            <li><button className="dropdown-item" onClick={() => setDropoffDate('17 Feb 2024')}>17 Feb 2024</button></li>
+                                            <li><button className="dropdown-item" onClick={() => setDropoffDate('18 Feb 2024')}>18 Feb 2024</button></li>
+                                            <li><button className="dropdown-item" onClick={() => setDropoffDate('19 Feb 2024')}>19 Feb 2024</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Calendar Widget */}
+                            <div className={styles.calendarWidget}>
+                                <div className={styles.calendarHeader}>
+                                    <button className={styles.calendarNavleft}>
+                                        <FontAwesomeIcon icon={faChevronLeft} />
+                                    </button>
+                                    <span className={styles.calendarMonth}>February 2024</span>
+                                    <button className={styles.calendarNavright}>
+                                        <FontAwesomeIcon icon={faChevronRight} />
+                                    </button>
+                                </div>
+                                <div className={styles.calendarDays}>
+                                    {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+                                        <div key={day} className={styles.dayHeader}>{day}</div>
+                                    ))}
+                                </div>
+                                <div className={styles.calendarGrid}>
+                                    {[
+                                        { date: 31, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 1, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 2, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 3, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 4, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 5, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 6, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 7, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 8, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 9, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 10, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 11, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 12, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 13, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 14, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 15, isSelected: true, isStart: true, isEnd: false },
+                                        { date: 16, isSelected: true, isStart: false, isEnd: true },
+                                        { date: 17, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 18, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 19, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 20, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 21, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 22, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 23, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 24, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 25, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 26, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 27, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 28, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 1, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 2, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 3, isSelected: false, isStart: false, isEnd: false },
+                                        { date: 4, isSelected: false, isStart: false, isEnd: false }
+                                    ].map((dayData, index) => {
+                                        const getClassName = () => {
+                                            if (dayData.isStart) return `${styles.calendarDate} ${styles.selectedDateStart}`;
+                                            if (dayData.isEnd) return `${styles.calendarDate} ${styles.selectedDateEnd}`;
+                                            return styles.calendarDate;
+                                        };
+
+                                        return (
+                                            <div key={index} className={getClassName()}>
+                                                <div style={{ fontSize: '9px' }}>{dayData.date}</div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className={styles.actionButtons}>
+                            <button className={styles.resetButton}>Reset</button>
+                            <button className={styles.searchButton}>Search</button>
+                        </div>
+                    </div>
+                );
             default:
                 return null;
         }
-    }, [activeTab]);
+    }, [activeTab, toggleSideMenu]);
 
     return (
         <div className={styles.appContainer}>
             {renderContent}
+
+            {/* Side Menu Overlay */}
+            {isSideMenuOpen && (
+                <div className={styles.sideMenuOverlay} onClick={closeSideMenu}></div>
+            )}
+
+            {/* Side Menu */}
+            <div className={`${styles.sideMenu} ${isSideMenuOpen ? styles.sideMenuOpen : ''}`}>
+                {/* Close Button */}
+                <button className={styles.closeButton} onClick={closeSideMenu}>
+                    <FontAwesomeIcon icon={faXmark} />
+                </button>
+
+                {/* Profile Section */}
+                <div className={styles.profileSection}>
+                    <div className={styles.profileInfo}>
+                        <div className={styles.profileAvatar}>
+                            <img src={profilePicResposive} alt="error_img" />
+                        </div>
+                        <div className={styles.profileDetails}>
+                            <h3 className={styles.profileName}>Livia Dias</h3>
+                            <a href="/profile" className={styles.viewProfileLink}>View Profile</a>
+                        </div>
+                    </div>
+                    <div className={styles.profileDivider}></div>
+                </div>
+
+                {/* Menu Items */}
+                <div className={styles.menuItems}>
+                    {/* Brands */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faMedal} className={styles.menuIcon} />
+
+                        <span>Brands</span>
+                    </div>
+
+                    {/* Language */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faLanguage} className={styles.menuIcon} />
+                        <span>Language</span>
+                        <div className={styles.dropdownContainer}>
+                            <button
+                                className={styles.dropdownButton}
+                                onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
+                            >
+                                <div className={styles.flagContainer}>
+                                    {FlagIcon && <FlagIcon className={styles.flagIcon} />}
+                                </div>
+                                <span>{selectedLanguage}</span>
+                                <FontAwesomeIcon
+                                    icon={showLanguageDropdown ? faChevronUp : faChevronDown}
+                                    className={styles.dropdownArrow}
+                                />
+                            </button>
+                            {showLanguageDropdown && (
+                                <div className={styles.dropdownMenu}>
+                                    <button className={styles.dropdownMenuItem} onClick={() => { setSelectedLanguage('EN'); setShowLanguageDropdown(false); }}>
+                                        <div className={styles.flagContainer}>
+                                            {GB && <GB className={styles.flagIcon} />}
+                                        </div>
+                                        EN
+                                    </button>
+                                    <button className={styles.dropdownMenuItem} onClick={() => { setSelectedLanguage('FR'); setShowLanguageDropdown(false); }}>
+                                        <div className={styles.flagContainer}>
+                                            {FR && <FR className={styles.flagIcon} />}
+                                        </div>
+                                        FR
+                                    </button>
+                                    <button className={styles.dropdownMenuItem} onClick={() => { setSelectedLanguage('DE'); setShowLanguageDropdown(false); }}>
+                                        <div className={styles.flagContainer}>
+                                            {DE && <DE className={styles.flagIcon} />}
+                                        </div>
+                                        DE
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Currency */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faCoins} className={styles.menuIcon} />
+                        <span>Currency</span>
+                        <div className={styles.dropdownContainer}>
+                            <button
+                                className={styles.dropdownButton}
+                                onClick={() => setShowCurrencyDropdown(!showCurrencyDropdown)}
+                            >
+                                <FontAwesomeIcon icon={CurrencyIcon} className={styles.currencyIcon} />
+                                <span>{selectedCurrency}</span>
+                                <FontAwesomeIcon
+                                    icon={showCurrencyDropdown ? faChevronUp : faChevronDown}
+                                    className={styles.dropdownArrow}
+                                />
+                            </button>
+                            {showCurrencyDropdown && (
+                                <div className={styles.dropdownMenu}>
+                                    <button className={styles.dropdownMenuItem} onClick={() => { setSelectedCurrency('GBP'); setShowCurrencyDropdown(false); }}>
+                                        <FontAwesomeIcon icon={faSterlingSign} className={styles.currencyIcon} /> GBP
+                                    </button>
+                                    <button className={styles.dropdownMenuItem} onClick={() => { setSelectedCurrency('USD'); setShowCurrencyDropdown(false); }}>
+                                        <FontAwesomeIcon icon={faDollarSign} className={styles.currencyIcon} /> USD
+                                    </button>
+                                    <button className={styles.dropdownMenuItem} onClick={() => { setSelectedCurrency('EUR'); setShowCurrencyDropdown(false); }}>
+                                        <FontAwesomeIcon icon={faEuroSign} className={styles.currencyIcon} /> EUR
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* My Profile */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faUser} className={styles.menuIcon} />
+                        <span>My Profile</span>
+                    </div>
+
+                    {/* My Favourite */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faHeart} className={styles.menuIcon} />
+                        <span>My Favourite</span>
+                    </div>
+
+                    {/* Payment History */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faWallet} className={styles.menuIcon} />
+                        <span>Payment History</span>
+                    </div>
+
+                    {/* Settings */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faCog} className={styles.menuIcon} />
+                        <span>Settings</span>
+                    </div>
+
+                    {/* Invite & Earn */}
+                    <div className={styles.menuItem}>
+                        <FontAwesomeIcon icon={faUserPlus} className={styles.menuIcon} />
+                        <span>Invite & Earn</span>
+                    </div>
+
+                    {/* Help Section */}
+                    <div className={styles.expandableSection}>
+                        <div
+                            className={styles.expandableHeader}
+                            onClick={() => setShowHelpSection(!showHelpSection)}
+                        >
+                            <FontAwesomeIcon icon={faHeadset} className={styles.menuIcon} />
+                            <span>Help</span>
+                            <FontAwesomeIcon
+                                icon={showHelpSection ? faChevronUp : faChevronDown}
+                                className={styles.expandArrow}
+                            />
+                        </div>
+                        {showHelpSection && (
+                            <div className={styles.expandableContent}>
+                                <div className={styles.subMenuItem}>Help centre</div>
+                                <div className={styles.subMenuItem}>Send us your feedback</div>
+                                <div className={styles.subMenuItem}>Contact us</div>
+                                <div className={styles.subMenuItem}>FAQs</div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Legal Section */}
+                    <div className={styles.expandableSection}>
+                        <div
+                            className={styles.expandableHeader}
+                            onClick={() => setShowLegalSection(!showLegalSection)}
+                        >
+                            <FontAwesomeIcon icon={faFileText} className={styles.menuIcon} />
+                            <span>Legal</span>
+                            <FontAwesomeIcon
+                                icon={showLegalSection ? faChevronUp : faChevronDown}
+                                className={styles.expandArrow}
+                            />
+                        </div>
+                        {showLegalSection && (
+                            <div className={styles.expandableContent}>
+                                <div className={styles.subMenuItem}>Privacy policy</div>
+                                <div className={styles.subMenuItem}>Terms and conditions</div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
 
             {/* Fixed Bottom Navigation */}
             <div className={styles.bottomNav}>

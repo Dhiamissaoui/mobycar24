@@ -1,12 +1,12 @@
 .contact-wrapper {
   position: relative;
-  width: 80%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  transform: translateX(11%);
+  padding: 0 auto;
+  background-color: white;
 
 }
 
@@ -42,12 +42,12 @@
   position: relative;
   z-index: 2;
   background-color: white;
-  width: 110%;
+  width: 70%;
   border-radius: 15px;
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-120px);
-  height: 110%;
+  transform: translateY(-50px);
+  height: 100%;
 }
 
 .head {

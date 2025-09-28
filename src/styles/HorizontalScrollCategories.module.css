@@ -1,13 +1,14 @@
 .scrollContainer {
-  margin: 2rem auto;
+
   padding: 0 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-top: 500px;
-  height: 500px;
-  width: 900px;
+  height: 600px;
+  width: 100%;
+  background-color: white;
 }
 
 .catList {
@@ -58,6 +59,7 @@
   position: relative;
   padding: 0 40px;
   width: 130%;
+
 }
 
 .vehicleTypes {
@@ -69,6 +71,7 @@
   -ms-overflow-style: none;
   padding: 1rem 0;
   width: 1050px;
+  margin: 0 auto;
 }
 
 .vehicleTypes::-webkit-scrollbar {
@@ -178,11 +181,12 @@
 }
 
 .left {
-  left: -40px;
+  left: 18%;
+
 }
 
 .right {
-  right: -40px;
+  right: 18%;
 }
 
 .scrollBtn:hover {

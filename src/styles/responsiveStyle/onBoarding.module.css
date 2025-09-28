@@ -41,7 +41,7 @@
 
 .overlayBox {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.17);
@@ -90,6 +90,7 @@
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .getStartedBtn:hover {
@@ -102,4 +103,38 @@
     align-items: center;
     gap: 5px;
     font-size: 14px;
+}
+
+.playbtnone {
+    width: 0;
+    height: 0;
+    border-left: 12px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    transform: scale(0.7);
+    cursor: default;
+}
+
+.playbtntwo {
+    width: 0;
+    height: 0;
+    border-left: 12px solid white;
+    border-top: 6px solid transparent;
+    border-bottom: 8px solid transparent;
+
+    transition: all 0.2s ease;
+    cursor: pointer;
+    translate: scale(0.5);
+}
+
+.playbtnthree {
+    width: 0;
+    height: 0;
+    border-left: 12px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+
+    transition: all 0.2s ease;
+    cursor: pointer;
+    translate: scale(0.5);
 }

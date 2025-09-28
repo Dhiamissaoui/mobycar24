@@ -56,8 +56,12 @@
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
-  transform: translate(-50%, -95%);
+  transform: translate(-50%, -75%);
   top: 50%;
   left: 50%;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
 
 }

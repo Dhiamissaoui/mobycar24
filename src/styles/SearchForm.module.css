@@ -34,6 +34,11 @@
 .inpLoc {
   margin-left: 20px;
   background-color: transparent;
+  border: none !important;
+}
+
+.inpLoc:focus {
+  outline: none !important;
 }
 
 .inpLoc::placeholder {
