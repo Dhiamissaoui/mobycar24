@@ -1,0 +1,103 @@
+/* Notifications Page Styles */
+.notificationsPageContainer {
+    min-height: 100vh;
+    background-color: white;
+    padding-bottom: 80px;
+}
+
+.notificationsContent {
+    padding: 20px 15px;
+}
+
+.notificationSection {
+    margin-bottom: 30px;
+}
+
+.notifTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    text-align: left;
+    margin: 0;
+    flex: 1;
+}
+
+.notificationSectionTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #9E4DB6;
+    margin: 0 0 15px 0;
+}
+
+.notificationCard {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+
+    border: 1px solid #F2F2F2;
+}
+
+.notificationCardContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.notificationTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    flex: 1;
+    line-height: 1.4;
+}
+
+.notfiHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+.notificationTime {
+    font-size: 12px;
+    color: #9E4DB6;
+    font-weight: 500;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.notificationDescription {
+    font-size: 12px;
+    color: #6B7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 480px) {
+    .notificationsContent {
+        padding: 15px 10px;
+    }
+
+    .notificationCard {
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+    .notificationTitle {
+        font-size: 13px;
+    }
+
+    .notificationTime {
+        font-size: 11px;
+    }
+
+    .notificationDescription {
+        font-size: 11px;
+    }
+}

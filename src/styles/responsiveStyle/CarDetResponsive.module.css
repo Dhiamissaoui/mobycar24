@@ -1,0 +1,1520 @@
+/* Main Container */
+.container {
+    min-height: 100vh;
+    background-color: #ffffff;
+    position: relative;
+    padding-bottom: 100px;
+    /* Space for fixed bottom bar */
+}
+
+/* Mobile Header */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #9E4DB6;
+    font-size: 18px;
+}
+
+.backButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+    color: #9E4DB6;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Main Content */
+.mainContent {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Car Image Section */
+.carImageSection {
+    margin-bottom: 30px;
+}
+
+.carImageContainer {
+    position: relative;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.yearTag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #31004047;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 32px;
+}
+
+.favoriteBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #31004047;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favoriteBtn:hover {
+    background-color: #310040;
+    transform: scale(1.05);
+}
+
+.favoriteBtn.favorited {
+    background-color: #EF4444;
+}
+
+/* Car Details */
+.carDetails {
+    margin-bottom: 30px;
+
+}
+
+.carTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+}
+
+.carTitleText {
+    font-size: 17px;
+    font-weight: bold;
+    color: #1F2937;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: bold;
+    color: #9E4DB6;
+}
+
+.features {
+    display: flex;
+    gap: 8px;
+    margin: 15px auto;
+    align-items: center;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: #F6EEF8;
+    color: #9E4DB6;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.feature svg {
+    font-size: 10px;
+}
+
+.insuranceIcon {
+    width: 15px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%239E4DB6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.insuranceIconSmiliar {
+    width: 10px;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%239E4DB6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Search Section Styles */
+.searchSectionclick {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #F6F6F6;
+    border-radius: 10px;
+}
+
+.sectionTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+.dateFieldsContainer {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.dateInputGroup {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.dateLabel {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.calendarWidget {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.calendarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calendarNavleft {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: white;
+    color: #9E4DB6;
+    border: 1px solid #9E4DB6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.calendarNavright {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: #9E4DB6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.calendarMonth {
+    font-size: 12px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.dayHeader {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: #6B7280;
+    padding: 8px 0;
+}
+
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendarGrid .selectedDateStart+.selectedDateEnd {
+    margin-left: -8px;
+}
+
+.calendarDate {
+    text-align: center;
+    padding: 4px 0px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.selectedDateStart {
+    background-color: #F6EFF8;
+    color: #9E4DB6;
+    border-radius: 8px 0 0 8px;
+    margin-right: 0;
+}
+
+.selectedDateEnd {
+    background-color: #F6EFF8;
+    color: #9E4DB6;
+    border-radius: 0 8px 8px 0;
+    margin-left: 0;
+}
+
+/* Specification Section */
+.specificationSection {
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.specificationTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 12px;
+}
+
+.specificationGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.specItem {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.specLabel {
+    font-size: 10px;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+.specValue {
+    font-size: 12px;
+    color: #1F2937;
+    font-weight: bold;
+}
+
+/* Google Maps Section */
+.mapSection {
+    margin: 10px 0;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mapContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Reviews Section */
+
+
+.reviewsTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 12px;
+}
+
+.overallRating {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(158, 77, 182, 0.1);
+    color: #9E4DB6;
+    padding: 2px 4px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+
+    font-weight: 600;
+}
+
+.overallStar {
+    color: #9E4DB6;
+    font-size: 10px;
+}
+
+.overallRatingText {
+    color: #9E4DB6;
+    font-size: 12px;
+}
+
+.reviewsScrollContainer {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.reviewsScrollContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.reviewCard {
+    width: 270px;
+    height: 140px;
+    background: white;
+    border: 1px solid #F2F2F2;
+    border-radius: 12px;
+    padding: 16px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.reviewerName {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1F2937;
+}
+
+.reviewRating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: rgba(255, 199, 0, 0.1);
+    color: rgba(255, 199, 0, 1);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.reviewStar {
+    color: rgba(255, 199, 0, 1);
+    font-size: 10px;
+}
+
+.reviewerLocation {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+}
+
+.reviewText {
+    font-size: 12px;
+    color: #6B7280;
+
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+}
+
+/* Similar Vehicle Section */
+
+.similarVehicleTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 15px;
+}
+
+.similarVehicleGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.similarVehicleCard {
+    background: rgba(246, 246, 246, 1);
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+
+}
+
+
+
+.similarVehicleImage {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    padding: 5px;
+    background-color: white;
+}
+
+.similarVehicleDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.similarVehicleModel {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1F2937;
+    margin: 0;
+}
+
+.similarVehicleFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.similarVehicleFeature {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    color: #6B7280;
+}
+
+.similarVehicleFeature svg {
+    font-size: 7px;
+    color: #9E4DB6;
+}
+
+.similarVehiclePriceSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.similarVehiclePrice {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1F2937;
+}
+
+.similarVehiclePriceUnit {
+    font-size: 9px;
+    color: #6B7280;
+    margin-left: -11px;
+    margin-top: 4px;
+}
+
+.similarVehicleReserveBtn {
+    background-color: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.similarVehicleReserveBtn:hover {
+    background-color: #8B3DA8;
+}
+
+/* Description */
+.description {
+    margin-bottom: 30px;
+
+}
+
+.descriptionTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 10px;
+}
+
+.descriptionText {
+    color: #949494;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Provider Section */
+.providerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F9FAFB;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.providerInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.providerImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.providerDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.providerLabel {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.providerName {
+    color: #9E4DB6;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.contactBtn {
+    background-color: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contactBtn:hover {
+    background-color: #7C3AED;
+}
+
+/* Date Section */
+.dateSection {
+    background-color: #F9FAFB;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 0 20px 30px 20px;
+}
+
+.dateSectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 20px;
+}
+
+.dateInputs {
+    display: flex;
+    gap: 15px;
+}
+
+.dateInput {
+    flex: 1;
+}
+
+.dateLabel {
+    display: block;
+    color: #6B7280;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.dateField {
+    background-color: #F2F2F2;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    min-height: 45px;
+}
+
+.dateField:hover {
+    border-color: #9E4DB6;
+}
+
+.dateText {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.dateArrow {
+    color: #9E4DB6;
+    font-size: 12px;
+}
+
+/* Fixed Bottom Bar */
+.fixedBottomBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100.2%;
+    background-color: #310040;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    min-height: 80px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 0;
+
+}
+
+.priceInfo {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.priceLabel {
+    font-size: 12px;
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.priceAmount {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.priceDetails {
+    font-size: 12px;
+    color: #9E4DB6;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.priceDetails:hover {
+    color: #7C3AED;
+}
+
+.reserveBtn {
+    background-color: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reserveBtn:hover {
+    background-color: #7C3AED;
+}
+
+/* Modal Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.contactOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.contactModal {
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.thankYouModal {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Booking Modal */
+.bookingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.bookingModal {
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.bookingTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.bookingSection {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.bookingLabel {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.phoneInputGroup {
+    display: flex;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    background-color: #F9FAFB;
+    overflow: hidden;
+    position: relative;
+}
+
+.countryDropdown {
+    position: relative;
+}
+
+.countryDropdownBtn {
+    background-color: #F9FAFB;
+    border: none;
+    border-right: 1px solid #E5E7EB;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    outline: none;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.countryDropdownBtn:hover {
+    background-color: #F3F4F6;
+}
+
+.countryDropdownBtn:focus {
+    background-color: white;
+    box-shadow: none;
+}
+
+.flagContainer {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flagIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.countryCode {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.dropdownFlag {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 4px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #F3F4F6;
+    font-size: 14px;
+    color: #374151;
+}
+
+.dropdownItem:last-child {
+    border-bottom: none;
+}
+
+.dropdownItem:hover {
+    background-color: #F9FAFB;
+}
+
+.phoneInput {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #374151;
+    outline: none;
+}
+
+.phoneInput::placeholder {
+    color: #9CA3AF;
+}
+
+
+.specialRequestInput {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #F9FAFB;
+    color: #374151;
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+    outline: none;
+}
+
+.specialRequestInput:focus {
+    border-color: #9E4DB6;
+    background-color: white;
+}
+
+.specialRequestInput::placeholder {
+    color: #9CA3AF;
+}
+
+.bookingSubmitBtn {
+    width: 100%;
+    background-color: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+}
+
+.bookingSubmitBtn:hover {
+    background-color: #8B3DA8;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: #9E4DB6;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modalDescription {
+    color: #6B7280;
+    margin-bottom: 12px;
+}
+
+.phoneNumber {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 30px;
+}
+
+.contactIconOuter {
+    width: 72px;
+    height: 72px;
+    background-color: rgba(158, 77, 182, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.contactIcon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(158, 77, 182, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactIcon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.contactOptionFull {
+    background-color: white;
+    border: 1px solid #9E4DB6;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: #9E4DB6;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.contactOptionFull:hover {
+    background-color: #9E4DB6;
+    color: white;
+}
+
+.contactOptionHalf {
+    background-color: white;
+    border: 1px solid #9E4DB6;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: #9E4DB6;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: calc(50% - 5px);
+    transition: all 0.3s ease;
+}
+
+.contactOptionHalf:hover {
+    background-color: #9E4DB6;
+    color: white;
+}
+
+.socialContacts {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 0;
+}
+
+.checkIcon {
+    background-color: rgba(158, 77, 182, 0.1);
+    border-radius: 50%;
+    padding: 20px;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.checkIcon svg {
+    font-size: 40px;
+    color: #9E4DB6;
+}
+
+.viewDetailsBtn {
+    background-color: #9E4DB6;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.viewDetailsBtn:hover {
+    background-color: #7C3AED;
+}
+
+
+
+
+.similarVehicleAvailability {
+    position: absolute;
+    top: 0px;
+    right: 8px;
+    color: rgba(41, 157, 0, 1);
+    background-color: rgba(41, 157, 0, 0.1);
+    border-radius: 12px;
+    font-size: 8px;
+    padding: 2px 5px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    z-index: 2;
+
+}
+
+/* Report Section */
+.reportSection {
+    margin: 10px auto;
+
+}
+
+.reportTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 15px;
+}
+
+.reportForm {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reportField {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.reportLabel {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.reportInput {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #F9FAFB;
+    color: #374151;
+    transition: border-color 0.2s;
+}
+
+.reportInput:focus {
+    outline: none;
+    border-color: #9E4DB6;
+    background-color: white;
+}
+
+.reportInput::placeholder {
+    color: #9CA3AF;
+}
+
+.reportTextarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #F9FAFB;
+    color: #374151;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.reportTextarea:focus {
+    outline: none;
+    border-color: #9E4DB6;
+    background-color: white;
+}
+
+.reportTextarea::placeholder {
+    color: #9CA3AF;
+}
+
+.reportSubmitBtn {
+    background-color: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* FAQ Section */
+.faqSection {
+    margin: 10px auto;
+
+}
+
+.faqTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 15px;
+}
+
+.faqContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faqItem {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faqQuestion {
+    width: 100%;
+    padding: 16px 20px;
+    background: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.faqQuestion:hover {
+    background-color: #F9FAFB;
+}
+
+.faqQuestionText {
+    font-size: 14px;
+
+    color: #1F2937;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.faqIcon {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9E4DB6;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faqAnswer {
+    padding: 0 20px 16px 20px;
+    font-size: 12px;
+    color: #6B7280;
+    line-height: 1.5;
+    background: white;
+}
+
+/* Booking Summary Modal Styles */
+.bookingSummaryOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.bookingSummaryModal {
+    background-color: white;
+    border-radius: 30px 30px 0 0;
+    padding: 15px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.bookingSummaryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.bookingSummaryTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1F2937;
+    margin: 0;
+}
+
+.bookingSummaryCloseBtn {
+    background-color: transparent;
+    color: #9E4DB6;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.bookingSummaryContent {
+    margin-bottom: 10px;
+}
+
+.bookingDetailRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.bookingDetailLabel {
+    font-size: 14px;
+    color: rgba(145, 145, 145, 1);
+    font-weight: 500;
+}
+
+.bookingDetailValue {
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+}
+
+.bookingDetailLabelTotal {
+    font-size: 16px;
+    color: #1F2937;
+    font-weight: bold;
+}
+
+.bookingDetailValueTotal {
+    font-size: 16px;
+    color: #1F2937;
+    font-weight: bold;
+}
+
+.bookingSeparator {
+    height: 1px;
+    background-color: #E5E7EB;
+    margin: 15px 0;
+}
+
+.bookingSummaryReserveBtn {
+    width: 100%;
+    background-color: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.bookingSummaryReserveBtn:hover {
+    background-color: #8B3DA8;
+}

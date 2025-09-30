@@ -18,8 +18,8 @@ import Rides from '../../styles/profile/Rides.module.css'
 import { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faStar,
-  faUser, faCalendarAlt, faClock, faKey, faBell,
+  faBars, faBell, faKey, faCarAlt, faStar,
+  faComment, faSheetPlastic, faSignOut, faUser, faCalendarAlt, faClock,
   faChevronDown,
   faHeart,
   faTachometerAlt,
@@ -30,6 +30,9 @@ import {
   faLocationDot,
   faShieldAlt,
   faX,
+  faSmile,
+  faPaperPlane,
+  faLink,
   faEnvelope,
   faEdit,
   faCheck,
@@ -37,8 +40,7 @@ import {
   faCar,
   faSearch,
   faEllipsisVertical,
-  faEye,
-  faEyeSlash,
+
 
   faSignOutAlt,
   faFileAlt,
@@ -52,7 +54,9 @@ import xx from '../../images/xx.png';
 import ridesAudi from '../../images/rides_audi.png';
 import { Link } from 'react-router-dom';
 
-
+import Board from '../../pages/Become service provider/Board';
+import Vspec from '../../pages/Become service provider/Vspec';
+import UploadPage from '../../pages/Become service provider/ImageMainUpload';
 
 
 import PorscheImage from '../../images/porsche.png';
@@ -94,13 +98,6 @@ function Payservice() {
 
 
   const [isfeedbackActive, setisfeedbackActive] = useState(false);
-  const [editProfilePopup, setEditProfilePopup] = useState(false);
-  const [setRemoveFilter] = useState(false);
-  const [changePasswordPopup, setChangePasswordPopup] = useState(false);
-  const [showOldPassword, setShowOldPassword] = useState(false);
-  const [showNewPassword, setShowNewPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [logoutConfirmationPopup, setLogoutConfirmationPopup] = useState(false);
   const [InviteTab, setInviteTab] = useState(false);
 
   const Comp = useRef(null);
@@ -114,9 +111,9 @@ function Payservice() {
   const [selectedSort, setSelectedSort] = useState('Latest Request');
   const [activeTab, setActiveTab] = useState('dashboard');
   const [rejectedRequests, setRejectedRequests] = useState(new Set());
-
-  const [boardProps] = useState({});
-  const [setBoardKey] = useState(0);
+  const [isAddVehicleMode, setIsAddVehicleMode] = useState(false);
+  const [boardProps, setBoardProps] = useState({});
+  const [boardKey, setBoardKey] = useState(0);
 
   // Create refs for container height management (similar to ProfilePage)
   const dashboardContainerRef = useRef(null);
@@ -1367,62 +1364,62 @@ function Payservice() {
       case 'VcomplitedDet':
         return (
           <div className={VcompStyles.wrapper}>
-            <div className={VcompStyles.cont}>
-              <div className={VcompStyles.left}>
+          <div className={VcompStyles.cont}>
+            <div className={VcompStyles.left}>
                 {/* <div className={VcompStyles.rideAlert}>
-                  <h2 className={VcompStyles.alertTitle}>The ride is Completed on 16 Feb 2024</h2>
-                  <p className={VcompStyles.alertText}>
-                    Vestibulum condimentum, massa eu consectetur congue, diam tortor fringilla <br /> urna, sed tincidunt metus dui id est.
-                  </p>
-                </div>
+                <h2 className={VcompStyles.alertTitle}>The ride is Completed on 16 Feb 2024</h2>
+                <p className={VcompStyles.alertText}>
+                  Vestibulum condimentum, massa eu consectetur congue, diam tortor fringilla <br /> urna, sed tincidunt metus dui id est.
+                </p>
+              </div>
 
-                <div className={Rides.carDetails}>
-                  <div className={Rides.Fsec}>
+              <div className={Rides.carDetails}>
+                <div className={Rides.Fsec}>
                     <h5 className='fw-bold'>Assigned Car Details</h5>
-                    <img src={ridesAudi} alt='' className={Rides.imgaudi} />
-                  </div>
-                  <div className={Rides.Ssec}>
-                    <h3 className={VcompStyles.carTitle}>Rent Audi A6 (Blue), 2024</h3>
-                    <ul className={Rides.carSpecs}>
-                      <li className={Rides.rate}>
-                        <FontAwesomeIcon icon={faStar} className={Rides.starIcon} />
-                        <strong>4.5</strong>
-                      </li>
-                      <li className={Rides.kilo}>
-                        <FontAwesomeIcon className={Rides.icon} icon={faTachometerAlt} />
-                        250 Km/Day
-                      </li>
-                      <li className={Rides.mil}>
-                        <FontAwesomeIcon className={Rides.icon} icon={faShieldAlt} />
-                        Insurance Included
-                      </li>
-                    </ul>
-                    <div className={VcompStyles.carInfo}>
-                      <div style={{ color: 'rgba(145, 145, 145, 1)' }}><strong style={{ color: 'black' }}>Car number:</strong> 8022A1245</div>
-                      <div style={{ color: 'rgba(145, 145, 145, 1)' }}><strong style={{ color: 'black' }}>Registration Number:</strong> 12548879</div>
-                    </div>
+                  <img src={ridesAudi} alt='' className={Rides.imgaudi} />
+                </div>
+                <div className={Rides.Ssec}>
+                  <h3 className={VcompStyles.carTitle}>Rent Audi A6 (Blue), 2024</h3>
+                  <ul className={Rides.carSpecs}>
+                    <li className={Rides.rate}>
+                      <FontAwesomeIcon icon={faStar} className={Rides.starIcon} />
+                      <strong>4.5</strong>
+                    </li>
+                    <li className={Rides.kilo}>
+                      <FontAwesomeIcon className={Rides.icon} icon={faTachometerAlt} />
+                      250 Km/Day
+                    </li>
+                    <li className={Rides.mil}>
+                      <FontAwesomeIcon className={Rides.icon} icon={faShieldAlt} />
+                      Insurance Included
+                    </li>
+                  </ul>
+                  <div className={VcompStyles.carInfo}>
+                    <div style={{ color: 'rgba(145, 145, 145, 1)' }}><strong style={{ color: 'black' }}>Car number:</strong> 8022A1245</div>
+                    <div style={{ color: 'rgba(145, 145, 145, 1)' }}><strong style={{ color: 'black' }}>Registration Number:</strong> 12548879</div>
                   </div>
                 </div>
+              </div>
 
-                <hr className={VcompStyles.hrRightCont} />
+              <hr className={VcompStyles.hrRightCont} />
 
-                <div className={Rides.providerDetails}>
-                  <h3 className={VcompStyles.sectionTitle}>Consumer details</h3>
-                  <div className={VcompStyles.providerInfo}>
-                    <img src={profile_pic} alt='' className={VcompStyles.Pimg} />
-                    <div className={Rides.info}>
-                      <strong>Esther Howard</strong><br />
-                      <div style={{ color: 'rgba(145, 145, 145, 1)' }}>2,719 trips  |  Joined Oct 2015</div>
-                      <div style={{ display: 'flex', marginTop: '10px' }}>Email address:<div style={{ color: 'rgba(145, 145, 145, 1)' }}>loremipsum@gmail.com</div></div>
-                      <div style={{ display: 'flex' }}>Contact number:<div style={{ color: 'rgba(145, 145, 145, 1)' }}>110 4598 2366</div></div>
-                      <div style={{ display: 'flex' }}>Driving License ID:<div style={{ color: 'rgba(145, 145, 145, 1)' }}>123456789</div></div>
-                    </div>
+              <div className={Rides.providerDetails}>
+                <h3 className={VcompStyles.sectionTitle}>Consumer details</h3>
+                <div className={VcompStyles.providerInfo}>
+                  <img src={profile_pic} alt='' className={VcompStyles.Pimg} />
+                  <div className={Rides.info}>
+                    <strong>Esther Howard</strong><br />
+                    <div style={{ color: 'rgba(145, 145, 145, 1)' }}>2,719 trips  |  Joined Oct 2015</div>
+                    <div style={{ display: 'flex', marginTop: '10px' }}>Email address:<div style={{ color: 'rgba(145, 145, 145, 1)' }}>loremipsum@gmail.com</div></div>
+                    <div style={{ display: 'flex' }}>Contact number:<div style={{ color: 'rgba(145, 145, 145, 1)' }}>110 4598 2366</div></div>
+                    <div style={{ display: 'flex' }}>Driving License ID:<div style={{ color: 'rgba(145, 145, 145, 1)' }}>123456789</div></div>
                   </div>
                 </div>
+              </div>
 
-                <hr className={VcompStyles.hrRightCont} />
+              <hr className={VcompStyles.hrRightCont} />
 
-                
+
                 </div> */}
 
 
@@ -1478,33 +1475,33 @@ function Payservice() {
                     </div>
                   </div>
                 </div>
-                <div className={VcompStyles.feedBackCont}>
-                  <div className={VcompStyles.txtCont}>
-                    <div className={VcompStyles.head}>Feedback by the consumer</div>
-                    <div className={VcompStyles.starCont}>
-                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                      <FontAwesomeIcon icon={faStar} className={VcompStyles.starBlack} />
-                    </div>
-                    <div className={VcompStyles.txt}>“Lorem ipsum dolor sit amet consectetur. Ac vitae at cursus venenatis lectus. Leo vestib pulvinar porttitor scelerisque vestibulum a nulla. Varius turpis in rhocus”.</div>
+              <div className={VcompStyles.feedBackCont}>
+                <div className={VcompStyles.txtCont}>
+                  <div className={VcompStyles.head}>Feedback by the consumer</div>
+                  <div className={VcompStyles.starCont}>
+                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                    <FontAwesomeIcon icon={faStar} className={VcompStyles.starBlack} />
                   </div>
-                  <button onClick={() => setisfeedbackActive(true)} className={VcompStyles.btn}>Send feedback</button>
+                  <div className={VcompStyles.txt}>“Lorem ipsum dolor sit amet consectetur. Ac vitae at cursus venenatis lectus. Leo vestib pulvinar porttitor scelerisque vestibulum a nulla. Varius turpis in rhocus”.</div>
                 </div>
+                <button onClick={() => setisfeedbackActive(true)} className={VcompStyles.btn}>Send feedback</button>
+              </div>
 
 
 
                 <div className={VcompStyles.reportCont}>
-                  <div className={VcompStyles.reportHead}>Report</div>
+                <div className={VcompStyles.reportHead}>Report</div>
                   <div>
-                    <label>Booking Id</label>
+                  <label>Booking Id</label>
                     <input placeholder='Enter booking ID' className={VcompStyles.reportInput} type='text' />
-                    <label>Description</label>
+                  <label>Description</label>
                     <textarea style={{ outline: 'none !important' }} placeholder='inputs' className={VcompStyles.reportInputx} cols={10} rows={30}></textarea>
-                    <button type='submit' className={Rides.reportSub}>Submit</button>
-                  </div>
-                </div>
+                  <button type='submit' className={Rides.reportSub}>Submit</button>
+              </div>
+            </div>
               </div>
               <div className={StartingSoonStyle.rightCont}>
                 <div className={StartingSoonStyle.rightHeader}>
@@ -1514,7 +1511,7 @@ function Payservice() {
                 <div className={StartingSoonStyle.priceCont}>
                   <div className={StartingSoonStyle.price}>£153</div>
                   <div className={StartingSoonStyle.Paid}>Paid</div>
-                </div>
+              </div>
 
                 <div className={StartingSoonStyle.inpCont}>
                   <div className={StartingSoonStyle.labelTitle}>Pick-up date & time</div>
@@ -1522,51 +1519,51 @@ function Payservice() {
                     <div className={StartingSoonStyle.calcont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faCalendarAlt} />
                       <input type='text' placeholder='15 Feb 2024' className={StartingSoonStyle.inp} />
-                    </div>
+                  </div>
                     <div className={StartingSoonStyle.timecont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faClock} />
                       <input type='text' placeholder='12:05 Pm' className={StartingSoonStyle.inpx} />
-                    </div>
                   </div>
+                </div>
                   <div className={StartingSoonStyle.labelTitle}>Drop-off date & time</div>
                   <div className={StartingSoonStyle.calInp}>
                     <div className={StartingSoonStyle.calcont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faCalendarAlt} />
                       <input type='text' placeholder='16 Feb 2024' className={StartingSoonStyle.inp} />
-                    </div>
+                  </div>
                     <div className={StartingSoonStyle.timecont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faClock} />
                       <input type='text' placeholder='12:05 Pm' className={StartingSoonStyle.inpx} />
-                    </div>
                   </div>
+                </div>
                   <div className={StartingSoonStyle.labelTitle}>Pick-up Location</div>
                   <div className={StartingSoonStyle.locInp}>
                     <FontAwesomeIcon className={StartingSoonStyle.IconLoc} icon={faLocationDot} />
                     <input type='text' placeholder='Dummy Location 01' className={StartingSoonStyle.loc} />
-                  </div>
+                </div>
                   <div className={StartingSoonStyle.labelTitle}>Drop-off Location</div>
                   <div className={StartingSoonStyle.locInp}>
                     <FontAwesomeIcon className={StartingSoonStyle.IconLoc} icon={faLocationDot} />
                     <input type='text' placeholder='Dummy Location 02' className={StartingSoonStyle.loc} />
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
             <div className={`${VcompStyles.feedbackScrollCont} ${isfeedbackActive ? VcompStyles.activeFeedback : ""}`}>
               <div className={VcompStyles.feedbackModal}>
-                <FontAwesomeIcon onClick={() => setisfeedbackActive(false)} icon={faX} className={VcompStyles.closeIcon} />
-                <div className={VcompStyles.feedbackTitle}>Send feedback to the consumer for this rental ride</div>
-                <div className={VcompStyles.feedbackPara}>Lorem ipsum dolor sit amet consectetur.</div>
-                <div className={VcompStyles.feedbackStarCont}>
-                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStarx} />
-                </div>
-                <textarea className={VcompStyles.writeText} cols={30} rows={10} placeholder='write a review'></textarea>
-                <button onClick={() => setisfeedbackActive(false)} className={VcompStyles.feedbackBtn}>Send feedback</button>
+              <FontAwesomeIcon onClick={() => setisfeedbackActive(false)} icon={faX} className={VcompStyles.closeIcon} />
+              <div className={VcompStyles.feedbackTitle}>Send feedback to the consumer for this rental ride</div>
+              <div className={VcompStyles.feedbackPara}>Lorem ipsum dolor sit amet consectetur.</div>
+              <div className={VcompStyles.feedbackStarCont}>
+                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStarx} />
               </div>
+              <textarea className={VcompStyles.writeText} cols={30} rows={10} placeholder='write a review'></textarea>
+              <button onClick={() => setisfeedbackActive(false)} className={VcompStyles.feedbackBtn}>Send feedback</button>
+            </div>
             </div>
           </div>
         );
@@ -1645,14 +1642,14 @@ function Payservice() {
           //   </div>
           // </div >
 
-          <div className={Messages['messages-container']}>
-            {/* Left sidebar - Conversation list */}
-            <div className={Messages['conversation-list']}>
-              <div className={Messages['search-bar']}>
+            <div className={Messages['messages-container']}>
+              {/* Left sidebar - Conversation list */}
+              <div className={Messages['conversation-list']}>
+                <div className={Messages['search-bar']}>
                 <FontAwesomeIcon icon={faSearch} className={Messages['search-icon']} />
-                <input type='text' placeholder='search here ...' className={Messages['searchB']} />
+                  <input type='text' placeholder='search here ...' className={Messages['searchB']} />
 
-              </div>
+                </div>
               <div>
                 {conversations.map((convo, index) => (
                   <div
@@ -1674,16 +1671,16 @@ function Payservice() {
                   </div>
                 ))}
               </div>
-            </div>
+              </div>
 
-            {/* Right side - Active chat */}
+              {/* Right side - Active chat */}
 
 
 
             < div className={Messages['active-chat']} >
-              {/* Chat header */}
+                {/* Chat header */}
               < div className={Messages['chat-header']} >
-                <div className={Messages['chat-user']}>
+                  <div className={Messages['chat-user']}>
                   <div className='d-flex'>
                     <div className={Messages['chat-avatar']}></div>
                     <div>
@@ -1695,9 +1692,9 @@ function Payservice() {
                 </div>
               </div>
               <div style={{ height: '1px', backgroundColor: '#ECECEC', width: '95%', margin: '0 auto' }}></div>
-              {/* Messages area */}
-              <div className={Messages['messages-area']}>
-                {activeChat.messages.map((msg, index) => (
+                {/* Messages area */}
+                <div className={Messages['messages-area']}>
+                  {activeChat.messages.map((msg, index) => (
                   <div style={{ width: '100%' }}>
                     < div
                       key={index}
@@ -1712,15 +1709,15 @@ function Payservice() {
                       }`}>{msg.time}</div>
                   </div>
 
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              {/* Message input */}
-              <div className={Messages['message-input-container']}>
-                <input
-                  type="text"
-                  placeholder="Type A Message..."
-                  className={Messages['message-input']}
+                {/* Message input */}
+                <div className={Messages['message-input-container']}>
+                  <input
+                    type="text"
+                    placeholder="Type A Message..."
+                    className={Messages['message-input']}
 
                 />
                 <div className={Messages.contIconInput}>
@@ -1733,10 +1730,10 @@ function Payservice() {
                   <svg className={Messages.iconInput} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                   </svg>
+                  </div>
+
+
                 </div>
-
-
-              </div>
             </div >
           </div >
         );
@@ -1763,24 +1760,8 @@ function Payservice() {
 
               </div>
               <div className={ProfileStyles.actionButtons}>
-                <button
-                  className={ProfileStyles.btnPrimary}
-                  onClick={() => {
-                    setChangePasswordPopup(true);
-                    setRemoveFilter(true);
-                  }}
-                >
-                  Change Password
-                </button>
-                <button
-                  className={ProfileStyles.btnSecondary}
-                  onClick={() => {
-                    setEditProfilePopup(true);
-                    setRemoveFilter(true);
-                  }}
-                >
-                  Edit Profile
-                </button>
+                <button className={ProfileStyles.btnPrimary}>Change Password</button>
+                <button className={ProfileStyles.btnSecondary}>Edit Profile</button>
               </div>
             </div>
 
@@ -1818,7 +1799,7 @@ function Payservice() {
                 <h3 className={ProfileStyles.sectionTitle}>My Current Membership Plan</h3>
                 <div className={ProfileStyles.btnEdit} >
                   <FontAwesomeIcon icon={faEdit} />
-                  <Link to='/memberShip' style={{ textDecoration: 'none', color: 'rgba(158, 77, 182, 1)' }}>Edit</Link>
+                  <div>Edit</div>
                 </div>
               </div>
 
@@ -1866,15 +1847,7 @@ function Payservice() {
                 <div className={ProfileStyles.inviteTit}>Invite friends and earn more</div>
                 <div className={ProfileStyles.invitePara}>Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam. Vulputate nisl vel diam eu. Risus natoque consectetur.</div>
               </div>
-              <button
-                onClick={() => {
-                  setInviteTab(true);
-                  setRemoveFilter(true);
-                }}
-                className={ProfileStyles.btnPrimary}
-              >
-                Invite & Earn
-              </button>
+              <button onClick={() => setInviteTab(true)} className={ProfileStyles.btnPrimary}>Invite & Earn</button>
             </div>
             {/* Payment History */}
             <div className={ProfileStyles.section}>
@@ -1896,9 +1869,9 @@ function Payservice() {
                       </div>
                       <div className={ProfileStyles.thirdCont}>
                         <img src={profile_pic} style={{ width: '25px', height: '25px', borderRadius: '50%' }} alt='error' />
-                        <div style={{ fontSize: '14px', fontWeight: 'bold' }}>Sergey Ray</div>
-                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)', fontSize: '14px' }} icon={faStar} />
-                        <div style={{ color: 'rgba(145, 145, 145, 1)', fontSize: '10px' }}>4.95</div>
+                        <div>Sergey Ray</div>
+                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)' }} icon={faStar} />
+                        <div style={{ color: 'rgba(145, 145, 145, 1)' }}>4.95</div>
                       </div>
                     </div>
                   </div>
@@ -1925,9 +1898,9 @@ function Payservice() {
                       </div>
                       <div className={ProfileStyles.thirdCont}>
                         <img src={profile_pic} style={{ width: '25px', height: '25px', borderRadius: '50%' }} alt='error' />
-                        <div style={{ fontSize: '14px', fontWeight: 'bold' }}>Sergey Ray</div>
-                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)', fontSize: '14px' }} icon={faStar} />
-                        <div style={{ color: 'rgba(145, 145, 145, 1)', fontSize: '10px' }} >4.95</div>
+                        <div>Sergey Ray</div>
+                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)' }} icon={faStar} />
+                        <div style={{ color: 'rgba(145, 145, 145, 1)' }} >4.95</div>
                       </div>
                     </div>
                   </div>
@@ -1954,9 +1927,9 @@ function Payservice() {
                       </div>
                       <div className={ProfileStyles.thirdCont}>
                         <img src={profile_pic} style={{ width: '25px', height: '25px', borderRadius: '50%' }} alt='error' />
-                        <div style={{ fontSize: '14px', fontWeight: 'bold' }}>Sergey Ray</div>
-                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)', fontSize: '14px' }} icon={faStar} />
-                        <div style={{ color: 'rgba(145, 145, 145, 1)', fontSize: '10px' }}>4.95</div>
+                        <div>Sergey Ray</div>
+                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)' }} icon={faStar} />
+                        <div style={{ color: 'rgba(145, 145, 145, 1)' }}>4.95</div>
                       </div>
                     </div>
                   </div>
@@ -1983,9 +1956,9 @@ function Payservice() {
                       </div>
                       <div className={ProfileStyles.thirdCont}>
                         <img src={profile_pic} style={{ width: '25px', height: '25px', borderRadius: '50%' }} alt='error' />
-                        <div style={{ fontSize: '14px', fontWeight: 'bold' }}>Sergey Ray</div>
-                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)', fontSize: '14px' }} icon={faStar} />
-                        <div style={{ color: 'rgba(145, 145, 145, 1)', fontSize: '10px' }}>4.95</div>
+                        <div>Sergey Ray</div>
+                        <FontAwesomeIcon style={{ color: 'rgba(255, 199, 0, 1)' }} icon={faStar} />
+                        <div style={{ color: 'rgba(145, 145, 145, 1)' }}>4.95</div>
                       </div>
                     </div>
                   </div>
@@ -1996,68 +1969,58 @@ function Payservice() {
                 </div>
               </div>
             </div>
-            <div className={`${ProfileStyles.inviteOverlay} ${InviteTab ? ProfileStyles.active : ""}`}>
-              <div className={ProfileStyles.inviteModal}>
-                <button
-                  onClick={() => {
-                    setInviteTab(false);
-                    setRemoveFilter(false);
-                  }}
-                  className={ProfileStyles.inviteClose}
-                >
-                  <FontAwesomeIcon icon={faX} />
-                </button>
+            <div className={`${ProfileStyles.container} ${InviteTab === true ? ProfileStyles.active : ''}`}>
+              <FontAwesomeIcon onClick={() => setInviteTab(false)} icon={faX} className={VcompStyles.closeIcon} />
 
-                <div className={ProfileStyles.header}>
-                  <h2 className={ProfileStyles.title}>Invite & Earn</h2>
-                  <p className={ProfileStyles.subtitle}>Lorem ipsum dolor sit amet consectetur.</p>
+              <div className={ProfileStyles.header}>
+                <h2 className={ProfileStyles.title}>Invite & Earn</h2>
+                <p className={ProfileStyles.subtitle}>Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+
+              <div className={ProfileStyles.stepsList}>
+                <div className={ProfileStyles.stepItem}>
+                  <span className={ProfileStyles.stepNumber}>1.</span>
+                  <span className={ProfileStyles.stepText}>In morbi pellentesque congue enim amet eget vel leo id.</span>
                 </div>
-
-                <div className={ProfileStyles.stepsList}>
-                  <div className={ProfileStyles.stepItem}>
-                    <span className={ProfileStyles.stepNumber}>1.</span>
-                    <span className={ProfileStyles.stepText}>In morbi pellentesque congue enim amet eget vel leo id.</span>
-                  </div>
-                  <div className={ProfileStyles.stepItem}>
-                    <span className={ProfileStyles.stepNumber}>2.</span>
-                    <span className={ProfileStyles.stepText}>Morbi tincidunt euismod lectus id eleifend. Curabitur sit amet facilisis.</span>
-                  </div>
-                  <div className={ProfileStyles.stepItem}>
-                    <span className={ProfileStyles.stepNumber}>3.</span>
-                    <span className={ProfileStyles.stepText}>Pellentesque congue enim amet eget vel leo id.</span>
-                  </div>
+                <div className={ProfileStyles.stepItem}>
+                  <span className={ProfileStyles.stepNumber}>2.</span>
+                  <span className={ProfileStyles.stepText}>Morbi tincidunt euismod lectus id eleifend. Curabitur sit amet facilisis.</span>
                 </div>
+                <div className={ProfileStyles.stepItem}>
+                  <span className={ProfileStyles.stepNumber}>3.</span>
+                  <span className={ProfileStyles.stepText}>Pellentesque congue enim amet eget vel leo id.</span>
+                </div>
+              </div>
 
-                <div className={ProfileStyles.linkSection}>
-                  <div className={ProfileStyles.linkContainer}>
-                    <input
-                      type="text"
-                      placeholder='https://lorem_ipsum-dolorsit/3lorem'
-                      className={ProfileStyles.linkInput}
-                    />
-                    <button
-                      className={ProfileStyles.copyButton}
+              <div className={ProfileStyles.linkSection}>
+                <div className={ProfileStyles.linkContainer}>
+                  <input
+                    type="text"
+                    placeholder='https://lorem_ipsum-dolorsit/3lorem'
+                    className={ProfileStyles.linkInput}
+                  />
+                  <button
+                    className={ProfileStyles.copyButton}
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
                     >
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
-                <div className={ProfileStyles.actionSection}>
-                  <button className={ProfileStyles.shareButton}>Share Link</button>
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
                 </div>
               </div>
-            </div>
+
+              <div className={ProfileStyles.actionSection}>
+                <button className={ProfileStyles.shareButton}>Share Link</button>
+              </div>
+            </div >
 
           </div>
         );
@@ -2090,13 +2053,7 @@ function Payservice() {
             ))}
           </ul>
         </div>
-        <div
-          className={styles.partTwo}
-          onClick={() => {
-            setLogoutConfirmationPopup(true);
-            setRemoveFilter(true);
-          }}
-        >
+        <div className={styles.partTwo}>
           <FontAwesomeIcon icon={faSignOutAlt} />
           <div className={styles.navName}>Logout</div>
         </div>
@@ -2178,15 +2135,7 @@ function Payservice() {
                 <div className={styles['dropdown-content']}>
                   <Link to='/'>become a consumer</Link>
                   <Link onClick={() => setActiveTab('profile')}>My Profile</Link>
-                  <Link
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setLogoutConfirmationPopup(true);
-                      setRemoveFilter(true);
-                    }}
-                  >
-                    Logout
-                  </Link>
+                  <Link to="/">Logout</Link>
                 </div>
               )}
             </div>
@@ -2195,236 +2144,6 @@ function Payservice() {
 
         <div ref={dashboardMainRef} className={styles.mainContent}>
           {renderContent()}
-        </div>
-      </div>
-
-      {/* Edit Profile Popup */}
-      <div className={`${ProfileStyles.editProfileOverlay} ${editProfilePopup ? ProfileStyles.active : ""}`}>
-        <div className={ProfileStyles.editProfileModal}>
-          <button
-            onClick={() => setEditProfilePopup(false)}
-            className={ProfileStyles.editProfileClose}
-          >
-            <FontAwesomeIcon icon={faX} />
-          </button>
-
-          <div className={ProfileStyles.editProfileTitle}>Edit Profile</div>
-
-          <div className={ProfileStyles.editProfileImageContainer}>
-            <img
-              src={profile_pic}
-              alt="Profile"
-              className={ProfileStyles.editProfileImage}
-            />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={ProfileStyles.editProfileCamera}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
-            </svg>
-          </div>
-
-          <form className={ProfileStyles.editProfileForm}>
-            <div className={ProfileStyles.editProfileRow}>
-              <div className={ProfileStyles.editProfileField}>
-                <label className={ProfileStyles.editProfileLabel}>First Name</label>
-                <input
-                  type="text"
-                  className={ProfileStyles.editProfileInput}
-                  placeholder="Esther"
-
-                />
-              </div>
-              <div className={ProfileStyles.editProfileField}>
-                <label className={ProfileStyles.editProfileLabel}>Last Name</label>
-                <input
-                  type="text"
-                  className={ProfileStyles.editProfileInput}
-                  placeholder="Howard"
-
-                />
-              </div>
-            </div>
-
-            <div className={ProfileStyles.editProfileField}>
-              <label className={ProfileStyles.editProfileLabel}>Email</label>
-              <input
-                type="email"
-                className={ProfileStyles.editProfileInput}
-                placeholder="Esther@Email.Com"
-
-              />
-            </div>
-
-            <div className={ProfileStyles.editProfileField}>
-              <label className={ProfileStyles.editProfileLabel}>Contact Number</label>
-              <input
-                type="tel"
-                className={ProfileStyles.editProfileInput}
-                placeholder="123 456 7891"
-
-              />
-            </div>
-
-            <div className={ProfileStyles.editProfileField}>
-              <label className={ProfileStyles.editProfileLabel}>Business Name</label>
-              <input
-                type="text"
-                className={ProfileStyles.editProfileInput}
-                placeholder="Lorem Ipsum Pvt. Ltd."
-
-              />
-            </div>
-
-            <div className={ProfileStyles.editProfileField}>
-              <label className={ProfileStyles.editProfileLabel}>Business Registration Number</label>
-              <input
-                type="text"
-                className={ProfileStyles.editProfileInput}
-                placeholder="123321012"
-
-              />
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setEditProfilePopup(false)}
-              className={ProfileStyles.editProfileSaveBtn}
-            >
-              Save
-            </button>
-          </form>
-        </div>
-      </div>
-
-      {/* Change Password Popup */}
-      <div className={`${ProfileStyles.changePasswordOverlay} ${changePasswordPopup ? ProfileStyles.active : ""}`}>
-        <div className={ProfileStyles.changePasswordModal}>
-          <button
-            onClick={() => {
-              setChangePasswordPopup(false);
-              setRemoveFilter(false);
-            }}
-            className={ProfileStyles.changePasswordClose}
-          >
-            <FontAwesomeIcon icon={faX} />
-          </button>
-
-          <div className={ProfileStyles.changePasswordTitle}>Change Password</div>
-
-          <form className={ProfileStyles.changePasswordForm}>
-            <div className={ProfileStyles.changePasswordField}>
-              <label className={ProfileStyles.changePasswordLabel}>Old Password</label>
-              <div className={ProfileStyles.passwordInputContainer}>
-                <input
-                  type={showOldPassword ? "text" : "password"}
-                  className={ProfileStyles.changePasswordInput}
-                  placeholder="Enter old password"
-                />
-                <button
-                  type="button"
-                  className={ProfileStyles.passwordToggle}
-                  onClick={() => setShowOldPassword(!showOldPassword)}
-                >
-                  <FontAwesomeIcon icon={showOldPassword ? faEye : faEyeSlash} />
-                </button>
-              </div>
-            </div>
-
-            <div className={ProfileStyles.changePasswordField}>
-              <label className={ProfileStyles.changePasswordLabel}>New Password</label>
-              <div className={ProfileStyles.passwordInputContainer}>
-                <input
-                  type={showNewPassword ? "text" : "password"}
-                  className={ProfileStyles.changePasswordInput}
-                  placeholder="Enter new password"
-                />
-                <button
-                  type="button"
-                  className={ProfileStyles.passwordToggle}
-                  onClick={() => setShowNewPassword(!showNewPassword)}
-                >
-                  <FontAwesomeIcon icon={showNewPassword ? faEye : faEyeSlash} />
-                </button>
-              </div>
-            </div>
-
-            <div className={ProfileStyles.changePasswordField}>
-              <label className={ProfileStyles.changePasswordLabel}>Confirm Password</label>
-              <div className={ProfileStyles.passwordInputContainer}>
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  className={ProfileStyles.changePasswordInput}
-                  placeholder="Confirm new password"
-                />
-                <button
-                  type="button"
-                  className={ProfileStyles.passwordToggle}
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
-                  <FontAwesomeIcon icon={showConfirmPassword ? faEye : faEyeSlash} />
-                </button>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => {
-                setChangePasswordPopup(false);
-                setRemoveFilter(false);
-              }}
-              className={ProfileStyles.changePasswordSaveBtn}
-            >
-              Save
-            </button>
-          </form>
-        </div>
-      </div>
-
-      {/* Logout Confirmation Popup */}
-      <div className={`${ProfileStyles.logoutConfirmationOverlay} ${logoutConfirmationPopup ? ProfileStyles.active : ""}`}>
-        <div className={ProfileStyles.logoutConfirmationModal}>
-          <button
-            onClick={() => {
-              setLogoutConfirmationPopup(false);
-              setRemoveFilter(false);
-            }}
-            className={ProfileStyles.logoutConfirmationClose}
-          >
-            <FontAwesomeIcon icon={faX} />
-          </button>
-
-          <div className={ProfileStyles.logoutConfirmationIcon}>
-            <svg className={ProfileStyles.logoutIconSvg} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.36 6.64C19.6184 7.89879 20.4753 9.50244 20.8223 11.2442C21.1693 12.9859 20.9939 14.7854 20.3159 16.4442C19.6379 18.103 18.4802 19.5607 16.9679 20.6447C15.4556 21.7287 13.6519 22.4014 11.7879 22.5832C9.9239 22.765 8.07012 22.4503 6.38996 21.6651C4.7098 20.8799 3.26142 19.6475 2.20097 18.1001C1.14052 16.5527 0.508203 14.7446 0.371421 12.8701C0.234639 10.9956 0.598303 9.12034 1.43322 7.40187C2.26814 5.6834 3.54722 4.1836 5.13604 3.03647" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M12 2V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-
-          <div className={ProfileStyles.logoutConfirmationTitle}>Are you sure want to logout?</div>
-
-          <div className={ProfileStyles.logoutConfirmationText}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit sagittis.
-          </div>
-
-          <div className={ProfileStyles.logoutConfirmationButtons}>
-            <button
-              className={ProfileStyles.logoutConfirmationYes}
-              onClick={() => {
-                // Handle actual logout logic here
-                window.location.href = '/';
-              }}
-            >
-              Yes
-            </button>
-            <button
-              className={ProfileStyles.logoutConfirmationCancel}
-              onClick={() => {
-                setLogoutConfirmationPopup(false);
-                setRemoveFilter(false);
-              }}
-            >
-              Cancel
-            </button>
-          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, memo, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faMagnifyingGlass,
@@ -33,9 +33,24 @@ import {
 import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { GB, FR, DE } from 'country-flag-icons/react/3x2';
 
+
+import SignUp from '../../pages/SignIn';
 // Import existing components
 
 // Import images
+// Brand logos
+
+import bmwLogo from '../../images/bmw logo.png';
+import mercLogo from '../../images/merc logo.png';
+
+import lamboLogo from '../../images/lambo logo.png';
+import rangeLogo from '../../images/range logo.png';
+import alphaLogo from '../../images/alpha-logo.png';
+import astonLogo from '../../images/aston-logo.png';
+import bentlyLogo from '../../images/bently-logo.png';
+import cadillacLogo from '../../images/cadillac.png';
+import dodgeLogo from '../../images/dodge-logo.png';
+
 
 //search location icons
 import searchLoc1 from '../../images/resposiveImgs/searchLoc1.png';
@@ -55,7 +70,6 @@ import toyotaHomePage from '../../images/resposiveImgs/toyota_HomePage.png';
 
 // Import brand logos
 import audiLogo from '../../images/audi logo.png';
-import bmwLogo from '../../images/bmw logo.png';
 import ferrariLogo from '../../images/ferrari logo.png';
 import lamborghiniLogo from '../../images/lambo logo.png';
 
@@ -67,9 +81,12 @@ import profileChatPic from '../../images/resposiveImgs/profile_chat_img.png';
 
 
 import styles from '../../styles/responsiveStyle/HomePageResposive.module.css';
+import notifStyle from '../../styles/responsiveStyle/Notification.module.css';
+import CarDetResponsive from './CarDetResponsive';
 
-const HomePageResponsive = memo(() => {
+const HomePageResponsive = () => {
     const [activeTab, setActiveTab] = useState('home');
+    const [activeCategoryTab, setActiveCategoryTab] = useState('Popular');
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
     const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
@@ -81,6 +98,7 @@ const HomePageResponsive = memo(() => {
     const [pickupDate, setPickupDate] = useState('15 Feb 2024');
     const [dropoffDate, setDropoffDate] = useState('16 Feb 2024');
     const [activeChat, setActiveChat] = useState(null);
+
 
     // Chat data
     const chatData = useMemo(() => ({
@@ -215,7 +233,7 @@ const HomePageResponsive = memo(() => {
                                 <span className={styles.logoCar}>CAR24</span>
                             </div>
                             <div className={styles.headerIcons}>
-                                <button className={styles.iconButton}>
+                                <button onClick={() => setActiveTab('notifications')} className={styles.iconButton}>
                                     <BellIcon className={styles.headerIcon} />
                                 </button>
                                 <button className={styles.iconButton} onClick={toggleSideMenu}>
@@ -305,7 +323,7 @@ const HomePageResponsive = memo(() => {
                         <div className={styles.brandsSection}>
                             <div className={styles.sectionHeader}>
                                 <h2 className={styles.sectionTitle}>Brands</h2>
-                                <span className={styles.viewAll}>View All</span>
+                                <span className={styles.viewAll} onClick={() => setActiveTab('brands')}>View All</span>
                             </div>
                             <div className={styles.brandsGrid}>
                                 <div className={styles.brandCard}>
@@ -390,7 +408,7 @@ const HomePageResponsive = memo(() => {
                                             </div>
                                             <div className={styles.priceSection}>
                                                 <span className={styles.price}>{offer.price}</span>
-                                                <button className={styles.reserveBtn}>Reserve</button>
+                                                <button className={styles.reserveBtn} onClick={() => setActiveTab('carDetResponsive')}>Reserve</button>
                                             </div>
                                         </div>
                                     </div>
@@ -409,7 +427,7 @@ const HomePageResponsive = memo(() => {
                                 <span className={styles.logoCar}>CAR24</span>
                             </div>
                             <div className={styles.headerIcons}>
-                                <button className={styles.iconButton}>
+                                <button onClick={() => setActiveTab('notifications')} className={styles.iconButton}>
                                     <BellIcon className={styles.headerIcon} />
                                 </button>
                                 <button className={styles.iconButton} onClick={toggleSideMenu}>
@@ -522,7 +540,7 @@ const HomePageResponsive = memo(() => {
                                         </div>
                                         <div className={styles.priceSection}>
                                             <span className={styles.price}>{car.price}</span>
-                                            <button className={styles.reserveBtn}>Reserve</button>
+                                            <button className={styles.reserveBtn} onClick={() => setActiveTab('carDetResponsive')}>Reserve</button>
                                         </div>
                                     </div>
                                 </div>
@@ -539,11 +557,11 @@ const HomePageResponsive = memo(() => {
                                 <span className={styles.logoMoby}>MOBY</span>
                                 <span className={styles.logoCar}>CAR24</span>
                             </div>
-                            <div className={styles.headerIcons}>
+                            <div onClick={() => setActiveTab('notifications')} className={styles.headerIcons}>
                                 <button className={styles.iconButton}>
                                     <BellIcon className={styles.headerIcon} />
                                 </button>
-                                <button className={styles.iconButton}>
+                                <button className={styles.iconButton} onClick={toggleSideMenu}>
                                     <Bars3Icon className={styles.headerIcon} />
                                 </button>
                             </div>
@@ -906,7 +924,7 @@ const HomePageResponsive = memo(() => {
                                 <button className={styles.headerIconButton}>
                                     <BellIcon className={styles.headerIcon} />
                                 </button>
-                                <button className={styles.headerIconButton}>
+                                <button className={styles.headerIconButton} onClick={toggleSideMenu}>
                                     <Bars3Icon className={styles.headerIcon} />
                                 </button>
                             </div>
@@ -914,123 +932,325 @@ const HomePageResponsive = memo(() => {
 
                         {/* Filter Tabs */}
                         <div className={styles.filterTabsContainer}>
-                            <div className={styles.filterTab} data-active="true">
-                                <span className={styles.filterTabText}>Popular</span>
+                            {console.log(activeCategoryTab)}
+                            <div
+                                className={`${styles.filterTab} ${activeCategoryTab === 'Popular' ? styles.e5dem : ''}`}
+                                onClick={() => setActiveCategoryTab('Popular')}
+                            >
+                                <div className={styles.filterTabText}>Popular</div>
                             </div>
-                            <div className={styles.filterTab}>
-                                <span className={styles.filterTabText}>Body Type</span>
+                            <div
+                                className={`${styles.filterTab} ${activeCategoryTab === 'Body Type' ? styles.e5dem : ''}`}
+                                onClick={() => setActiveCategoryTab('Body Type')}
+                            >
+                                <div className={styles.filterTabText}>Body Type</div>
                             </div>
-                            <div className={styles.filterTab}>
-                                <span className={styles.filterTabText}>Rent Type</span>
+                            <div
+                                className={`${styles.filterTab} ${activeCategoryTab === 'Rent Type' ? styles.e5dem : ''}`}
+                                onClick={() => setActiveCategoryTab('Rent Type')}
+                            >
+                                <div className={styles.filterTabText}>Rent Type</div>
                             </div>
                         </div>
 
                         {/* Categories Grid */}
                         <div className={styles.categoriesPageGrid}>
                             {/* Luxury Car */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>Luxury Car</h3>
+                                <div className={styles.categoryPageName}>Luxury Car</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
 
                             {/* Sports Car */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>Sports Car</h3>
+                                <div className={styles.categoryPageName}>Sports Car</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
 
                             {/* SUVs */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>SUVs</h3>
+                                <div className={styles.categoryPageName}>SUVs</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
 
                             {/* Convertible */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>Convertible</h3>
+                                <div className={styles.categoryPageName}>Convertible</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
 
                             {/* Electric Cars */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M12 3L13 7L12 11L11 7L12 3Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>Electric Cars</h3>
+                                <div className={styles.categoryPageName}>Electric Cars</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
 
                             {/* Cheap Cars */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>Cheap Cars</h3>
+                                <div className={styles.categoryPageName}>Cheap Cars</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
 
                             {/* Pickup Van */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>Pickup Van</h3>
+                                <div className={styles.categoryPageName}>Pickup Van</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
 
                             {/* Electric Cars (Duplicate) */}
-                            <div className={styles.categoryPageCard}>
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
                                 <div className={styles.categoryPageIcon}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 17H21L19 7H5L3 17ZM5 5H19L21 19H3L5 5Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7 13H17" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M12 3L13 7L12 11L11 7L12 3Z" stroke="#9E4DB6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <FontAwesomeIcon icon={faCar} className={styles.carIcon} />
                                 </div>
-                                <h3 className={styles.categoryPageName}>Electric Cars</h3>
+                                <div className={styles.categoryPageName}>Electric Cars</div>
                                 <span className={styles.categoryPageCount}>26 Car</span>
                             </div>
                         </div>
                     </div>
                 );
+            case 'brands':
+                return (
+                    <div className={styles.categoriesPageContainer}>
+                        {/* Brands Header */}
+                        <div className={styles.categoriesHeader}>
+                            <button className={styles.backButton} onClick={() => setActiveTab('home')}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <h1 className={styles.categoriesTitle}>Brands</h1>
+                            <div className='d-flex gap-2'>
+                                <button className={styles.headerIconButton}>
+                                    <BellIcon className={styles.headerIcon} />
+                                </button>
+                                <button className={styles.headerIconButton} onClick={toggleSideMenu}>
+                                    <Bars3Icon className={styles.headerIcon} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Brands Grid */}
+                        <div className={styles.categoriesPageGrid}>
+                            {/* Audi */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={audiLogo} alt="Audi" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Audi</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* BMW */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={bmwLogo} alt="BMW" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>BMW</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* ferrari */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={ferrariLogo} alt="Mercedes" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>ferrari</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* lamborghini */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={lamboLogo} alt="Ferrari" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Ferrari</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* mercides */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={mercLogo} alt="Lamborghini" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Lamborghini</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* Range Rover */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={rangeLogo} alt="Range Rover" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Range Rover</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* Alfa Romeo */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={alphaLogo} alt="Alfa Romeo" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Alfa Romeo</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* Aston Martin */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={astonLogo} alt="Aston Martin" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Aston Martin</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* Bentley */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={bentlyLogo} alt="Bentley" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Bentley</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* Cadillac */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={cadillacLogo} alt="Cadillac" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>Cadillac</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* aston martin */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={dodgeLogo} alt="Dodge" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>aston martin</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+
+                            {/* dodge */}
+                            <div className={styles.categoryPageCard} onClick={() => setActiveTab('rent')}>
+                                <div className={styles.categoryPageIcon}>
+                                    <img src={dodgeLogo} alt="Porsche" width="40" height="40" />
+                                </div>
+                                <div className={styles.categoryPageName}>dodge</div>
+                                <span className={styles.categoryPageCount}>Starting £570</span>
+                            </div>
+                        </div>
+                    </div>
+                );
+            case 'notifications':
+                return (
+                    <div className={notifStyle.notificationsPageContainer}>
+                        {/* Notifications Header */}
+                        <div className={notifStyle.notfiHeader}>
+                            <button className={styles.backButton} onClick={() => setActiveTab('home')}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <div className={notifStyle.notifTitle}>Notification</div>
+                            <button className={styles.headerIconButton} onClick={toggleSideMenu}>
+                                <Bars3Icon className={styles.headerIcon} />
+                            </button>
+
+                        </div>
+
+                        {/* Notifications Content */}
+                        <div className={notifStyle.notificationsContent}>
+                            {/* Unread Notifications */}
+                            <div className={notifStyle.notificationSection}>
+                                <h3 className={notifStyle.notificationSectionTitle}>Unread Notification</h3>
+                                <div className={notifStyle.notificationCard}>
+                                    <div className={notifStyle.notificationCardContent}>
+                                        <h4 className={notifStyle.notificationTitle}>Lorem Ipsum Dolor Sit Amet Consectetur</h4>
+                                        <span className={notifStyle.notificationTime}>09:20pm</span>
+                                    </div>
+                                    <p className={notifStyle.notificationDescription}>
+                                        Lorem ipsum dolor sit amet consectetur. Nisi volutpat dictum egestas vitae luctus ut.
+                                    </p>
+                                </div>
+                                <div className={notifStyle.notificationCard}>
+                                    <div className={notifStyle.notificationCardContent}>
+                                        <h4 className={notifStyle.notificationTitle}>Lorem Ipsum Dolor Sit Amet Consectetur</h4>
+                                        <span className={notifStyle.notificationTime}>09:20pm</span>
+                                    </div>
+                                    <p className={notifStyle.notificationDescription}>
+                                        Lorem ipsum dolor sit amet consectetur. Nisi volutpat dictum egestas vitae luctus ut.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Past Notifications */}
+                            <div className={notifStyle.notificationSection}>
+                                <h3 className={notifStyle.notificationSectionTitle}>Past Notification</h3>
+                                <div className={notifStyle.notificationCard}>
+                                    <div className={notifStyle.notificationCardContent}>
+                                        <h4 className={notifStyle.notificationTitle}>Lorem Ipsum Dolor Sit Amet Consectetur</h4>
+                                        <span className={notifStyle.notificationTime}>09:20pm</span>
+                                    </div>
+                                    <p className={notifStyle.notificationDescription}>
+                                        Lorem ipsum dolor sit amet consectetur. Nisi volutpat dictum egestas vitae luctus ut.
+                                    </p>
+                                </div>
+                                <div className={notifStyle.notificationCard}>
+                                    <div className={notifStyle.notificationCardContent}>
+                                        <h4 className={notifStyle.notificationTitle}>Lorem Ipsum Dolor Sit Amet Consectetur</h4>
+                                        <span className={notifStyle.notificationTime}>09:20pm</span>
+                                    </div>
+                                    <p className={notifStyle.notificationDescription}>
+                                        Lorem ipsum dolor sit amet consectetur. Nisi volutpat dictum egestas vitae luctus ut.
+                                    </p>
+                                </div>
+                                <div className={notifStyle.notificationCard}>
+                                    <div className={notifStyle.notificationCardContent}>
+                                        <h4 className={notifStyle.notificationTitle}>Lorem Ipsum Dolor Sit Amet Consectetur</h4>
+                                        <span className={notifStyle.notificationTime}>09:20pm</span>
+                                    </div>
+                                    <p className={notifStyle.notificationDescription}>
+                                        Lorem ipsum dolor sit amet consectetur. Nisi volutpat dictum egestas vitae luctus ut.
+                                    </p>
+                                </div>
+                                <div className={notifStyle.notificationCard}>
+                                    <div className={notifStyle.notificationCardContent}>
+                                        <h4 className={notifStyle.notificationTitle}>Lorem Ipsum Dolor Sit Amet Consectetur</h4>
+                                        <span className={notifStyle.notificationTime}>09:20pm</span>
+                                    </div>
+                                    <p className={notifStyle.notificationDescription}>
+                                        Lorem ipsum dolor sit amet consectetur. Nisi volutpat dictum egestas vitae luctus ut.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            case 'carDetResponsive':
+                return <CarDetResponsive setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'signup':
+                return <SignUp />
             default:
                 return null;
         }
-    }, [activeTab, toggleSideMenu, activeChat, dropoffDate, pickupDate, searchQuery, handleMessageClick]);
+    }, [activeTab, toggleSideMenu, activeChat, dropoffDate, pickupDate, searchQuery, handleMessageClick, activeCategoryTab]);
 
     return (
         <div className={styles.appContainer}>
@@ -1257,6 +1477,6 @@ const HomePageResponsive = memo(() => {
             )}
         </div>
     );
-});
+};
 
 export default HomePageResponsive;
