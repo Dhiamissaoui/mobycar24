@@ -18,8 +18,8 @@ import Rides from '../../styles/profile/Rides.module.css'
 import { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBars, faBell, faKey, faCarAlt, faStar,
-  faComment, faSheetPlastic, faSignOut, faUser, faCalendarAlt, faClock,
+  faBell, faKey, faStar,
+  faUser, faCalendarAlt, faClock,
   faChevronDown,
   faHeart,
   faTachometerAlt,
@@ -30,9 +30,6 @@ import {
   faLocationDot,
   faShieldAlt,
   faX,
-  faSmile,
-  faPaperPlane,
-  faLink,
   faEnvelope,
   faEdit,
   faCheck,
@@ -54,9 +51,6 @@ import xx from '../../images/xx.png';
 import ridesAudi from '../../images/rides_audi.png';
 import { Link } from 'react-router-dom';
 
-import Board from '../../pages/Become service provider/Board';
-import Vspec from '../../pages/Become service provider/Vspec';
-import UploadPage from '../../pages/Become service provider/ImageMainUpload';
 
 
 import PorscheImage from '../../images/porsche.png';
@@ -111,9 +105,6 @@ function Payservice() {
   const [selectedSort, setSelectedSort] = useState('Latest Request');
   const [activeTab, setActiveTab] = useState('dashboard');
   const [rejectedRequests, setRejectedRequests] = useState(new Set());
-  const [isAddVehicleMode, setIsAddVehicleMode] = useState(false);
-  const [boardProps, setBoardProps] = useState({});
-  const [boardKey, setBoardKey] = useState(0);
 
   // Create refs for container height management (similar to ProfilePage)
   const dashboardContainerRef = useRef(null);
@@ -573,8 +564,7 @@ function Payservice() {
               <div className={vehStyles.carHeader}>
                 <div className={vehStyles.title}>My Vehicles</div>
                 <button onClick={() => {
-                  console.log('Add vehicle clicked, incrementing board key');
-                  setBoardKey(prev => prev + 1);
+                  console.log('Add vehicle clicked');
                   setActiveTab('boarding');
                 }} className={vehStyles.carbtn}>Add vehicle</button>
               </div>
@@ -910,7 +900,7 @@ function Payservice() {
                   </div>
                 </div>
               </div>
-              {console.log('Board props:', boardProps)}
+
             </div>
           </div>
         );
@@ -1364,8 +1354,8 @@ function Payservice() {
       case 'VcomplitedDet':
         return (
           <div className={VcompStyles.wrapper}>
-          <div className={VcompStyles.cont}>
-            <div className={VcompStyles.left}>
+            <div className={VcompStyles.cont}>
+              <div className={VcompStyles.left}>
                 {/* <div className={VcompStyles.rideAlert}>
                 <h2 className={VcompStyles.alertTitle}>The ride is Completed on 16 Feb 2024</h2>
                 <p className={VcompStyles.alertText}>
@@ -1475,33 +1465,33 @@ function Payservice() {
                     </div>
                   </div>
                 </div>
-              <div className={VcompStyles.feedBackCont}>
-                <div className={VcompStyles.txtCont}>
-                  <div className={VcompStyles.head}>Feedback by the consumer</div>
-                  <div className={VcompStyles.starCont}>
-                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                    <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
-                    <FontAwesomeIcon icon={faStar} className={VcompStyles.starBlack} />
+                <div className={VcompStyles.feedBackCont}>
+                  <div className={VcompStyles.txtCont}>
+                    <div className={VcompStyles.head}>Feedback by the consumer</div>
+                    <div className={VcompStyles.starCont}>
+                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                      <FontAwesomeIcon icon={faStar} className={VcompStyles.star} />
+                      <FontAwesomeIcon icon={faStar} className={VcompStyles.starBlack} />
+                    </div>
+                    <div className={VcompStyles.txt}>“Lorem ipsum dolor sit amet consectetur. Ac vitae at cursus venenatis lectus. Leo vestib pulvinar porttitor scelerisque vestibulum a nulla. Varius turpis in rhocus”.</div>
                   </div>
-                  <div className={VcompStyles.txt}>“Lorem ipsum dolor sit amet consectetur. Ac vitae at cursus venenatis lectus. Leo vestib pulvinar porttitor scelerisque vestibulum a nulla. Varius turpis in rhocus”.</div>
+                  <button onClick={() => setisfeedbackActive(true)} className={VcompStyles.btn}>Send feedback</button>
                 </div>
-                <button onClick={() => setisfeedbackActive(true)} className={VcompStyles.btn}>Send feedback</button>
-              </div>
 
 
 
                 <div className={VcompStyles.reportCont}>
-                <div className={VcompStyles.reportHead}>Report</div>
+                  <div className={VcompStyles.reportHead}>Report</div>
                   <div>
-                  <label>Booking Id</label>
+                    <label>Booking Id</label>
                     <input placeholder='Enter booking ID' className={VcompStyles.reportInput} type='text' />
-                  <label>Description</label>
+                    <label>Description</label>
                     <textarea style={{ outline: 'none !important' }} placeholder='inputs' className={VcompStyles.reportInputx} cols={10} rows={30}></textarea>
-                  <button type='submit' className={Rides.reportSub}>Submit</button>
-              </div>
-            </div>
+                    <button type='submit' className={Rides.reportSub}>Submit</button>
+                  </div>
+                </div>
               </div>
               <div className={StartingSoonStyle.rightCont}>
                 <div className={StartingSoonStyle.rightHeader}>
@@ -1511,7 +1501,7 @@ function Payservice() {
                 <div className={StartingSoonStyle.priceCont}>
                   <div className={StartingSoonStyle.price}>£153</div>
                   <div className={StartingSoonStyle.Paid}>Paid</div>
-              </div>
+                </div>
 
                 <div className={StartingSoonStyle.inpCont}>
                   <div className={StartingSoonStyle.labelTitle}>Pick-up date & time</div>
@@ -1519,51 +1509,51 @@ function Payservice() {
                     <div className={StartingSoonStyle.calcont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faCalendarAlt} />
                       <input type='text' placeholder='15 Feb 2024' className={StartingSoonStyle.inp} />
-                  </div>
+                    </div>
                     <div className={StartingSoonStyle.timecont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faClock} />
                       <input type='text' placeholder='12:05 Pm' className={StartingSoonStyle.inpx} />
+                    </div>
                   </div>
-                </div>
                   <div className={StartingSoonStyle.labelTitle}>Drop-off date & time</div>
                   <div className={StartingSoonStyle.calInp}>
                     <div className={StartingSoonStyle.calcont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faCalendarAlt} />
                       <input type='text' placeholder='16 Feb 2024' className={StartingSoonStyle.inp} />
-                  </div>
+                    </div>
                     <div className={StartingSoonStyle.timecont}>
                       <FontAwesomeIcon className={StartingSoonStyle.calIcon} icon={faClock} />
                       <input type='text' placeholder='12:05 Pm' className={StartingSoonStyle.inpx} />
+                    </div>
                   </div>
-                </div>
                   <div className={StartingSoonStyle.labelTitle}>Pick-up Location</div>
                   <div className={StartingSoonStyle.locInp}>
                     <FontAwesomeIcon className={StartingSoonStyle.IconLoc} icon={faLocationDot} />
                     <input type='text' placeholder='Dummy Location 01' className={StartingSoonStyle.loc} />
-                </div>
+                  </div>
                   <div className={StartingSoonStyle.labelTitle}>Drop-off Location</div>
                   <div className={StartingSoonStyle.locInp}>
                     <FontAwesomeIcon className={StartingSoonStyle.IconLoc} icon={faLocationDot} />
                     <input type='text' placeholder='Dummy Location 02' className={StartingSoonStyle.loc} />
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className={`${VcompStyles.feedbackScrollCont} ${isfeedbackActive ? VcompStyles.activeFeedback : ""}`}>
               <div className={VcompStyles.feedbackModal}>
-              <FontAwesomeIcon onClick={() => setisfeedbackActive(false)} icon={faX} className={VcompStyles.closeIcon} />
-              <div className={VcompStyles.feedbackTitle}>Send feedback to the consumer for this rental ride</div>
-              <div className={VcompStyles.feedbackPara}>Lorem ipsum dolor sit amet consectetur.</div>
-              <div className={VcompStyles.feedbackStarCont}>
-                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
-                <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStarx} />
+                <FontAwesomeIcon onClick={() => setisfeedbackActive(false)} icon={faX} className={VcompStyles.closeIcon} />
+                <div className={VcompStyles.feedbackTitle}>Send feedback to the consumer for this rental ride</div>
+                <div className={VcompStyles.feedbackPara}>Lorem ipsum dolor sit amet consectetur.</div>
+                <div className={VcompStyles.feedbackStarCont}>
+                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStar} />
+                  <FontAwesomeIcon icon={faStar} className={VcompStyles.feedbackStarx} />
+                </div>
+                <textarea className={VcompStyles.writeText} cols={30} rows={10} placeholder='write a review'></textarea>
+                <button onClick={() => setisfeedbackActive(false)} className={VcompStyles.feedbackBtn}>Send feedback</button>
               </div>
-              <textarea className={VcompStyles.writeText} cols={30} rows={10} placeholder='write a review'></textarea>
-              <button onClick={() => setisfeedbackActive(false)} className={VcompStyles.feedbackBtn}>Send feedback</button>
-            </div>
             </div>
           </div>
         );
@@ -1642,14 +1632,14 @@ function Payservice() {
           //   </div>
           // </div >
 
-            <div className={Messages['messages-container']}>
-              {/* Left sidebar - Conversation list */}
-              <div className={Messages['conversation-list']}>
-                <div className={Messages['search-bar']}>
+          <div className={Messages['messages-container']}>
+            {/* Left sidebar - Conversation list */}
+            <div className={Messages['conversation-list']}>
+              <div className={Messages['search-bar']}>
                 <FontAwesomeIcon icon={faSearch} className={Messages['search-icon']} />
-                  <input type='text' placeholder='search here ...' className={Messages['searchB']} />
+                <input type='text' placeholder='search here ...' className={Messages['searchB']} />
 
-                </div>
+              </div>
               <div>
                 {conversations.map((convo, index) => (
                   <div
@@ -1671,16 +1661,16 @@ function Payservice() {
                   </div>
                 ))}
               </div>
-              </div>
+            </div>
 
-              {/* Right side - Active chat */}
+            {/* Right side - Active chat */}
 
 
 
             < div className={Messages['active-chat']} >
-                {/* Chat header */}
+              {/* Chat header */}
               < div className={Messages['chat-header']} >
-                  <div className={Messages['chat-user']}>
+                <div className={Messages['chat-user']}>
                   <div className='d-flex'>
                     <div className={Messages['chat-avatar']}></div>
                     <div>
@@ -1692,9 +1682,9 @@ function Payservice() {
                 </div>
               </div>
               <div style={{ height: '1px', backgroundColor: '#ECECEC', width: '95%', margin: '0 auto' }}></div>
-                {/* Messages area */}
-                <div className={Messages['messages-area']}>
-                  {activeChat.messages.map((msg, index) => (
+              {/* Messages area */}
+              <div className={Messages['messages-area']}>
+                {activeChat.messages.map((msg, index) => (
                   <div style={{ width: '100%' }}>
                     < div
                       key={index}
@@ -1709,15 +1699,15 @@ function Payservice() {
                       }`}>{msg.time}</div>
                   </div>
 
-                  ))}
-                </div>
+                ))}
+              </div>
 
-                {/* Message input */}
-                <div className={Messages['message-input-container']}>
-                  <input
-                    type="text"
-                    placeholder="Type A Message..."
-                    className={Messages['message-input']}
+              {/* Message input */}
+              <div className={Messages['message-input-container']}>
+                <input
+                  type="text"
+                  placeholder="Type A Message..."
+                  className={Messages['message-input']}
 
                 />
                 <div className={Messages.contIconInput}>
@@ -1730,10 +1720,10 @@ function Payservice() {
                   <svg className={Messages.iconInput} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                   </svg>
-                  </div>
-
-
                 </div>
+
+
+              </div>
             </div >
           </div >
         );
