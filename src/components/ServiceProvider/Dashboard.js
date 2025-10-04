@@ -454,14 +454,14 @@ function Payservice() {
               </div>
               <div className={ViewStyle.main}>
                 <div className={ViewStyle.headtitle}>Assigned Car Details</div>
-                <div class="card mb-3" >
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src={ridesAudi} class={`img-fluid rounded-start ${ViewStyle.cardImg}`} alt="..." />
+                <div className="card mb-3" >
+                  <div className="row g-0">
+                    <div className="col-md-4">
+                      <img src={ridesAudi} className={`img-fluid rounded-start ${ViewStyle.cardImg}`} alt="..." />
                     </div>
-                    <div class={`col-md-8 ${ViewStyle.cardCont}`}>
-                      <div class="card-body">
-                        <h5 class="card-title">Rent Audi A6 (Blue), 2024</h5>
+                    <div className={`col-md-8 ${ViewStyle.cardCont}`}>
+                      <div className="card-body">
+                        <h5 className="card-title">Rent Audi A6 (Blue), 2024</h5>
                         <div className={ViewStyle.contEelement}>
                           <div className={ViewStyle.starCont}>
                             <FontAwesomeIcon className={ViewStyle.StarIcon} icon={faStar} />
@@ -476,8 +476,8 @@ function Payservice() {
                             <div className={ViewStyle.insurIcon}>4.5</div>
                           </div>
                         </div>
-                        <p style={{ color: "black" }} class="card-text ">card number :<small class={`text-body-secondary ${ViewStyle.code}`}>8D22A1245</small></p><br />
-                        <p style={{ color: "black" }} class="card-text">Registration Number:<small class={`text-body-secondary ${ViewStyle.code}`}>12548879</small></p>
+                        <p style={{ color: "black" }} className="card-text ">card number :<small className={`text-body-secondary ${ViewStyle.code}`}>8D22A1245</small></p><br />
+                        <p style={{ color: "black" }} className="card-text">Registration Number:<small className={`text-body-secondary ${ViewStyle.code}`}>12548879</small></p>
                       </div>
                     </div>
                   </div>
@@ -485,18 +485,18 @@ function Payservice() {
                 <hr />
                 <div className={ViewStyle.footerCont}>
                   <div className={ViewStyle.headtitle}>Consumer details</div>
-                  <div class="card mb-3" >
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src={profile_pic} class={ViewStyle.profile_img_footer} alt="..." />
+                  <div className="card mb-3" >
+                    <div className="row g-0">
+                      <div className="col-md-4">
+                        <img src={profile_pic} className={ViewStyle.profile_img_footer} alt="..." />
                       </div>
-                      <div class="col-md-8">
-                        <div style={{ marginLeft: "-120px" }} class="card-body">
-                          <h5 class="card-title">Esther Howard</h5>
-                          <p class="card-text" style={{ color: "rgba(145, 145, 145, 1)" }}>2,719 trips  |  Joined Oct 2015</p><br />
-                          <p class="card-text">Email address:<small style={{ color: "rgba(145, 145, 145, 1)", marginLeft: "10px" }} >loremipsum@gmail.com</small></p><br />
-                          <p class="card-text">Contact number:<small style={{ color: "rgba(145, 145, 145, 1)", marginLeft: "10px" }} id={ViewStyle.colorGrey} >110 4598 2366</small></p><br />
-                          <p class="card-text">Driving License ID:<small style={{ color: "rgba(145, 145, 145, 1)", marginLeft: "10px" }} id={ViewStyle.colorGrey} >123456789</small></p>
+                      <div className="col-md-8">
+                        <div style={{ marginLeft: "-120px" }} className="card-body">
+                          <h5 className="card-title">Esther Howard</h5>
+                          <p className="card-text" style={{ color: "rgba(145, 145, 145, 1)" }}>2,719 trips  |  Joined Oct 2015</p><br />
+                          <p className="card-text">Email address:<small style={{ color: "rgba(145, 145, 145, 1)", marginLeft: "10px" }} >loremipsum@gmail.com</small></p><br />
+                          <p className="card-text">Contact number:<small style={{ color: "rgba(145, 145, 145, 1)", marginLeft: "10px" }} id={ViewStyle.colorGrey} >110 4598 2366</small></p><br />
+                          <p className="card-text">Driving License ID:<small style={{ color: "rgba(145, 145, 145, 1)", marginLeft: "10px" }} id={ViewStyle.colorGrey} >123456789</small></p>
                         </div>
                       </div>
                     </div>

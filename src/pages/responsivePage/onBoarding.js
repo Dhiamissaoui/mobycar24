@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../../styles/responsiveStyle/onboarding.module.css'
+import styles from '../../styles/responsiveStyle/Onboarding.module.css'
 import home2Image from '../../images/resposiveImgs/home_2.png';
 
 function OnBoarding() {
