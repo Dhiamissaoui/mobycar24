@@ -82,11 +82,9 @@
 }
 
 /* Header Styles */
-.header {
-  margin-bottom: 2.5rem;
-}
 
-.header h1 {
+
+.header .font {
   font-size: 33px;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -94,7 +92,7 @@
   text-align: center
 }
 
-.header p {
+.header .paragraph {
   font-size: 1rem;
   color: #666;
 }
@@ -137,20 +135,18 @@
 }
 
 /* Input Field Styles */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.inputField {
   width: 100%;
   padding: 0.8rem 1rem;
   border-radius: 4px;
   font-size: 0.9rem;
   border: none;
-
+  background-color: #F2F2F2;
 }
 
 
 /* File Input Styles */
-input[type="file"] {
+.fileInput {
   width: 100%;
   padding: 0.8rem 1rem;
   border: 1px dashed #ddd;
@@ -168,7 +164,7 @@ input[type="file"] {
   /* Modern browsers */
 }
 
-.inp label {
+.label {
   font-size: 0.9rem;
   color: #333;
 }
@@ -201,7 +197,7 @@ input[type="file"] {
 }
 
 /* Sign In Link Styles */
-p {
+.paragraph {
   display: inline;
   font-size: 0.9rem;
   color: #666;
@@ -209,20 +205,133 @@ p {
 }
 
 
+/* Mobile-specific styles */
+.mobileBrandText {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-style: normal;
+  z-index: 2;
+}
+
+.mobileCar {
+  width: 70% !important;
+  position: absolute !important;
+  bottom: -15px !important;
+  left: 50% !important;
+  top: auto !important;
+  transform: translateX(-50%) scale(-1.2, 1.2) !important;
+  z-index: 3 !important;
+
+}
+
+.mobileBackgroundLine {
+  position: absolute;
+  bottom: 40px;
+  left: 5%;
+  right: 5%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
   }
 
   .Fsection {
-    display: none;
+    background: linear-gradient(rgba(49, 0, 64, 1), rgba(158, 77, 182, 1));
+    height: 270px;
+    position: relative;
+    display: block;
+    width: 100%;
   }
 
   .Ssection {
     padding: 2rem;
     width: 100%;
+    background: white;
+    border-radius: 25px 25px 0 0;
+    margin-top: -70px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
   }
+
+  .header {
+    margin-bottom: 2.5rem;
+    margin-top: 50px;
+  }
+
+  .font {
+    font-family: "Montserrat", sans-serif !;
+    line-height: 45px !important;
+    font-size: 22px !important;
+  }
+
+  .boxSep {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .inpS {
+    transform: none;
+    width: 100%;
+  }
+
+  .inpF {
+    width: 100%;
+  }
+
+  .submit {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .check_cont {
+    transform: none;
+    text-align: center;
+  }
+
+  /* Mobile-specific upload button styling */
+  .file_upload_button {
+    background-color: white !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    padding: 0 !important;
+    border-radius: 4px;
+    margin-right: -10px !important;
+  }
+
+  .file_upload_button .uploadIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+  }
+
+
+
+
+
+
 }
 
 
@@ -247,17 +356,22 @@ p {
 
 .file_upload_container {
   border-radius: 8px;
-  padding: 25px;
-  text-align: center;
+  padding: 15px 20px;
   background-color: #F2F2F2;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
 }
 
 
 .file_upload_label {
-  display: block;
+  display: flex;
   cursor: pointer;
-  height: 0px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
@@ -271,25 +385,27 @@ p {
 .file_upload_text {
   font-size: 14px;
   color: #B1B1B1;
-  margin-bottom: 1rem;
-  display: flex;
-  transform: translate(-2%, -40%);
+  margin: 0;
+  flex: 1;
 }
 
 .file_upload_button {
-  background-color: #575757 !important;
+  background-color: #575757;
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.9rem;
   border: none;
   cursor: pointer;
   transition: 0.3s;
-  width: 100px;
-  transform: translate(370%, -145%);
-  background-color: rgba(87, 87, 87, 1);
-  border: 1px solid transparent;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: auto;
 }
+
 
 .file_upload_button:hover {
   color: rgba(158, 77, 182, 1);
@@ -322,4 +438,92 @@ p {
   transform: translate(-50%, -200%);
   cursor: pointer;
   color: #B1B1B1;
+}
+
+/* Success Popup Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+
+.thankYouModal {
+  background: white;
+  border-radius: 20px 20px 0 0;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #9E4DB6;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.checkIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.checkIcon svg {
+  width: 60px;
+  height: 60px;
+  color: #9E4DB6;
+  background: rgba(158, 77, 182, 0.1);
+  border-radius: 50%;
+  padding: 15px;
+}
+
+.modalTitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.modalDescription {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.viewDetailsBtn {
+  display: block;
+  width: 100%;
+  background-color: #9E4DB6;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.viewDetailsBtn:hover {
+  background-color: #8a3da0;
+  color: white;
 }

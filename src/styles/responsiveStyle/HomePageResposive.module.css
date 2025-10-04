@@ -1782,4 +1782,125 @@
     color: #B5B5B5;
 }
 
+/* Share Modal Styles */
+.shareIconLarge {
+    font-size: 24px;
+    color: #9E4DB6;
+}
 
+/* Contact Modal Styles (for Share Modal) */
+.contactOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+
+.contactModal {
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 30px;
+    width: 110%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: #9E4DB6;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactIconOuter {
+    width: 72px;
+    height: 72px;
+    background-color: rgba(158, 77, 182, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.contactIcon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(158, 77, 182, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1F2937;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modalDescription {
+    color: #6B7280;
+    margin-bottom: 12px;
+}
+
+.socialContacts {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 0;
+}
+
+.contactOptionHalf {
+    background-color: white;
+    border: 1px solid #9E4DB6;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #9E4DB6;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.contactOptionHalf:hover {
+    background-color: #9E4DB6;
+    color: white;
+}

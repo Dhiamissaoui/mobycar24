@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faMagnifyingGlass,
@@ -28,17 +29,37 @@ import {
     faPaperclip,
     faSmile,
     faPaperPlane,
-    faEllipsisVertical
+    faEllipsisVertical,
+    faStar,
+    faCalendarAlt,
+    faClock,
+    faEdit,
+    faShare,
+    faGaugeHigh,
+
+
+
 } from '@fortawesome/free-solid-svg-icons';
 import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { GB, FR, DE } from 'country-flag-icons/react/3x2';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+
+import phoneMsgIcon from '../../images/resposiveImgs/phonemsg.png';
 
 
 import SignUp from '../../pages/SignIn';
+import Login from '../../pages/Login';
+import ConfirmCarReserve from '../../components/Brand/carConfirm';
+import Forget from '../../pages/Forget';
+import Reset from '../../pages/Reset';
 // Import existing components
 
 // Import images
 // Brand logos
+
+//import carConfirm for the js part of it
+import ConfirmStyle from '../../styles/Brand/CarConfirm.module.css';
+
 
 import bmwLogo from '../../images/bmw logo.png';
 import mercLogo from '../../images/merc logo.png';
@@ -79,12 +100,32 @@ import cadillacImage from '../../images/car-cadillac.png';
 import profilePicResposive from '../../images/resposiveImgs/profile_pic.png';
 import profileChatPic from '../../images/resposiveImgs/profile_chat_img.png';
 
+// Import car images for completed rides
+import porsche from '../../images/porsche.png';
+import cadillac from '../../images/car-cadillac.png';
+import rolls from '../../images/car-rolls.png';
+import carLambo from '../../images/car-lambo.png';
+import carMini from '../../images/car-mini.png';
+import carRange from '../../images/car-range.png';
+import carNissan from '../../images/car-nissan.png';
+import carSpyder from '../../images/car-spyder.png';
+
+// Import images for rides
+import audiRidesImage from '../../images/rides_audi.png';
+import profileImage from '../../images/profile pic.png';
+import mapsImage from '../../images/maps.png';
+
 
 import styles from '../../styles/responsiveStyle/HomePageResposive.module.css';
 import notifStyle from '../../styles/responsiveStyle/Notification.module.css';
+import ridesStyles from '../../styles/responsiveStyle/RidesResponsive.module.css';
 import CarDetResponsive from './CarDetResponsive';
 
+import pickup from '../../images/resposiveImgs/pickup.png';
+import dropoff from '../../images/resposiveImgs/dropoff.png';
+
 const HomePageResponsive = () => {
+    const location = useLocation();
     const [activeTab, setActiveTab] = useState('home');
     const [activeCategoryTab, setActiveCategoryTab] = useState('Popular');
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -99,6 +140,42 @@ const HomePageResponsive = () => {
     const [dropoffDate, setDropoffDate] = useState('16 Feb 2024');
     const [activeChat, setActiveChat] = useState(null);
 
+    // Rides state variables
+    const [ridesTab, setRidesTab] = useState('active');
+    const [isActive, setIsActive] = useState(false);
+    const [removeFilter, setRemoveFilter] = useState(false);
+    const [pickupAddress] = useState('61549 N Lincoln Street, Brentwood 52011');
+    const [dropoffAddress] = useState('9968 Zion Corners, Port Alan 87441-8774');
+
+    // Info popup state
+    const [showInfoPopup, setShowInfoPopup] = useState(false);
+    const [infoPopupType, setInfoPopupType] = useState(''); // 'pickup' or 'dropoff'
+    const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
+
+    // Info popup handlers
+    const handleInfoClick = (type, event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        setPopupPosition({
+            top: rect.bottom - 40, // Position directly below the info icon
+            left: rect.left - 65 // Center horizontally relative to the info icon
+        });
+        setInfoPopupType(type);
+        setShowInfoPopup(true);
+        setRemoveFilter(true);
+    };
+
+    const handleCloseInfoPopup = () => {
+        setShowInfoPopup(false);
+        setInfoPopupType('');
+        setRemoveFilter(false);
+    };
+
+    // Handle navigation state
+    useEffect(() => {
+        if (location.state?.activeTab) {
+            setActiveTab(location.state.activeTab);
+        }
+    }, [location.state]);
 
     // Chat data
     const chatData = useMemo(() => ({
@@ -727,7 +804,437 @@ const HomePageResponsive = () => {
                     </div >
                 );
             case 'rides':
-                return <div className={styles.tabContent}>My Rides Content</div>;
+                switch (ridesTab) {
+                    case 'completed':
+                        return (
+                            <div className={ridesStyles.ridesContainer}>
+                                {/* Mobile Header */}
+                                <div className={styles.mobileHeader}>
+                                    <div className='fw-bold'>My Rides</div>
+                                    <div className={styles.headerIcons}>
+                                        <button onClick={() => setActiveTab('notifications')} className={styles.iconButton}>
+                                            <BellIcon className={styles.headerIcon} />
+                                        </button>
+                                        <button className={styles.iconButton} onClick={toggleSideMenu}>
+                                            <Bars3Icon className={styles.headerIcon} />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Tab Navigation */}
+                                <div className={ridesStyles.tabContainer}>
+                                    <button
+                                        onClick={() => setRidesTab('active')}
+                                        className={`${ridesStyles.tabButton} ${ridesTab === 'active' ? ridesStyles.activeTab : ''}`}
+                                    >
+                                        Active Rides
+                                    </button>
+                                    <button
+                                        onClick={() => setRidesTab('completed')}
+                                        className={`${ridesStyles.tabButton} ${ridesTab === 'completed' ? ridesStyles.activeTab : ''}`}
+                                    >
+                                        Complete Rides
+                                    </button>
+                                </div>
+
+                                {/* Completed Rides Cards */}
+                                <div className={ridesStyles.completedRidesContainer}>
+                                    {[
+                                        {
+                                            id: 1,
+                                            name: "Porsche Cayenne",
+                                            color: "Black",
+                                            image: porsche,
+                                            category: "SUV",
+                                            year: "2024",
+                                            rating: "4.5",
+                                            reviews: "54",
+                                            dates: "15 Feb 2024 To 19 Feb 2024"
+                                        },
+                                        {
+                                            id: 2,
+                                            name: "Cadillac Escalade",
+                                            color: "White",
+                                            image: cadillac,
+                                            category: "SUV",
+                                            year: "2024",
+                                            rating: "4.8",
+                                            reviews: "32",
+                                            dates: "10 Feb 2024 To 14 Feb 2024"
+                                        },
+                                        {
+                                            id: 3,
+                                            name: "Rolls Royce Dawn",
+                                            color: "Grey",
+                                            image: rolls,
+                                            category: "Convertible",
+                                            year: "2024",
+                                            rating: "4.9",
+                                            reviews: "28",
+                                            dates: "05 Feb 2024 To 09 Feb 2024"
+                                        },
+                                        {
+                                            id: 4,
+                                            name: "Lamborghini Urus",
+                                            color: "Orange",
+                                            image: carLambo,
+                                            category: "SUV",
+                                            year: "2024",
+                                            rating: "4.7",
+                                            reviews: "41",
+                                            dates: "01 Feb 2024 To 04 Feb 2024"
+                                        },
+                                        {
+                                            id: 5,
+                                            name: "Mini Cooper",
+                                            color: "White",
+                                            image: carMini,
+                                            category: "Hatchback",
+                                            year: "2024",
+                                            rating: "4.3",
+                                            reviews: "67",
+                                            dates: "28 Jan 2024 To 31 Jan 2024"
+                                        },
+                                        {
+                                            id: 6,
+                                            name: "Range Rover",
+                                            color: "Black",
+                                            image: carRange,
+                                            category: "SUV",
+                                            year: "2024",
+                                            rating: "4.6",
+                                            reviews: "38",
+                                            dates: "25 Jan 2024 To 27 Jan 2024"
+                                        },
+                                        {
+                                            id: 7,
+                                            name: "Nissan Altima",
+                                            color: "Silver",
+                                            image: carNissan,
+                                            category: "Sedan",
+                                            year: "2024",
+                                            rating: "4.4",
+                                            reviews: "52",
+                                            dates: "22 Jan 2024 To 24 Jan 2024"
+                                        },
+                                        {
+                                            id: 8,
+                                            name: "Ferrari Spyder",
+                                            color: "Red",
+                                            image: carSpyder,
+                                            category: "Sports Car",
+                                            year: "2024",
+                                            rating: "4.9",
+                                            reviews: "19",
+                                            dates: "20 Jan 2024 To 21 Jan 2024"
+                                        }
+                                    ].map(ride => (
+                                        <div key={ride.id} className={ridesStyles.completedCard}>
+                                            <div className={ridesStyles.cardImageContainer}>
+                                                <img src={ride.image} alt={ride.name} className={ridesStyles.cardImage} />
+                                            </div>
+                                            <div className={ridesStyles.cardContent}>
+                                                <div className={ridesStyles.cardCategory}>
+                                                    <span className={ridesStyles.categoryText}>{ride.category}</span>
+                                                    <FontAwesomeIcon icon={faChevronRight} className={ridesStyles.categoryArrow} />
+                                                    <span className={ridesStyles.yearText}>{ride.year}</span>
+                                                </div>
+                                                <div className={ridesStyles.cardTitle}>Rent {ride.name} </div>
+                                                <div className={ridesStyles.cardRating}>
+                                                    <FontAwesomeIcon icon={faStar} className={ridesStyles.starIcon} />
+                                                    {/* <span className={ridesStyles.ratingText}>{ride.rating} ({ride.reviews} Reviews)</span> */}
+                                                    <span className={ridesStyles.ratingText} >{ride.rating} ({ride.reviews} Reviews) </span>
+                                                </div>
+                                                <div className={ridesStyles.cardDates}>
+                                                    <FontAwesomeIcon icon={faCalendarAlt} className={ridesStyles.calendarIcon} />
+                                                    <span className={ridesStyles.datesText}>{ride.dates}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                            </div>
+                        )
+                    default:
+                        return (
+                            <div className={ridesStyles.ridesContainer}>
+                                {/* Mobile Header */}
+                                <div className={styles.mobileHeader}>
+                                    <div className='fw-bold'>My Rides</div>
+                                    <div className={styles.headerIcons}>
+                                        <button onClick={() => setActiveTab('notifications')} className={styles.iconButton}>
+                                            <BellIcon className={styles.headerIcon} />
+                                        </button>
+                                        <button className={styles.iconButton} onClick={toggleSideMenu}>
+                                            <Bars3Icon className={styles.headerIcon} />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Tab Navigation */}
+                                <div className={ridesStyles.tabContainer}>
+                                    <button
+                                        onClick={() => { setRidesTab('active'); }}
+                                        className={`${ridesStyles.tabButton} ${ridesTab === 'active' ? ridesStyles.activeTab : ''}`}
+                                    >
+                                        Active Rides
+                                    </button>
+                                    <button
+                                        onClick={() => setRidesTab('completed')}
+                                        className={`${ridesStyles.tabButton} ${ridesTab === 'completed' ? ridesStyles.activeTab : ''}`}
+                                    >
+                                        Complete Rides
+                                    </button>
+                                </div>
+
+                                {/* Your Ride Is Starting Soon Section */}
+                                <div className={ridesStyles.thankYouSection}>
+                                    <h1 className={ridesStyles.thankYouTitle}>Your Ride Is Starting Soon!</h1>
+                                    <p className={ridesStyles.thankYouDescription}>
+                                        Lorem ipsum dolor sit amet consectetur. Ut proin sociis pellentesque aliquam.
+                                        Vulputate nisl vel diam eu. Risus natoque consectetur.
+                                    </p>
+                                </div>
+
+                                {/* Assigned Car Details */}
+                                {/* Car Details Card */}
+                                <div style={{ fontWeight: 'bold', fontSize: '16px', margin: '20px 0' }}>Assigned car details</div>
+                                <div className={ConfirmStyle.carDetailsCard}>
+
+                                    <div className={ConfirmStyle.carImageContainer}>
+
+                                        <img src={audiRidesImage} alt='Audi A6' className={ConfirmStyle.carImage} />
+                                    </div>
+                                    <div className={ConfirmStyle.carInfo}>
+                                        <div className={ConfirmStyle.carCategory}>SUV • 2024</div>
+                                        <div className='d-flex gap-2'>
+                                            <div className={ConfirmStyle.carName}>Rent Audi A6 (Blue)</div>
+                                            <div className={ConfirmStyle.carRating}>
+                                                <FontAwesomeIcon icon={faStar} className={ConfirmStyle.starIcon} />
+                                                <span className={ConfirmStyle.ratingText}>4.5</span>
+                                            </div>
+                                        </div>
+
+
+                                        <div className={ConfirmStyle.carSpecs}>
+                                            <div className={ConfirmStyle.specItem}>
+                                                <FontAwesomeIcon icon={faGaugeHigh} className={ConfirmStyle.specIcon} />
+                                                <span>250 Km/Day</span>
+                                            </div>
+                                            <div className={ConfirmStyle.specItem}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={ConfirmStyle.specIcon}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                                                </svg>
+                                                <span>Insurance Included</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Car Number and Registration Details */}
+                                <div className={ridesStyles.carNumberCard}>
+                                    <div className={ridesStyles.carNumberSection}>
+                                        <div className={ridesStyles.carNumberLabel}>Car Number:</div>
+                                        <div className={ridesStyles.carNumberValue}>8D22A1245</div>
+                                    </div>
+                                    <div className={ridesStyles.carNumberDivider}></div>
+                                    <div className={ridesStyles.carNumberSection}>
+                                        <div className={ridesStyles.carNumberLabel}>Registration Number:</div>
+                                        <div className={ridesStyles.carNumberValue}>123456789</div>
+                                    </div>
+                                </div>
+
+                                {/* Service Provider Details */}
+                                <div className={ridesStyles.serviceProviderCard}>
+                                    <h3 className={ridesStyles.serviceProviderTitle}>Service Provider Details</h3>
+                                    <div className={ridesStyles.serviceProviderInfo}>
+                                        <img src={profileImage} alt='Service Provider' className={ridesStyles.providerImage} />
+                                        <div className={ridesStyles.providerDetails}>
+                                            <div className={ridesStyles.providerName}>Esther Howard</div>
+                                            <div className={ridesStyles.providerStats}>2,719 Trips | Joined Oct 2015</div>
+                                            <div className={ridesStyles.providerResponse}>Typically responds in 4 minutes</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Date & Time Container */}
+                                <div className={ridesStyles.dateTimeContainer}>
+                                    {/* Pick-up Date & Time */}
+                                    <div className={ridesStyles.dateTimeSection}>
+                                        <h3 className={ridesStyles.dateTimeTitle}>
+                                            Pick-up date & time
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth={1.5}
+                                                stroke="currentColor"
+                                                className={ridesStyles.infoIcon}
+                                                onClick={(e) => handleInfoClick('pickup', e)}
+                                                style={{ cursor: 'pointer' }}
+                                            >
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+                                        </h3>
+                                        <div className={ridesStyles.dateTimeInput}>
+                                            <div className={ridesStyles.dateTimeLeft}>
+                                                <FontAwesomeIcon icon={faCalendarAlt} className={ridesStyles.dateTimeIcon} />
+                                                <span>25th dec, 2024</span>
+                                            </div>
+                                            <div className={ridesStyles.dateTimeDivider}></div>
+                                            <div className={ridesStyles.dateTimeRight}>
+                                                <FontAwesomeIcon icon={faClock} className={ridesStyles.dateTimeIcon} />
+                                                <span>12:00 pm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Drop-off Date & Time */}
+                                    <div className={ridesStyles.dateTimeSection}>
+                                        <h3 className={ridesStyles.dateTimeTitle}>
+                                            Drop off date & time
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth={1.5}
+                                                stroke="currentColor"
+                                                className={ridesStyles.infoIcon}
+                                                onClick={(e) => handleInfoClick('dropoff', e)}
+                                                style={{ cursor: 'pointer' }}
+                                            >
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                            </svg>
+                                        </h3>
+                                        <div className={ridesStyles.dateTimeInput}>
+                                            <div className={ridesStyles.dateTimeLeft}>
+                                                <FontAwesomeIcon icon={faCalendarAlt} className={ridesStyles.dateTimeIcon} />
+                                                <span>25th dec, 2024</span>
+                                            </div>
+                                            <div className={ridesStyles.dateTimeDivider}></div>
+                                            <div className={ridesStyles.dateTimeRight}>
+                                                <FontAwesomeIcon icon={faClock} className={ridesStyles.dateTimeIcon} />
+                                                <span>12:00 pm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Location and Map Container */}
+                                <div className={ridesStyles.locationMapContainer}>
+                                    {/* Pick-up Location */}
+                                    <div className={ridesStyles.locationSection}>
+                                        <h3 className={ridesStyles.locationTitle}>Pick-up location</h3>
+                                        <div className={ridesStyles.locationInput}>
+                                            <span className={ridesStyles.locationText}>{pickupAddress}</span>
+                                            <FontAwesomeIcon icon={faChevronDown} className={ridesStyles.dropdownIcon} />
+                                        </div>
+                                    </div>
+
+                                    {/* Drop-off Location */}
+                                    <div className={ridesStyles.locationSection}>
+                                        <h3 className={ridesStyles.locationTitle}>Drop-off location</h3>
+                                        <div className={ridesStyles.locationInput}>
+                                            <span className={ridesStyles.locationText}>{dropoffAddress}</span>
+                                            <FontAwesomeIcon icon={faChevronDown} className={ridesStyles.dropdownIcon} />
+                                        </div>
+                                        <button className={ridesStyles.editButton}>
+                                            <FontAwesomeIcon icon={faEdit} />
+                                            Edit
+                                        </button>
+                                    </div>
+
+                                    {/* Map Section */}
+                                    <div className={ridesStyles.mapSection}>
+                                        <div className={ridesStyles.mapContainer}>
+                                            <img src={mapsImage} alt="Map" className={ridesStyles.mapImage} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Price Section */}
+                                <div className={ridesStyles.priceSection}>
+                                    <div className={ridesStyles.priceInfo}>
+                                        <div className={ridesStyles.priceLabel}>Price For 5 Days</div>
+                                        <div className={ridesStyles.priceAmount}>£153</div>
+                                        <div className={ridesStyles.priceDetails}>View Price Details</div>
+                                    </div>
+                                    <button className={ridesStyles.reserveBtn} onClick={() => setActiveTab('pay')}>Pay</button>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className={ridesStyles.actionButtons}>
+                                    <button
+                                        className={ridesStyles.cancelButton}
+                                        onClick={() => setActiveTab('cancel')}
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className={ridesStyles.shareButton}
+                                        onClick={() => { setIsActive(true); setRemoveFilter(true); }}
+                                    >
+                                        <FontAwesomeIcon icon={faShare} className={ridesStyles.shareIconBtn} />
+                                    </button>
+                                </div>
+
+                                {/* Report Section */}
+                                <div className={ridesStyles.reportSection}>
+                                    <h3 className={ridesStyles.reportTitle}>Report</h3>
+                                    <div>
+                                        <div style={{ fontSize: '14px', fontWeight: '600', marginBottom: '8px' }}>Booking ID</div>
+                                        <input
+                                            placeholder='Enter booking ID'
+                                            className={ridesStyles.reportInput}
+                                            type='text'
+                                        />
+                                        <div style={{ fontSize: '14px', fontWeight: '600', marginBottom: '8px', marginTop: '15px' }}>Description</div>
+                                        <textarea
+                                            placeholder='Input'
+                                            className={ridesStyles.reportTextarea}
+                                        ></textarea>
+                                        <button type='submit' className={ridesStyles.submitButton}>Submit</button>
+                                    </div>
+                                </div>
+
+                                {/* Share Modal */}
+                                {isActive && (
+                                    <div className={styles.contactOverlay} onClick={() => { setIsActive(false); setRemoveFilter(false); }}>
+                                        <div className={styles.contactModal} onClick={(e) => e.stopPropagation()}>
+                                            <button
+                                                className={styles.closeBtn}
+                                                onClick={() => { setIsActive(false); setRemoveFilter(false); }}
+                                            >
+                                                <FontAwesomeIcon icon={faXmark} />
+                                            </button>
+                                            <div className={styles.contactIconOuter}>
+                                                <div className={styles.contactIcon}>
+                                                    <img src={phoneMsgIcon} alt="Contact" />
+                                                </div>
+                                            </div>
+                                            <div className={styles.modalTitle}>Share The Trip Via</div>
+                                            <p className={styles.modalDescription}>Lorem ipsum dolor sit amet consectetur.</p>
+
+                                            <div className={styles.socialContacts}>
+                                                <button className={styles.contactOptionHalf}>
+                                                    <FontAwesomeIcon icon={faWhatsapp} />
+                                                    WhatsApp
+                                                </button>
+                                                <button className={styles.contactOptionHalf}>
+                                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                                    Telegram
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                            </div>
+                        );
+
+                }
+
             case 'search':
                 return (
                     <div className={styles.searchContainer}>
@@ -1245,12 +1752,148 @@ const HomePageResponsive = () => {
                 );
             case 'carDetResponsive':
                 return <CarDetResponsive setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'viewDetails':
+                return <ConfirmCarReserve setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
             case 'signup':
                 return <SignUp />
+            case 'login':
+                return <Login />
+            case 'forgot':
+                return <Forget />
+            case 'resetpass':
+                return <Reset />
+
+            case 'pay':
+                return (
+                    <div className={ridesStyles.paymentContainer}>
+                        {/* Header */}
+                        <div className={styles.categoriesHeader}>
+                            <button className={styles.backButton} onClick={() => setActiveTab('rides')}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <h1 className={ridesStyles.categoriesTitle}>Payment</h1>
+                            <div className={styles.categoriesHeaderIcons}>
+                                <button className={styles.headerIconButton}>
+                                    <BellIcon className={styles.headerIcon} />
+                                </button>
+                                <button className={styles.headerIconButton} onClick={toggleSideMenu}>
+                                    <Bars3Icon className={styles.headerIcon} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Payment Form */}
+                        <div className={ridesStyles.paymentForm}>
+                            <h2 className={ridesStyles.paymentFormTitle}>Card Information</h2>
+
+                            <div className={ridesStyles.paymentFormGroup}>
+                                <label className={ridesStyles.paymentLabel}>Card Holder Name</label>
+                                <input
+                                    type="text"
+                                    className={ridesStyles.paymentInput}
+                                    placeholder="Enter name"
+                                />
+                            </div>
+
+                            <div className={ridesStyles.paymentFormGroup}>
+                                <label className={ridesStyles.paymentLabel}>Card Number</label>
+                                <input
+                                    type="text"
+                                    className={ridesStyles.paymentInput}
+                                    placeholder="Enter card number"
+                                />
+                            </div>
+
+                            <div className={ridesStyles.paymentRow}>
+                                <div className={ridesStyles.paymentFormGroup}>
+                                    <label className={ridesStyles.paymentLabel}>Expiry Date</label>
+                                    <input
+                                        type="text"
+                                        className={ridesStyles.paymentInput}
+                                        placeholder="--/--"
+                                    />
+                                </div>
+                                <div className={ridesStyles.paymentFormGroup}>
+                                    <label className={ridesStyles.paymentLabel}>CVV</label>
+                                    <input
+                                        type="text"
+                                        className={ridesStyles.paymentInput}
+                                        placeholder="Enter CVV number"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className={ridesStyles.paymentButtons}>
+                                <button className={ridesStyles.payButton}>Pay £241.50</button>
+                                <button className={ridesStyles.cancelButton}>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                )
+
+            case 'cancel':
+                return (
+                    <div className={ridesStyles.cancelContainer}>
+                        {/* Header */}
+                        <div className={ridesStyles.categoriesHeader}>
+                            <button className={styles.backButton} onClick={() => setActiveTab('rides')}>
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                            <h1 className={ridesStyles.categoriesTitle}>Cancel Rides</h1>
+                            <div className={styles.categoriesHeaderIcons}>
+                                <button className={styles.headerIconButton}>
+                                    <BellIcon className={styles.headerIcon} />
+                                </button>
+                                <button className={styles.headerIconButton} onClick={toggleSideMenu}>
+                                    <Bars3Icon className={styles.headerIcon} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Cancel Content */}
+                        <div className={ridesStyles.cancelContent}>
+                            <div className={ridesStyles.cancelTitle}>Are You Sure Want To Cancel?</div>
+                            <p className={ridesStyles.cancelDescription}>Lorem ipsum dolor sit amet consectetur Odio ac pretium.</p>
+
+                            <div className={ridesStyles.cancelPolicy}>
+                                <h3 className={ridesStyles.cancelPolicyTitle}>Cancellation Policy</h3>
+                                <p className={ridesStyles.cancelPolicyText}>
+                                    Lorem ipsum dolor sit amet consectetur. Fermentum mi sed turpis adipiscing pellentesque ut odio mauris praesent. Neque adipiscing ut at est id tortor feugiat. Non enim blandit tincidunt molestie commodo diam arcu fermentum. Eget felis urna placerat lobortis volutpat sed lorem sit.
+                                </p>
+                                <p className={ridesStyles.cancelPolicyText}>
+                                    Nullam elit amet tortor gravida odio enim. Mauris ut at mattis gravida sed neque mattis at. Dui nascetur velit non et felis. Lectus ornare mauris adipiscing et et faucibus pellentesque nulla. Id aliquam elit fermentum tincidunt risus.
+                                </p>
+                            </div>
+
+                            <div className={ridesStyles.cancelDropdown}>
+                                <label className={ridesStyles.cancelDropdownLabel}>Select reason</label>
+                                <div className="dropdown">
+                                    <button
+                                        className={`btn dropdown-toggle ${ridesStyles.cancelDropdownButton}`}
+                                        type="button"
+                                        id="cancelReasonDropdown"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        Select
+                                    </button>
+                                    <ul className="dropdown-menu" aria-labelledby="cancelReasonDropdown">
+                                        <li><button className="dropdown-item" type="button">Changed my mind</button></li>
+                                        <li><button className="dropdown-item" type="button">Found another ride</button></li>
+                                        <li><button className="dropdown-item" type="button">Emergency</button></li>
+                                        <li><button className="dropdown-item" type="button">Other</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <button className={ridesStyles.cancelSubmitButton}>Cancel</button>
+                        </div>
+                    </div>
+                )
             default:
-                return null;
+                return <div>no case is chosen</div>;
         }
-    }, [activeTab, toggleSideMenu, activeChat, dropoffDate, pickupDate, searchQuery, handleMessageClick, activeCategoryTab]);
+    }, [activeTab, toggleSideMenu, activeChat, dropoffDate, pickupDate, searchQuery, handleMessageClick, activeCategoryTab, dropoffAddress, isActive, pickupAddress, ridesTab]);
 
     return (
         <div className={styles.appContainer}>
@@ -1288,7 +1931,7 @@ const HomePageResponsive = () => {
                     <div className={styles.menuItem}>
                         <FontAwesomeIcon icon={faMedal} className={styles.menuIcon} />
 
-                        <span>Brands</span>
+                        <span onClick={() => { setActiveTab('brands'); setIsSideMenuOpen(false); }}>Brands</span>
                     </div>
 
                     {/* Language */}
@@ -1442,8 +2085,9 @@ const HomePageResponsive = () => {
                 </div>
             </div>
 
-            {/* Fixed Bottom Navigation - Hidden in Chat */}
-            {activeTab !== 'chat' && (
+            {/* Fixed Bottom Navigation - Hidden in Chat and ViewDetails */}
+
+            {activeTab !== 'chat' && activeTab !== 'viewDetails' && activeTab !== 'login' && activeTab !== 'resetpass' && activeTab !== 'forgot' && activeTab !== 'signup' && (activeTab !== 'rides' || ridesTab === 'completed') && (
                 <div className={styles.bottomNav}>
                     <button
                         className={`${styles.navItem} ${activeTab === 'home' ? styles.active : ''}`}
@@ -1473,6 +2117,26 @@ const HomePageResponsive = () => {
                         <FontAwesomeIcon icon={faCarSide} className={styles.navIcon} />
                         <span className={styles.navLabel}>My rides</span>
                     </button>
+                </div>
+            )}
+
+            {/* Info Popup Modal */}
+            {removeFilter && showInfoPopup && (
+                <div className={ridesStyles.overlay} onClick={handleCloseInfoPopup}></div>
+            )}
+            {showInfoPopup && (
+                <div
+                    className={ridesStyles.infoPopup}
+                    style={{
+                        top: `${popupPosition.top}px`,
+                        left: `${popupPosition.left}px`
+                    }}
+                >
+                    <img
+                        src={infoPopupType === 'pickup' ? pickup : dropoff}
+                        alt={infoPopupType === 'pickup' ? 'Pickup Info' : 'Dropoff Info'}
+                        className={ridesStyles.infoPopupImage}
+                    />
                 </div>
             )}
         </div>

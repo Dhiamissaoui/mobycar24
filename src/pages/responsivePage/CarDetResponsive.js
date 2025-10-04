@@ -4,17 +4,14 @@ import {
     faHeart,
     faCalendar,
     faGaugeHigh,
-    faCheck,
     faPhone,
     faStar,
     faX,
     faChevronLeft,
     faChevronRight,
-    faChevronDown
 } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faTelegram } from '@fortawesome/free-brands-svg-icons';
 import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
 import { GB, US, CA, AU, DE, FR, ES, IT } from 'country-flag-icons/react/3x2';
 import styles from '../../styles/responsiveStyle/CarDetResponsive.module.css';
 
@@ -27,7 +24,6 @@ import phoneMsgIcon from '../../images/resposiveImgs/phonemsg.png';
 const CarDetResponsive = ({ setActiveTab, toggleSideMenu }) => {
     const [contactActive, setContactActive] = useState(false);
     const [bookingActive, setBookingActive] = useState(false);
-    const [thanksActive, setThanksActive] = useState(false);
     const [isFavorited, setIsFavorited] = useState(false);
     const [activeFaqIndex, setActiveFaqIndex] = useState(null);
     const [selectedCountry, setSelectedCountry] = useState('GB');
@@ -104,7 +100,6 @@ const CarDetResponsive = ({ setActiveTab, toggleSideMenu }) => {
 
     const handleBookingSubmit = () => {
         setBookingActive(false);
-        setThanksActive(true);
         setActiveTab('signup')
     };
 
@@ -730,26 +725,6 @@ const CarDetResponsive = ({ setActiveTab, toggleSideMenu }) => {
             )}
 
             {/* Thank You Modal */}
-            {thanksActive && (
-                <div className={styles.overlay} onClick={() => setThanksActive(false)}>
-                    <div className={styles.thankYouModal}>
-                        <button
-                            className={styles.closeBtn}
-                            onClick={() => setThanksActive(false)}
-                        >
-                            <FontAwesomeIcon icon={faX} />
-                        </button>
-                        <div className={styles.checkIcon}>
-                            <FontAwesomeIcon icon={faCheck} />
-                        </div>
-                        <h2 className={styles.modalTitle}>Thank You!</h2>
-                        <p className={styles.modalDescription}>Your request has been sent successfully</p>
-                        <Link to="/confirmReserve" className={styles.viewDetailsBtn}>
-                            View details
-                        </Link>
-                    </div>
-                </div>
-            )}
 
             {/* Booking Summary Modal */}
             {bookingSummaryActive && (

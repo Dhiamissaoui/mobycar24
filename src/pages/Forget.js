@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 import audi from '../images/audi_car.png'
 import Img24 from '../images/24 image logo .png'
+import lineMoveBack from '../images/resposiveImgs/Group 1707487174.png';
 import styles from '../styles/Forget.module.css';
 
 
@@ -12,30 +13,114 @@ import styles from '../styles/Forget.module.css';
 
 function Forget() {
   const [emailSent, setEmailSent] = useState(false);
+  const [otp, setOtp] = useState(['', '', '', '']);
+  const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  const handleOtpChange = (index, value) => {
+    if (value.length > 1) return; // Only allow single digit
+
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
+
+    // Auto-focus next input
+    if (value && index < 3) {
+      const nextInput = document.getElementById(`otp-${index + 1}`);
+      if (nextInput) nextInput.focus();
+    }
+  };
+
+  const handleKeyDown = (index, e) => {
+    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+      const prevInput = document.getElementById(`otp-${index - 1}`);
+      if (prevInput) prevInput.focus();
+    }
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.Fsection}>
-        <div className={styles.moby}>MOBY</div>
-        <div className={styles.car}>CAR</div>
-        <img className={styles.number} src={Img24} alt='ddd' />
-        <div className={styles.line}></div>
-        <img className={styles.bg} alt='bg' src={audi} />
+        {!isMobile && (
+          <>
+            <div className={styles.moby}>MOBY</div>
+            <div className={styles.car}>CAR</div>
+            <img className={styles.number} src={Img24} alt='ddd' />
+          </>
+        )}
+        {isMobile && (
+          <div>
+            <div className={styles.mobileBrandText}>MOBY<span style={{ borderBottom: '1px solid white', paddingBottom: '2px' }}>CAR24</span></div>
+            <img src={lineMoveBack} style={{ height: '300px', transform: 'translateY(-30%)', width: '100%' }} alt='lineMoveBack' />
+          </div>
+        )}
+        {!isMobile && <div className={styles.line}></div>}
+        <img className={`${styles.bg} ${isMobile ? styles.mobileCar : ''}`} alt='bg' src={audi} />
+        {isMobile && <div className={styles.mobileBackgroundLine}></div>}
       </div>
       <div className={styles.Ssection}>
-        <div className={styles.header}>
-          <center><div className={styles.titleH}>Forgot Password</div></center>
-          <center><p className={styles.descP}>Lorem ipsum dolor sit amet consectetur volutpat eu.</p></center>
-        </div>
-        <div >
-          <div className={styles.box}>
-            <div className={styles.inp}>
-              <div className={styles.labelEmail}>Email Address</div>
-              <input type='email' placeholder='Enter Email Addresse' className={styles.placeholder} required />
+        {!isMobile ? (
+          // Desktop version - keep unchanged
+          <>
+            <div className={styles.header}>
+              <center><div className={styles.titleH}>Forgot Password</div></center>
+              <center><p className={styles.descP}>Lorem ipsum dolor sit amet consectetur volutpat eu.</p></center>
             </div>
-          </div>
-          <button className={styles.Continue} onClick={() => setEmailSent(true)} type='submit'>Continue</button>  {/* Fixed button */}
-        </div>
+            <div >
+              <div className={styles.box}>
+                <div className={styles.inp}>
+                  <div className={styles.labelEmail}>Email Address</div>
+                  <input type='email' placeholder='Enter Email Addresse' className={styles.placeholder} required />
+                </div>
+              </div>
+              <button className={styles.Continue} onClick={() => setEmailSent(true)} type='submit'>Continue</button>
+            </div>
+          </>
+        ) : (
+          // Mobile version - OTP verification
+          <>
+            <div className={styles.header}>
+              <center><div className={styles.titleH}>Enter Verification OTP</div></center>
+              <center><p className={styles.descP} style={{ color: '#919191' }}>We've sent a verification code to your registered mobile number. Please enter the code below to verify your account.</p></center>
+            </div>
+            <div className={styles.otpContainer}>
+              {[0, 1, 2, 3].map((index) => (
+                <input
+                  key={index}
+                  id={`otp-${index}`}
+                  type="text"
+                  maxLength="1"
+                  value={otp[index]}
+                  onChange={(e) => handleOtpChange(index, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                  className={styles.otpInput}
+                />
+              ))}
+            </div>
+            {isMobile ? (
+              <button className={styles.Continue} onClick={() => navigate('/HomePageResponsive', { state: { activeTab: 'resetpass' } })} type='submit'>Continue</button>
+            ) : (
+              <button className={styles.Continue} onClick={() => setEmailSent(true)} type='submit'>Continue</button>
+            )}
+            <div className={styles.resendContainer}>
+              <span className={styles.resendText}>Didn't Receive OTP? </span>
+              <button className={styles.resendButton} onClick={() => navigate('/HomePageResponsive', { state: { activeTab: 'forgot' } })}>
+                Resend it
+              </button>
+            </div>
+          </>
+        )}
       </div>
       {emailSent && <div className={styles.overlay} />}
       {
