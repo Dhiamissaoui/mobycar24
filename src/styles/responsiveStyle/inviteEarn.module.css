@@ -1,0 +1,187 @@
+/* Invite & Earn Page Container */
+.inviteEarnContainer {
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding-bottom: 80px;
+}
+
+/* Mobile Header - Using exact styling from Settings */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #9E4DB6;
+}
+
+.backButton:hover {
+    background: #e5e7eb;
+}
+
+.pageTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Main Illustration */
+.illustrationContainer {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.illustrationImage {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+}
+
+/* Content Section */
+.contentSection {
+    padding: 0 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Steps List */
+.stepsList {
+    margin-bottom: 30px;
+}
+
+.stepItem {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.stepNumber {
+    font-size: 16px;
+    font-weight: 600;
+    color: #9E4DB6;
+    min-width: 20px;
+}
+
+.stepText {
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.4;
+}
+
+/* Input Container */
+.inputContainer {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.linkInput {
+    width: 100%;
+    padding: 12px 50px 12px 16px;
+    border: none;
+    border-radius: 12px;
+    background: #f9fafb;
+    font-size: 14px;
+    color: #6B7280;
+    outline: none;
+    box-sizing: border-box;
+
+}
+
+.linkInput:focus {
+    border-color: #9E4DB6;
+}
+
+.copyButton {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 100%;
+    background: #EADFEE;
+    border: none;
+    border-radius: 12px;
+    color: #9E4DB6;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+
+
+.copyButton:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Share Link Button */
+.shareButton {
+    width: 100%;
+    padding: 16px;
+    background: #9E4DB6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.shareButton:hover {
+    background: #8B4A9B;
+}
+
+.shareButton:active {
+    transform: scale(0.98);
+}

@@ -1,0 +1,129 @@
+/* Terms and Conditions Page Container */
+.termsAndConditionsContainer {
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding-bottom: 80px;
+}
+
+/* Mobile Header - Using exact styling from Settings */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #9E4DB6;
+}
+
+.backButton:hover {
+    background: #e5e7eb;
+}
+
+.pageTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    margin-left: 5px;
+    margin-top: 7px;
+    flex: 1;
+    text-align: center;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Main Content */
+.mainContent {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Main Heading */
+.mainHeading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+/* Paragraphs */
+.paragraph {
+    font-size: 11.2px;
+    color: #6B7280;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    text-align: justify;
+}
+
+.paragraph:last-of-type {
+    margin-bottom: 30px;
+}
+
+/* Checked List */
+.checkedList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.checkedItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkIcon {
+    color: #9E4DB6;
+    font-size: 12.8px;
+    flex-shrink: 0;
+}
+
+.checkedText {
+    font-size: 11.2px;
+    color: #6B7280;
+    line-height: 1.6;
+    flex: 1;
+}

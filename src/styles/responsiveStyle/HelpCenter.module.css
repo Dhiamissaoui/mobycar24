@@ -1,0 +1,216 @@
+/* Help Center Page Container */
+.helpCenterContainer {
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding-bottom: 80px;
+}
+
+/* Mobile Header - Using exact styling from Settings */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #9E4DB6;
+}
+
+.backButton:hover {
+    background: #e5e7eb;
+}
+
+.pageTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    margin-left: 5px;
+    margin-top: 7px;
+    flex: 1;
+
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Main Content */
+.mainContent {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* How Can We Help You Section */
+.helpSection {
+    margin-bottom: 30px;
+}
+
+.helpTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 20px 0;
+}
+
+/* Search Container */
+.searchContainer {
+    position: relative;
+}
+
+.searchInputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 180px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 16px;
+    color: #9ca3af;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    font-size: 16px;
+    color: #374151;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: #9ca3af;
+}
+
+.searchInput:focus {
+    border-color: #9E4DB6;
+}
+
+/* Popular Topic Section */
+.popularSection {
+    margin-bottom: 30px;
+}
+
+.popularTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 20px 0;
+}
+
+/* FAQ Container - Using same design from CarDetResponsive */
+.faqContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faqItem {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.faqQuestion {
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.faqQuestion:hover {
+    background: #f9fafb;
+}
+
+.faqQuestionText {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.4;
+    flex: 1;
+    margin-right: 16px;
+}
+
+.faqIcon {
+    font-size: 20px;
+    font-weight: 600;
+    color: #9E4DB6;
+    min-width: 20px;
+    text-align: center;
+}
+
+.faqAnswer {
+    padding: 0 20px 20px 20px;
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.5;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

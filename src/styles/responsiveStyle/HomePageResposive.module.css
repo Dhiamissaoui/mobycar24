@@ -698,6 +698,8 @@
     text-decoration: underline;
     font-size: 14px;
     font-weight: 500;
+    border: none;
+    background-color: transparent;
 }
 
 .profileDivider {

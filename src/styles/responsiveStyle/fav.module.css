@@ -1,0 +1,203 @@
+/* Fav Page Container */
+.favContainer {
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding-bottom: 80px;
+    /* Space for bottom navigation */
+}
+
+/* Mobile Header - Using exact styling from HomePageResponsive */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #9E4DB6;
+}
+
+.backButton:hover {
+    background: #e5e7eb;
+}
+
+.favTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+    flex: 1;
+
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Car Cards Grid - Using same styling as HomePageResponsive */
+.offersGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 20px;
+}
+
+.offerCard {
+    background: rgb(242, 242, 242);
+    border-radius: 12px;
+    padding: 8px;
+    height: 260px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.offerCard:hover {
+    transform: translateY(-5px);
+    background-color: white;
+}
+
+.availabilityTag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #d4edda;
+    color: #155724;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 500;
+    z-index: 2;
+}
+
+.favoriteIcon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9E4DB6;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.2s ease;
+}
+
+.favoriteIcon:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+}
+
+.offerImage {
+    width: 100%;
+    height: 50%;
+    padding-top: 20px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+}
+
+.offerDetails {
+    padding: 8px;
+}
+
+.carModel {
+    font-size: 10px;
+    margin-top: 5px;
+    margin-left: 2px;
+    font-weight: bold;
+    color: #333;
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-right: 10px;
+    margin-top: 8px;
+}
+
+.feature {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    font-size: 9px;
+    color: #666;
+}
+
+.featureIcon {
+    color: #949494;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+}
+
+.priceSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.price {
+    font-weight: bold;
+    color: #333;
+    font-size: 11px;
+}
+
+.reserveBtn {
+    background: #9E4DB6;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.reserveBtn:hover {
+    background: #7d3a98;
+}

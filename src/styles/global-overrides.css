@@ -1,0 +1,27 @@
+/* Global Bootstrap Overrides */
+.form-check-input {
+    width: 3em !important;
+    height: 1.5em !important;
+    background-color: #9E4DB6 !important;
+    border: none !important;
+    border-radius: 1em !important;
+    background-image: none !important;
+    margin-left: 0 !important;
+}
+
+.form-check-input:checked {
+    background-color: #9E4DB6 !important;
+    border-color: #9E4DB6 !important;
+    background-image: none !important;
+}
+
+.form-check-input:not(:checked) {
+    background-color: #e9ecef !important;
+    border-color: #e9ecef !important;
+    background-image: none !important;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(158, 77, 182, 0.25) !important;
+    border-color: #9E4DB6 !important;
+}

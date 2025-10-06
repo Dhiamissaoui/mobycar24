@@ -29,7 +29,8 @@ const Dashboard = lazy(() => import('./pages/Become service provider/DashPage'))
 const ConfirmReserve = lazy(() => import('./pages/ConfirmReserve'));
 const HomePageResponsive = lazy(() => import('./pages/responsivePage/HomePageResponsive'));
 const CarDetails = lazy(() => import('./pages/carDetails'));
-
+const SplashServiceProvider = lazy(() => import('./pages/ResBecomeServiceProvider/SplashScreen'));
+const OnboardingBecomeServiceProvider = lazy(() => import('./pages/ResBecomeServiceProvider/onBoarding'));
 
 function App() {
   return (
@@ -47,7 +48,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/logout' element={<Temp />} />
           <Route path='/HomePageResponsive' element={<HomePageResponsive />} />
-
+          <Route path='/splashServiceProvider' element={<SplashServiceProvider />} />
 
           <Route path='/confirmReserve' element={<ConfirmReserve />} />
 
@@ -71,6 +72,7 @@ function App() {
           {/*resposive pages*/}
 
           <Route path='/onboarding' element={<Onboarding />} />
+          <Route path='/onboardingBecomeServiceProvider' element={<OnboardingBecomeServiceProvider />} />
         </Routes>
       </Suspense>
     </Router>

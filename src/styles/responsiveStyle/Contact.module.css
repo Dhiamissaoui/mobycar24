@@ -1,0 +1,231 @@
+/* Contact Us Page Container */
+.contactContainer {
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding-bottom: 80px;
+}
+
+/* Mobile Header - Using exact styling from Settings */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #9E4DB6;
+}
+
+.backButton:hover {
+    background: #e5e7eb;
+}
+
+.pageTitle {
+    font-size: 14.4px;
+    font-weight: 600;
+    color: #000000;
+    margin-left: 5px;
+    margin-top: 7px;
+    flex: 1;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Main Content */
+.mainContent {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Contact Cards */
+.contactCards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.contactCard {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 12px 19.5px 0px #9E4DB60F;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.contactIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9E4DB6;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.contactInfo {
+    flex: 1;
+}
+
+.contactLabel {
+    font-size: 11.2px;
+    color: #6B7280;
+    margin-bottom: 4px;
+}
+
+.contactValue {
+    font-size: 12.8px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.4;
+}
+
+/* Form Container */
+.formContainer {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 12px 19.5px 0px #9E4DB60F;
+    padding: 24px;
+}
+
+.formTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+/* Contact Form */
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formLabel {
+    font-size: 12.8px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.formInput {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #F2F2F2;
+    font-size: 12.8px;
+    color: #374151;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.formInput::placeholder {
+    color: #9ca3af;
+}
+
+.formInput:focus {
+    border-color: #9E4DB6;
+    background: #ffffff;
+}
+
+.formTextarea {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #F2F2F2;
+    font-size: 12.8px;
+    color: #374151;
+    outline: none;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.formTextarea::placeholder {
+    color: #9ca3af;
+}
+
+.formTextarea:focus {
+    border-color: #9E4DB6;
+    background: #ffffff;
+}
+
+/* Send Button */
+.sendButton {
+    width: 100%;
+    padding: 16px;
+    background: #9E4DB6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 12.8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 10px;
+}
+
+.sendButton:hover {
+    background: #8B4A9B;
+}
+
+.sendButton:active {
+    transform: scale(0.98);
+}

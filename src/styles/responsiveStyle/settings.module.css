@@ -1,0 +1,125 @@
+/* Settings Page Container */
+.settingsContainer {
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding-bottom: 80px;
+    /* Space for bottom navigation */
+}
+
+/* Mobile Header - Using exact styling from HomePageResponsive */
+.mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.backButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #9E4DB6;
+}
+
+.backButton:hover {
+    background: #e5e7eb;
+}
+
+.settingsTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: #e5e7eb;
+}
+
+.headerIcon {
+    width: 20px;
+    height: 20px;
+    color: #9E4DB6;
+}
+
+/* Settings List */
+.settingsList {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.settingItem {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.settingItem:hover {
+    background: #f0f0f0;
+}
+
+.settingLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.settingIcon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9E4DB6;
+    font-size: 16px;
+}
+
+.settingLabel {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.settingRight {
+    display: flex;
+    align-items: center;
+}
+
+/* Material-UI Switch Styling - No custom CSS needed, using sx prop */

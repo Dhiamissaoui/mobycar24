@@ -52,6 +52,18 @@ import Login from '../../pages/Login';
 import ConfirmCarReserve from '../../components/Brand/carConfirm';
 import Forget from '../../pages/Forget';
 import Reset from '../../pages/Reset';
+import ComplitedRideCar from '../../pages/responsivePage/ComplitedRideCar';
+import Profile from '../../pages/responsivePage/profile';
+import Fav from '../../pages/responsivePage/fav';
+import History from '../../pages/responsivePage/history';
+import Settings from '../../pages/responsivePage/settings';
+import InviteEarn from './inviteEarn.js';
+import HelpCenter from './HelpCenter.js';
+import SendFeedback from './SendFeedback.js';
+import Contact from './Contact.js';
+import FAQs from './FAQs.js';
+import PrivacyPolicy from './PrivacyPolicy.js';
+import TermsAndConditions from './TermsAndConditions.js';
 // Import existing components
 
 // Import images
@@ -929,11 +941,11 @@ const HomePageResponsive = () => {
                                             dates: "20 Jan 2024 To 21 Jan 2024"
                                         }
                                     ].map(ride => (
-                                        <div key={ride.id} className={ridesStyles.completedCard}>
+                                        <div key={ride.id} className={ridesStyles.completedCard} onClick={() => setActiveTab('complitedRideCar')}>
                                             <div className={ridesStyles.cardImageContainer}>
                                                 <img src={ride.image} alt={ride.name} className={ridesStyles.cardImage} />
                                             </div>
-                                            <div className={ridesStyles.cardContent}>
+                                            <div className={ridesStyles.cardContent} >
                                                 <div className={ridesStyles.cardCategory}>
                                                     <span className={ridesStyles.categoryText}>{ride.category}</span>
                                                     <FontAwesomeIcon icon={faChevronRight} className={ridesStyles.categoryArrow} />
@@ -1754,6 +1766,10 @@ const HomePageResponsive = () => {
                 return <CarDetResponsive setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
             case 'viewDetails':
                 return <ConfirmCarReserve setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'complitedRideCar':
+                return <ComplitedRideCar setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} setRidesTab={setRidesTab} />;
+            case 'profile':
+                return <Profile setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
             case 'signup':
                 return <SignUp />
             case 'login':
@@ -1762,7 +1778,26 @@ const HomePageResponsive = () => {
                 return <Forget />
             case 'resetpass':
                 return <Reset />
-
+            case 'fav':
+                return <Fav setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'history':
+                return <History setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'settings':
+                return <Settings setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'inviteEarn':
+                return <InviteEarn setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'helpCenter':
+                return <HelpCenter setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'sendFeedback':
+                return <SendFeedback setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'contact':
+                return <Contact setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'faqs':
+                return <FAQs setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'privacyPolicy':
+                return <PrivacyPolicy setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
+            case 'termsAndConditions':
+                return <TermsAndConditions setActiveTab={setActiveTab} toggleSideMenu={toggleSideMenu} />;
             case 'pay':
                 return (
                     <div className={ridesStyles.paymentContainer}>
@@ -1919,7 +1954,7 @@ const HomePageResponsive = () => {
                         </div>
                         <div className={styles.profileDetails}>
                             <h3 className={styles.profileName}>Livia Dias</h3>
-                            <a href="/profile" className={styles.viewProfileLink}>View Profile</a>
+                            <button onClick={() => { setActiveTab('profile'); setIsSideMenuOpen(false); }} className={styles.viewProfileLink}>View Profile</button>
                         </div>
                     </div>
                     <div className={styles.profileDivider}></div>
@@ -2010,31 +2045,31 @@ const HomePageResponsive = () => {
                     </div>
 
                     {/* My Profile */}
-                    <div className={styles.menuItem}>
+                    <div className={styles.menuItem} onClick={() => { setActiveTab('profile'); setIsSideMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faUser} className={styles.menuIcon} />
                         <span>My Profile</span>
                     </div>
 
                     {/* My Favourite */}
-                    <div className={styles.menuItem}>
+                    <div onClick={() => { setActiveTab('fav'); setIsSideMenuOpen(false); }} className={styles.menuItem}>
                         <FontAwesomeIcon icon={faHeart} className={styles.menuIcon} />
                         <span>My Favourite</span>
                     </div>
 
                     {/* Payment History */}
-                    <div className={styles.menuItem}>
+                    <div className={styles.menuItem} onClick={() => { setActiveTab('history'); setIsSideMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faWallet} className={styles.menuIcon} />
                         <span>Payment History</span>
                     </div>
 
                     {/* Settings */}
-                    <div className={styles.menuItem}>
+                    <div className={styles.menuItem} onClick={() => { setActiveTab('settings'); setIsSideMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faCog} className={styles.menuIcon} />
                         <span>Settings</span>
                     </div>
 
                     {/* Invite & Earn */}
-                    <div className={styles.menuItem}>
+                    <div className={styles.menuItem} onClick={() => { setActiveTab('inviteEarn'); setIsSideMenuOpen(false); }}>
                         <FontAwesomeIcon icon={faUserPlus} className={styles.menuIcon} />
                         <span>Invite & Earn</span>
                     </div>
@@ -2054,10 +2089,10 @@ const HomePageResponsive = () => {
                         </div>
                         {showHelpSection && (
                             <div className={styles.expandableContent}>
-                                <div className={styles.subMenuItem}>Help centre</div>
-                                <div className={styles.subMenuItem}>Send us your feedback</div>
-                                <div className={styles.subMenuItem}>Contact us</div>
-                                <div className={styles.subMenuItem}>FAQs</div>
+                                <div className={styles.subMenuItem} onClick={() => { setActiveTab('helpCenter'); setIsSideMenuOpen(false); }}>Help centre</div>
+                                <div className={styles.subMenuItem} onClick={() => { setActiveTab('sendFeedback'); setIsSideMenuOpen(false); }}>Send us your feedback</div>
+                                <div className={styles.subMenuItem} onClick={() => { setActiveTab('contact'); setIsSideMenuOpen(false); }}>Contact us</div>
+                                <div className={styles.subMenuItem} onClick={() => { setActiveTab('faqs'); setIsSideMenuOpen(false); }}>FAQs</div>
                             </div>
                         )}
                     </div>
@@ -2077,8 +2112,8 @@ const HomePageResponsive = () => {
                         </div>
                         {showLegalSection && (
                             <div className={styles.expandableContent}>
-                                <div className={styles.subMenuItem}>Privacy policy</div>
-                                <div className={styles.subMenuItem}>Terms and conditions</div>
+                                <div className={styles.subMenuItem} onClick={() => { setActiveTab('privacyPolicy'); setIsSideMenuOpen(false); }}>Privacy policy</div>
+                                <div className={styles.subMenuItem} onClick={() => { setActiveTab('termsAndConditions'); setIsSideMenuOpen(false); }}>Terms and conditions</div>
                             </div>
                         )}
                     </div>
